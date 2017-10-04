@@ -1,0 +1,99 @@
+html, body {
+	padding: 0;
+	margin: 0;
+	font-family: sans-serif;
+	font-color: #333;
+}
+
+h1 {
+	font-size: 24pt;
+}
+
+h2 {
+	font-size: 18pt;
+	font-weight: 300;
+	font-style: italic;
+	width: 100%;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #ccc;
+}
+
+h3 {
+	font-size: 14pt;
+	font-weight: bold;
+	margin-top: 40px;
+	margin-bottom: 4px;
+}
+
+h4 {
+	font-size: 12pt;
+	font-weight: bold;
+	margin-top: 20px;
+	margin-bottom: -10px; /* compensate for <p> margin */
+}
+
+img {
+	max-width: 100%;
+	border: 1px solid #ccc;
+	border-radius: 0;
+}
+
+.table {
+	border: none;
+}
+
+.body_text {
+	font-size: 11pt;
+	line-height: 25px;
+}
+
+#header {
+	width: 100%;
+	color: #333;
+	background: #eee;
+	border-bottom: 1px solid #ccc;
+}
+
+#footer {
+	width: 100%;
+	color: #fff;
+	background: #e66d11;
+	border-top: 1px solid #b33d0d;
+}
+
+#header #title_block,
+#footer #title_block {
+	display: inline-block;
+	margin: 0 auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-left: 25%;
+	margin-right: 0;
+	height: 60px;
+	width: 50%;
+	text-align: center;
+}
+
+.title,
+.subtitle {
+	margin: 0px;
+	font-weight: 300;
+}
+
+#main {
+	width: 640px;
+	display: block;
+	margin: 0 auto;
+}
+
+#problem_footer {
+	border-top: 1px solid #ccc;
+}
+
+.footnote {
+	font-size: 9pt;
+}
+
+#footer {
+	height: 100px;
+}

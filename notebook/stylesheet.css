@@ -185,6 +185,29 @@ img .table {
 	border: none;
 }
 
+#sketches .tip {
+	font-size: 10pt;
+	width: 100%;
+	color: #666;
+	text-align: center;
+}
+
+#sketches img {
+	margin: 3px;
+	border: 2px solid transparent;
+	width: 300px;
+	transition: all 0.2s ease 0s;
+}
+
+#sketches a {
+	border: none;
+}
+
+#sketches img:hover {
+	border-color: #ff4900;
+	transition: all 0.2s ease 0s;
+}
+
 .body_text {
 	font-size: 11pt;
 	line-height: 25px;
@@ -201,7 +224,6 @@ img .table {
 	font-size: 11pt;
 	line-height: 25px;
 }
-
 
 .list_elem_title {
 	color: #ff4900;

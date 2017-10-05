@@ -193,6 +193,13 @@ img .table {
 	text-align: center;
 }
 
+#imglink img {
+	width: 630px;
+	margin: 3px;
+	border: 2px solid transparent;
+	transition: all 0.2s ease 0s;
+}
+
 #questionnaires img,
 #sketches img {
 	margin: 3px;
@@ -201,11 +208,13 @@ img .table {
 	transition: all 0.2s ease 0s;
 }
 
+#imglink a,
 #questionnaires a,
 #sketches a {
 	border: none;
 }
 
+#imglink img:hover,
 #questionnaires img:hover,
 #sketches img:hover {
 	border-color: #ff4900;

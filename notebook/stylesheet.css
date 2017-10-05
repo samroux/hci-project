@@ -185,6 +185,7 @@ img .table {
 	border: none;
 }
 
+#questionnaires .tip,
 #sketches .tip {
 	font-size: 10pt;
 	width: 100%;
@@ -192,6 +193,7 @@ img .table {
 	text-align: center;
 }
 
+#questionnaires img,
 #sketches img {
 	margin: 3px;
 	border: 2px solid transparent;
@@ -199,10 +201,12 @@ img .table {
 	transition: all 0.2s ease 0s;
 }
 
+#questionnaires a,
 #sketches a {
 	border: none;
 }
 
+#questionnaires img:hover,
 #sketches img:hover {
 	border-color: #ff4900;
 	transition: all 0.2s ease 0s;

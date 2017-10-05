@@ -1,8 +1,36 @@
-html, body {
+html {
+	height: 100%;
 	padding: 0;
 	margin: 0;
-	font-family: sans-serif;
+	box-sizing: border-box;
+}
+
+body {
+	position: relative; /* used for footer */
+	min-height: 100%;
+	padding: 0;
+	margin: 0;
+	font-family: "Lato", sans-serif;
 	font-color: #333;
+}
+
+/* 
+ * Titles and fonts 
+ */
+
+.title {
+	font-family: "Lobster", sans-serif;
+	font-weight: 400;
+}
+
+.subtitle {
+	font-family: "Lato";
+	font-weight: 400;
+}
+
+h1, h2, h3, h4 {
+	font-family: "Lato";
+	font-weight: 700;
 }
 
 h1 {
@@ -10,90 +38,208 @@ h1 {
 }
 
 h2 {
+	color: #ff4900;
 	font-size: 18pt;
-	font-weight: 300;
-	font-style: italic;
 	width: 100%;
 	padding-bottom: 10px;
-	border-bottom: 1px solid #ccc;
+	border-bottom: 2px solid #ff9b73;
 }
 
 h3 {
 	font-size: 14pt;
-	font-weight: bold;
 	margin-top: 40px;
 	margin-bottom: 4px;
 }
 
 h4 {
 	font-size: 12pt;
-	font-weight: bold;
 	margin-top: 20px;
-	margin-bottom: -10px; /* compensate for <p> margin */
-}
-
-img {
-	max-width: 100%;
-	border: 1px solid #ccc;
-	border-radius: 0;
-}
-
-.table {
-	border: none;
-}
-
-.body_text {
-	font-size: 11pt;
-	line-height: 25px;
-}
-
-#header {
-	width: 100%;
-	color: #333;
-	background: #eee;
-	border-bottom: 1px solid #ccc;
-}
-
-#footer {
-	width: 100%;
-	color: #fff;
-	background: #e66d11;
-	border-top: 1px solid #b33d0d;
-}
-
-#header #title_block,
-#footer #title_block {
-	display: inline-block;
-	margin: 0 auto;
-	margin-top: 20px;
-	margin-bottom: 20px;
-	margin-left: 25%;
-	margin-right: 0;
-	height: 60px;
-	width: 50%;
-	text-align: center;
+	margin-bottom: 4px; 
 }
 
 .title,
 .subtitle {
 	margin: 0px;
-	font-weight: 300;
 }
+
+
+/* 
+ * Header
+ */
+
+#header {
+	margin: 0;
+	top: 0;
+	position: fixed;
+	height: 76px;
+	width: 100%;
+	color: #fff;
+	background: #ff4900;
+	border-bottom: 4px solid #ff9b73;
+	box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+#footer {
+	margin: 0;
+	position: absolute;
+	bottom: 0;
+	height: 80px;
+	width: 100%;
+	color: #fff;
+	background: #ff9000;
+}
+
+/*#header #logo {
+	display: inline-block;
+	border: none;
+	height: 80px;
+}*/
+
+#header #title_block,
+#footer #title_block {
+	display: inline-block;
+	margin: 0;
+	margin-left: 25px;
+	margin-right: 25px;
+	height: 80px;
+	width: auto;
+	text-align: left;
+}
+
+#footer #title_block {
+	margin-top: 0;
+	text-align: center;
+	width: 50%;
+	margin-left: 25%;
+}
+
+#header #nav {
+	margin: 0;
+	display: inline-block;
+	line-height: 80px;
+	height: 80px;
+}
+
+#header #title_block span,
+#header #nav span {
+	vertical-align: middle;
+}
+
+#header #nav a {
+	color: #ffbfa6;
+	text-decoration: none;
+	margin-left: 10px;
+	margin-right: 10px;
+	padding: 2px;
+	border-bottom: 2px solid #ff9b73;
+	transition: all 0.2s ease 0s;
+}
+
+#header #nav a:hover {
+	color: #fff;
+	border-color: #fff;
+	transition: all 0.2s ease 0s;
+}
+
+#header #nav a.selected {
+	color: #fff;
+	border-color: #fff;
+}
+
+/* 
+ * Main body 
+ */
 
 #main {
 	width: 640px;
 	display: block;
 	margin: 0 auto;
+	padding-top: 100px;
+	padding-bottom: 180px;
 }
 
+#main a {
+	color: #ff9000;
+	text-decoration: none;
+	padding-bottom: 2px;
+	border-bottom: 2px solid #ffd8a6;
+	transition: all 0.2s ease 0s;
+}
+
+#main a:hover {
+	color: #ff4900;
+	border-color: #ff7640;
+	transition: all 0.2s ease 0s;
+}
+
+img {
+	max-width: 100%;
+}
+
+img .figure {
+	border: 1px solid #ccc;
+	border-radius: 0;
+}
+
+img .table {
+	border: none;
+}
+
+#questionnaires .tip,
+#sketches .tip {
+	font-size: 10pt;
+	width: 100%;
+	color: #666;
+	text-align: center;
+}
+
+#questionnaires img,
+#sketches img {
+	margin: 3px;
+	border: 2px solid transparent;
+	width: 300px;
+	transition: all 0.2s ease 0s;
+}
+
+#questionnaires a,
+#sketches a {
+	border: none;
+}
+
+#questionnaires img:hover,
+#sketches img:hover {
+	border-color: #ff4900;
+	transition: all 0.2s ease 0s;
+}
+
+.body_text {
+	font-size: 11pt;
+	line-height: 25px;
+	padding-bottom: 10px;
+}
+
+.quote {
+	color: #a65e00;
+	background: #ffeed9;
+	border-radius: 2px;
+	padding: 20px 30px 20px 30px;
+	margin-top: 0px;
+	margin-bottom: 10px;
+	font-size: 11pt;
+	line-height: 25px;
+}
+
+.list_elem_title {
+	color: #ff4900;
+	font-size: 12pt;
+	margin-bottom: 4px;
+}
+
+/* used for the citation in project proposal */
 #problem_footer {
 	border-top: 1px solid #ccc;
 }
 
 .footnote {
 	font-size: 9pt;
-}
-
-#footer {
-	height: 100px;
 }

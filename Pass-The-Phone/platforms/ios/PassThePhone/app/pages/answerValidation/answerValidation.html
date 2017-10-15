@@ -3,6 +3,12 @@
 </ActionBar>
     
 <StackLayout>
-        <Label text="AnswerValidation-Page"></Label>       
+        <Label text="AnswerValidation-Page"></Label>    
+        <Label text="Correct Answer:"></Label>   
+        <Label [text]="correct_answer_content"></Label>   
+        <Label text="Your Answer:"></Label>   
+        <Label [text]="player_answer_content"></Label>   
+        <Label text="which is:"></Label> 
+        <Label [text]="correctness"></Label> 
         <Button text="Next" class="submit-button" (tap)="next()"></Button>        
 </StackLayout>

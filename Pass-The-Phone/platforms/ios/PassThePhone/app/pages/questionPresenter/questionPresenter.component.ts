@@ -3,6 +3,8 @@ import { Router, ActivatedRoute, Params } from "@angular/router";
 
 import {TriviaQuestion} from "../../shared/triviaQuestion" 
 import {TriviaAnswer} from "../../shared/triviaAnswer" 
+import {TriviaQuestionProvider} from "../../shared/providers/triviaQuestion.provider" 
+
 
 
 @Component({
@@ -20,7 +22,7 @@ export class QuestionPresenterComponent implements OnInit{
   
   public selectedId: string;
   
-  public constructor(private route: ActivatedRoute, private router: Router) {
+  public constructor(private route: ActivatedRoute, private router: Router, private triviaQuestionProvider: TriviaQuestionProvider) {
     this.route.params.subscribe((params) => {
       this.selectedId = params["id"];
     });
@@ -33,14 +35,15 @@ export class QuestionPresenterComponent implements OnInit{
   
   ngOnInit() {
     this.extractData();
-    
   }
   
   extractData() {
+    //extracting random question from opentdb
     var http = require("http");
     
     var that = this;
     
+    //getting 1 question of difficulty easy, from selected category
     http.request({ url: "https://opentdb.com/api.php?amount=1&difficulty=easy&category="+this.selectedId, method: "GET" })
     .then(function (r) {
       //// Argument (r) is JSON!
@@ -70,6 +73,9 @@ export class QuestionPresenterComponent implements OnInit{
       for (let i = 0; i < that.triviaQuestion.triviaAnswers.length;i++){
         that.choices.push(that.triviaQuestion.triviaAnswers[i]);
       }
+
+      //this is employed to keep the current question shared among pages
+      that.triviaQuestionProvider.triviaQuestion=that.triviaQuestion;
       
     }, function (e) {
       //// Argument (e) is Error!

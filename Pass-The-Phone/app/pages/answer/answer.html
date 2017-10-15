@@ -7,9 +7,7 @@
         <Label [text]="question" textWrap="true" ></Label>
         <Label text="Select your answer"  textWrap="true" ></Label> -->
         <GridLayout height="250">                
-                <!-- <ListView [items]="choices" (itemTap)="onItemTap($event)" class="list-group"> -->
-                <ListView [items]="choices"  class="list-group">
-                        
+                <ListView [items]="choices" (itemTap)="onItemTap($event)" class="list-group">
                         <ng-template let-choices="item" let-i="index" let-odd="odd" let-even="even">
                                 <GridLayout class="list-group-item">
                                         <Label [text]="choices.content"></Label>

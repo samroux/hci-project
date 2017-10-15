@@ -1,26 +1,29 @@
-import { NgModule, NgModuleFactoryLoader, NO_ERRORS_SCHEMA } from "@angular/core";
-import { NativeScriptModule } from "nativescript-angular/nativescript.module";
-import { NSModuleFactoryLoader } from "nativescript-angular/router";
 
-import { AppRoutingModule } from "./app-routing.module";
+import { NgModule } from "@angular/core";
+import { NativeScriptFormsModule } from "nativescript-angular/forms";
+import { NativeScriptHttpModule } from "nativescript-angular/http";
+import { NativeScriptModule } from "nativescript-angular/nativescript.module";
+import { NativeScriptRouterModule } from "nativescript-angular/router";
+
 import { AppComponent } from "./app.component";
+import { routes, navigatableComponents } from "./app.routing";
+
+import { TriviaQuestionProvider } from "./shared/providers/triviaQuestion.provider";
 
 @NgModule({
-    bootstrap: [
-        AppComponent
-    ],
-    imports: [
-        NativeScriptModule,
-        AppRoutingModule
-    ],
-    declarations: [
-        AppComponent
-    ],
-    providers: [
-        { provide: NgModuleFactoryLoader, useClass: NSModuleFactoryLoader }
-    ],
-    schemas: [
-        NO_ERRORS_SCHEMA
-    ]
+  imports: [
+    NativeScriptModule,
+    NativeScriptFormsModule,
+    NativeScriptHttpModule,
+    NativeScriptRouterModule,
+    NativeScriptRouterModule.forRoot(routes)
+  ],
+  declarations: [
+    AppComponent,
+    ...navigatableComponents
+  ],
+  bootstrap: [AppComponent],
+  providers: [TriviaQuestionProvider]
+  
 })
-export class AppModule { }
+export class AppModule {}

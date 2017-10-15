@@ -3,7 +3,7 @@ import { Router } from "@angular/router";
 
 import {TriviaQuestion} from "../../shared/triviaQuestion" 
 import {TriviaAnswer} from "../../shared/triviaAnswer" 
-import {QuestionPresenterComponent} from "../questionPresenter/questionPresenter.component" 
+import {TriviaQuestionProvider} from "../../shared/providers/triviaQuestion.provider" 
 
 
 @Component({
@@ -15,14 +15,57 @@ import {QuestionPresenterComponent} from "../questionPresenter/questionPresenter
 export class AnswerComponent {
 
   public choices: Array<TriviaAnswer>;
-  
+  public question: string;
+  private selectedAnswer: TriviaAnswer;
 
-  public constructor(private router: Router, public questionPresenter: QuestionPresenterComponent ) {
-    this.choices= questionPresenter.choices;
+  private currentQuestion: TriviaQuestion;
+
+  public constructor(private router: Router, private triviaQuestionProvider: TriviaQuestionProvider ) {
+    console.log("Constructing answer.component");
+    this.choices = [];
+
+    this.choices.push(new TriviaAnswer(null,""));
+
+    this.currentQuestion = triviaQuestionProvider.triviaQuestion
+
+    this.question = this.currentQuestion.question; 
+
+    for (let i =0; i<this.currentQuestion.triviaAnswers.length;i++){
+      console.log("question: "+this.currentQuestion.question);
+
+      this.choices.push(this.currentQuestion.triviaAnswers[i]);
+    }
+
   }
-  
-  next() {
-    this.router.navigate(["answerValidation"])
+
+  public onItemTap(args) {
+    console.log("Item Tapped at cell index: " + args.index + " " + args.name);
+    if(args.index >0){
+      this.selectedAnswer = this.choices[args.index];
+      console.log ("Chosen: "+this.selectedAnswer.content);
+
+      let correct = this.checkCorrectness(this.selectedAnswer);
+
+      this.next(correct, this.selectedAnswer.content);
+    }
+  }
+
+  private checkCorrectness(answer){
+
+    if(this.currentQuestion.triviaCorrectAnswer == answer){
+      //answer is correct!
+      console.log("Answer is correct!");
+      return true;
+    }else{
+      //answer is wrong
+      console.log("Answer is wrong!");
+      return false;
+    }
+
+  }
+
+  private next(correct,answer_content) {
+    this.router.navigate(["answerValidation", correct,answer_content]);    
   }
 
 }

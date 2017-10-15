@@ -1,11 +1,8 @@
 import { Component,OnInit } from "@angular/core";
-import { Router, ActivatedRoute, ParamMap, Params } from "@angular/router";
-
-import { PageRoute } from "nativescript-angular/router";
-import "rxjs/add/operator/switchMap";
-import { Observable } from "rxjs/Observable";
+import { Router, ActivatedRoute, Params } from "@angular/router";
 
 import {TriviaQuestion} from "../../shared/triviaQuestion" 
+import {TriviaAnswer} from "../../shared/triviaAnswer" 
 
 
 @Component({
@@ -16,10 +13,10 @@ import {TriviaQuestion} from "../../shared/triviaQuestion"
 
 export class QuestionPresenterComponent implements OnInit{
   
-  // SubjectSelectorComponent
-  
   public question: string;
   public triviaQuestion: TriviaQuestion;
+  public choices: Array<TriviaAnswer>;
+  
   
   public selectedId: string;
   
@@ -28,6 +25,10 @@ export class QuestionPresenterComponent implements OnInit{
       this.selectedId = params["id"];
     });
     console.log("selectedid: "+this.selectedId);
+
+    this.choices = [];
+
+    this.choices.push(new TriviaAnswer(null,""));
   }
   
   ngOnInit() {
@@ -53,9 +54,10 @@ export class QuestionPresenterComponent implements OnInit{
       
       let category: string = results[0].category;
       let type: string = results[0].type;
+      let difficulty: string = results[0].difficulty;
       let question: string = results[0].question;
       let correct_answer: string = results[0].correct_answer;
-      let incorrect_answers: string = results[0].incorrect_answers;
+      let incorrect_answers: string[] = results[0].incorrect_answers;
       
       console.log("question: "+ question);
       console.log("correct_answer: "+ correct_answer);
@@ -63,7 +65,11 @@ export class QuestionPresenterComponent implements OnInit{
       
       that.question = question;
       
-      that.triviaQuestion = new TriviaQuestion(category,type,question,correct_answer,incorrect_answers);
+      that.triviaQuestion = new TriviaQuestion(category,type,difficulty,question,correct_answer,incorrect_answers);
+
+      for (let i = 0; i < that.triviaQuestion.triviaAnswers.length;i++){
+        that.choices.push(that.triviaQuestion.triviaAnswers[i]);
+      }
       
     }, function (e) {
       //// Argument (e) is Error!

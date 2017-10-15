@@ -27,13 +27,14 @@ export class SubjectSelectorComponent implements OnInit{
     if(args.index >0){
       this.selectedCategory = this.categories[args.index];
       console.log ("Chosen: "+this.selectedCategory.id +" "+ this.selectedCategory.name);
-      this.next();
+      this.next(this.selectedCategory.id);
     }
   }
   
-  next() {
-    this.router.navigate(["questionPresenter"])
-    
+  next(categoryId) {
+    console.log("Navigating to questionPresenter with id: "+ categoryId);
+
+    this.router.navigate(["questionPresenter", categoryId ]);
   }
   
   ngOnInit() {

@@ -1,5 +1,9 @@
 import { Component,OnInit } from "@angular/core";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute, ParamMap, Params } from "@angular/router";
+
+import { PageRoute } from "nativescript-angular/router";
+import "rxjs/add/operator/switchMap";
+import { Observable } from "rxjs/Observable";
 
 import {TriviaQuestion} from "../../shared/triviaQuestion" 
 
@@ -11,25 +15,32 @@ import {TriviaQuestion} from "../../shared/triviaQuestion"
 })
 
 export class QuestionPresenterComponent implements OnInit{
-
+  
   // SubjectSelectorComponent
-
+  
   public question: string;
   public triviaQuestion: TriviaQuestion;
-
-
-  public constructor(private router: Router) {}
-
+  
+  public selectedId: string;
+  
+  public constructor(private route: ActivatedRoute, private router: Router) {
+    this.route.params.subscribe((params) => {
+      this.selectedId = params["id"];
+    });
+    console.log("selectedid: "+this.selectedId);
+  }
+  
   ngOnInit() {
     this.extractData();
+    
   }
-
+  
   extractData() {
     var http = require("http");
     
     var that = this;
     
-    http.request({ url: "https://opentdb.com/api.php?amount=1&difficulty=easy&category=22", method: "GET" })
+    http.request({ url: "https://opentdb.com/api.php?amount=1&difficulty=easy&category="+this.selectedId, method: "GET" })
     .then(function (r) {
       //// Argument (r) is JSON!
       var json = r.content;
@@ -37,9 +48,9 @@ export class QuestionPresenterComponent implements OnInit{
       console.log("JSON: "+str);
       
       var myObj = JSON.parse(str);
-
+      
       var results = myObj.results;
-
+      
       let category: string = results[0].category;
       let type: string = results[0].type;
       let question: string = results[0].question;
@@ -49,11 +60,11 @@ export class QuestionPresenterComponent implements OnInit{
       console.log("question: "+ question);
       console.log("correct_answer: "+ correct_answer);
       console.log("incorrect_answers: "+ incorrect_answers);
-
+      
       that.question = question;
-
+      
       that.triviaQuestion = new TriviaQuestion(category,type,question,correct_answer,incorrect_answers);
-
+      
     }, function (e) {
       //// Argument (e) is Error!
       console.log(e);

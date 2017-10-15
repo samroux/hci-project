@@ -28,7 +28,7 @@ export const routes = [
     { path: "modeSelector", component: ModeSelectorComponent },
     { path: "teamBuilder", component: TeamBuilderComponent },
     { path: "subjectSelector", component: SubjectSelectorComponent },
-    { path: "questionPresenter", component: QuestionPresenterComponent },
+    { path: "questionPresenter/:id", component: QuestionPresenterComponent },
     { path: "questionPreAnswer", component: QuestionPreAnswerComponent },
     { path: "answer", component: AnswerComponent },
     { path: "answerValidation", component: AnswerValidationComponent },

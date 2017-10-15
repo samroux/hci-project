@@ -1,6 +1,9 @@
 import { Component,OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 
+import {TriviaQuestion} from "../../shared/triviaQuestion" 
+
+
 @Component({
   selector: "questionPresenter",
   templateUrl: "pages/questionPresenter/questionPresenter.html",
@@ -12,6 +15,7 @@ export class QuestionPresenterComponent implements OnInit{
   // SubjectSelectorComponent
 
   public question: string;
+  public triviaQuestion: TriviaQuestion;
 
 
   public constructor(private router: Router) {}
@@ -36,6 +40,8 @@ export class QuestionPresenterComponent implements OnInit{
 
       var results = myObj.results;
 
+      let category: string = results[0].category;
+      let type: string = results[0].type;
       let question: string = results[0].question;
       let correct_answer: string = results[0].correct_answer;
       let incorrect_answers: string = results[0].incorrect_answers;
@@ -45,7 +51,8 @@ export class QuestionPresenterComponent implements OnInit{
       console.log("incorrect_answers: "+ incorrect_answers);
 
       that.question = question;
-      that.choices = 
+
+      that.triviaQuestion = new TriviaQuestion(category,type,question,correct_answer,incorrect_answers);
 
     }, function (e) {
       //// Argument (e) is Error!

@@ -2,10 +2,7 @@ import { Component, ChangeDetectionStrategy, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { Http, Headers, Response } from "@angular/http";
 
-
-class TriviaCategory {
-  constructor(public id: number, public  name: string){}
-}
+import {TriviaCategory} from "../../shared/triviaCategory" 
 
 @Component({
   selector: "subjectSelector",

@@ -49,7 +49,7 @@ export class QuestionPresenterComponent implements OnInit{
       //// Argument (r) is JSON!
       var json = r.content;
       var str = r.content.toString();
-      console.log("JSON: "+str);
+      // console.log("JSON: "+str);
       
       var myObj = JSON.parse(str);
       
@@ -62,9 +62,9 @@ export class QuestionPresenterComponent implements OnInit{
       let correct_answer: string = results[0].correct_answer;
       let incorrect_answers: string[] = results[0].incorrect_answers;
       
-      console.log("question: "+ question);
-      console.log("correct_answer: "+ correct_answer);
-      console.log("incorrect_answers: "+ incorrect_answers);
+      // console.log("question: "+ question);
+      // console.log("correct_answer: "+ correct_answer);
+      // console.log("incorrect_answers: "+ incorrect_answers);
       
       that.question = question;
       

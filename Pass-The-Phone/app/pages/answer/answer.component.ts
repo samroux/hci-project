@@ -21,7 +21,7 @@ export class AnswerComponent {
   private currentQuestion: TriviaQuestion;
 
   public constructor(private router: Router, private triviaQuestionProvider: TriviaQuestionProvider ) {
-    console.log("Constructing answer.component");
+    // console.log("Constructing answer.component");
     this.choices = [];
 
     this.choices.push(new TriviaAnswer(null,""));
@@ -31,7 +31,7 @@ export class AnswerComponent {
     this.question = this.currentQuestion.question; 
 
     for (let i =0; i<this.currentQuestion.triviaAnswers.length;i++){
-      console.log("question: "+this.currentQuestion.question);
+      // console.log("question: "+this.currentQuestion.question);
 
       this.choices.push(this.currentQuestion.triviaAnswers[i]);
     }
@@ -39,10 +39,10 @@ export class AnswerComponent {
   }
 
   public onItemTap(args) {
-    console.log("Item Tapped at cell index: " + args.index + " " + args.name);
+    // console.log("Item Tapped at cell index: " + args.index + " " + args.name);
     if(args.index >0){
       this.selectedAnswer = this.choices[args.index];
-      console.log ("Chosen: "+this.selectedAnswer.content);
+      // console.log ("Chosen: "+this.selectedAnswer.content);
 
       let correct = this.checkCorrectness(this.selectedAnswer);
 

@@ -1,4 +1,4 @@
-import { Component,OnInit } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute, Params } from "@angular/router";
 
 import {TriviaQuestion} from "../../shared/triviaQuestion" 
@@ -11,9 +11,9 @@ import {TriviaQuestionProvider} from "../../shared/providers/triviaQuestion.prov
   styleUrls: ["pages/answerValidation/answerValidation-common.css"]
 })
 
-export class AnswerValidationComponent implements OnInit{
+export class AnswerValidationComponent{
   public correct: boolean;
-
+  
   // public correct_answer: TriviaAnswer;
   public correct_answer_content: string;
   public player_answer_content: string;
@@ -25,21 +25,16 @@ export class AnswerValidationComponent implements OnInit{
       this.player_answer_content = params["answer"];
     });
     console.log("correct: "+this.correct);
-    console.log("answer: "+this.player_answer_content);
+    // console.log("answer: "+this.player_answer_content);
 
-    if(this.correct == true){
+    if(this.correct){
       this.correctness = "Right";
     }else{
       this.correctness = "Wrong";
     }
-
+  
     this.correct_answer_content = triviaQuestionProvider.triviaQuestion.triviaCorrectAnswer.content; 
-
-  }
-
-  ngOnInit() {
-    // this.extractData();
-    console.log("initializing..");
+    
   }
   
   next() {

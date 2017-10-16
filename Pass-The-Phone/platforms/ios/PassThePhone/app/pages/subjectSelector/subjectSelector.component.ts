@@ -4,6 +4,8 @@ import { Http, Headers, Response } from "@angular/http";
 
 import {TriviaCategory} from "../../shared/triviaCategory" 
 
+
+
 @Component({
   selector: "subjectSelector",
   templateUrl: "pages/subjectSelector/subjectSelector.html",

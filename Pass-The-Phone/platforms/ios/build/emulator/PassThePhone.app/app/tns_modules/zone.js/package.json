@@ -115,7 +115,7 @@
   "gitHead": "b9c0d9c09776bc253f3156ea511c9a1a5c952c31",
   "homepage": "https://github.com/angular/zone.js#readme",
   "license": "MIT",
-  "main": "dist/zone-node.js",
+  "main": "dist/zone.js",
   "maintainers": [
     {
       "name": "angular",

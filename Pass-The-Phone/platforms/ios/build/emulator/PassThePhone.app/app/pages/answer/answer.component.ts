@@ -15,24 +15,57 @@ import {TriviaQuestionProvider} from "../../shared/providers/triviaQuestion.prov
 export class AnswerComponent {
 
   public choices: Array<TriviaAnswer>;
-  
+  public question: string;
+  private selectedAnswer: TriviaAnswer;
+
+  private currentQuestion: TriviaQuestion;
 
   public constructor(private router: Router, private triviaQuestionProvider: TriviaQuestionProvider ) {
-    console.log("Constructing answer.component");
-    // this.choices = [];
+    // console.log("Constructing answer.component");
+    this.choices = [];
 
-    // console.log("triviaQuestionProvider.triviaQuestion.triviaAnswers.length: "+ triviaQuestionProvider.triviaQuestion.triviaAnswers.length);
+    this.choices.push(new TriviaAnswer(null,""));
 
-    // for (let i =0; i<triviaQuestionProvider.triviaQuestion.triviaAnswers.length;i++){
-    //   console.log("question: "+triviaQuestionProvider.triviaQuestion.question);
+    this.currentQuestion = triviaQuestionProvider.triviaQuestion
 
-    //   this.choices.push(triviaQuestionProvider.triviaQuestion.triviaAnswers[i]);
-    // }
+    this.question = this.currentQuestion.question; 
+
+    for (let i =0; i<this.currentQuestion.triviaAnswers.length;i++){
+      // console.log("question: "+this.currentQuestion.question);
+
+      this.choices.push(this.currentQuestion.triviaAnswers[i]);
+    }
 
   }
-  
-  next() {
-    this.router.navigate(["answerValidation"])
+
+  public onItemTap(args) {
+    // console.log("Item Tapped at cell index: " + args.index + " " + args.name);
+    if(args.index >0){
+      this.selectedAnswer = this.choices[args.index];
+      // console.log ("Chosen: "+this.selectedAnswer.content);
+
+      let correct = this.checkCorrectness(this.selectedAnswer);
+
+      this.next(correct, this.selectedAnswer.content);
+    }
+  }
+
+  private checkCorrectness(answer){
+
+    if(this.currentQuestion.triviaCorrectAnswer == answer){
+      //answer is correct!
+      console.log("Answer is correct!");
+      return true;
+    }else{
+      //answer is wrong
+      console.log("Answer is wrong!");
+      return false;
+    }
+
+  }
+
+  private next(correct,answer_content) {
+    this.router.navigate(["answerValidation", correct,answer_content]);    
   }
 
 }

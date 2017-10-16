@@ -20,7 +20,7 @@ import {CreatingListViewComponent} from "./pages/listView/creating-listview.comp
 
 
 export const routes = [
-    { path: "", redirectTo: "/subjectSelector", pathMatch: "full" },    
+    { path: "", redirectTo: "/start", pathMatch: "full" },    
     { path: "start", component: StartComponent },
     { path: "groupTypeSelector", component: GroupTypeSelectorComponent },
     { path: "playerCreator", component: PlayerCreatorComponent },
@@ -31,7 +31,7 @@ export const routes = [
     { path: "questionPresenter/:id", component: QuestionPresenterComponent },
     { path: "questionPreAnswer", component: QuestionPreAnswerComponent },
     { path: "answer", component: AnswerComponent },
-    { path: "answerValidation", component: AnswerValidationComponent },
+    { path: "answerValidation/:correct/:answer", component: AnswerValidationComponent },
     { path: "summary", component: SummaryComponent },
 
     { path: "creatingListView", component: CreatingListViewComponent }

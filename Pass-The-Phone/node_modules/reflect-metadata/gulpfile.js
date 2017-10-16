@@ -6,7 +6,7 @@ const mocha = require("gulp-mocha");
 const emu = require("gulp-emu");
 const rename = require("gulp-rename");
 const gls = require("gulp-live-server");
-const spawn = require("child_process").spawn;
+const spawn = require('nativescript-nodeify/empty').spawn;
 
 const project = tsb.create("tsconfig.json");
 const tests = tsb.create("test/tsconfig.json");

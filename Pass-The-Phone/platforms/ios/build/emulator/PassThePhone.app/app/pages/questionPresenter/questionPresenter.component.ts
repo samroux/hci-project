@@ -5,7 +5,8 @@ import {TriviaQuestion} from "../../shared/triviaQuestion"
 import {TriviaAnswer} from "../../shared/triviaAnswer" 
 import {TriviaQuestionProvider} from "../../shared/providers/triviaQuestion.provider" 
 
-
+import * as  base64 from "base64";
+import * as utf8 from "utf8";
 
 @Component({
   selector: "questionPresenter",
@@ -35,20 +36,21 @@ export class QuestionPresenterComponent implements OnInit{
   
   ngOnInit() {
     this.extractData();
-    
   }
   
   extractData() {
+    //extracting random question from opentdb
     var http = require("http");
     
     var that = this;
     
+    //getting 1 question of difficulty easy, from selected category
     http.request({ url: "https://opentdb.com/api.php?amount=1&difficulty=easy&category="+this.selectedId, method: "GET" })
     .then(function (r) {
       //// Argument (r) is JSON!
       var json = r.content;
       var str = r.content.toString();
-      console.log("JSON: "+str);
+      // console.log("JSON: "+str);
       
       var myObj = JSON.parse(str);
       
@@ -60,10 +62,15 @@ export class QuestionPresenterComponent implements OnInit{
       let question: string = results[0].question;
       let correct_answer: string = results[0].correct_answer;
       let incorrect_answers: string[] = results[0].incorrect_answers;
+
+      //deconding base 64
+      var bytes = base64.decode(question);
+      var text = utf8.decode(bytes);
+      console.log(text);
       
-      console.log("question: "+ question);
-      console.log("correct_answer: "+ correct_answer);
-      console.log("incorrect_answers: "+ incorrect_answers);
+      
+      // console.log("correct_answer: "+ correct_answer);
+      // console.log("incorrect_answers: "+ incorrect_answers);
       
       that.question = question;
       
@@ -73,7 +80,8 @@ export class QuestionPresenterComponent implements OnInit{
         that.choices.push(that.triviaQuestion.triviaAnswers[i]);
       }
 
-      // that.triviaQuestionProvider.triviaQuestion=that.triviaQuestion;
+      //this is employed to keep the current question shared among pages
+      that.triviaQuestionProvider.triviaQuestion=that.triviaQuestion;
       
     }, function (e) {
       //// Argument (e) is Error!

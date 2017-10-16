@@ -5,16 +5,15 @@ import {TriviaAnswer} from "./triviaAnswer"
 export class TriviaQuestion {
     public points: number;
     public triviaAnswers: TriviaAnswer[];
-
-    private choices: string[];
-
+    public triviaCorrectAnswer: TriviaAnswer;
+    
     constructor(
-        public category: string, 
+        private category: string, 
         public  type: string,
         public  difficulty: string,
         public  question: string,
-        public  correct_answer: string,
-        public  incorrect_answers: string[]
+        private  correct_answer: string,
+        private  incorrect_answers: string[]
     ){
         //TODO - To complete when programmin points
         // if(difficulty == "easy"){
@@ -25,19 +24,14 @@ export class TriviaQuestion {
         //     this.points = 3;
         // }
 
-        console.log("Building TriviaQuestion");
-
-        this.choices = [];
-        this.triviaAnswers = [];
+        this.triviaCorrectAnswer = new TriviaAnswer(this,correct_answer);
 
         //TODO. Need to shuffle where correct answer is.
-        this.choices[0] = correct_answer;
-        
-        this.triviaAnswers[0] = new TriviaAnswer(this,this.choices[0]);
-
+        //pupulating possible answers array
+        this.triviaAnswers = [];
+        this.triviaAnswers[0] = this.triviaCorrectAnswer ;
         for(let i = 0; i<incorrect_answers.length; i++ ){
-            this.choices[i+1] = incorrect_answers[i];
-            this.triviaAnswers[i+1] = new TriviaAnswer(this,this.choices[i+1]);
+            this.triviaAnswers[i+1] = new TriviaAnswer(this,incorrect_answers[i]);
         }
     }
 }

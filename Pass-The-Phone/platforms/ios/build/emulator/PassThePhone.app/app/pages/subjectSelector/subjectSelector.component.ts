@@ -4,6 +4,8 @@ import { Http, Headers, Response } from "@angular/http";
 
 import {TriviaCategory} from "../../shared/triviaCategory" 
 
+
+
 @Component({
   selector: "subjectSelector",
   templateUrl: "pages/subjectSelector/subjectSelector.html",
@@ -16,7 +18,7 @@ export class SubjectSelectorComponent implements OnInit{
   public selectedCategory: TriviaCategory;
   
   constructor(private router: Router) {
-    console.log("Constructing subject Selector");
+    // console.log("Constructing subject Selector");
     this.categories = [];
     
     this.categories.push(new TriviaCategory(null,""));
@@ -32,7 +34,7 @@ export class SubjectSelectorComponent implements OnInit{
   }
   
   next(categoryId) {
-    console.log("Navigating to questionPresenter with id: "+ categoryId);
+    // console.log("Navigating to questionPresenter with id: "+ categoryId);
 
     this.router.navigate(["questionPresenter", categoryId ]);
   }
@@ -56,7 +58,7 @@ export class SubjectSelectorComponent implements OnInit{
       var myObj = JSON.parse(str);
             
       for (let i = 0;i < myObj.trivia_categories.length;i++) {
-        console.log(myObj.trivia_categories[i].id+ " "+ myObj.trivia_categories[i].name);
+        // console.log(myObj.trivia_categories[i].id+ " "+ myObj.trivia_categories[i].name);
         
         let id: number = myObj.trivia_categories[i].id;
         let name: string = myObj.trivia_categories[i].name;

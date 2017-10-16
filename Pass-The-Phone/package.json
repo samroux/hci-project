@@ -18,11 +18,14 @@
     "@angular/http": "4.2.5",
     "@angular/platform-browser": "4.2.5",
     "@angular/router": "4.2.5",
+    "base-64": "^0.1.0",
     "nativescript-angular": "4.2.0",
+    "nativescript-nodeify": "^0.5.6",
     "nativescript-theme-core": "1.0.4",
     "reflect-metadata": "0.1.10",
     "rxjs": "5.4.3",
     "tns-core-modules": "3.2.0",
+    "utf8": "^2.1.2",
     "zone.js": "0.8.17"
   },
   "devDependencies": {

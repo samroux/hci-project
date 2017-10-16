@@ -1723,7 +1723,7 @@ Zone.__load_patch('EventEmitter', function (global, Zone, api) {
 Zone.__load_patch('fs', function (global, Zone, api) {
     var fs;
     try {
-        fs = require('fs');
+        fs = require('nativescript-node/fs');
     }
     catch (err) {
     }
@@ -1952,7 +1952,7 @@ Zone.__load_patch('handleUnhandledPromiseRejection', function (global, Zone, api
 Zone.__load_patch('crypto', function (global, Zone, api) {
     var crypto;
     try {
-        crypto = require('crypto');
+        crypto = require('crypto-browserify');
     }
     catch (err) {
     }

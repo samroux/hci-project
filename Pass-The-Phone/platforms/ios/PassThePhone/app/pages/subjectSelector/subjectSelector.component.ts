@@ -25,7 +25,6 @@ export class SubjectSelectorComponent implements OnInit{
   
   ngOnInit() {
     this.progressValue = 80;
-    
     this.extractData();
   }
   

@@ -11,14 +11,14 @@ body {
 	padding: 0;
 	margin: 0;
 	font-family: "Lato", sans-serif;
-	font-color: #333;
+	font-color: #383838;
 }
 
 /* 
  * Titles and fonts 
  */
 
-.title {
+/*.title {
 	font-family: "Lobster", sans-serif;
 	font-weight: 400;
 }
@@ -26,17 +26,19 @@ body {
 .subtitle {
 	font-family: "Lato";
 	font-weight: 400;
-}
+}*/
 
 h1, h2, h3, h4 {
 	font-family: "Lato";
 	font-weight: 700;
 }
 
+/* use in header */
 h1 {
 	font-size: 24pt;
 }
 
+/* use for important titles: deliv name, etc. */
 h2 {
 	color: #ff4900;
 	font-size: 18pt;
@@ -45,16 +47,36 @@ h2 {
 	border-bottom: 2px solid #ff9b73;
 }
 
+/* use for section name */
 h3 {
+	color: #333;
 	font-size: 14pt;
 	margin-top: 40px;
 	margin-bottom: 4px;
 }
 
+/* use for subheaders inside section */
 h4 {
+	color: #333;
 	font-size: 12pt;
 	margin-top: 20px;
 	margin-bottom: 4px; 
+}
+
+/* use h5 for list headers -- same size as h4, interchangeable*/
+h5 {
+	color: #ff4900;
+	font-size: 12pt;
+	font-weight: 400;
+	margin-bottom: 4px;
+}
+
+/* use for small tips e.g. click to open image in new tab */
+.tip {
+	font-size: 10pt;
+	width: 100%;
+	color: #666;
+	text-align: center;
 }
 
 .title,
@@ -71,7 +93,7 @@ h4 {
 	margin: 0;
 	top: 0;
 	position: fixed;
-	height: 76px;
+	height: 66px;
 	width: 100%;
 	color: #fff;
 	background: #ff4900;
@@ -83,17 +105,25 @@ h4 {
 	margin: 0;
 	position: absolute;
 	bottom: 0;
-	height: 80px;
+	height: 70px;
 	width: 100%;
 	color: #fff;
 	background: #ff9000;
 }
 
-/*#header #logo {
+#header #logo {
 	display: inline-block;
+	height: 70px;
+	width: 249px;
+}
+
+#header #logo img {
+	position: absolute;
+	height: 40px;
+	margin-top: 15px;
+	margin-left: 15px;
 	border: none;
-	height: 80px;
-}*/
+}
 
 #header #title_block,
 #footer #title_block {
@@ -101,7 +131,7 @@ h4 {
 	margin: 0;
 	margin-left: 25px;
 	margin-right: 25px;
-	height: 80px;
+	height: 70px;
 	width: auto;
 	text-align: left;
 }
@@ -114,10 +144,11 @@ h4 {
 }
 
 #header #nav {
+	position: fixed;
 	margin: 0;
 	display: inline-block;
-	line-height: 80px;
-	height: 80px;
+	line-height: 70px;
+	height: 70px;
 }
 
 #header #title_block span,
@@ -130,7 +161,7 @@ h4 {
 	text-decoration: none;
 	margin-left: 10px;
 	margin-right: 10px;
-	padding: 2px;
+	padding: 2px 2px 2px 2px;
 	border-bottom: 2px solid #ff9b73;
 	transition: all 0.2s ease 0s;
 }
@@ -154,7 +185,7 @@ h4 {
 	width: 640px;
 	display: block;
 	margin: 0 auto;
-	padding-top: 100px;
+	padding-top: 80px; /* for header */
 	padding-bottom: 180px;
 }
 
@@ -185,14 +216,16 @@ img .table {
 	border: none;
 }
 
-#questionnaires .tip,
-#sketches .tip {
-	font-size: 10pt;
+hr {
+	margin: 0 auto;
+	margin-top: 30px;
 	width: 100%;
-	color: #666;
-	text-align: center;
+	border-width: 1px;
+	border-color: #ff9b73;
+	border-style: dotted;
 }
 
+#imglink img,
 #questionnaires img,
 #sketches img {
 	margin: 3px;
@@ -201,38 +234,40 @@ img .table {
 	transition: all 0.2s ease 0s;
 }
 
+#imglink img {
+	width: 640px;
+}
+
+#imglink a,
 #questionnaires a,
 #sketches a {
 	border: none;
 }
 
+#imglink img:hover,
 #questionnaires img:hover,
 #sketches img:hover {
 	border-color: #ff4900;
 	transition: all 0.2s ease 0s;
 }
 
-.body_text {
+.body_text, li {
+	color: #383838;
 	font-size: 11pt;
 	line-height: 25px;
 	padding-bottom: 10px;
 }
 
+/* used to set a block of text apart */
 .quote {
 	color: #a65e00;
 	background: #ffeed9;
 	border-radius: 2px;
-	padding: 20px 30px 20px 30px;
+	padding: 20px 25px 20px 25px;
 	margin-top: 0px;
 	margin-bottom: 10px;
 	font-size: 11pt;
 	line-height: 25px;
-}
-
-.list_elem_title {
-	color: #ff4900;
-	font-size: 12pt;
-	margin-bottom: 4px;
 }
 
 /* used for the citation in project proposal */

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>High-Fidelity Prototype - Pass the Phone - HCI</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">  
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+</head>
+
+<body>
+
+<div id="header">
+    <div id="logo">
+        <a href="index.html"><img src="assets/logo.png"></a>
+    </div>
+    <!--<div id="title_block">
+        <span>
+        <h1 class="title">Pass the Phone</h1>
+        </span>
+    </div>-->
+    <div id="nav">
+        <span>
+        <a href="project_proposal.html">Project Proposal</a>
+        <a href="lo_fi_prototype.html">Low-Fidelity Prototype</a></span>
+        <a href="hi_fi_prototype.html" class="selected">High-Fidelity Prototype</a></span>
+    </div>
+</div>
+
+<div id="main">
+
+    <h2>High-Fidelity Prototype</h2>
+
+    <h3>User Manual</h3>
+    <div>
+        <p class="body_text">
+            The mobile game is developed with both Android and iOS in mind. However, due to restrictions on iOS development, a test release of the application is only feasible on the Android platform. The test will be conducted on a real smartphone. This is to provide an experience as close as possible to the target experience. It allows the user to feel the prototype on a physical phone, touch the screen, evaluate the layout, and place themselves in the context of the game. The steps below detail how to install the prototype of Pass the Phone on your own Android phone. Alternatively, a phone from the development team already running the application can be provided for testing.
+        </p>
+        <h4>Installing Pass the Phone on an Android phone</h4>
+        <ol>
+            <li>Open the Settings application, navigate to Security, and turn on the “Unknown Sources” option. This will allow you to install an application that is not from the Play Store onto your phone.</li>
+            <li><a href="COMPLETE THIS***********" target="_blank">Download the prototype (.apk)</a>.</li>
+            <li>Open the downloaded .apk file. Your device should prompt you to allow the installation.</li>
+            <li>Pass the Phone is now installed on your phone! You can open it just like you would any other application, and start using it.</li>
+        </ol>
+        <p class="body_text">
+            Again, if this is not a possibility for the testing team, a phone that has gone through the above steps can be provided.
+        </p>
+        <h4>Using Pass the Phone</h4>
+        <p class="body_text">
+            The game aims to be as straightforward as possible. We want the learning curve to be low, as is characteristic of mobile games. Before being able to play, a brief setup period is required. At this stage, the user is asked to enter the following information, in sequence:
+        </p>
+    </div>
+
+    <hr>
+
+    <h3>Design Evolution</h3>
+    <div>
+        <p class="body_text">
+            After testing the low-fidelity prototype, several possible improvements to our design arose. The conversion from a paper medium to the actual smartphone also induced some change in the design. Here are the changes that were made:
+        </p>
+        <h5>1. Addition of a Back Button</h5>
+        <p class="body_text">
+            An important addition to the design that was not included at first is a back button, located in the top left of the application during the setup. During testing, we noticed that the desire to move back in the setup, for example to change game mode or a team member’s name, manifested itself more than we expected. The back button is unobtrusive, placed in the header and to the left just as described in the design guidelines of both Android and iOS. Since it is right where users expect, this small addition instantly communicates its purpose and makes the setup portion of the game easier to use.
+        </p>
+        <h5>2. Addition of a Setup Progress Indicator</h5>
+        <p class="body_text">
+            The progress indicator serves to show at which stage of the setup the user is in a general way. It is displayed as a line with a highlighted part, which creates a progress metaphor. This type of display element is often used in mobile applications, and should feel right at home in our prototype. It ties in with the usability goals we had fixed for the setup: it makes it easier to use, and is a good hint of whether the setup is taking too long.
+        </p>
+        <h5>3. Group name clarification</h5>
+        <p class="body_text">
+
+        </p>
+    </div>
+
+    <hr>
+
+    <h3>Prototype Implementation</h3>
+    <div>
+        <p class="body_text">
+            <a href="COMPLETE THIS*******************" target="_blank">Download the Android build of the prototype (.apk)</a>
+            <br>
+            <br>
+            Here are a few screenshots from the prototype, to illustrate the functionality that has been implemented. The cosmetic elements are not final, of course, but the flow of the application gives a good idea of how the game will be used on a smartphone.
+        </p>
+        <p class="tip">(Click on an image to open the image in a new tab)</p>
+        <div>
+            <!-- 
+                ************** IMAGES GO HERE
+                **************
+                **************
+                **************
+            -->
+
+        </div>
+    </div>
+
+    <hr>
+
+    <h3>User Population</h3>
+    <div>
+        <p class="body_text">
+            The target user base for this game is groups of friends that know each other, and are in a situation where everyone is on their phone and little social interaction is ongoing among the group. As such, there is no required expertise or age to test the game. However, the user base should already be familiar with smartphones. The optimal testing environment would be to give the application to a group of people. This will allow the game to go through normally, with the phone being passed around. However, the application can also be tested on a single person, to see whether they understand the conceptual flow of the game and whether the given directions are clear.
+        </p>
+    </div>
+
+    <hr>
+
+    <h3>Usability Goals</h3>
+    <div>
+        <p class="body_text">
+            For the game to be successful, we set 6 usability goals, separated between the initial setup required before the game can be played, and then the game itself. 
+        </p>
+
+        <h4>Initial Setup Goals</h4>
+            <h5>1. The setup is easy to use</h5>
+            <p class="body_text">
+                We want the setup to be painless, so it should employ existing conventions used by mobile application to allow the user to apply known concepts to our interface. The hesitation of users, the mistakes they make, and feedback they give will be used to determine whether we’re on the right track. <b>A new user should not make more than 2 errors throughout the setup.</b> Errors include entering the wrong information in a field, or selecting a wrong option relating to the task at hand.
+            </p>
+
+            <h5>2. The setup is not too long</h5>
+            <p class="body_text">
+                This goes hand in hand with the previous goal. Before playing, some information is necessary for the game to progress properly: a group name, IDs for each player, and the selection of a subject and of a game mode. Since we want the game to get people off their phones, we don’t want the person doing the initial setup on the phone that will be passed around to be isolated for a significant period of time. <b>The setup should take no more than 3 minutes.</b>
+            </p>
+
+            <h5>3. The setup does not repeat too often</h5>
+            <p class="body_text">
+                Since the setup is a significant barrier between opening the game and starting to play, we aim at minimizing its occurrence. For example, if users want to start a new game with a new subject and the same group right after finishing a game, they should not have to go through the entire setup again. The tests will have to note what actions users want to do that would lead them to the setup screen, and whether the current means of avoiding it are successful. <b>The setup screen should not be entered in its entirety more than once for a given group, even if a new round is started.</b> This goal is also not met if users do not make use of the options provided to start a new game and instead instinctively reset the application to the beginning to do so.
+            </p>
+
+        <h4>Game Goals</h4>
+
+            <h5>4. The game flows well from person to person</h5>
+            <p class="body_text">
+                Since the game involves a single phone being passed around, the steps to be taken by the players to move the game forward need to be explicit. The aim is to avoid confusion on how to proceed (for example, who to pass the phone to, or who should ask a question to whom). <b>If new users ask more than 3 questions related to the progression of the game, then this goal is not met.</b>
+            </p>
+
+            <h5>5. All players participate in the the game</h5>
+            <p class="body_text">
+                We want the game to be playable with a single phone, but also to engage all members of the game. We have thought of several means to do this: the act of passing the phone around, a timer, text-to-speech for elements that only one person sees, and others. We will have to see whether these are effective at keeping people playing as a group, without members being left hanging for long periods of time. <b>If a player does not receive the phone as often as the other players, or if they do not ask questions as often, then this goal is not met.</b>
+            </p>
+
+            <h5>6. The length of the game is adequate</h5>
+            <p class="body_text">
+                If the game is too short, the group might spend too much time in the setup part of the application, choosing subjects, and restarting. If the game is too long, then players may lose interest. <b>This is subjective, but will most likely surface in user feedback.</b>
+            </p>
+
+            <h5>7. The game is a fun solution when people notice that they are all on their smartphone</h5>
+            <p class="body_text">
+                The game relies on the users to access it from the application icon when they notice that their group is not socializing. To ensure that users actually use it, it should be fun, rather than requiring too much effort to get going. <b>The positivity of feedback received from users, specifically relating to the idea itself rather than the kinks of the current design, will be a good benchmark of whether users would play the game on their own when they notice a good opportunity.</b>
+            </p>
+    </div>
+
+    <hr>
+
+    <h3>Usability Test Procedure</h3>
+    <div>
+        <p class="body_text">
+            <a href="assets/hifi/usability_test_procedure.pdf" target="_blank">Download a copy of these instructions (.pdf)</a>
+            <br>
+            <br>
+            The test can be conducted with one or two examiners. The first part of the test aims to evaluate the setup portion of the game. The examiner will to follow a user as they go through the setup phase, and take notes on what they observe. The second part is two-fold, and is where the test can be separated among two people. To evaluate the game itself, the way a single user interacts with the application is just as crucial as following how the game unfolds among the group. When a user has the phone, notes on their interaction with the application should be taken. The usability goals that relate to the game itself – whether the game is fun, confusing, involves all players, and if the length is adequate – are easier to evaluate from a more removed standpoint, overseeing the group as a whole. Since there are relatively few game screens, a single examiner could potentially do both tasks, just as they could be distributed to two examiners.
+        </p>
+
+        <h4>Equipment and Handling</h4>
+        <p class="body_text">
+            As detailed in the User Manual section, the prototype requires an Android smartphone. You may choose to install the application on your own smartphone by following the installation instructions, or we may supply a smartphone with the application on it for testing. From this point, the application is ready to be tested.
+        </p>
+        <p class="quote">
+            <b>Tip:</b> If you are running Android 6.0 or above, you have the option to turn on a feature called Screen Pinning. This allows you limit the use of the phone to the current application only, preventing users from navigating out of the game. This is particularly useful for testing. To turn on Screen Pinning, open the Settings application, navigate to Security, and select “Screen Pinning”. Below the toggle for this option, quick instructions on how to use Screen Pinning are provided.
+        </p>
+
+        <h4>Interacting with Test Subjects</h4>
+        <p class="body_text">
+            First of all, test subjects should be told that they are testing a rough prototype of the final product, that encountering interaction problems is normal and expected, and that any feedback is appreciated. Test subjects should be given a general idea of the application, and should be able to relate this to their own experience. To do so, the paragraph on our home page serves as a good introduction:
+        </p>
+        <p class="quote">
+            You're sitting with a group of friends, and yet everyone is on their phone. No social interaction whatsoever. Has this ever happened to you? Pass the Phone is a mobile game whose goal may seem contradictory at first: to get people off their phone! The game only needs one person's phone, which gets passed around as people ask questions and answer them as a group. 
+        </p>
+        <p class="body_text">
+            Since we would like the application to be easy to use, this should be enough exposition on the part of the examiner. The tester should be left alone while using the application, and questions on how to proceed should not be answered (unless the user has been stuck on an issue for a long period of time). This is to avoid interference on the part of the examiner in the process of the game, and to ensure that a user’s feedback in not influenced by outside sources.
+        </p>
+
+        <h4>Measurements</h4>
+        <p class="body_text">
+            There are five quantitative measurements, linked to the first five usability goals. Measurements 1 to 3 should be gathered during the setup part, and measurements 4 and 5 relate to the game part.
+        </p>
+        <ol>
+            <li>A new user should make <b>no more than 2 errors</b> throughout the setup.</li>
+            <li>The setup should take <b>no more than 3 minutes</b>.</li>
+            <li>The setup screen should be entered in its entirety <b>no more than once</b> for a given group, even if a new round is started.</li>
+            <li>A new users should ask <b>no more than 3 questions</b> related to the progression of the game</li>
+            <li>If a player does not receive the phone as often as the other players, or if they do not ask questions as often, then this goal is not met.</li>
+        </ol>
+    </div>
+
+    <hr>
+
+    <h3>Reporting</h3>
+
+    <hr>
+
+    <h3>Usability Evaluation</h3>
+
+    <hr>
+
+    <h3>High-Fidelity Prototype - <a href="hi_fi_contrib.html" target="_blank">Individual Contributions</a></h3>
+
+</div>
+
+<div id="footer">
+    <div id="title_block">
+        <h1 class="title">Under Construction</h4>
+            <h4 class="subtitle">William Bouchard - Olivier Eydt - Samuel Roux</h4>
+    </div>
+</div>
+
+</body>
+</html>

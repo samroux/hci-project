@@ -8,10 +8,10 @@ import { Router } from "@angular/router";
 })
 
 export class QuestionPreAnswerComponent {
-  
+
   public constructor(private router: Router) {}
-  
-  next() {
-    this.router.navigate(["answer"])
+
+  private next() {
+    this.router.navigate(["answer"]);
   }
 }

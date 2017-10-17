@@ -4,8 +4,6 @@ import { Http, Headers, Response } from "@angular/http";
 
 import {TriviaCategory} from "../../shared/triviaCategory" 
 
-
-
 @Component({
   selector: "subjectSelector",
   templateUrl: "pages/subjectSelector/subjectSelector.html",
@@ -14,13 +12,10 @@ import {TriviaCategory} from "../../shared/triviaCategory"
 })
 
 export class SubjectSelectorComponent implements OnInit{
-  public categories: Array<TriviaCategory>;
+  public categories: Array<TriviaCategory> = [];
   public selectedCategory: TriviaCategory;
   
-  constructor(private router: Router) {
-    // console.log("Constructing subject Selector");
-    this.categories = [];
-    
+  constructor(private router: Router) {   
     this.categories.push(new TriviaCategory(null,""));
   }
   

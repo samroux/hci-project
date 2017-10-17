@@ -3,7 +3,7 @@ import { Router, ActivatedRoute, Params } from "@angular/router";
 
 import {TriviaQuestion} from "../../shared/triviaQuestion" 
 import {TriviaAnswer} from "../../shared/triviaAnswer" 
-import {TriviaQuestionProvider} from "../../shared/providers/triviaQuestion.provider" 
+import {RoundDataProvider} from "../../shared/providers/roundData.provider" 
 
 @Component({
   selector: "answerValidation",
@@ -19,7 +19,7 @@ export class AnswerValidationComponent{
   public player_answer_content: string;
   public correctness: string;
   
-  public constructor(private route: ActivatedRoute, private router: Router,private triviaQuestionProvider: TriviaQuestionProvider ) {
+  public constructor(private route: ActivatedRoute, private router: Router,private roundDataProvider: RoundDataProvider ) {
     this.route.params.subscribe((params) => {
       this.correct = params["correct"];
       this.player_answer_content = params["answer"];
@@ -33,7 +33,7 @@ export class AnswerValidationComponent{
       this.correctness = "Wrong";
     }
   
-    this.correct_answer_content = triviaQuestionProvider.triviaQuestion.triviaCorrectAnswer.content; 
+    this.correct_answer_content = roundDataProvider.triviaQuestion.triviaCorrectAnswer.content; 
     
   }
   

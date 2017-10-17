@@ -62,7 +62,7 @@
 		</data>
 		<key>Assets.car</key>
 		<data>
-		CGgndA9l7ibk96mTH8mC1SzOPKM=
+		g5s2G4WVrDhxJNE3kw+vvGtKMh4=
 		</data>
 		<key>Frameworks/NativeScript.framework/Info.plist</key>
 		<data>
@@ -126,7 +126,7 @@
 		</data>
 		<key>LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<data>
-		sv0Om03H8zG5DxfJda8P61NHc0E=
+		yoUkER2EFS4lznHpXdGjOEhWgzc=
 		</data>
 		<key>LaunchScreen.storyboardc/Info.plist</key>
 		<data>
@@ -134,7 +134,7 @@
 		</data>
 		<key>LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib</key>
 		<data>
-		nqeEwM7tjo4Tx0IsxEqCmPaWnzs=
+		HHfi4DmRawsNKSjifUxtqxw9GFU=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -166,11 +166,11 @@
 		</data>
 		<key>app/app.module.js</key>
 		<data>
-		iK7XPXgiC/UBZs9vd3wcaaHkZ0E=
+		A253UebvarK9/ZwWvxqEaJX82+4=
 		</data>
 		<key>app/app.module.ts</key>
 		<data>
-		fF1JI9pzgTYBUtABLs1jxf54PuE=
+		/B6I9cclNwSs21ZB9yoO9lUDv00=
 		</data>
 		<key>app/app.routing.js</key>
 		<data>
@@ -202,11 +202,11 @@
 		</data>
 		<key>app/pages/answer/answer.component.js</key>
 		<data>
-		mauIpkkVPPU5zqfWubN0cy3sHFQ=
+		dJnIq8/y7o1TCUFU42giFNlM7vg=
 		</data>
 		<key>app/pages/answer/answer.component.ts</key>
 		<data>
-		+nOnTdv2gH3EDv6ZBzs0mz/V7tE=
+		TLKdYHaZ7y9LZqgCKz/W/K3NYzI=
 		</data>
 		<key>app/pages/answer/answer.html</key>
 		<data>
@@ -218,11 +218,11 @@
 		</data>
 		<key>app/pages/answerValidation/answerValidation.component.js</key>
 		<data>
-		/5ed7oCT0yXlC0PXNPj/3VBRh3w=
+		+4T7gKoP5i6VUBtMIXrKkIPobjo=
 		</data>
 		<key>app/pages/answerValidation/answerValidation.component.ts</key>
 		<data>
-		YTcLj8m4EtH9WedpOR+9eTtML7s=
+		0QKXlWg3jKF4jMciR8JV4gw49c8=
 		</data>
 		<key>app/pages/answerValidation/answerValidation.html</key>
 		<data>
@@ -278,31 +278,31 @@
 		</data>
 		<key>app/pages/modeSelector/modeSelector.component.js</key>
 		<data>
-		h3GY0l3KJlG2/BhA9mAHGchZv7w=
+		o4YnAcLtnHMXe2mQ9vwDXN9oh84=
 		</data>
 		<key>app/pages/modeSelector/modeSelector.component.ts</key>
 		<data>
-		dMRmj0KMOnoPcYucSQfQ8tZlKYM=
+		GWxpk/jF/aRLmNnM68yDhdR3Ok8=
 		</data>
 		<key>app/pages/modeSelector/modeSelector.html</key>
 		<data>
-		8IJAazDWxeGbfNMCwpFhFqaaEzg=
+		Vo6PTAb8AF5Q1H/+HZrI4h1xFhA=
 		</data>
 		<key>app/pages/playerCreator/playerCreator-common.css</key>
 		<data>
-		RcLPPM5U2p7m+Xj3aHxso5WPKLk=
+		PR9bkZEHj2mPmOJhoBfR2w1xlBo=
 		</data>
 		<key>app/pages/playerCreator/playerCreator.component.js</key>
 		<data>
-		BSzw2QKywfSZWh0ahXGlaSUg6G0=
+		yhZ9QW3+f2Mfz0GSqkgaSAfo4SU=
 		</data>
 		<key>app/pages/playerCreator/playerCreator.component.ts</key>
 		<data>
-		LuU2IFjsSXjE8CsxNQh6gKl3WWI=
+		EWl3MQa8Rjj7jnrTG4yKM2g9PPg=
 		</data>
 		<key>app/pages/playerCreator/playerCreator.html</key>
 		<data>
-		Gy7JhVhyJjSQWXXZnvcQ9KlOxd8=
+		T0vmjHcKhoRwuZGDNkhZMM+nrGQ=
 		</data>
 		<key>app/pages/questionPreAnswer/questionPreAnswer-common.css</key>
 		<data>
@@ -310,15 +310,15 @@
 		</data>
 		<key>app/pages/questionPreAnswer/questionPreAnswer.component.js</key>
 		<data>
-		4unYRFYeednxFeg4zubcui3sNlc=
+		8EAOB0vfKB5xh78kQbMxKW1qL8I=
 		</data>
 		<key>app/pages/questionPreAnswer/questionPreAnswer.component.ts</key>
 		<data>
-		fh3Od0NiPlHGVvOtNMNyqqO7DjM=
+		VP2iSZCcZYiEwEIUHaDB4Qu5UZA=
 		</data>
 		<key>app/pages/questionPreAnswer/questionPreAnswer.html</key>
 		<data>
-		YkyePDV1cR+kC4aQe8qj1vzgnmw=
+		kWM7zTJVJPYAhQ1f8g7514/FziQ=
 		</data>
 		<key>app/pages/questionPresenter/questionPresenter-common.css</key>
 		<data>
@@ -326,15 +326,15 @@
 		</data>
 		<key>app/pages/questionPresenter/questionPresenter.component.js</key>
 		<data>
-		QF3nq3PHY7Q4UBg4i1j0vjcMflk=
+		5BHTZbOBqZF3J2MdPLukVSzHxPk=
 		</data>
 		<key>app/pages/questionPresenter/questionPresenter.component.ts</key>
 		<data>
-		QXsz4WlBmdjtg9NKjNIyZqzuZ1w=
+		G8X0v/VMfgZBIpl7lCkAyBaD3Jo=
 		</data>
 		<key>app/pages/questionPresenter/questionPresenter.html</key>
 		<data>
-		cR4jAL+B6d9KkNZMKSXsBCNvcRE=
+		S6Sew+MgjscOamgWO5AxPhBeaU4=
 		</data>
 		<key>app/pages/start/start-common.css</key>
 		<data>
@@ -342,11 +342,11 @@
 		</data>
 		<key>app/pages/start/start.component.js</key>
 		<data>
-		dwrNDRUFJgMB9zV2RoqPndn8BPQ=
+		Ho3klnPKvstXBaMNsMZUlYts4zI=
 		</data>
 		<key>app/pages/start/start.component.ts</key>
 		<data>
-		zrlGFSRyerHNriZ766VR75bvyeg=
+		wWxINrIKfvN9iII2UVRw5rFcnRg=
 		</data>
 		<key>app/pages/start/start.html</key>
 		<data>
@@ -358,11 +358,11 @@
 		</data>
 		<key>app/pages/subjectSelector/subjectSelector.component.js</key>
 		<data>
-		+0+WFVsm+17sBcG5agN5/2cnme0=
+		YZtLqZmwbsIoC6yfFJP8skNn7eE=
 		</data>
 		<key>app/pages/subjectSelector/subjectSelector.component.ts</key>
 		<data>
-		H/oprxVuOCWaebaMPD+Q72B7c+c=
+		iwL9PuTRX2Lmyfk7mLeQjAcvmZU=
 		</data>
 		<key>app/pages/subjectSelector/subjectSelector.html</key>
 		<data>
@@ -402,19 +402,19 @@
 		</data>
 		<key>app/shared/group.js</key>
 		<data>
-		xkwnluXqW6GJDmOCG4gtbmxYFu4=
+		1t+uledixxaofZeYmHoGJpvX4XY=
 		</data>
 		<key>app/shared/group.ts</key>
 		<data>
-		UDFJ3Is12HI1ppFmoxbluE56/g0=
+		ZJptZKnsrn2pCnCtySHgFM64w4Q=
 		</data>
 		<key>app/shared/player.js</key>
 		<data>
-		dS/BtXsQZh1A/nKaJ5SlxojaqtQ=
+		6/ZOnflysbdGKD0qMnC9a15uFLQ=
 		</data>
 		<key>app/shared/player.ts</key>
 		<data>
-		5Yj+YvaojMTmJHyG0w9aXyoRERo=
+		Eg3xOKFvee+9Byj7O0wYXM2zaq8=
 		</data>
 		<key>app/shared/playerResponse.js</key>
 		<data>
@@ -424,13 +424,13 @@
 		<data>
 		zPM1IzzAc6KR0S4+v/9XTxbiHLg=
 		</data>
-		<key>app/shared/providers/triviaQuestion.provider.js</key>
+		<key>app/shared/providers/roundData.provider.js</key>
 		<data>
-		gaQZN/+oSKLksmMlo2rniKwCs2k=
+		YJVjnmPe6+tTafzlVRtuzL027w4=
 		</data>
-		<key>app/shared/providers/triviaQuestion.provider.ts</key>
+		<key>app/shared/providers/roundData.provider.ts</key>
 		<data>
-		yEjqLuFtcn8ELnoRF8hn4E2ufeA=
+		6RN2xyzuQc6VvL2kHVbX4o6a9bQ=
 		</data>
 		<key>app/shared/team.js</key>
 		<data>
@@ -442,11 +442,11 @@
 		</data>
 		<key>app/shared/triviaAnswer.js</key>
 		<data>
-		n2vsfzjQGKyuvxy4+Wfzxb/0EXE=
+		RhrIWM3+pUFF+6ITPdnGR87o19c=
 		</data>
 		<key>app/shared/triviaAnswer.ts</key>
 		<data>
-		MGl7enwUmzffhE7D5VKQ2irhMTg=
+		6gzu16qd0m9KduMNyMMc2Q5EJr4=
 		</data>
 		<key>app/shared/triviaCategory.js</key>
 		<data>
@@ -21482,11 +21482,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			CGgndA9l7ibk96mTH8mC1SzOPKM=
+			g5s2G4WVrDhxJNE3kw+vvGtKMh4=
 			</data>
 			<key>hash2</key>
 			<data>
-			RH5T1kZP58NKIFooqadd5Elbb+9xPXGDRNx4UEUlA0g=
+			6hUPRqjiswhdjYcP/NdQz2TJ6m15NXcFr1WMGMnFI8c=
 			</data>
 		</dict>
 		<key>Frameworks/NativeScript.framework/Info.plist</key>
@@ -21647,11 +21647,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			sv0Om03H8zG5DxfJda8P61NHc0E=
+			yoUkER2EFS4lznHpXdGjOEhWgzc=
 			</data>
 			<key>hash2</key>
 			<data>
-			/qgXvDRVRZ3ifNhB42vZThZVwSAIjPBsKwUPI53oBRw=
+			iOsoRLe8SDrMDq7MoOMw61UYGPHWjGUNq1uSshSl4iA=
 			</data>
 		</dict>
 		<key>LaunchScreen.storyboardc/Info.plist</key>
@@ -21669,11 +21669,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			nqeEwM7tjo4Tx0IsxEqCmPaWnzs=
+			HHfi4DmRawsNKSjifUxtqxw9GFU=
 			</data>
 			<key>hash2</key>
 			<data>
-			7Atd8klIce+xkyeSlbYirEWbSd60y3sV44vWQncThIU=
+			oYv5bJJL1OEWN9lkgSGPDA6Y3Dy3t/zymbWLKNqkcM4=
 			</data>
 		</dict>
 		<key>app/LICENSE</key>
@@ -21746,22 +21746,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			iK7XPXgiC/UBZs9vd3wcaaHkZ0E=
+			A253UebvarK9/ZwWvxqEaJX82+4=
 			</data>
 			<key>hash2</key>
 			<data>
-			codKU8fUv81jGCyzFrz+k5P2nVnAK6ulJjzSQiOcBIA=
+			v6P+D9PhTN7xkTJCpHAbzos9MftneTLNuQgWDp3DQA4=
 			</data>
 		</dict>
 		<key>app/app.module.ts</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			fF1JI9pzgTYBUtABLs1jxf54PuE=
+			/B6I9cclNwSs21ZB9yoO9lUDv00=
 			</data>
 			<key>hash2</key>
 			<data>
-			qAE9+bnMmJNrD+EZCM0dIHAs/91P35aZuqflaMSk6cg=
+			ziSpbG6+WHZMc5cj1IWxXvgeMBXR+zS+mAy2XoE2JEM=
 			</data>
 		</dict>
 		<key>app/app.routing.js</key>
@@ -21845,22 +21845,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			mauIpkkVPPU5zqfWubN0cy3sHFQ=
+			dJnIq8/y7o1TCUFU42giFNlM7vg=
 			</data>
 			<key>hash2</key>
 			<data>
-			ukPk3bLyuix2vLLHoPEQ/DLbood/tsEYAz9Ygtqrkew=
+			NIKUfNNbRNW2yYBYyd4RGmOhggFZQllkKD2hzW7rRi0=
 			</data>
 		</dict>
 		<key>app/pages/answer/answer.component.ts</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			+nOnTdv2gH3EDv6ZBzs0mz/V7tE=
+			TLKdYHaZ7y9LZqgCKz/W/K3NYzI=
 			</data>
 			<key>hash2</key>
 			<data>
-			deugPnBmi09xcv9dizMBcVHCrAPCeL/yd6mc/T2+zsk=
+			IzmuQc9v2LFiUYqn/d3Dyn4VuP+ivWs+PY+GjCMuYd8=
 			</data>
 		</dict>
 		<key>app/pages/answer/answer.html</key>
@@ -21889,22 +21889,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			/5ed7oCT0yXlC0PXNPj/3VBRh3w=
+			+4T7gKoP5i6VUBtMIXrKkIPobjo=
 			</data>
 			<key>hash2</key>
 			<data>
-			7OxrMcCCQGR0p/R54VtAXOTHggsFp2DMmMcAjxSw7oc=
+			ZLqjiG6VIuSWdkv5tObmSgdXqIg1dg7S9deTcMA2W0s=
 			</data>
 		</dict>
 		<key>app/pages/answerValidation/answerValidation.component.ts</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			YTcLj8m4EtH9WedpOR+9eTtML7s=
+			0QKXlWg3jKF4jMciR8JV4gw49c8=
 			</data>
 			<key>hash2</key>
 			<data>
-			SNvB/YtsD6kgRv6kau3IgwSUtLXuakG03Mq4qljBfxs=
+			9ECID+IFSl6N63VbAUxDKSiYM2rnGKwH1gFCFwV3NLE=
 			</data>
 		</dict>
 		<key>app/pages/answerValidation/answerValidation.html</key>
@@ -22054,77 +22054,77 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			h3GY0l3KJlG2/BhA9mAHGchZv7w=
+			o4YnAcLtnHMXe2mQ9vwDXN9oh84=
 			</data>
 			<key>hash2</key>
 			<data>
-			EL9/qiKJo8BIjBjLEYvsth9QxKP3rCQFBfFVmpPygmg=
+			gcCUXZL6hez1BjDNq+tnbesyiX/9eEBqEpgLUZ/SKc8=
 			</data>
 		</dict>
 		<key>app/pages/modeSelector/modeSelector.component.ts</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			dMRmj0KMOnoPcYucSQfQ8tZlKYM=
+			GWxpk/jF/aRLmNnM68yDhdR3Ok8=
 			</data>
 			<key>hash2</key>
 			<data>
-			ZG68pZespswaqrBJRMypIzb1qHDCpPf8hfyNXsYZiNQ=
+			ahQjGRw+fBa7DtbiZdOUESZZKi7BDbWAy8WGkCE0mLQ=
 			</data>
 		</dict>
 		<key>app/pages/modeSelector/modeSelector.html</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			8IJAazDWxeGbfNMCwpFhFqaaEzg=
+			Vo6PTAb8AF5Q1H/+HZrI4h1xFhA=
 			</data>
 			<key>hash2</key>
 			<data>
-			el3+jxmxej+uYD9Fry3SJK8+AcIsc1bRSzQ4aH6jvOM=
+			UDV1rlhO/bP4RaIqFhLRVav1ZMDrCLbIJXtw1iINDBU=
 			</data>
 		</dict>
 		<key>app/pages/playerCreator/playerCreator-common.css</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			RcLPPM5U2p7m+Xj3aHxso5WPKLk=
+			PR9bkZEHj2mPmOJhoBfR2w1xlBo=
 			</data>
 			<key>hash2</key>
 			<data>
-			D0FDTjs1gFo+bOxyzdXpgx3wmnM/+XmBfzAGJuytWa4=
+			EzWGL+Uj6gJEWMO+Y+rs8uJDnJA4I/c8T5LV9kraoq4=
 			</data>
 		</dict>
 		<key>app/pages/playerCreator/playerCreator.component.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			BSzw2QKywfSZWh0ahXGlaSUg6G0=
+			yhZ9QW3+f2Mfz0GSqkgaSAfo4SU=
 			</data>
 			<key>hash2</key>
 			<data>
-			ipB34syilpM0+aW5TJ01tte5fceKvASabCExXDsIYqg=
+			/JdsNLrW9e+FPdr0lJY8vx5xdA8lMhaLAWZj3Bgqaj4=
 			</data>
 		</dict>
 		<key>app/pages/playerCreator/playerCreator.component.ts</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			LuU2IFjsSXjE8CsxNQh6gKl3WWI=
+			EWl3MQa8Rjj7jnrTG4yKM2g9PPg=
 			</data>
 			<key>hash2</key>
 			<data>
-			V/23cwu9euPbUb2TtwrJAF3l2war8lwSDFQ/QDBShb4=
+			pxK9hYkuqo2nzN7PZwXxJPaajDXmEK4BmYGMRWHkaT4=
 			</data>
 		</dict>
 		<key>app/pages/playerCreator/playerCreator.html</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Gy7JhVhyJjSQWXXZnvcQ9KlOxd8=
+			T0vmjHcKhoRwuZGDNkhZMM+nrGQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			2w1SzujhIu44fQBV/sX/9d4oDmMwZgsVrsqtuHI/Y+o=
+			Q1Mr4Ho6ibiA4H8YTWhtlPswZsBLH3i0rR152l2mYcI=
 			</data>
 		</dict>
 		<key>app/pages/questionPreAnswer/questionPreAnswer-common.css</key>
@@ -22142,33 +22142,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			4unYRFYeednxFeg4zubcui3sNlc=
+			8EAOB0vfKB5xh78kQbMxKW1qL8I=
 			</data>
 			<key>hash2</key>
 			<data>
-			7iN4m53O1FmImpuLY2OulHMnuV1kVZrA+I9mVOsoM+c=
+			E28QUMK3P/Qvjp7LWdzR2DFVjPkN4/m6+00eclDUkDk=
 			</data>
 		</dict>
 		<key>app/pages/questionPreAnswer/questionPreAnswer.component.ts</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			fh3Od0NiPlHGVvOtNMNyqqO7DjM=
+			VP2iSZCcZYiEwEIUHaDB4Qu5UZA=
 			</data>
 			<key>hash2</key>
 			<data>
-			sMq0/Xa3rh39FgalhtXgnjXKCw7RpcQICUVuw9lX5bE=
+			OekS54Mt7OVm0BJamZjPqxu8LPtwZfWQyZJJFHcPcCA=
 			</data>
 		</dict>
 		<key>app/pages/questionPreAnswer/questionPreAnswer.html</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			YkyePDV1cR+kC4aQe8qj1vzgnmw=
+			kWM7zTJVJPYAhQ1f8g7514/FziQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			pU3OUeVf6yvo5QDVqdiho/PS92Bbx7Uheh8HVcPUs0c=
+			7rHmheBl8w60XbbpphQfg21voG8OKUdJkr+Inlwctro=
 			</data>
 		</dict>
 		<key>app/pages/questionPresenter/questionPresenter-common.css</key>
@@ -22186,33 +22186,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			QF3nq3PHY7Q4UBg4i1j0vjcMflk=
+			5BHTZbOBqZF3J2MdPLukVSzHxPk=
 			</data>
 			<key>hash2</key>
 			<data>
-			J065tAbH06+ZIcfgXARYglad0hi+s8Pj5plsMgZBXGE=
+			nqE7qDCHu7qbLyYoAn4vtAZehGiXBsyXdtySj+nU2NM=
 			</data>
 		</dict>
 		<key>app/pages/questionPresenter/questionPresenter.component.ts</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			QXsz4WlBmdjtg9NKjNIyZqzuZ1w=
+			G8X0v/VMfgZBIpl7lCkAyBaD3Jo=
 			</data>
 			<key>hash2</key>
 			<data>
-			tWe7uSV/Xp88Q7R0KYD+4HmUV2CuvnxTVXjRSEmGE5M=
+			/k15r4Nf2tPdMPTuFDP9vK+Bl1lvDNKPSex9X2oMeoo=
 			</data>
 		</dict>
 		<key>app/pages/questionPresenter/questionPresenter.html</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			cR4jAL+B6d9KkNZMKSXsBCNvcRE=
+			S6Sew+MgjscOamgWO5AxPhBeaU4=
 			</data>
 			<key>hash2</key>
 			<data>
-			lD2MM147ytb3UqQVYOpmwHx4C9bOm/5RSEc1qqdYu7g=
+			T9X90IeVodj2Jbnz/sttOUQGp2WAn6Ac3CRJzasK5b0=
 			</data>
 		</dict>
 		<key>app/pages/start/start-common.css</key>
@@ -22230,22 +22230,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			dwrNDRUFJgMB9zV2RoqPndn8BPQ=
+			Ho3klnPKvstXBaMNsMZUlYts4zI=
 			</data>
 			<key>hash2</key>
 			<data>
-			stHWimJBXJ5U2rDZJoJpxNnSzfRsFTAA/Z9zWEHxSN4=
+			IGZ+7eUyY9fynO7mPApQeP1OMQoO6y7MSRHhl36cst0=
 			</data>
 		</dict>
 		<key>app/pages/start/start.component.ts</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			zrlGFSRyerHNriZ766VR75bvyeg=
+			wWxINrIKfvN9iII2UVRw5rFcnRg=
 			</data>
 			<key>hash2</key>
 			<data>
-			QHAQneXisEEEdhY5q5GYVnSINSBqWvZdj/MIhz2DQv0=
+			eRfOmqM/m/QuQEsThMoxoxeV2ZztOElCiZTybnaMJyE=
 			</data>
 		</dict>
 		<key>app/pages/start/start.html</key>
@@ -22274,22 +22274,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			+0+WFVsm+17sBcG5agN5/2cnme0=
+			YZtLqZmwbsIoC6yfFJP8skNn7eE=
 			</data>
 			<key>hash2</key>
 			<data>
-			8ZKcYtEKN/w0X1wFRh5MI9+xppbgFDGYDKSt3oIlEo0=
+			8bCU+/wzRW+qrheb2hln2E8hGiZ3IqtnSix9sL2/4ZE=
 			</data>
 		</dict>
 		<key>app/pages/subjectSelector/subjectSelector.component.ts</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			H/oprxVuOCWaebaMPD+Q72B7c+c=
+			iwL9PuTRX2Lmyfk7mLeQjAcvmZU=
 			</data>
 			<key>hash2</key>
 			<data>
-			jvAtJ+lqq3hfnIH5csKGHa+5VWu1rVnRsfiIQzMwZmg=
+			i+RxKirs5SOwa7I1vnr11XorkgRSlVDzFvFm1kQuy08=
 			</data>
 		</dict>
 		<key>app/pages/subjectSelector/subjectSelector.html</key>
@@ -22395,44 +22395,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			xkwnluXqW6GJDmOCG4gtbmxYFu4=
+			1t+uledixxaofZeYmHoGJpvX4XY=
 			</data>
 			<key>hash2</key>
 			<data>
-			3Zv/PcG2PyCguZmrXHPW3H5N9iz77mWhSyqfA4qle9o=
+			9GRaeLYVuTOjR2nN2CMdrDX885leHALAwvKiw/Np8F0=
 			</data>
 		</dict>
 		<key>app/shared/group.ts</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			UDFJ3Is12HI1ppFmoxbluE56/g0=
+			ZJptZKnsrn2pCnCtySHgFM64w4Q=
 			</data>
 			<key>hash2</key>
 			<data>
-			PbdY5Mdh3v3vEzSCT/WUqCC6xiyDpbyjYJYWcRlJRPs=
+			PxCZyKThCSdFdli5yBo6SI5Tyyn1/iJB+LjNcHt6mE0=
 			</data>
 		</dict>
 		<key>app/shared/player.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			dS/BtXsQZh1A/nKaJ5SlxojaqtQ=
+			6/ZOnflysbdGKD0qMnC9a15uFLQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			0GpPYvSHw8DOOhzPKYrcAEW+Ddpzjf/fC8bVxxK2IBE=
+			gJxX5/bWlMip2rrBSa2GiOp8Y6rYPQ3dKJmbc7SF7kY=
 			</data>
 		</dict>
 		<key>app/shared/player.ts</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			5Yj+YvaojMTmJHyG0w9aXyoRERo=
+			Eg3xOKFvee+9Byj7O0wYXM2zaq8=
 			</data>
 			<key>hash2</key>
 			<data>
-			IfwSoV1MRuhzz+cDEbr3c1FwkpoKjDc/ZzF6T4OnPGQ=
+			7Ho6fFCDXMYqleRhayAddtEqPUk0RGOHfBvaeJEG88I=
 			</data>
 		</dict>
 		<key>app/shared/playerResponse.js</key>
@@ -22457,26 +22457,26 @@
 			1GSCdEwJgpRT0K3bQ9nyJOZhD38ZGEeOHTFiyJulQT8=
 			</data>
 		</dict>
-		<key>app/shared/providers/triviaQuestion.provider.js</key>
+		<key>app/shared/providers/roundData.provider.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			gaQZN/+oSKLksmMlo2rniKwCs2k=
+			YJVjnmPe6+tTafzlVRtuzL027w4=
 			</data>
 			<key>hash2</key>
 			<data>
-			aSQkhFbX+E0eRkjTyM7n8sKai2tIZCYjJN+pIv5yCe8=
+			uwNN4WrMkYzqQbN2qe8P3rZR5q1DLsyQDNhbj0e3/7A=
 			</data>
 		</dict>
-		<key>app/shared/providers/triviaQuestion.provider.ts</key>
+		<key>app/shared/providers/roundData.provider.ts</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			yEjqLuFtcn8ELnoRF8hn4E2ufeA=
+			6RN2xyzuQc6VvL2kHVbX4o6a9bQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			tdaq998yKNDm5R5Q9s5zJSvGUT4oeDWrY4Pn9kYtoHQ=
+			POMors16SFc85mVthwAyB/Xt2PW/d2SYVCv1Wi5ymos=
 			</data>
 		</dict>
 		<key>app/shared/team.js</key>
@@ -22505,22 +22505,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			n2vsfzjQGKyuvxy4+Wfzxb/0EXE=
+			RhrIWM3+pUFF+6ITPdnGR87o19c=
 			</data>
 			<key>hash2</key>
 			<data>
-			ZFihkOPAGYCbaiytWhxxcZQ1Ex4rbJCdM6XzZx+TXD4=
+			efjM/jhuoBXoolEFpgoAFDJ6jeoQthTQ9rY+xL6JwH0=
 			</data>
 		</dict>
 		<key>app/shared/triviaAnswer.ts</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			MGl7enwUmzffhE7D5VKQ2irhMTg=
+			6gzu16qd0m9KduMNyMMc2Q5EJr4=
 			</data>
 			<key>hash2</key>
 			<data>
-			H87HE8wjxkXgPrs2WgvR3g4fEzO+0geTBZWWiY2bKQY=
+			NLV/+iTBauKH0C3kWGClsqTsGuVQ5bYY8eqWQvknRbc=
 			</data>
 		</dict>
 		<key>app/shared/triviaCategory.js</key>

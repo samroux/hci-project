@@ -3,7 +3,7 @@ import { Router } from "@angular/router";
 
 import {TriviaQuestion} from "../../shared/triviaQuestion" 
 import {TriviaAnswer} from "../../shared/triviaAnswer" 
-import {TriviaQuestionProvider} from "../../shared/providers/triviaQuestion.provider" 
+import {RoundDataProvider} from "../../shared/providers/roundData.provider" 
 
 
 @Component({
@@ -20,13 +20,13 @@ export class AnswerComponent {
 
   private currentQuestion: TriviaQuestion;
 
-  public constructor(private router: Router, private triviaQuestionProvider: TriviaQuestionProvider ) {
+  public constructor(private router: Router, private roundDataProvider: RoundDataProvider) {
     // console.log("Constructing answer.component");
     this.choices = [];
 
     this.choices.push(new TriviaAnswer(null,""));
 
-    this.currentQuestion = triviaQuestionProvider.triviaQuestion
+    this.currentQuestion = roundDataProvider.triviaQuestion
 
     this.question = this.currentQuestion.question; 
 
@@ -46,11 +46,24 @@ export class AnswerComponent {
 
       let correct = this.checkCorrectness(this.selectedAnswer);
 
+      //increasing answer count for this player
+      this.roundDataProvider.currentPlayer.answerCount++;
+
+      // increase player points if good answer.
+      if(correct){
+        this.roundDataProvider.currentPlayer.runningPointsTotal++;
+      }else{
+        // no point gain or loss
+      }
+
+      console.log(this.roundDataProvider.currentPlayer.name + "Player is having: " + this.roundDataProvider.currentPlayer.runningPointsTotal);
+      
+
       this.next(correct, this.selectedAnswer.content);
     }
   }
 
-  private checkCorrectness(answer){
+  private checkCorrectness(answer) : boolean{
 
     if(this.currentQuestion.triviaCorrectAnswer == answer){
       //answer is correct!

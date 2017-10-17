@@ -8,7 +8,7 @@ import { NativeScriptRouterModule } from "nativescript-angular/router";
 import { AppComponent } from "./app.component";
 import { routes, navigatableComponents } from "./app.routing";
 
-import { TriviaQuestionProvider } from "./shared/providers/triviaQuestion.provider";
+import { RoundDataProvider } from "./shared/providers/roundData.provider";
 
 @NgModule({
   imports: [
@@ -23,7 +23,7 @@ import { TriviaQuestionProvider } from "./shared/providers/triviaQuestion.provid
     ...navigatableComponents
   ],
   bootstrap: [AppComponent],
-  providers: [TriviaQuestionProvider]
+  providers: [RoundDataProvider]
   
 })
 export class AppModule {}

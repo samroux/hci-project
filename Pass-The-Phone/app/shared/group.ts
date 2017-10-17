@@ -12,7 +12,5 @@ export class Group {
         this.playersName += ", ";
       }
     }
-
-
   }
 }

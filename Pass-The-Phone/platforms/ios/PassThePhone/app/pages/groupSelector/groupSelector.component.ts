@@ -36,10 +36,11 @@ export class GroupSelectorComponent implements OnInit{
     let player10 = new Player("Asher");
     
     let groupPlayers1 = [player1, player2, player3];
-    let groupPlayers2 = [player2, player3, player4];
+    let groupPlayers2 = [player2, player3, player4, player6];
     let groupPlayers3 = [player4, player5, player6];
-    let groupPlayers4 = [player6, player7, player8];
+    let groupPlayers4 = [player6, player7, player8, player4];
     let groupPlayers5 = [player8, player9, player10];
+    let groupPlayers6 = [player1, player2, player3, player4, player5, player6, player7, player8, player9, player10];
 
     this.groups.push(new Group(null,[]));
 
@@ -48,6 +49,8 @@ export class GroupSelectorComponent implements OnInit{
     this.groups.push( new Group ("groupPlayers3", groupPlayers3));
     this.groups.push( new Group ("groupPlayers4", groupPlayers4));
     this.groups.push( new Group ("groupPlayers5", groupPlayers5));
+    this.groups.push( new Group ("groupPlayers6", groupPlayers6));
+    
   }
 
   public onItemTap(args) {

@@ -34,6 +34,14 @@ GridLayout {
   margin-top: 20;
 }
 
+.selected {
+  background-color: green;
+}
+
+.non-selected {
+  background-color: blue;
+}
+
 
 /* ios styles */
 .iosListItemStackLayout {

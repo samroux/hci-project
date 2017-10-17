@@ -107,6 +107,11 @@ export class QuestionPresenterComponent implements OnInit{
   }
 
   private next(page) {
-    this.router.navigate([page]);
+    if(page == "questionPreAnswer"){
+      this.router.navigate(["questionPreAnswer"]);
+    }else{
+      this.router.navigate(["summary"]);
+    }
+    
   }
 }

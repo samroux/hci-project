@@ -20,3 +20,16 @@ TextField {
   font-size: 13;
 }
 
+.page-header{
+  padding: 25;
+  font-size: 18;
+}
+
+.page-stack{
+  margin-left: 0;
+  margin-right: 0;
+  padding-bottom: 0;
+  padding-top: 0;
+  background-color: white;
+}
+

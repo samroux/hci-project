@@ -1,7 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { ObservableArray, ChangedData, ChangeType } from "tns-core-modules/data/observable-array";
-import {NativeScriptUIListViewModule} from "nativescript-telerik-ui/listview/angular";
+import { ListViewEventData, RadListView } from "nativescript-pro-ui/listview";
+require("nativescript-pro-ui/listview/angular");
+
 
 import {RoundDataProvider} from "../../shared/providers/roundData.provider";
 import {Team} from "../../shared/team";
@@ -16,16 +18,9 @@ import {Player} from "../../shared/player";
 export class TeamBuilderComponent implements OnInit{
   private _dataItems: ObservableArray<Player>;
   private _selectedItems: string;
-  
   public progressValue: number;  
   
   public constructor(private router: Router, private roundDataProvider: RoundDataProvider) {}
-  
-  ngOnInit(){
-    this.progressValue = 60;
-    this._dataItems = new ObservableArray(this.roundDataProvider.players);
-    this._selectedItems = "No Selected items.";
-  }
   
   get dataItems(): ObservableArray<Player> {
     return this._dataItems;
@@ -35,7 +30,13 @@ export class TeamBuilderComponent implements OnInit{
     return this._selectedItems;
   }
   
-  public onItemSelected(args: ListViewEventData) {
+  ngOnInit() {
+    this.progressValue = 60;
+    this._dataItems = new ObservableArray(this.roundDataProvider.players);
+    this._selectedItems = "No Selected items.";
+  }
+  
+  private onItemSelected(args: ListViewEventData) {
     var listview = args.object as RadListView;
     var selectedItems = listview.getSelectedItems() as Array<Player>;
     var selectedTitles = "Selected items: ";
@@ -48,10 +49,10 @@ export class TeamBuilderComponent implements OnInit{
     }
     
     this._selectedItems = selectedTitles;
-    console.log("Item selected.");
+    console.log("Item selected. "+ selectedTitles);
   }
   
-  public onItemDeselected(args: ListViewEventData) {
+  private onItemDeselected(args: ListViewEventData) {
     var listview = args.object as RadListView;
     var selectedItems = listview.getSelectedItems() as Array<Player>;
     if (selectedItems.length > 0) {
@@ -69,13 +70,11 @@ export class TeamBuilderComponent implements OnInit{
       this._selectedItems = "No Selected items.";
     }
     
-    console.log("Item deselected.");
+    console.log("Item deselected. "+ selectedTitles);
   }
-  
-  
-  
+
   next() {
     this.router.navigate(["subjectSelector"])
   }
-}
-
+  
+}  

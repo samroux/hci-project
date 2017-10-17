@@ -46,11 +46,26 @@ export class AnswerComponent {
 
       let correct = this.checkCorrectness(this.selectedAnswer);
 
+      //increasing answer count for this player
+      this.roundDataProvider.currentPlayer.answerCount++;
+
+      // increase player points if good answer.
+      if(correct){
+        this.roundDataProvider.currentPlayer.runningPointsTotal++;
+      }else{
+        // no point gain or loss
+      }
+
+      console.log(this.roundDataProvider.currentPlayer.name + 
+        "Player is having: " + 
+      this.roundDataProvider.currentPlayer.runningPointsTotal);
+      
+
       this.next(correct, this.selectedAnswer.content);
     }
   }
 
-  private checkCorrectness(answer){
+  private checkCorrectness(answer) : boolean{
 
     if(this.currentQuestion.triviaCorrectAnswer == answer){
       //answer is correct!

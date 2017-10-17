@@ -12,7 +12,7 @@ import {RoundDataProvider} from "../../shared/providers/roundData.provider"
 })
 
 export class AnswerValidationComponent{
-  public correct: boolean;
+  public correct: string;
   
   // public correct_answer: TriviaAnswer;
   public correct_answer_content: string;
@@ -27,7 +27,7 @@ export class AnswerValidationComponent{
     console.log("correct: "+this.correct);
     // console.log("answer: "+this.player_answer_content);
 
-    if(this.correct){
+    if(this.correct == "true"){
       this.correctness = "Right";
     }else{
       this.correctness = "Wrong";
@@ -38,6 +38,8 @@ export class AnswerValidationComponent{
   }
   
   next() {
+    // TODO need to check if needs to go to summary or not.
+
     this.router.navigate(["summary"])
   }
 }

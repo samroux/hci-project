@@ -3,7 +3,7 @@ import { Router } from "@angular/router";
 
 @Component({
   selector: "start",
-  templateUrl: "pages/start/start.html",
+  templateUrl: "pages/start/start.component.html",
   styleUrls: ["pages/start/start-common.css"]
 })
 

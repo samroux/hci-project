@@ -34,11 +34,6 @@ export class PlayerCreatorComponent implements OnInit{
 
     this.roundDataProvider.players = this.players;
 
-    // console.log("this.roundDataProvider.players.length: " + this.roundDataProvider.players.length);
-    // for(let i =0 ; i< this.roundDataProvider.players.length;i++){
-    //   console.log("this.roundDataProvider.players" + this.roundDataProvider.players[i].name); 
-    // }
-
     this.next(); 
   }
   

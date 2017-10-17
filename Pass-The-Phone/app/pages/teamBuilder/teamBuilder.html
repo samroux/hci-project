@@ -2,12 +2,14 @@
         <Label class="action-bar-title" text="Pass The Phone"></Label>
 </ActionBar>
 
-<StackLayout class="page-stack">
-        <Progress [value]="progressValue" maxValue="100" class="m-20"></Progress>                 
-        <StackLayout class="inner-stack">
-                <Label text="TeamBuilder-Page"></Label>
-                <RadListView row="0" [items]="dataItems" selectionBehavior="Press" (itemSelected)="onItemSelected($event)" 
-                (itemDeselected)="onItemDeselected($event)"></RadListView>      
-                <Button text="Next" class="submit-button" (tap)="next()"></Button>        
-        </StackLayout>
-</StackLayout>
+<GridLayout tkExampleTitle tkToggleNavButton>
+        <!-- >> angular-listview-item-selection-multiple -->
+        <RadListView [items]="dataItems" selectionBehavior="Press" multipleSelection="true" (itemSelected)="onItemSelected($event)" (itemDeselected)="onItemDeselected($event)">
+                <!-- << angular-listview-item-selection-multiple -->
+                <ng-template tkListItemTemplate let-dataItems="item">
+                        <StackLayout ios:class="iosListItemStackLayout" android:class="androidListItemStackLayout">
+                                <Label ios:class="iosNameLabel" android:class="androidNameLabel" [text]="dataItems.name"></Label>
+                        </StackLayout>
+                </ng-template>
+        </RadListView>
+</GridLayout>

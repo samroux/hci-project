@@ -1,5 +1,7 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
+
+import { Progress } from "ui/progress";
 
 import {RoundDataProvider} from "../../shared/providers/roundData.provider";
 
@@ -10,9 +12,15 @@ import {RoundDataProvider} from "../../shared/providers/roundData.provider";
   styleUrls: ["pages/modeSelector/modeSelector-common.css"]
 })
 
-export class ModeSelectorComponent {
+export class ModeSelectorComponent implements OnInit {
+
+  public progressValue: number;  
   
   public constructor(private router: Router, private roundDataProvider: RoundDataProvider) {}
+
+  ngOnInit(){
+    this.progressValue = 40;
+  }
 
   individualPlay() {
     this.roundDataProvider.gameMode="individual";

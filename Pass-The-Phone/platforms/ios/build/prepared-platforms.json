@@ -10,6 +10,7 @@
     "base-64": true,
     "nativescript-angular": true,
     "nativescript-nodeify": true,
+    "nativescript-pro-ui": true,
     "nativescript-theme-core": true,
     "reflect-metadata": true,
     "rxjs": true,

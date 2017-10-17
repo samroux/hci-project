@@ -14,6 +14,10 @@
 		8095B75C395644A486BB6E01 /* build.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0CAA06378F3344DFB8AAD750 /* build.xcconfig */; };
 		7D1F7DDC33CC49758913DB3B /* TNSWidgets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6361C470F9FC4FE289CC3DFC /* TNSWidgets.framework */; };
 		5D181BB073784814BC156757 /* TNSWidgets.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6361C470F9FC4FE289CC3DFC /* TNSWidgets.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8BC525FFF0E644EBB4A1D3E2 /* TelerikAppFeedback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4830925680CD4A249DCD8D9F /* TelerikAppFeedback.framework */; };
+		FDD58C9D8E264225B3A3DEFF /* TelerikAppFeedback.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4830925680CD4A249DCD8D9F /* TelerikAppFeedback.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		041E11A057E440D1B0C8E8B3 /* TelerikUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E9836381C2745D5A46114E6 /* TelerikUI.framework */; };
+		61D1646B13284A9EBE7140D1 /* TelerikUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9E9836381C2745D5A46114E6 /* TelerikUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,6 +28,8 @@
 			dstSubfolderSpec = 10;
 			files = (
 				5D181BB073784814BC156757 /* TNSWidgets.framework in Embed Frameworks */,
+				FDD58C9D8E264225B3A3DEFF /* TelerikAppFeedback.framework in Embed Frameworks */,
+				61D1646B13284A9EBE7140D1 /* TelerikUI.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -45,6 +51,8 @@
 		2EAAE1B3CA2B4F419C8494F5 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = unknown; name = LaunchScreen.storyboard; path = "PassThePhone/Resources/LaunchScreen.storyboard"; sourceTree = "<group>"; fileEncoding = 4; };
 		0CAA06378F3344DFB8AAD750 /* build.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = unknown; name = build.xcconfig; path = "PassThePhone/Resources/build.xcconfig"; sourceTree = "<group>"; fileEncoding = 4; };
 		6361C470F9FC4FE289CC3DFC /* TNSWidgets.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TNSWidgets.framework; path = "$(SRCROOT)/../../node_modules/tns-core-modules-widgets/platforms/ios/TNSWidgets.framework"; sourceTree = "<group>"; };
+		4830925680CD4A249DCD8D9F /* TelerikAppFeedback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TelerikAppFeedback.framework; path = "$(SRCROOT)/../../node_modules/nativescript-pro-ui/platforms/ios/TelerikAppFeedback.framework"; sourceTree = "<group>"; };
+		9E9836381C2745D5A46114E6 /* TelerikUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TelerikUI.framework; path = "$(SRCROOT)/../../node_modules/nativescript-pro-ui/platforms/ios/TelerikUI.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +61,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D1F7DDC33CC49758913DB3B /* TNSWidgets.framework in Frameworks */,
+				8BC525FFF0E644EBB4A1D3E2 /* TelerikAppFeedback.framework in Frameworks */,
+				041E11A057E440D1B0C8E8B3 /* TelerikUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +92,8 @@
 			isa = PBXGroup;
 			children = (
 				6361C470F9FC4FE289CC3DFC /* TNSWidgets.framework */,
+				4830925680CD4A249DCD8D9F /* TelerikAppFeedback.framework */,
+				9E9836381C2745D5A46114E6 /* TelerikUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -350,6 +362,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../node_modules/tns-core-modules-widgets/platforms/ios\"",
+					"\"$(SRCROOT)/../../node_modules/nativescript-pro-ui/platforms/ios\"",
+					"\"$(SRCROOT)/../../node_modules/nativescript-pro-ui/platforms/ios\"",
 				);
 			};
 			name = Debug;
@@ -372,6 +386,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../node_modules/tns-core-modules-widgets/platforms/ios\"",
+					"\"$(SRCROOT)/../../node_modules/nativescript-pro-ui/platforms/ios\"",
+					"\"$(SRCROOT)/../../node_modules/nativescript-pro-ui/platforms/ios\"",
 				);
 			};
 			name = Release;

@@ -15,12 +15,12 @@ import { AnswerComponent } from "./pages/answer/answer.component";
 import { AnswerValidationComponent } from "./pages/answerValidation/answerValidation.component";
 import { SummaryComponent } from "./pages/summary/summary.component";
  
-import {CreatingListViewComponent} from "./pages/listView/creating-listview.component";
+// import {ListViewGettingStartedComponent} from "./pages/listview/getting-started/listview-getting-started.component";
 
 
 
 export const routes = [
-    { path: "", redirectTo: "/start", pathMatch: "full" },    
+    { path: "", redirectTo: "/playerCreator", pathMatch: "full" },    
     { path: "start", component: StartComponent },
     { path: "groupTypeSelector", component: GroupTypeSelectorComponent },
     { path: "playerCreator", component: PlayerCreatorComponent },
@@ -32,9 +32,9 @@ export const routes = [
     { path: "questionPreAnswer", component: QuestionPreAnswerComponent },
     { path: "answer", component: AnswerComponent },
     { path: "answerValidation/:correct/:answer", component: AnswerValidationComponent },
-    { path: "summary", component: SummaryComponent },
+    { path: "summary", component: SummaryComponent }
 
-    { path: "creatingListView", component: CreatingListViewComponent }
+    // { path: "listView", component: ListViewGettingStartedComponent }
 ];
 
 export const navigatableComponents = [
@@ -49,8 +49,8 @@ export const navigatableComponents = [
     QuestionPreAnswerComponent,
     AnswerComponent,
     AnswerValidationComponent,
-    SummaryComponent,
+    SummaryComponent
 
-    CreatingListViewComponent
+    // ListViewGettingStartedComponent
 ];
 

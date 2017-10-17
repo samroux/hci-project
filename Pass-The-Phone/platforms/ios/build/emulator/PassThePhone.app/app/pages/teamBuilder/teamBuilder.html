@@ -2,7 +2,12 @@
         <Label class="action-bar-title" text="Pass The Phone"></Label>
 </ActionBar>
 
-<StackLayout>
-        <Label text="TeamBuilder-Page"></Label>       
-        <Button text="Next" class="submit-button" (tap)="next()"></Button>        
+<StackLayout class="page-stack">
+        <Progress [value]="progressValue" maxValue="100" class="m-20"></Progress>                 
+        <StackLayout class="inner-stack">
+                <Label text="TeamBuilder-Page"></Label>
+                <RadListView row="0" [items]="dataItems" selectionBehavior="Press" (itemSelected)="onItemSelected($event)" 
+                (itemDeselected)="onItemDeselected($event)"></RadListView>      
+                <Button text="Next" class="submit-button" (tap)="next()"></Button>        
+        </StackLayout>
 </StackLayout>

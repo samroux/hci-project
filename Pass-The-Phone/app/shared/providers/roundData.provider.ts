@@ -10,7 +10,7 @@ export class RoundDataProvider {
     public triviaQuestion: TriviaQuestion; 
     public currentPlayer: Player;
     public group: Group;
-    public players : Array<Player> = [];
+    public players : Player[] = [];
     
     public gameMode: string;
     

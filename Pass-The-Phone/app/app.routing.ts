@@ -20,7 +20,7 @@ import { SummaryComponent } from "./pages/summary/summary.component";
 
 
 export const routes = [
-    { path: "", redirectTo: "/playerCreator", pathMatch: "full" },    
+    { path: "", redirectTo: "/start", pathMatch: "full" },    
     { path: "start", component: StartComponent },
     { path: "groupTypeSelector", component: GroupTypeSelectorComponent },
     { path: "playerCreator", component: PlayerCreatorComponent },

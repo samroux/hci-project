@@ -12,6 +12,6 @@ export class StartComponent {
   public constructor(private router: Router) {}
 
   submit() {
-    this.router.navigate(["playerCreator"])
+    this.router.navigate(["groupTypeSelector"])
   }
 }

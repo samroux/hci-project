@@ -30,7 +30,7 @@ export class PlayerCreatorComponent implements OnInit{
   }
   
   private submit(groupName) {
-    this.group = new Group(groupName);
+    this.group = new Group(groupName, this.players);
 
     this.roundDataProvider.players = this.players;
 

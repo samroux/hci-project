@@ -14,12 +14,20 @@ import {RoundDataProvider} from "../../shared/providers/roundData.provider";
 
 export class ModeSelectorComponent implements OnInit {
 
-  public progressValue: number;  
+  private progressValue: number; 
+
+  private playersName: string;
+  private groupName: string; 
+  
+  
   
   public constructor(private router: Router, private roundDataProvider: RoundDataProvider) {}
 
   ngOnInit(){
     this.progressValue = 40;
+    this.playersName = this.roundDataProvider.group.playersName;
+    this.groupName = this.roundDataProvider.group.name;
+    
   }
 
   individualPlay() {

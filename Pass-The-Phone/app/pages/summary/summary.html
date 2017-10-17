@@ -3,6 +3,10 @@
 </ActionBar>
     
 <StackLayout>
-        <Label text="Summary-Page"></Label>       
-        <Button text="Next" class="submit-button" (tap)="next()"></Button>        
+        <Label text="Summary-Page"></Label> 
+        <!--<StackLayout orientation="horizontal" width="100%"> -->  
+        <GridLayout columns="*, *" rows="auto">
+                <Button text="Restart" class="submit-button" (tap)="questionRoute()" col="0" width=45%></Button>
+                <Button text="Change Game &#9881;" class="submit-button" (tap)="settingsRoute()" col="2" width=45%></Button>       
+         </GridLayout>
 </StackLayout>

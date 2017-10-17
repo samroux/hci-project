@@ -4,11 +4,11 @@ TextField {
   border-width: 1;
   border-color: black;
 }
-StackLayout {
-  margin-left: 30;
-  margin-right: 30;
+StackLayout, GridLayout {
+  margin-left: 14;
+  margin-right: 14;
   padding-bottom: 15;
-  padding-top: 200;
+  padding-top: 40;
   background-color: white;
 }
 Image {
@@ -16,12 +16,11 @@ Image {
   margin-bottom: 20;
 }
 Button, TextField {
-  margin-left: 16;
-  margin-right: 16;
+  margin-left: 8;
+  margin-right: 8;
   margin-bottom: 10;
-}
-.submit-button {
-  background-color: #CB1D00;
-  color: white;
-  margin-top: 20;
+  font-size: 12%;
+  border-radius: 12px;
+  background-color: #e7e7e7;
+  color: black;
 }

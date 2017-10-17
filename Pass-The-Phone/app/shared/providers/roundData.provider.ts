@@ -12,6 +12,7 @@ export class RoundDataProvider {
     public currentPlayer: Player;
     public group: Group;
     public players : Player[] = [];
+    public subjectId: string;
     
     public gameMode: string;
     

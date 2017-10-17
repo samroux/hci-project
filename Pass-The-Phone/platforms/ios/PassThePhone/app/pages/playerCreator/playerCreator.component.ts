@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild, OnInit  } from "@angular/core";
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 
 import { TextField } from "ui/text-field";
 import { Progress } from "ui/progress";
@@ -19,11 +19,18 @@ export class PlayerCreatorComponent implements OnInit{
   private group: Group;
   private players: Array<Player>  = [];
   public progressValue: number;
+  private rdp: RoundDataProvider;
+  private returnPath: string;
   
   newPlayerName = "";
   @ViewChild("newPlayerTx") newPlayerTx: ElementRef;
   
-  public constructor(private router: Router, private roundDataProvider: RoundDataProvider) {}
+  public constructor(private route:ActivatedRoute, private router: Router, private roundDataProvider: RoundDataProvider) {
+    this.route.params.subscribe((params) => {
+      this.returnPath = params.path;
+    });  
+    this.rdp = roundDataProvider;
+  }
 
   ngOnInit() {
     this.progressValue = 20;
@@ -31,9 +38,8 @@ export class PlayerCreatorComponent implements OnInit{
   
   private submit(groupName) {
     this.group = new Group(groupName, this.players);
-
-    this.roundDataProvider.players = this.players;
-
+    this.rdp.players = this.players;
+    this.rdp.group = this.group;
     this.next(); 
   }
   
@@ -44,6 +50,11 @@ export class PlayerCreatorComponent implements OnInit{
   }
   
   private next() {
-    this.router.navigate(["modeSelector"]);
+    if(this.returnPath == "summary"){
+      this.router.navigate(["summary"]);
+    } else{
+      this.router.navigate(["modeSelector"]);
+    }
+    console.log("return:" + this.returnPath); 
   }
 }

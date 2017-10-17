@@ -27,6 +27,7 @@ export class QuestionPresenterComponent implements OnInit{
       this.selectedId = params.id;
     });
     console.log("selectedid: " + this.selectedId);
+    roundDataProvider.subjectId = this.selectedId;
 
     this.choices = [];
 

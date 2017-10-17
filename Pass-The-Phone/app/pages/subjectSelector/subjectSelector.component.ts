@@ -23,7 +23,8 @@ export class SubjectSelectorComponent implements OnInit{
   constructor(private route: ActivatedRoute, private router: Router) { 
     this.route.params.subscribe((params) => {
       this.returnPath = params.path;
-    });  
+    });
+    
     this.categories.push(new TriviaCategory(null,""));
   }
   

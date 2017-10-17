@@ -12,10 +12,11 @@ export class RoundDataProvider {
     public currentPlayer: Player;
     public group: Group;
     public players : Player[] = [];
+    public subjectId: string;
     
     public gameMode: string;
     
-    readonly answerCount:number = 2;
+    readonly answerCount:number = 1;
     
     public constructor() {}
     

@@ -158,7 +158,7 @@ export class TeamBuilderComponent implements OnInit{
   }
   
   next() {
-    this.router.navigate(["subjectSelector"])
+    this.router.navigate(["subjectSelector",""]);
   }
   
 }  

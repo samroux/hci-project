@@ -17,26 +17,29 @@ export class ModeSelectorComponent implements OnInit {
   private progressValue: number; 
 
   private playersName: string;
-  private groupName: string; 
+  private groupName: string;
+  private rdp: RoundDataProvider; 
   
   
   
-  public constructor(private router: Router, private roundDataProvider: RoundDataProvider) {}
+  public constructor(private router: Router, private roundDataProvider: RoundDataProvider) {
+    this.rdp = roundDataProvider;
+    console.log("gros");
+    this.playersName = roundDataProvider.group.playersName;
+    this.groupName = roundDataProvider.group.name;
+  }
 
   ngOnInit(){
-    this.progressValue = 40;
-    this.playersName = this.roundDataProvider.group.playersName;
-    this.groupName = this.roundDataProvider.group.name;
-    
+    this.progressValue = 40;    
   }
 
   individualPlay() {
-    this.roundDataProvider.gameMode="individual";
+    this.rdp.gameMode="individual";
     this.next("individual");
   }
 
   teamPlay() {
-    this.roundDataProvider.gameMode="team";
+    this.rdp.gameMode="team";
     this.next("team");
   }
 
@@ -44,7 +47,7 @@ export class ModeSelectorComponent implements OnInit {
     if(mode == "team"){
       this.router.navigate(["teamBuilder"])
     }else{
-      this.router.navigate(["subjectSelector"])
+      this.router.navigate(["subjectSelector", ""])
     }
   }
 }

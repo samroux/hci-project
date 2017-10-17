@@ -20,7 +20,7 @@ export class GroupTypeSelectorComponent implements OnInit {
   }
 
   newGroup() {
-    this.router.navigate(["playerCreator"])
+    this.router.navigate(["playerCreator", ""])
   }
 
   existingGroup() {

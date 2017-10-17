@@ -16,7 +16,7 @@ export class RoundDataProvider {
     
     public gameMode: string;
     
-    readonly answerCount:number = 2;
+    readonly answerCount:number = 1;
     
     public constructor() {}
     

@@ -27,8 +27,7 @@ export class AnswerValidationComponent implements OnInit{
       this.player_answer_content = params["answer"];
       console.log("answer: "+roundDataProvider.subjectId);
       this.subjectId = roundDataProvider.subjectId;
-      this.playersRemaining = roundDataProvider.getRandomPlayer != null;
-
+      this.playersRemaining = roundDataProvider.getRandomPlayer() == null;
     });
     console.log("correct: "+this.correct);
     // console.log("answer: "+this.player_answer_content);
@@ -50,7 +49,7 @@ export class AnswerValidationComponent implements OnInit{
     // TODO need to check if needs to go to summary or not.
     //Yo sam routing to questionpresenter then to summary brought the question
     //page for a second so im sending directly to summary
-    if(this.playersRemaining){
+    if(!this.playersRemaining){
       this.router.navigate(["questionPresenter", this.subjectId ]);
     } else{
       this.router.navigate(["summary"]);

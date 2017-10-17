@@ -56,7 +56,9 @@ export class AnswerComponent {
         // no point gain or loss
       }
 
-      console.log(this.roundDataProvider.currentPlayer.name + "Player is having: " + this.roundDataProvider.currentPlayer.runningPointsTotal);
+      console.log(this.roundDataProvider.currentPlayer.name + 
+        "Player is having: " + 
+      this.roundDataProvider.currentPlayer.runningPointsTotal);
       
 
       this.next(correct, this.selectedAnswer.content);

@@ -2,6 +2,8 @@ import { Component, ChangeDetectionStrategy, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { Http, Headers, Response } from "@angular/http";
 
+import { Progress } from "ui/progress";
+
 import {TriviaCategory} from "../../shared/triviaCategory" 
 
 @Component({
@@ -15,8 +17,16 @@ export class SubjectSelectorComponent implements OnInit{
   public categories: Array<TriviaCategory> = [];
   public selectedCategory: TriviaCategory;
   
+  public progressValue: number;  
+  
   constructor(private router: Router) {   
     this.categories.push(new TriviaCategory(null,""));
+  }
+  
+  ngOnInit() {
+    this.progressValue = 80;
+    
+    this.extractData();
   }
   
   public onItemTap(args) {
@@ -30,13 +40,11 @@ export class SubjectSelectorComponent implements OnInit{
   
   next(categoryId) {
     // console.log("Navigating to questionPresenter with id: "+ categoryId);
-
+    
     this.router.navigate(["questionPresenter", categoryId ]);
   }
   
-  ngOnInit() {
-    this.extractData();
-  }
+  
   
   extractData() {
     var http = require("http");
@@ -51,7 +59,7 @@ export class SubjectSelectorComponent implements OnInit{
       var str = r.content.toString();
       
       var myObj = JSON.parse(str);
-            
+      
       for (let i = 0;i < myObj.trivia_categories.length;i++) {
         // console.log(myObj.trivia_categories[i].id+ " "+ myObj.trivia_categories[i].name);
         

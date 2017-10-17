@@ -1,8 +1,8 @@
-import { Component, ElementRef, ViewChild  } from "@angular/core";
+import { Component, ElementRef, ViewChild, OnInit  } from "@angular/core";
 import { Router } from "@angular/router";
 
 import { TextField } from "ui/text-field";
-
+import { Progress } from "ui/progress";
 
 import {Group} from "../../shared/group";
 import {Player} from "../../shared/player";
@@ -14,14 +14,20 @@ import {RoundDataProvider} from "../../shared/providers/roundData.provider";
   styleUrls: ["pages/playerCreator/playerCreator-common.css"]
 })
 
-export class PlayerCreatorComponent {
+export class PlayerCreatorComponent implements OnInit{
   
   private group: Group;
   private players: Array<Player>  = [];
+  public progressValue: number;
+  
   newPlayerName = "";
   @ViewChild("newPlayerTx") newPlayerTx: ElementRef;
   
   public constructor(private router: Router, private roundDataProvider: RoundDataProvider) {}
+
+  ngOnInit() {
+    this.progressValue = 20;
+  }
   
   private submit(groupName) {
     this.group = new Group(groupName);

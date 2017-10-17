@@ -2,8 +2,11 @@
         <Label class="action-bar-title" text="Pass The Phone"></Label>
 </ActionBar>
 
-<StackLayout>
-        <Label text="Mode Selector-Page"></Label>       
-        <Button text="Team" class="submit-button" (tap)="teamPlay()"></Button>
-        <Button text="Individual" class="submit-button" (tap)="individualPlay()"></Button>
+<StackLayout class="page-stack">
+        <Progress [value]="progressValue" maxValue="100" class="m-20"></Progress> 
+        <StackLayout class="inner-stack">
+                <Label text="Mode Selector-Page"></Label>       
+                <Button text="Team" class="submit-button" (tap)="teamPlay()"></Button>
+                <Button text="Individual" class="submit-button" (tap)="individualPlay()"></Button>
+        </StackLayout>
 </StackLayout>

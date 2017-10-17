@@ -4,7 +4,7 @@ TextField {
   border-width: 1;
   border-color: black;
 }
-StackLayout {
+.inner-stack {
   margin-left: 30;
   margin-right: 30;
   padding-bottom: 15;

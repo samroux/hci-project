@@ -2,25 +2,28 @@
         <Label class="action-bar-title" text="Pass The Phone"></Label>
 </ActionBar>
 
-<StackLayout>
-        <Label class="label" text="Enter a group name:" row="1" col="0" textWrap="true"></Label>
-        <TextField #grounNameTx hint="Group Name" autocorrect="false" returnKeyType="done"
-        class="input input-border"></TextField>
-        
-        <GridLayout rows="auto, *" columns="2*, *" height="60%">
-                <TextField  #newPlayerTx id="newPlayerName"  [(ngModel)]="newPlayerName" hint="Enter a Player Name" row="0" col="0" ></TextField>
-                <Button text="Add" tap="add" row="0" col="1" (tap)="addPlayer(newPlayerTx.text)"></Button>
-                <!-- <ListView items="{{ playerList }}" id="playerList" row="1" colSpan="2"></ListView> -->
-                <ListView [items]="players" row="1" colSpan="2" class="list-group">
-                        <ng-template let-players="item" let-i="index" let-odd="odd" let-even="even">
-                                <GridLayout class="list-group-item">
-                                        <Label [text]="players.name"></Label>
-                                </GridLayout>
-                        </ng-template>
-                </ListView>
-                <!-- << listview-create-html -->
-        </GridLayout>
-        
-        <Button text="Create Group" (tap)="submit(grounNameTx.text)" class="submit-button" ></Button>      
-        <!-- <Button text="Next-Don't Click" class="submit-button" (tap)="next()"></Button>    -->
+<StackLayout class="page-stack">
+        <Progress [value]="progressValue" maxValue="100" class="m-20"></Progress> 
+        <StackLayout class="inner-stack">
+                <Label class="label" text="Enter a group name:" row="1" col="0" textWrap="true"></Label>
+                <TextField #grounNameTx hint="Group Name" autocorrect="false" returnKeyType="done"
+                class="input input-border"></TextField>
+                
+                <GridLayout rows="auto, *" columns="2*, *" height="60%">
+                        <TextField  #newPlayerTx id="newPlayerName"  [(ngModel)]="newPlayerName" hint="Enter a Player Name" row="0" col="0" ></TextField>
+                        <Button text="Add" tap="add" row="0" col="1" (tap)="addPlayer(newPlayerTx.text)"></Button>
+                        <!-- <ListView items="{{ playerList }}" id="playerList" row="1" colSpan="2"></ListView> -->
+                        <ListView [items]="players" row="1" colSpan="2" class="list-group">
+                                <ng-template let-players="item" let-i="index" let-odd="odd" let-even="even">
+                                        <GridLayout class="list-group-item">
+                                                <Label [text]="players.name"></Label>
+                                        </GridLayout>
+                                </ng-template>
+                        </ListView>
+                        <!-- << listview-create-html -->
+                </GridLayout>
+                
+                <Button text="Create Group" (tap)="submit(grounNameTx.text)" class="submit-button" ></Button>      
+                <!-- <Button text="Next-Don't Click" class="submit-button" (tap)="next()"></Button>    -->
+        </StackLayout>
 </StackLayout>

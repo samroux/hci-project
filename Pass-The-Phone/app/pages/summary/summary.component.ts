@@ -9,7 +9,7 @@ import {Player} from "../../shared/player";
 import {Group} from "../../shared/group";
 import {RoundDataProvider} from "../../shared/providers/roundData.provider";
 import {PointsListItems} from "../../shared/pointsListItems";
-
+import * as dialogs from "ui/dialogs";
 
 import * as listPickerModule from "tns-core-modules/ui/list-picker";
 
@@ -26,6 +26,8 @@ export class SummaryComponent implements OnInit{
   public gameMode: string;
   public rdp: RoundDataProvider;
   public show: string;
+
+  public message :string;
   
   public elements: Array<PointsListItems> = [];
   
@@ -34,10 +36,11 @@ export class SummaryComponent implements OnInit{
     this.teams = roundDataProvider.teams;    
     this.gameMode = roundDataProvider.gameMode;
     this.rdp = roundDataProvider;
-  }
+  } 
   
   @ViewChild("listpicker") listPicker : ElementRef;
   @ViewChild("go") goBtn : ElementRef;
+  @ViewChild("alert") alertText : ElementRef;
   
   
   ngOnInit(){
@@ -55,6 +58,17 @@ export class SummaryComponent implements OnInit{
         this.elements.push(new PointsListItems(this.players[i].name,this.players[i].runningPointsTotal, ""));
       }
     }
+    console.log(this.rdp.path);
+    if(this.rdp.path && this.rdp.path !== ""){
+      if(this.rdp.path == "subjectSelector"){
+        this.message = "Subject Changed!";
+      } else if(this.rdp.path == "playerCreator"){
+        this.message = "Players Changed!";
+      }
+      this.alertText.nativeElement.visibility = "visible";
+      this.alertText.nativeElement.text = this.message;
+      this.rdp.path == "";
+    }
   }
   
   settingsRoute() {
@@ -68,12 +82,14 @@ export class SummaryComponent implements OnInit{
     console.log(this.listPicker.nativeElement.selectedIndex);
     if(this.listPicker.nativeElement.selectedIndex == 0){
       this.routerExtensions.navigate(["subjectSelector"], { clearHistory: true });
+      this.rdp.path = "summary";
     } else{
-      this.routerExtensions.navigate(["groupTypeSelector"], { clearHistory: true });
+      this.routerExtensions.navigate(["playerCreator"], { clearHistory: true });
+      this.rdp.path = "summary";
     }
   }
   
-  questionRoute() {
+  restartRoute() {
     // TODO reset points and game
     this.rdp.players.forEach(player => {
       player.answerCount = 0;

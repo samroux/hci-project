@@ -14,6 +14,8 @@ export class RoundDataProvider {
     public group: Group;
     public players : Player[] = [];
     public teams : Team[] = [];
+
+    public path: string;
     
     public subjectId: string;
     

@@ -21,6 +21,6 @@
                 <Button text="Restart" class="submit-button" (tap)="questionRoute()" col="0" width=45%></Button>
                 <Button text="Change Game &#9881;" class="submit-button" (tap)="settingsRoute()" col="2" width=45%></Button>  
         </GridLayout>
-        <ListPicker #listpicker class="list-picker" visibility="hidden"></ListPicker>
+        <ListPicker #listpicker class="list-picker" visibility="hidden" item-height="50"></ListPicker>
         <Button #go text="Change Selected" (tap)="changeSelected()" visibility="hidden" tap="tap"></Button>     
 </StackLayout>

@@ -16,7 +16,7 @@ export class GroupTypeSelectorComponent implements OnInit {
   public constructor(private router: Router) {}
 
   ngOnInit() {
-    this.progressValue = 0;
+    this.progressValue = 10;
   }
 
   newGroup() {

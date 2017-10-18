@@ -1,5 +1,7 @@
 import { Component,OnInit } from "@angular/core";
 import { ActivatedRoute, Params, Router } from "@angular/router";
+import {RouterExtensions} from "nativescript-angular/router";
+
 
 import {TriviaAnswer} from "../../shared/triviaAnswer";
 import {TriviaQuestion} from "../../shared/triviaQuestion";
@@ -22,11 +24,12 @@ export class QuestionPresenterComponent implements OnInit{
 
   public selectedId: string;
 
-  public constructor(private route: ActivatedRoute, private router: Router, private roundDataProvider: RoundDataProvider) {
+  public constructor(private route: ActivatedRoute, private routerExtensions: RouterExtensions, private roundDataProvider: RoundDataProvider) {
     this.route.params.subscribe((params) => {
       this.selectedId = params.id;
     });
     console.log("selectedid: " + this.selectedId);
+    roundDataProvider.subjectId = this.selectedId;
 
     this.choices = [];
 
@@ -108,9 +111,9 @@ export class QuestionPresenterComponent implements OnInit{
 
   private next(page) {
     if(page == "questionPreAnswer"){
-      this.router.navigate(["questionPreAnswer"]);
+      this.routerExtensions.navigate(["questionPreAnswer"], { clearHistory: true });
     }else{
-      this.router.navigate(["summary"]);
+      this.routerExtensions.navigate(["summary"], { clearHistory: true });
     }
     
   }

@@ -1,7 +1,13 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ChangeDetectionStrategy, ViewChild } from "@angular/core";
 import { Router } from "@angular/router";
 import { ObservableArray, ChangedData, ChangeType } from "tns-core-modules/data/observable-array";
-// import {ListViewEventData} from ""
+import { ListViewEventData, RadListView } from "nativescript-pro-ui/listview";
+import { SegmentedBar, SegmentedBarItem } from "ui/segmented-bar";
+import { RadListViewComponent } from "nativescript-pro-ui/listview/angular";
+import { ItemEventArgs } from "nativescript-pro-ui/listview/angular"
+
+require("nativescript-pro-ui/listview/angular");
+
 
 import {RoundDataProvider} from "../../shared/providers/roundData.provider";
 import {Team} from "../../shared/team";
@@ -10,22 +16,34 @@ import {Player} from "../../shared/player";
 @Component({
   selector: "teamBuilder",
   templateUrl: "pages/teamBuilder/teamBuilder.html",
-  styleUrls: ["pages/teamBuilder/teamBuilder-common.css"]
+  styleUrls: ["pages/teamBuilder/teamBuilder-common.css"],
+  changeDetection: ChangeDetectionStrategy.OnPush
+  
 })
 
 export class TeamBuilderComponent implements OnInit{
+  // ListView of players
   private _dataItems: ObservableArray<Player>;
   private _selectedItems: string;
+  private progressValue: number; 
+  private loading: boolean = false; 
   
-  public progressValue: number;  
+  // Team Segmented Bar
+  private myItems: Array<SegmentedBarItem> = [];
+  // private prop: string = "Item 1";
+  private teams: Array<Team> = [];
+  private selectedTeam: Team;
   
-  public constructor(private router: Router, private roundDataProvider: RoundDataProvider) {}
+  private teamCount = 0;
+  private playerPerteam;
   
-  ngOnInit(){
-    this.progressValue = 60;
-    this._dataItems = new ObservableArray(this.roundDataProvider.players);
-    this._selectedItems = "No Selected items.";
+  
+  
+  public constructor(private router: Router, private roundDataProvider: RoundDataProvider) {    
   }
+  
+  @ViewChild('myRadListView') listView: RadListViewComponent;
+  
   
   get dataItems(): ObservableArray<Player> {
     return this._dataItems;
@@ -35,47 +53,114 @@ export class TeamBuilderComponent implements OnInit{
     return this._selectedItems;
   }
   
-  // public onItemSelected(args: ListViewEventData) {
-  //   var listview = args.object as RadListView;
-  //   var selectedItems = listview.getSelectedItems() as Array<Player>;
-  //   var selectedTitles = "Selected items: ";
-  //   for (var i = 0; i < selectedItems.length; i++) {
-  //     selectedTitles += selectedItems[i].name;
+  ngOnInit() {
+    console.log("ngOnInit");
+    this.progressValue = 60;
+    this._dataItems = new ObservableArray(this.roundDataProvider.players);
+
+    console.log("Players");
+    for (let i = 0; i< this._dataItems.length; i++){
+      console.log(this._dataItems.getItem(i).name);
+    }
       
-  //     if (i < selectedItems.length - 1) {
-  //       selectedTitles += ", ";
-  //     }
-  //   }
-    
-  //   this._selectedItems = selectedTitles;
-  //   console.log("Item selected.");
-  // }
+
+    this._selectedItems = "No Selected items.";
+    this.loadSegmentBar();
+    // this.selectItemAt(1);
+  }
   
-  // public onItemDeselected(args: ListViewEventData) {
-  //   var listview = args.object as RadListView;
-  //   var selectedItems = listview.getSelectedItems() as Array<Player>;
-  //   if (selectedItems.length > 0) {
-  //     var selectedTitles = "Selected items: ";
-  //     for (var i = 0; i < selectedItems.length; i++) {
-  //       selectedTitles += selectedItems[i].name;
+  private loadSegmentBar(){
+    this.teamCount=this.roundDataProvider.calculateTeamCount();
+    console.log("teamCount "+this.teamCount);
+    
+    if(this.teamCount > 1){
+      //create teams
+      for (let i = 1; i <= this.teamCount; i++) {
+        const item = new SegmentedBarItem();
+        item.title = "Team " + i;
+        this.myItems.push(item);
+
+        let newTeam = new Team(item.title,[]);
         
-  //       if (i < selectedItems.length - 1) {
-  //         selectedTitles += ", ";
-  //       }
-  //     }
+        this.teams.push(newTeam);
+        this.roundDataProvider.teams.push(newTeam);
+      }
+      this.playerPerteam = this.roundDataProvider.players.length/this.teamCount;
+      this.selectedTeam = this.teams[0];
       
-  //     this._selectedItems = selectedTitles;
-  //   } else {
-  //     this._selectedItems = "No Selected items.";
-  //   }
+    }else{
+      // alert("Number of players don't allow team creation");
+      console.log("Number of players don't allow team creation");
+    }
+  }
+  
+  public onSelectedIndexChange(args) {
+    let segmetedBar = <SegmentedBar>args.object;
+    this.selectedTeam = this.teams[segmetedBar.selectedIndex];
+    // list only players not associated with team and one already in that team
+    this._dataItems = new ObservableArray(this.roundDataProvider.getExistingAndRemainingPlayers(this.selectedTeam));
     
-  //   console.log("Item deselected.");
-  // }
+    // now mark the existing as selected
+    // for(let i = 0; i < this.selectedTeam.players.length; i++ ){
+    //   let index = this._dataItems.indexOf(this.selectedTeam.players[i]);
+      
+    //   this.loading = true;
+    //   this.selectItemAt(index);
+    //   this.loading=false;
+    // }
+    console.log("selected team:" + this.selectedTeam.name );     
+  }
   
+  public onItemSelected(args: ListViewEventData) {
+    var listview = args.object as RadListView;
+    var selectedItems = listview.getSelectedItems() as Array<Player>;
+    var triggerItem = this._dataItems.getItem(args.index);
+    
+    console.log("OnItemSelected.");
+    
+    // push into players last added player
+    if(!this.loading){
+      this.selectedTeam.players.push(triggerItem);
+      triggerItem.team=this.selectedTeam;
+    }
+    
+    console.log("Team "+this.selectedTeam.name +" "+ this.selectedTeam.playersToString() );
+  }
   
+  public onItemDeselected(args: ListViewEventData) {
+    var listview = args.object as RadListView;
+    var selectedItems = listview.getSelectedItems() as Array<Player>;
+    var triggerItem = this._dataItems.getItem(args.index);
+    
+    // remove from team players
+    let index = this.selectedTeam.players.indexOf(triggerItem);
+    this.selectedTeam.players.splice(index, 1);
+    triggerItem.team=null;
+    
+    console.log("Team "+this.selectedTeam.name +" "+ this.selectedTeam.playersToString() );
+  }
+  
+  selectItemAt(index:number) {
+    console.log("selecting at: "+ index);
+    this.listView.listView.selectItemAt(index);
+  }
+  
+  radListLoaded(args: ListViewEventData) {
+    // var listView = args.object;
+    // console.log("radlistLoaded");
+    
+    // // based on the isSelected property in item.service.ts
+    // for (var index = 0; index < this._dataItems.length; index++) {
+    //   var item:Player = this._dataItems.getItem(index);
+    //   // console.log("item.isSelected: " + this._dataItems[index].name);
+    //   // if (item.isSelected) {
+    //     listView.selectItemAt(index);
+    //   // }
+    // }
+  }
   
   next() {
-    this.router.navigate(["subjectSelector"])
+    this.router.navigate(["subjectSelector"]);
   }
-}
-
+  
+}  

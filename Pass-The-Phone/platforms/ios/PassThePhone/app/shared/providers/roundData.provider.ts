@@ -80,4 +80,28 @@ export class RoundDataProvider {
         
        return noTeamPlayers;
     }
+
+
+    public clearData(){
+        console.log("Clearing Data...");
+        this.triviaQuestion = null; 
+        this.currentPlayer= null;
+        this.group= null;
+
+        for(let i = 0; i <this.players.length;i++){
+            delete this.players[i];
+        }
+
+        for(let i = 0; i <this.teams.length;i++){
+            delete this.teams[i];
+        }
+
+        this.players= [];
+        this.teams= [];
+        
+        this.subjectId= "";
+        
+        this.gameMode= "";
+    }
+        
 }

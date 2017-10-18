@@ -4,8 +4,11 @@
 
 <StackLayout class="page-stack">
         <Progress [value]="progressValue" maxValue="100" class="m-20"></Progress> 
+        <Label text="Group: {{groupName}}"></Label>    
+        <Label text="Players: {{playersName}}"></Label>    
+        
         <StackLayout class="inner-stack">
-                <Label text="Mode Selector-Page"></Label>       
+                <Label text="Please choose a game mode"></Label>
                 <Button text="Team" class="submit-button" (tap)="teamPlay()"></Button>
                 <Button text="Individual" class="submit-button" (tap)="individualPlay()"></Button>
         </StackLayout>

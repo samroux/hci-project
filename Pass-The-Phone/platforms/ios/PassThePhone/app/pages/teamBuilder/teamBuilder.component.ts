@@ -74,13 +74,16 @@ export class TeamBuilderComponent implements OnInit{
     console.log("teamCount "+this.teamCount);
     
     if(this.teamCount > 1){
-      
+      //create teams
       for (let i = 1; i <= this.teamCount; i++) {
         const item = new SegmentedBarItem();
         item.title = "Team " + i;
         this.myItems.push(item);
+
+        let newTeam = new Team(item.title,[]);
         
-        this.teams.push(new Team(item.title,[]));
+        this.teams.push(newTeam);
+        this.roundDataProvider.teams.push(newTeam);
       }
       this.playerPerteam = this.roundDataProvider.players.length/this.teamCount;
       this.selectedTeam = this.teams[0];
@@ -89,7 +92,6 @@ export class TeamBuilderComponent implements OnInit{
       // alert("Number of players don't allow team creation");
       console.log("Number of players don't allow team creation");
     }
-    
   }
   
   public onSelectedIndexChange(args) {
@@ -158,7 +160,7 @@ export class TeamBuilderComponent implements OnInit{
   }
   
   next() {
-    this.router.navigate(["subjectSelector",""]);
+    this.router.navigate(["subjectSelector"]);
   }
   
 }  

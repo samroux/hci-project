@@ -25,3 +25,8 @@ Button, TextField {
   color: white;
   margin-top: 20;
 }
+
+.playername{
+  font-size: 20;
+  text-align: center;
+}

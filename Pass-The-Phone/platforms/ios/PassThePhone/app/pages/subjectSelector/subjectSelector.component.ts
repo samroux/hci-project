@@ -21,10 +21,10 @@ export class SubjectSelectorComponent implements OnInit{
   public returnPath: string;  
   
   constructor(private route: ActivatedRoute, private router: Router) { 
-    this.route.params.subscribe((params) => {
-      this.returnPath = params.path;
-    });
-    
+    // this.route.params.subscribe((params) => {
+    //   this.returnPath = params.path;
+    // });
+
     this.categories.push(new TriviaCategory(null,""));
   }
   
@@ -44,11 +44,11 @@ export class SubjectSelectorComponent implements OnInit{
   
   next(categoryId) {
     // console.log("Navigating to questionPresenter with id: "+ categoryId);
-    if(this.returnPath == "summary"){
-      this.router.navigate([this.returnPath]);
-    } else{
+    // if(this.returnPath == "summary"){
+    //   this.router.navigate([this.returnPath]);
+    // } else{
       this.router.navigate(["questionPresenter", categoryId ]);
-    }
+    // }
   }
   
   

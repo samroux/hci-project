@@ -26,4 +26,16 @@ export class Team {
     }
     return playersName;
   }
+
+  public getTotalPoints(){
+    console.log("Getting Total points");
+    let points = 0;
+    for (let i = 0; i < this.players.length; i++) {
+      points += this.players[i].runningPointsTotal;
+    }
+    console.log("Points: "+ points);
+    
+    return points;
+  }
+    
 }

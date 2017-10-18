@@ -1,9 +1,14 @@
 import { Component, ViewChild, ElementRef, OnInit} from "@angular/core";
 import { Router } from "@angular/router";
 import { ActivatedRoute, Params} from "@angular/router";
+
+import {Team} from "../../shared/team";
 import {Player} from "../../shared/player";
 import {Group} from "../../shared/group";
 import {RoundDataProvider} from "../../shared/providers/roundData.provider";
+import {PointsListItems} from "../../shared/pointsListItems";
+
+
 import * as listPickerModule from "tns-core-modules/ui/list-picker";
 
 @Component({
@@ -12,43 +17,59 @@ import * as listPickerModule from "tns-core-modules/ui/list-picker";
   styleUrls: ["pages/summary/summary-common.css"]
 })
 
-export class SummaryComponent{
-
+export class SummaryComponent implements OnInit{
+  
   public players : Player[] = [];
+  public teams : Team[] = [];
   public gameMode: string;
   public rdp: RoundDataProvider;
   public show: string;
-
+  
+  public elements: Array<PointsListItems> = [];
+  
   public constructor(private route: ActivatedRoute, private router: Router,private roundDataProvider: RoundDataProvider ) {
-    /*this.route.params.subscribe((params) => {
-      this.player_answer_content = params["answer"];
-      console.log("answer: "+roundDataProvider.subjectId);
-      this.subjectId = roundDataProvider.subjectId;
-    });*/
-
     this.players = roundDataProvider.players;
+    this.teams = roundDataProvider.teams;    
     this.gameMode = roundDataProvider.gameMode;
     this.rdp = roundDataProvider;
   }
-
+  
   @ViewChild("listpicker") listPicker : ElementRef;
   @ViewChild("go") goBtn : ElementRef;
+  
+  
+  ngOnInit(){
+    //Populate points list depending on game mode
+    if(this.rdp.gameMode=="team"){
+      console.log("Populating Teams");
+      for (let i=0; i< this.teams.length; i++){
+        this.elements.push(new PointsListItems(
+          this.teams[i].name, this.teams[i].getTotalPoints(), this.teams[i].playersToString() ));
+      }
+      
+    }else{
+      //individual mode
+      for (let i=0; i< this.players.length; i++){
+        this.elements.push(new PointsListItems(this.players[i].name,this.players[i].runningPointsTotal, ""));
+      }
+    }
+  }
+  
   settingsRoute() {
     this.listPicker.nativeElement.visibility = "visible";
     this.goBtn.nativeElement.visibility = "visible";
     this.listPicker.nativeElement.items = ["Change Subject", "Change Players"];
-    //this.router.navigate(["start"])
   }
-
+  
   changeSelected(){
     console.log(this.listPicker.nativeElement.selectedIndex);
     if(this.listPicker.nativeElement.selectedIndex == 0){
-      this.router.navigate(["subjectSelector", "summary"]);
+      this.router.navigate(["subjectSelector"]);
     } else{
-      this.router.navigate(["playerCreator", "summary"]);
+      this.router.navigate(["groupTypeSelector"]);
     }
   }
-
+  
   questionRoute() {
     //reset points and game
     this.rdp.players.forEach(player => {

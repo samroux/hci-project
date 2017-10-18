@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 
 
 import {TriviaQuestion} from "../triviaQuestion";
+import {Team} from "../team";
 import {Player} from "../player";
 import {Group} from "../group";
 
@@ -12,6 +13,8 @@ export class RoundDataProvider {
     public currentPlayer: Player;
     public group: Group;
     public players : Player[] = [];
+    public teams : Team[] = [];
+    
     public subjectId: string;
     
     public gameMode: string;

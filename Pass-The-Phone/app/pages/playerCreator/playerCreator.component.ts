@@ -26,12 +26,12 @@ export class PlayerCreatorComponent implements OnInit{
   @ViewChild("newPlayerTx") newPlayerTx: ElementRef;
   
   public constructor(private route:ActivatedRoute, private router: Router, private roundDataProvider: RoundDataProvider) {
-    this.route.params.subscribe((params) => {
-      this.returnPath = params.path;
-    });  
+    // this.route.params.subscribe((params) => {
+    //   this.returnPath = params.path;
+    // });  
     this.rdp = roundDataProvider;
   }
-
+  
   ngOnInit() {
     this.progressValue = 20;
   }
@@ -50,11 +50,7 @@ export class PlayerCreatorComponent implements OnInit{
   }
   
   private next() {
-    if(this.returnPath == "summary"){
-      this.router.navigate(["summary"]);
-    } else{
-      this.router.navigate(["modeSelector"]);
-    }
-    console.log("return:" + this.returnPath); 
+    this.router.navigate(["modeSelector"]);
+    // console.log("return:" + this.returnPath); 
   }
 }

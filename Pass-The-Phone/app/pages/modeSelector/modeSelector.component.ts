@@ -47,7 +47,7 @@ export class ModeSelectorComponent implements OnInit {
     if(mode == "team"){
       this.router.navigate(["teamBuilder"])
     }else{
-      this.router.navigate(["subjectSelector", ""])
+      this.router.navigate(["subjectSelector"])
     }
   }
 }

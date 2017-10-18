@@ -15,13 +15,56 @@ Image {
   margin-top: 5;
   margin-bottom: 20;
 }
-Button, TextField {
+Button, TextField, GridLayout {
   margin-left: 16;
   margin-right: 16;
   margin-bottom: 10;
 }
+
+GridLayout {
+  margin-left: 15;
+  margin-right: 15;
+  padding-bottom: 15;
+  padding-top: 15;
+}
+
 .submit-button {
   background-color: #CB1D00;
   color: white;
   margin-top: 20;
+}
+
+.selected {
+  background-color: green;
+}
+
+.non-selected {
+  background-color: blue;
+}
+
+
+/* ios styles */
+.iosListItemStackLayout {
+  padding-left: 50;
+}
+
+.iosNameLabel {
+  font-size: 20
+}
+
+.iosDescriptionLabel {
+  font-size: 13;
+}
+
+/* Android styles */
+.androidListItemStackLayout {
+  padding-left: 16;
+}
+
+.androidNameLabel {
+  font-size: 20
+}
+
+.androidDescriptionLabel {
+  font-size: 13;
 }

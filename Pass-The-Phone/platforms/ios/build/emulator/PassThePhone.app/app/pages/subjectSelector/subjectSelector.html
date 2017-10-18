@@ -7,7 +7,6 @@
 <StackLayout class="page-stack">
         <Progress [value]="progressValue" maxValue="100" class="m-20"></Progress>         
         <StackLayout class="inner-stack">
-                <Label text="SubjectSelector-Page"></Label>    
                 <Label text="Please select a subject among the list"></Label>
                 <GridLayout>                
                         <ListView [items]="categories" (itemTap)="onItemTap($event)" class="list-group">

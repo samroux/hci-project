@@ -49,7 +49,7 @@
     "url": "https://github.com/defunctzombie/commonjs-assert/issues"
   },
   "dependencies": {
-    "util/util.js": "*"
+    "util": "0.10.3"
   },
   "description": "commonjs assert - node.js api compatible",
   "devDependencies": {

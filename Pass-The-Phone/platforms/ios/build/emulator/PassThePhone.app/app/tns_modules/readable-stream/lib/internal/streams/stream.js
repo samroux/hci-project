@@ -1,1 +1,1 @@
-module.exports = require('stream-browserify');
+module.exports = require('stream');

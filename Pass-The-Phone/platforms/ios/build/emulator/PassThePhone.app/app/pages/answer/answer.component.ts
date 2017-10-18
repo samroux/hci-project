@@ -1,6 +1,8 @@
-import { Component } from "@angular/core";
+import { Component, ViewChild, ElementRef, AfterViewInit } from "@angular/core";
 import { Router } from "@angular/router";
+import {RouterExtensions} from "nativescript-angular/router";
 
+import { WebView, LoadEventData } from "ui/web-view";
 import {TriviaQuestion} from "../../shared/triviaQuestion" 
 import {TriviaAnswer} from "../../shared/triviaAnswer" 
 import {RoundDataProvider} from "../../shared/providers/roundData.provider" 
@@ -12,7 +14,7 @@ import {RoundDataProvider} from "../../shared/providers/roundData.provider"
   styleUrls: ["pages/answer/answer-common.css"]
 })
 
-export class AnswerComponent {
+export class AnswerComponent{
 
   public choices: Array<TriviaAnswer>;
   public question: string;
@@ -20,7 +22,7 @@ export class AnswerComponent {
 
   private currentQuestion: TriviaQuestion;
 
-  public constructor(private router: Router, private roundDataProvider: RoundDataProvider) {
+  public constructor(private router: RouterExtensions, private roundDataProvider: RoundDataProvider) {
     // console.log("Constructing answer.component");
     this.choices = [];
 
@@ -37,6 +39,24 @@ export class AnswerComponent {
     }
 
   }
+
+  /*ngAfterViewInit() {
+    let webview: WebView = this.webView.nativeElement;
+    //let label: Label = this.labelResultRef.nativeElement;
+    //label.text = "WebView is still loading...";
+
+    webview.on(WebView.loadFinishedEvent, function (args: LoadEventData) {
+        let message;
+        if (!args.error) {
+            message = "WebView finished loading of " + args.url;
+        } else {
+            message = "Error loading " + args.url + ": " + args.error;
+        }
+
+        //label.text = message;
+        console.log("WebView message - " + message);
+    });
+  }*/
 
   public onItemTap(args) {
     // console.log("Item Tapped at cell index: " + args.index + " " + args.name);
@@ -78,9 +98,37 @@ export class AnswerComponent {
     }
 
   }
+  @ViewChild("webview") webView: ElementRef;
+  @ViewChild("showWebview") showWebview: ElementRef;
+  @ViewChild("answers") listView: ElementRef;
+  public WebViewSRC: string;
+  private viewWeb(){
+    if(this.webView.nativeElement.visibility == "visible"){
+      this.showWebview.nativeElement.text = "Show Google";
+      this.webView.nativeElement.visibility = "hidden";
+    } else{
+      this.showWebview.nativeElement.text = "Hide Google";
+      this.webView.nativeElement.visibility = "visible";
+    }
+    this.WebViewSRC = "https://google.ca/";
+    //let label: Label = this.labelResultRef.nativeElement;
+    //label.text = "WebView is still loading...";
+    console.log("WebView message - " + "ready");
+    /*this.webView.nativeElement.on(WebView.loadFinishedEvent, function (args: LoadEventData) {
+        let message;
+        if (!args.error) {
+            message = "WebView finished loading of " + args.url;
+        } else {
+            message = "Error loading " + args.url + ": " + args.error;
+        }
+
+        //label.text = message;
+        console.log("WebView message - " + message);
+    });*/
+  }
 
   private next(correct,answer_content) {
-    this.router.navigate(["answerValidation", correct,answer_content]);    
+    this.router.navigate(["answerValidation", correct,answer_content], { clearHistory: true });    
   }
 
 }

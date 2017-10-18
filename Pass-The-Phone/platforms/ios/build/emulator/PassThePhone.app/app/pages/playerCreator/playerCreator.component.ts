@@ -1,5 +1,6 @@
 import { Component, ElementRef, ViewChild, OnInit  } from "@angular/core";
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
+import {RouterExtensions} from "nativescript-angular/router";
 
 import { TextField } from "ui/text-field";
 import { Progress } from "ui/progress";
@@ -19,26 +20,27 @@ export class PlayerCreatorComponent implements OnInit{
   private group: Group;
   private players: Array<Player>  = [];
   public progressValue: number;
+  private rdp: RoundDataProvider;
+  private returnPath: string;
   
   newPlayerName = "";
   @ViewChild("newPlayerTx") newPlayerTx: ElementRef;
   
-  public constructor(private router: Router, private roundDataProvider: RoundDataProvider) {}
-
+  public constructor(private route:ActivatedRoute, private router: Router, private routerExtensions: RouterExtensions, private roundDataProvider: RoundDataProvider) {
+    // this.route.params.subscribe((params) => {
+    //   this.returnPath = params.path;
+    // });  
+    this.rdp = roundDataProvider;
+  }
+  
   ngOnInit() {
     this.progressValue = 20;
   }
   
   private submit(groupName) {
-    this.group = new Group(groupName);
-
-    this.roundDataProvider.players = this.players;
-
-    // console.log("this.roundDataProvider.players.length: " + this.roundDataProvider.players.length);
-    // for(let i =0 ; i< this.roundDataProvider.players.length;i++){
-    //   console.log("this.roundDataProvider.players" + this.roundDataProvider.players[i].name); 
-    // }
-
+    this.group = new Group(groupName, this.players);
+    this.rdp.players = this.players;
+    this.rdp.group = this.group;
     this.next(); 
   }
   
@@ -49,6 +51,13 @@ export class PlayerCreatorComponent implements OnInit{
   }
   
   private next() {
-    this.router.navigate(["modeSelector"]);
+    if(this.rdp.path && this.rdp.path !== ""){
+      this.rdp.path = "playerCreator";
+      console.log(this.rdp.path);
+      this.routerExtensions.navigate(["summary"], { clearHistory: true });
+    } else{
+      this.router.navigate(["modeSelector"]);
+    }
+    // console.log("return:" + this.returnPath); 
   }
 }

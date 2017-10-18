@@ -3,11 +3,17 @@
 </ActionBar>
 
 <StackLayout class="page-stack">
-        <Progress [value]="progressValue" maxValue="100" class="m-20"></Progress>                 
-        <StackLayout class="inner-stack">
-                <Label text="TeamBuilder-Page"></Label>
-                <RadListView row="0" [items]="dataItems" selectionBehavior="Press" (itemSelected)="onItemSelected($event)" 
-                (itemDeselected)="onItemDeselected($event)"></RadListView>      
-                <Button text="Next" class="submit-button" (tap)="next()"></Button>        
-        </StackLayout>
+        <Progress [value]="progressValue" maxValue="100" class="m-20"></Progress> 
+        <Label text="Please create teams of {{playerPerteam}}" textWrap="true" verticalAlign="center" class="h2 p-15 text-center"></Label>        
+        <SegmentedBar [items]="myItems" selectedIndex="0" (selectedIndexChange)="onSelectedIndexChange($event)" class="m-5"></SegmentedBar>
+        <GridLayout rows="*,auto" columns="*" tkExampleTitle tkToggleNavButton height="60%">
+                <RadListView row="0" #myRadListView [items]="dataItems" selectionBehavior="Press" multipleSelection="true" (itemSelected)="onItemSelected($event)" (itemDeselected)="onItemDeselected($event)" (loaded)="radListLoaded($event)" >
+                        <ng-template tkListItemTemplate let-dataItems="item">
+                                <StackLayout ios:class="iosListItemStackLayout" android:class="androidListItemStackLayout">
+                                        <Label ios:class="iosNameLabel" android:class="androidNameLabel" [text]="dataItems.name"></Label>
+                                </StackLayout>
+                        </ng-template>
+                </RadListView>
+                <Button row="1" text="Done" class="submit-button" (tap)="next()"></Button>                
+        </GridLayout>
 </StackLayout>

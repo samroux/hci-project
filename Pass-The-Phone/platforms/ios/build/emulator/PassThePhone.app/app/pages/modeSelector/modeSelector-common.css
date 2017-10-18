@@ -8,14 +8,14 @@ TextField {
   margin-left: 30;
   margin-right: 30;
   padding-bottom: 15;
-  padding-top: 200;
+  padding-top: 75;
   background-color: white;
 }
 Image {
   margin-top: 5;
   margin-bottom: 20;
 }
-Button, TextField {
+Button, TextField, Label {
   margin-left: 16;
   margin-right: 16;
   margin-bottom: 10;

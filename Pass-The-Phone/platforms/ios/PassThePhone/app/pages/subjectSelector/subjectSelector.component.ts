@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy, OnInit } from "@angular/core";
 import { ActivatedRoute, Router} from "@angular/router";
 import { Http, Headers, Response } from "@angular/http";
 import {RouterExtensions} from "nativescript-angular/router";
-
+import {RoundDataProvider} from "../../shared/providers/roundData.provider"
 
 import { Progress } from "ui/progress";
 
@@ -20,12 +20,14 @@ export class SubjectSelectorComponent implements OnInit{
   public selectedCategory: TriviaCategory;
   
   public progressValue: number;
-  public returnPath: string;  
+  public returnPath: string; 
+  public rdp: RoundDataProvider; 
   
-  constructor(private route: ActivatedRoute, private router: Router, private routerExtensions: RouterExtensions) { 
+  constructor(private route: ActivatedRoute, private router: Router, private routerExtensions: RouterExtensions, private roundDataProvider: RoundDataProvider) { 
     // this.route.params.subscribe((params) => {
     //   this.returnPath = params.path;
     // });
+    this.rdp = roundDataProvider;
 
     this.categories.push(new TriviaCategory(null,""));
   }
@@ -80,8 +82,12 @@ export class SubjectSelectorComponent implements OnInit{
     // if(this.returnPath == "summary"){
     //   this.router.navigate([this.returnPath]);
     // } else{
-      this.routerExtensions.navigate(["questionPresenter", categoryId ], { clearHistory: true });
-    // }
+      if(this.rdp.path && this.rdp.path !== ""){
+        this.rdp.path = "subjectSelector";
+        this.routerExtensions.navigate(["summary"], { clearHistory: true });
+      } else{
+        this.routerExtensions.navigate(["questionPresenter", categoryId ], { clearHistory: true });        
+      }   // }
   }
   
 }

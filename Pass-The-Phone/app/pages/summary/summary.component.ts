@@ -85,6 +85,7 @@ export class SummaryComponent implements OnInit{
       this.rdp.path = "summary";
     } else{
       this.routerExtensions.navigate(["playerCreator"], { clearHistory: true });
+      this.rdp.clearData();
       this.rdp.path = "summary";
     }
   }

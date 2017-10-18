@@ -1,1 +1,1 @@
-module.exports = require('./readable-browser').Duplex
+module.exports = require('./readable').Duplex

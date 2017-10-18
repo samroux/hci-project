@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, NgModule } from "@angular/core";
 import { Router, ActivatedRoute, Params } from "@angular/router";
+import {RouterExtensions} from "nativescript-angular/router";
 
 import {TriviaQuestion} from "../../shared/triviaQuestion" 
 import {TriviaAnswer} from "../../shared/triviaAnswer" 
@@ -21,7 +22,7 @@ export class AnswerValidationComponent implements OnInit{
   public subjectId: string;
   public playersRemaining: boolean;
   
-  public constructor(private route: ActivatedRoute, private router: Router,private roundDataProvider: RoundDataProvider ) {
+  public constructor(private route: ActivatedRoute, private router: RouterExtensions,private roundDataProvider: RoundDataProvider ) {
     this.route.params.subscribe((params) => {
       this.correct = params["correct"] == "true";
       this.player_answer_content = params["answer"];
@@ -50,9 +51,9 @@ export class AnswerValidationComponent implements OnInit{
     //Yo sam routing to questionpresenter then to summary brought the question
     //page for a second so im sending directly to summary
     if(!this.playersRemaining){
-      this.router.navigate(["questionPresenter", this.subjectId ]);
+      this.router.navigate(["questionPresenter", this.subjectId ], { clearHistory: true });
     } else{
-      this.router.navigate(["summary"]);
+      this.router.navigate(["summary"], { clearHistory: true });
     }
     
   }

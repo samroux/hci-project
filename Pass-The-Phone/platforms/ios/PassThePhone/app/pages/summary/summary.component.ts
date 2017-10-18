@@ -1,6 +1,8 @@
 import { Component, ViewChild, ElementRef, OnInit} from "@angular/core";
 import { Router } from "@angular/router";
 import { ActivatedRoute, Params} from "@angular/router";
+import {RouterExtensions} from "nativescript-angular/router";
+
 
 import {Team} from "../../shared/team";
 import {Player} from "../../shared/player";
@@ -27,7 +29,7 @@ export class SummaryComponent implements OnInit{
   
   public elements: Array<PointsListItems> = [];
   
-  public constructor(private route: ActivatedRoute, private router: Router,private roundDataProvider: RoundDataProvider ) {
+  public constructor(private route: ActivatedRoute, private routerExtensions: RouterExtensions,private roundDataProvider: RoundDataProvider ) {
     this.players = roundDataProvider.players;
     this.teams = roundDataProvider.teams;    
     this.gameMode = roundDataProvider.gameMode;
@@ -62,20 +64,21 @@ export class SummaryComponent implements OnInit{
   }
   
   changeSelected(){
+    // TODO need to clear here as well??
     console.log(this.listPicker.nativeElement.selectedIndex);
     if(this.listPicker.nativeElement.selectedIndex == 0){
-      this.router.navigate(["subjectSelector"]);
+      this.routerExtensions.navigate(["subjectSelector"], { clearHistory: true });
     } else{
-      this.router.navigate(["groupTypeSelector"]);
+      this.routerExtensions.navigate(["groupTypeSelector"], { clearHistory: true });
     }
   }
   
   questionRoute() {
-    //reset points and game
+    // TODO reset points and game
     this.rdp.players.forEach(player => {
       player.answerCount = 0;
       player.runningPointsTotal = 0;
     });
-    this.router.navigate(["questionPresenter", this.rdp.subjectId]);
+    this.routerExtensions.navigate(["questionPresenter", this.rdp.subjectId], { clearHistory: true });
   }
 }

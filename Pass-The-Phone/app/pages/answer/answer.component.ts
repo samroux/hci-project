@@ -1,5 +1,7 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
+import {RouterExtensions} from "nativescript-angular/router";
+
 
 import {TriviaQuestion} from "../../shared/triviaQuestion" 
 import {TriviaAnswer} from "../../shared/triviaAnswer" 
@@ -20,7 +22,7 @@ export class AnswerComponent {
 
   private currentQuestion: TriviaQuestion;
 
-  public constructor(private router: Router, private roundDataProvider: RoundDataProvider) {
+  public constructor(private router: RouterExtensions, private roundDataProvider: RoundDataProvider) {
     // console.log("Constructing answer.component");
     this.choices = [];
 
@@ -80,7 +82,7 @@ export class AnswerComponent {
   }
 
   private next(correct,answer_content) {
-    this.router.navigate(["answerValidation", correct,answer_content]);    
+    this.router.navigate(["answerValidation", correct,answer_content], { clearHistory: true });    
   }
 
 }

@@ -1,8 +1,8 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
+import {RouterExtensions} from "nativescript-angular/router";
 
 import {RoundDataProvider} from "../../shared/providers/roundData.provider";
-
 
 @Component({
   selector: "questionPreAnswer",
@@ -12,9 +12,9 @@ import {RoundDataProvider} from "../../shared/providers/roundData.provider";
 
 export class QuestionPreAnswerComponent {
 
-  public constructor(private router: Router, private roundDataProvider: RoundDataProvider) {}
+  public constructor(private routerExtensions: RouterExtensions, private roundDataProvider: RoundDataProvider) {}
 
   private next() {
-    this.router.navigate(["answer"]);
+    this.routerExtensions.navigate(["answer"], { clearHistory: true });
   }
 }

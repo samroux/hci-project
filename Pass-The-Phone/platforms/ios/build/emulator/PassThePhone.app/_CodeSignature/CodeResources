@@ -62,7 +62,7 @@
 		</data>
 		<key>Assets.car</key>
 		<data>
-		g5s2G4WVrDhxJNE3kw+vvGtKMh4=
+		Tgy08+9z3xZADrl89+JHEo+I+94=
 		</data>
 		<key>Frameworks/NativeScript.framework/Info.plist</key>
 		<data>
@@ -150,7 +150,7 @@
 		</data>
 		<key>LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<data>
-		yoUkER2EFS4lznHpXdGjOEhWgzc=
+		QHWYH3qTOkf29GgqVreGytCKLqo=
 		</data>
 		<key>LaunchScreen.storyboardc/Info.plist</key>
 		<data>
@@ -158,7 +158,7 @@
 		</data>
 		<key>LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib</key>
 		<data>
-		HHfi4DmRawsNKSjifUxtqxw9GFU=
+		fulQ++t4CueJQYHYaioz8ka9NoM=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -506,15 +506,15 @@
 		</data>
 		<key>app/pages/summary/summary.component.js</key>
 		<data>
-		9zN07JjyUwuw+bkh/NOh4xxhRBA=
+		8wZFewtyocXe6+4c3493CYZxDZE=
 		</data>
 		<key>app/pages/summary/summary.component.ts</key>
 		<data>
-		qSXt+dxyWf7Flbuddd+FICSPatY=
+		EbuiW/zlGLmzNTM9jOQuw4eVBO0=
 		</data>
 		<key>app/pages/summary/summary.html</key>
 		<data>
-		qFLhsTYQmSpKYOcH4UthCpVIXPI=
+		mLeVK2Z/sVAGPJHB2vQhnbHO4/g=
 		</data>
 		<key>app/pages/teamBuilder/teamBuilder-common.css</key>
 		<data>
@@ -558,11 +558,11 @@
 		</data>
 		<key>app/shared/providers/roundData.provider.js</key>
 		<data>
-		aRQoKQHxkiQKFltfqAD2HOlJvS0=
+		/vV7/YlJVd+zLqshCR1u+Dv4LGI=
 		</data>
 		<key>app/shared/providers/roundData.provider.ts</key>
 		<data>
-		DbDyj4A91Mh0SImXr8JMjBOZewU=
+		XMRV5GEpkwqC9gAqOF+1fue8JrE=
 		</data>
 		<key>app/shared/team.js</key>
 		<data>
@@ -3718,7 +3718,7 @@
 		</data>
 		<key>app/tns_modules/assert/package.json</key>
 		<data>
-		mdXbdmscNXCXPYYEyGKl1mmYZHs=
+		QAOZxTBXUOnG4MZFp9xKwhjiilM=
 		</data>
 		<key>app/tns_modules/assert/test.js</key>
 		<data>
@@ -13286,7 +13286,7 @@
 		</data>
 		<key>app/tns_modules/readable-stream/duplex.js</key>
 		<data>
-		lLRUyeP2KdTPmL5nStVjQpL+fzA=
+		ZdJWmpgFmI60j8Ju2ftxI7sGLBI=
 		</data>
 		<key>app/tns_modules/readable-stream/lib/_stream_duplex.js</key>
 		<data>
@@ -13298,7 +13298,7 @@
 		</data>
 		<key>app/tns_modules/readable-stream/lib/_stream_readable.js</key>
 		<data>
-		hZGQOA2BfQafmjq2xcue5S2kxHw=
+		+/6/cJc3Sv3M94TA/LJ8LGHZiBI=
 		</data>
 		<key>app/tns_modules/readable-stream/lib/_stream_transform.js</key>
 		<data>
@@ -13322,15 +13322,35 @@
 		</data>
 		<key>app/tns_modules/readable-stream/lib/internal/streams/stream.js</key>
 		<data>
-		br1Vr9U9CQM+sHVaI4aZwOrD6AY=
+		kLieyHQX0TAedhWjulCwRibCeWw=
+		</data>
+		<key>app/tns_modules/readable-stream/node_modules/string_decoder/.npmignore</key>
+		<data>
+		/AW6yZJH9CD9Pu5B8Xr+tI8Gp24=
+		</data>
+		<key>app/tns_modules/readable-stream/node_modules/string_decoder/LICENSE</key>
+		<data>
+		Nnke6OKFGPn7krUa2eQkdwi+nFU=
+		</data>
+		<key>app/tns_modules/readable-stream/node_modules/string_decoder/README.md</key>
+		<data>
+		q8KHEiSJUZu9GSndT+vqm+i1Egw=
+		</data>
+		<key>app/tns_modules/readable-stream/node_modules/string_decoder/lib/string_decoder.js</key>
+		<data>
+		TmXXsFNBEGAmfUzEbYVcb6z+GiE=
+		</data>
+		<key>app/tns_modules/readable-stream/node_modules/string_decoder/package.json</key>
+		<data>
+		eTQt203fnSGlRDegKLr2K5d1EV4=
 		</data>
 		<key>app/tns_modules/readable-stream/package.json</key>
 		<data>
-		Vw05oXwCkAPOAI7ZNRE0ec+9bFA=
+		Tja+ivCLpvraM/a2IN6RlqzJpk8=
 		</data>
 		<key>app/tns_modules/readable-stream/passthrough.js</key>
 		<data>
-		UM+RjQGa7nohXdU4bY7lJerRv5U=
+		FJjChJfKVo090gfqyLI2wiGheYg=
 		</data>
 		<key>app/tns_modules/readable-stream/readable-browser.js</key>
 		<data>
@@ -13338,11 +13358,11 @@
 		</data>
 		<key>app/tns_modules/readable-stream/readable.js</key>
 		<data>
-		fpqBvR5B9rRMPiTSvFwKMZuvEGE=
+		j82AskjR3KSKZ4q8jKydmgZkx9E=
 		</data>
 		<key>app/tns_modules/readable-stream/transform.js</key>
 		<data>
-		hnZ05A+cupNev0zVEJQ+LMehBJY=
+		UIVnhd/Ix81kg4zrUhJP0wN4qBI=
 		</data>
 		<key>app/tns_modules/readable-stream/writable-browser.js</key>
 		<data>
@@ -13350,7 +13370,7 @@
 		</data>
 		<key>app/tns_modules/readable-stream/writable.js</key>
 		<data>
-		m9OwpKB2p49QQbfmiyILvq+hvI0=
+		0ZBtAZD+iWg9NCGalAeukFzZEjM=
 		</data>
 		<key>app/tns_modules/reflect-metadata/.npmignore</key>
 		<data>
@@ -21158,11 +21178,11 @@
 		</data>
 		<key>app/tns_modules/util-deprecate/node.js</key>
 		<data>
-		MBTt82UeYo2FgqLdlMHlT6v0FEE=
+		Jrufyrr1fwu1Dl4CbBPeOUvAxHg=
 		</data>
 		<key>app/tns_modules/util-deprecate/package.json</key>
 		<data>
-		vuXabJi7C3NtmKfx8porglD2Y3s=
+		HjMq2vgeDf2EN8znJk7oOS3ZAlU=
 		</data>
 		<key>app/tns_modules/util/.npmignore</key>
 		<data>
@@ -22182,11 +22202,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			g5s2G4WVrDhxJNE3kw+vvGtKMh4=
+			Tgy08+9z3xZADrl89+JHEo+I+94=
 			</data>
 			<key>hash2</key>
 			<data>
-			6hUPRqjiswhdjYcP/NdQz2TJ6m15NXcFr1WMGMnFI8c=
+			NB9n9sE2Xtsfbpo+ecRDMIFkWD8Lv4g0fIUX4lHf1kc=
 			</data>
 		</dict>
 		<key>Frameworks/NativeScript.framework/Info.plist</key>
@@ -22413,11 +22433,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			yoUkER2EFS4lznHpXdGjOEhWgzc=
+			QHWYH3qTOkf29GgqVreGytCKLqo=
 			</data>
 			<key>hash2</key>
 			<data>
-			iOsoRLe8SDrMDq7MoOMw61UYGPHWjGUNq1uSshSl4iA=
+			lqoJl9AM2AUmNmIxBVKimEw0k7RTJr8bad8edrw77fI=
 			</data>
 		</dict>
 		<key>LaunchScreen.storyboardc/Info.plist</key>
@@ -22435,11 +22455,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			HHfi4DmRawsNKSjifUxtqxw9GFU=
+			fulQ++t4CueJQYHYaioz8ka9NoM=
 			</data>
 			<key>hash2</key>
 			<data>
-			oYv5bJJL1OEWN9lkgSGPDA6Y3Dy3t/zymbWLKNqkcM4=
+			rRN7em4pIIT09n7MEQvs8HcLdovg8g/6Xr6thNa11o8=
 			</data>
 		</dict>
 		<key>app/LICENSE</key>
@@ -23381,33 +23401,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			9zN07JjyUwuw+bkh/NOh4xxhRBA=
+			8wZFewtyocXe6+4c3493CYZxDZE=
 			</data>
 			<key>hash2</key>
 			<data>
-			+Xsz5GEofrnwIz8NsPOUMh+kSQx+M2cK2sosrcLoc7g=
+			i/aL0zqYF8hVCJbnjq1h5RrQVMmyDjHV92x+Wgoscms=
 			</data>
 		</dict>
 		<key>app/pages/summary/summary.component.ts</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			qSXt+dxyWf7Flbuddd+FICSPatY=
+			EbuiW/zlGLmzNTM9jOQuw4eVBO0=
 			</data>
 			<key>hash2</key>
 			<data>
-			3P3RaZPv3CLATYfoARm0A+BGmIh80G4qnr4urVnlHZI=
+			huhYjEPh5hs6CBTQ7+AoFlRhohFmpoOS2NmNbF9KqDU=
 			</data>
 		</dict>
 		<key>app/pages/summary/summary.html</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			qFLhsTYQmSpKYOcH4UthCpVIXPI=
+			mLeVK2Z/sVAGPJHB2vQhnbHO4/g=
 			</data>
 			<key>hash2</key>
 			<data>
-			QPKF2DMNgRV5XUZijI0HzMGmiCIkIbrsg/myGA7CLFA=
+			4CoC3Ryd38LqZdduf8SJuiwMxSlVIUNDYAsZbPJgHvo=
 			</data>
 		</dict>
 		<key>app/pages/teamBuilder/teamBuilder-common.css</key>
@@ -23524,22 +23544,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			aRQoKQHxkiQKFltfqAD2HOlJvS0=
+			/vV7/YlJVd+zLqshCR1u+Dv4LGI=
 			</data>
 			<key>hash2</key>
 			<data>
-			i0UyytOOsXZcwyEuCjj7KL6f8cY7s8bwIuc5Q380FcE=
+			QdfEFFXz6PQc7w4cNYIWs1e1K5ey14gqrwE+yLTzYsg=
 			</data>
 		</dict>
 		<key>app/shared/providers/roundData.provider.ts</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			DbDyj4A91Mh0SImXr8JMjBOZewU=
+			XMRV5GEpkwqC9gAqOF+1fue8JrE=
 			</data>
 			<key>hash2</key>
 			<data>
-			GHgGpA7lAo6gOF9FYUN18OSQuRqT205R8zpgEBx8Lms=
+			wzHHG325PoYtFnpGQjHEwlq+tAkc6SS92e+14jFhWww=
 			</data>
 		</dict>
 		<key>app/shared/team.js</key>
@@ -32214,11 +32234,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			mdXbdmscNXCXPYYEyGKl1mmYZHs=
+			QAOZxTBXUOnG4MZFp9xKwhjiilM=
 			</data>
 			<key>hash2</key>
 			<data>
-			8eP9zl3T88JjaQgwVH1tDiJ9qihqeyaU/czzr2kgStQ=
+			CScZN8pPxOj/CUHTRazV8ahZQQMoEIbIdxmjQbGaaO4=
 			</data>
 		</dict>
 		<key>app/tns_modules/assert/test.js</key>
@@ -58526,11 +58546,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			lLRUyeP2KdTPmL5nStVjQpL+fzA=
+			ZdJWmpgFmI60j8Ju2ftxI7sGLBI=
 			</data>
 			<key>hash2</key>
 			<data>
-			PUMFTWoFY2hSajJ75+aJ5LR9Tcqyfhm4FKQkwwLXAEE=
+			FkdQNRQ5l+kk3D9Br2/WV89VxYQ/QV8AsVXCCJHails=
 			</data>
 		</dict>
 		<key>app/tns_modules/readable-stream/lib/_stream_duplex.js</key>
@@ -58559,11 +58579,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			hZGQOA2BfQafmjq2xcue5S2kxHw=
+			+/6/cJc3Sv3M94TA/LJ8LGHZiBI=
 			</data>
 			<key>hash2</key>
 			<data>
-			rfkqTpo5UzABafBPALlajdu/N9jC3jwT9IqJhTd0sPk=
+			l0BqT+W+8v51l24aoeMo/C+3rlvUaFOAOGIGB7MdaWw=
 			</data>
 		</dict>
 		<key>app/tns_modules/readable-stream/lib/_stream_transform.js</key>
@@ -58625,33 +58645,88 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			br1Vr9U9CQM+sHVaI4aZwOrD6AY=
+			kLieyHQX0TAedhWjulCwRibCeWw=
 			</data>
 			<key>hash2</key>
 			<data>
-			iB+7V58GszMt6QqAu1jBZ2LTAwlee7dhRd4P93F56do=
+			HnkDkn3zOq2zZZ7M5VJmychR2mXObItyOmCjBcHFQiw=
+			</data>
+		</dict>
+		<key>app/tns_modules/readable-stream/node_modules/string_decoder/.npmignore</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			/AW6yZJH9CD9Pu5B8Xr+tI8Gp24=
+			</data>
+			<key>hash2</key>
+			<data>
+			S356th/C2Nygs5lri8O+pPTyRk1mqYBDcPcynV3jJZ8=
+			</data>
+		</dict>
+		<key>app/tns_modules/readable-stream/node_modules/string_decoder/LICENSE</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Nnke6OKFGPn7krUa2eQkdwi+nFU=
+			</data>
+			<key>hash2</key>
+			<data>
+			EfKq+zfQaz7lva8G6YERQdDaBSY8MW89Yn9Fwg1DJhs=
+			</data>
+		</dict>
+		<key>app/tns_modules/readable-stream/node_modules/string_decoder/README.md</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			q8KHEiSJUZu9GSndT+vqm+i1Egw=
+			</data>
+			<key>hash2</key>
+			<data>
+			Y4tdndemqvq+rh7hNnB3E8mt9Wa45++d0kJQPeqmvDc=
+			</data>
+		</dict>
+		<key>app/tns_modules/readable-stream/node_modules/string_decoder/lib/string_decoder.js</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			TmXXsFNBEGAmfUzEbYVcb6z+GiE=
+			</data>
+			<key>hash2</key>
+			<data>
+			bXDUsFzExlFNGYoX1jHw7a0R3jyclHripxHB9o6SB0w=
+			</data>
+		</dict>
+		<key>app/tns_modules/readable-stream/node_modules/string_decoder/package.json</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			eTQt203fnSGlRDegKLr2K5d1EV4=
+			</data>
+			<key>hash2</key>
+			<data>
+			QcNkuAQc9EenDW0KzVTFCOiNYZF1Oi6M9fRzXAI8aQw=
 			</data>
 		</dict>
 		<key>app/tns_modules/readable-stream/package.json</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Vw05oXwCkAPOAI7ZNRE0ec+9bFA=
+			Tja+ivCLpvraM/a2IN6RlqzJpk8=
 			</data>
 			<key>hash2</key>
 			<data>
-			aiCNpGtCLU0vUCVrBEU9v7KrQUjMmTVayI7hWigQ+1c=
+			o4h8P4nb6Be0VXfGKMiIshNatlEl4sWYqNXblZgSh+M=
 			</data>
 		</dict>
 		<key>app/tns_modules/readable-stream/passthrough.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			UM+RjQGa7nohXdU4bY7lJerRv5U=
+			FJjChJfKVo090gfqyLI2wiGheYg=
 			</data>
 			<key>hash2</key>
 			<data>
-			YWMT4uAvTzb4pVSmrcQoJoX6r5xlbyZlvIo/1DYBWic=
+			gJ28A7TDEjVf906xSyzMdyZ+5x4E9Rn0N+tLIDQHxLc=
 			</data>
 		</dict>
 		<key>app/tns_modules/readable-stream/readable-browser.js</key>
@@ -58669,22 +58744,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			fpqBvR5B9rRMPiTSvFwKMZuvEGE=
+			j82AskjR3KSKZ4q8jKydmgZkx9E=
 			</data>
 			<key>hash2</key>
 			<data>
-			qIbZ2dKFB++qbq/tAf7jMSF4FDe3WY8jS2QKhCk7I3w=
+			oe+j+gY5Ov9lLzUp6hsbwyE01J63lLIycvsLoT0hRVA=
 			</data>
 		</dict>
 		<key>app/tns_modules/readable-stream/transform.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			hnZ05A+cupNev0zVEJQ+LMehBJY=
+			UIVnhd/Ix81kg4zrUhJP0wN4qBI=
 			</data>
 			<key>hash2</key>
 			<data>
-			siMj5IBi9nQzAp8PXpLD5RS+87tsomYkSXqihJuPq9k=
+			FV95TFx4lWi3vGMs038ouQZIkOiHv6uWpDkxACGNQjA=
 			</data>
 		</dict>
 		<key>app/tns_modules/readable-stream/writable-browser.js</key>
@@ -58702,11 +58777,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			m9OwpKB2p49QQbfmiyILvq+hvI0=
+			0ZBtAZD+iWg9NCGalAeukFzZEjM=
 			</data>
 			<key>hash2</key>
 			<data>
-			Mvee84Ttf99BI6wPVzyfo7lTADcnIBmTk6n/KE/4TX8=
+			dMu9xdYOHuZWDShQUVtow9aznZsvMjRqrBOGsDHCpmE=
 			</data>
 		</dict>
 		<key>app/tns_modules/reflect-metadata/.npmignore</key>
@@ -80174,22 +80249,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			MBTt82UeYo2FgqLdlMHlT6v0FEE=
+			Jrufyrr1fwu1Dl4CbBPeOUvAxHg=
 			</data>
 			<key>hash2</key>
 			<data>
-			ABxAjJq49gG51BGDc1eu9pjBIAjtpyhNipLcPmnsMKQ=
+			moain6NKmbhh5wc0X7HR4uVabCPtuPmSvtV8xgf0LY4=
 			</data>
 		</dict>
 		<key>app/tns_modules/util-deprecate/package.json</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			vuXabJi7C3NtmKfx8porglD2Y3s=
+			HjMq2vgeDf2EN8znJk7oOS3ZAlU=
 			</data>
 			<key>hash2</key>
 			<data>
-			+pTxMAquopUqRIjqtAkX6vruXTE55t2elBm8czxxIv4=
+			9aIGoNqQqDXFn+BukGM47sNaoYOIJDTxLDPnUVWfCLQ=
 			</data>
 		</dict>
 		<key>app/tns_modules/util/.npmignore</key>

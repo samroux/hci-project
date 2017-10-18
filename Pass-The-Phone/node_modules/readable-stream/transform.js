@@ -1,1 +1,1 @@
-module.exports = require('./readable-browser').Transform
+module.exports = require('./readable').Transform

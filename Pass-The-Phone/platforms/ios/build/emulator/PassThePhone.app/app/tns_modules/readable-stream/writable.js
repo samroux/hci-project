@@ -1,4 +1,4 @@
-var Stream = require('stream-browserify')
+var Stream = require("stream")
 var Writable = require("./lib/_stream_writable.js")
 
 if (process.env.READABLE_STREAM === 'disable') {

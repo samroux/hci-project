@@ -96,20 +96,6 @@ export class RoundDataProvider {
             delete this.teams[i];
         }
 
-        console.log("PLayers:..");
-        
-        for(let i = 0; i <this.players.length;i++){
-           console.log(this.players[i].name);
-        }
-
-        console.log("Teams:..");
-        
-        for(let i = 0; i <this.teams.length;i++){
-           console.log(this.teams[i].name);
-        }
-
-
-
         this.players= [];
         this.teams= [];
         

@@ -1,1 +1,1 @@
-module.exports = require('./readable-browser').PassThrough
+module.exports = require('./readable').PassThrough

@@ -69,6 +69,7 @@ export class SummaryComponent implements OnInit{
     if(this.listPicker.nativeElement.selectedIndex == 0){
       this.routerExtensions.navigate(["subjectSelector"], { clearHistory: true });
     } else{
+      this.rdp.clearData();
       this.routerExtensions.navigate(["groupTypeSelector"], { clearHistory: true });
     }
   }

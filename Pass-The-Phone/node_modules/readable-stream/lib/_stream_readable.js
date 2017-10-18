@@ -69,7 +69,7 @@ util.inherits = require('inherits');
 /*</replacement>*/
 
 /*<replacement>*/
-var debugUtil = {};
+var debugUtil = require('util');
 var debug = void 0;
 if (debugUtil && debugUtil.debuglog) {
   debug = debugUtil.debuglog('stream');

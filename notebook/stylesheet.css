@@ -11,7 +11,7 @@ body {
 	padding: 0;
 	margin: 0;
 	font-family: "Lato", sans-serif;
-	font-color: #383838;
+	font-color: #353535;
 }
 
 /* 
@@ -252,7 +252,7 @@ hr {
 }
 
 .body_text, li {
-	color: #383838;
+	color: #353535;
 	font-size: 11pt;
 	line-height: 25px;
 	padding-bottom: 10px;

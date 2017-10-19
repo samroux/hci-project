@@ -18,15 +18,12 @@ body {
  * Titles and fonts 
  */
 
-/*.title {
-	font-family: "Lobster", sans-serif;
-	font-weight: 400;
-}
-
+.title,
 .subtitle {
-	font-family: "Lato";
 	font-weight: 400;
-}*/
+	color: #fff;
+	margin: 0px;
+}
 
 h1, h2, h3, h4 {
 	font-family: "Lato";
@@ -70,20 +67,6 @@ h5 {
 	font-weight: 400;
 	margin-bottom: 4px;
 }
-
-/* use for small tips e.g. click to open image in new tab */
-.tip {
-	font-size: 10pt;
-	width: 100%;
-	color: #666;
-	text-align: center;
-}
-
-.title,
-.subtitle {
-	margin: 0px;
-}
-
 
 /* 
  * Header
@@ -234,19 +217,51 @@ hr {
 	transition: all 0.2s ease 0s;
 }
 
+#screenshots > div {
+	display: block;
+	margin: 10px 3px 10px 3px;
+	background: #f6f6f6;
+	width: 300px;
+	border: 2px solid #eee;
+	transition: all 0.2s ease 0s;
+}
+
+#screenshots > div > .tip {
+	padding-top: 0px;
+	transition: all 0.2s ease 0s;
+}
+
+/* display images side by side with tip underneath */
+#screenshots::after {
+	content: " ";
+	display: block;
+	height: 0;
+	clear: both;
+}
+
+#screenshots > .left {
+	float: left;
+}
+
+#screenshots > .right {
+	float: right;
+}
+
 #imglink img {
 	width: 640px;
 }
 
 #imglink a,
 #questionnaires a,
-#sketches a {
+#sketches a,
+#screenshots a {
 	border: none;
 }
 
 #imglink img:hover,
 #questionnaires img:hover,
-#sketches img:hover {
+#sketches img:hover,
+#screenshots > div:hover {
 	border-color: #ff4900;
 	transition: all 0.2s ease 0s;
 }
@@ -256,6 +271,14 @@ hr {
 	font-size: 11pt;
 	line-height: 25px;
 	padding-bottom: 10px;
+}
+
+/* use for small tips e.g. click to open image in new tab */
+.tip {
+	font-size: 10pt;
+	width: 100%;
+	color: #666;
+	text-align: center;
 }
 
 /* used to set a block of text apart */

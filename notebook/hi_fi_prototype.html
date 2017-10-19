@@ -38,7 +38,7 @@
         <h4>Installing Pass the Phone on an Android phone</h4>
         <ol>
             <li>Open the Settings application, navigate to Security, and turn on the “Unknown Sources” option. This will allow you to install an application that is not from the Play Store onto your phone.</li>
-            <li><a href="COMPLETE THIS***********" target="_blank">Download the prototype (.apk)</a>.</li>
+            <li><a href="assets/hifi/hi_fi_prototype_build_0.1.apk" download>Download the prototype (.apk)</a>.</li>
             <li>Open the downloaded .apk file. Your device should prompt you to allow the installation.</li>
             <li>Pass the Phone is now installed on your phone! You can open it just like you would any other application, and start using it.</li>
         </ol>
@@ -47,7 +47,7 @@
         </p>
         <h4>Using Pass the Phone</h4>
         <p class="body_text">
-            The game aims to be as straightforward as possible. We want the learning curve to be low, as is characteristic of mobile games. Before being able to play, a brief setup period is required. At this stage, the user is asked to enter the following information, in sequence:
+            The game aims to be as straightforward as possible. We want the learning curve to be low, as is characteristic of mobile games. Before being able to play, a brief setup period is required. At this stage, the user is asked to enter the following information, in sequence: a group name, player names, a game mode, the members of each teams (if team vs. team mode chosen), and a subject. Afterwards, the game can be started. The person holding the phone will be prompted to ask a question to another player, and pass the phone to that player so they can answer. The game unfolds from there.
         </p>
     </div>
 
@@ -56,19 +56,23 @@
     <h3>Design Evolution</h3>
     <div>
         <p class="body_text">
-            After testing the low-fidelity prototype, several possible improvements to our design arose. The conversion from a paper medium to the actual smartphone also induced some change in the design. Here are the changes that were made:
+            After testing the low-fidelity prototype, several possible improvements to our design arose. The conversion from a paper medium to the actual smartphone also induced some change in the design. Here are some of the more important changes that were made. Screenshots of the prototype illustrating these changes are included in the following section.
         </p>
-        <h5>1. Addition of a Back Button</h5>
+        <h5>1. Addition of a back button</h5>
         <p class="body_text">
             An important addition to the design that was not included at first is a back button, located in the top left of the application during the setup. During testing, we noticed that the desire to move back in the setup, for example to change game mode or a team member’s name, manifested itself more than we expected. The back button is unobtrusive, placed in the header and to the left just as described in the design guidelines of both Android and iOS. Since it is right where users expect, this small addition instantly communicates its purpose and makes the setup portion of the game easier to use.
         </p>
-        <h5>2. Addition of a Setup Progress Indicator</h5>
+        <h5>2. Addition of a setup progress indicator</h5>
         <p class="body_text">
             The progress indicator serves to show at which stage of the setup the user is in a general way. It is displayed as a line with a highlighted part, which creates a progress metaphor. This type of display element is often used in mobile applications, and should feel right at home in our prototype. It ties in with the usability goals we had fixed for the setup: it makes it easier to use, and is a good hint of whether the setup is taking too long.
         </p>
         <h5>3. Group name clarification</h5>
         <p class="body_text">
-
+            During the testing of our low-fidelity prototype, users reported that the text box for entering a "group name" was unclear, since they didn't know what the purpose of this name was. We added a small explanation above the group name text field in an attempt to make this clearer, and included the player names on this page to create a conceptual link between a group and its members.
+        </p>
+        <h5>4. Redesign of the layout of the Summary of Results page</h5>
+        <p class="body_text">
+            After a set of rounds, we want users in a same group to be able to play a new game quickly, without entering the long setup process again. This requires several options: starting a new game right away, or start a new game with a different subject, or with different players. These options were included on the same page as the results after a game (each player's points).
         </p>
     </div>
 
@@ -77,19 +81,110 @@
     <h3>Prototype Implementation</h3>
     <div>
         <p class="body_text">
-            <a href="COMPLETE THIS*******************" target="_blank">Download the Android build of the prototype (.apk)</a>
+            <a href="assets/hifi/hi_fi_prototype_build_0.1.apk" download>Download the Android build of the prototype (.apk)</a>
             <br>
             <br>
-            Here are a few screenshots from the prototype, to illustrate the functionality that has been implemented. The cosmetic elements are not final, of course, but the flow of the application gives a good idea of how the game will be used on a smartphone.
+            The prototype was implemented in NativeScript, allowing us to emulate and build Android and iOS versions from the same code base. Here are a few screenshots from the prototype, to illustrate the functionality that is currently available. The cosmetic elements are not final, of course, but the flow of the application gives a good idea of how the game will be used on a smartphone.
         </p>
-        <p class="tip">(Click on an image to open the image in a new tab)</p>
-        <div>
-            <!-- 
-                ************** IMAGES GO HERE
-                **************
-                **************
-                **************
-            -->
+
+        <div id="screenshots">
+            <p class="tip">(Click on an image to open the image in a new tab)</p>
+
+            <div class="left">
+            <a href="assets/hifi/screenshots/1-start-page.png" target="_blank"><img class="" src="assets/hifi/screenshots/1-start-page.png">
+            </a>
+            <p class="tip">1. The start page</p>
+            </div>
+
+            <div class="right">
+            <a href="assets/hifi/screenshots/2-groupTypeSelector.png" target="_blank"><img class="" src="assets/hifi/screenshots/2-groupTypeSelector.png">
+            </a>
+            <p class="tip">2. Prompt the user for group info</p>
+            </div>
+
+            <div class="left">
+            <a href="assets/hifi/screenshots/3a-playerCreator.png" target="_blank"><img class="" src="assets/hifi/screenshots/3a-playerCreator.png">
+            </a>
+            <p class="tip">3.a. Create a new group</p>
+            </div>
+
+            <div class="right">
+            <a href="assets/hifi/screenshots/3b-groupSelector.png" target="_blank"><img class="" src="assets/hifi/screenshots/3b-groupSelector.png">
+            </a>
+            <p class="tip">3.b. Use an existing group</p>
+            </div>
+
+            <div class="left">
+            <a href="assets/hifi/screenshots/4-modeSelector.png" target="_blank"><img class="" src="assets/hifi/screenshots/4-modeSelector.png">
+            </a>
+            <p class="tip">4. Select game mode</p>
+            </div>
+
+            <div class="right">
+            <a href="assets/hifi/screenshots/5-teamBuilder.png" target="_blank"><img class="" src="assets/hifi/screenshots/5-teamBuilder.png">
+            </a>
+            <p class="tip">5. If team vs. team: build teams</p>
+            </div>
+
+            <div class="left">
+            <a href="assets/hifi/screenshots/6-subjectSelector.png" target="_blank"><img class="" src="assets/hifi/screenshots/6-subjectSelector.png">
+            </a>
+            <p class="tip">6. Select a subject (last setup page)</p>
+            </div>
+
+            <div class="right">
+            <a href="assets/hifi/screenshots/7-question.png" target="_blank"><img class="" src="assets/hifi/screenshots/7-question.png">
+            </a>
+            <p class="tip">7. The first step of the game: first question</p>
+            </div>
+
+            <div class="left">
+            <a href="assets/hifi/screenshots/8-questionPreAnswer.png" target="_blank"><img class="" src="assets/hifi/screenshots/8-questionPreAnswer.png">
+            </a>
+            <p class="tip">8. Confirm phone passed to player who will answer</p>
+            </div>
+
+            <div class="right">
+            <a href="assets/hifi/screenshots/7-question.png" target="_blank"><img class="" src="assets/hifi/screenshots/7-question.png">
+            </a>
+            <p class="tip">The next page, prompting the user for group info</p>
+            </div>
+
+            <div class="left">
+            <a href="assets/hifi/screenshots/9a-answer-nogoogle.png" target="_blank"><img class="" src="assets/hifi/screenshots/9a-answer-nogoogle.png">
+            </a>
+            <p class="tip">9.a. Answer the question</p>
+            </div>
+
+            <div class="right">
+            <a href="assets/hifi/screenshots/9b-answer-withgoogle.png" target="_blank"><img class="" src="assets/hifi/screenshots/9b-answer-withgoogle.png">
+            </a>
+            <p class="tip">9.b. The answer page, after using the Google helper</p>
+            </div>
+
+            <div class="left">
+            <a href="assets/hifi/screenshots/10a-answerValidation-Good.png" target="_blank"><img class="" src="assets/hifi/screenshots/10a-answerValidation-Good.png">
+            </a>
+            <p class="tip">10.a. Correct answer</p>
+            </div>
+
+            <div class="right">
+            <a href="assets/hifi/screenshots/10b-answerValidation-wrong.png" target="_blank"><img class="" src="assets/hifi/screenshots/10b-answerValidation-wrong.png">
+            </a>
+            <p class="tip">10.b. Wrong answer</p>
+            </div>
+
+            <div class="left">
+            <a href="assets/hifi/screenshots/11a-summary.png" target="_blank"><img class="" src="assets/hifi/screenshots/11a-summary.png">
+            </a>
+            <p class="tip">11.a. Summary page; change game button pressed</p>
+            </div>
+
+            <div class="right">
+            <a href="assets/hifi/screenshots/11b-summary-subjectChange.png" target="_blank"><img class="" src="assets/hifi/screenshots/11b-summary-subjectChange.png">
+            </a>
+            <p class="tip">11.b. Summary page; after subject change</p>
+            </div>
 
         </div>
     </div>
@@ -196,10 +291,41 @@
     <hr>
 
     <h3>Reporting</h3>
+    <div>
+        <p class="body_text">
+            Free-form notes on the interaction of the users with the game should be taken as the tests are ongoing. Useful things to note include: points of confusion, areas of the application that a user gets stuck on, feedback that they may give, explanations for the reasoning behind an action, perceived strong points and weak points of the interaction, and parts that went smoothly. No rigid structure is imposed on these notes, as they should be taken quickly and spontaneously. They are intended as a qualitative evaluation of the game.
+        </p>
+        <p class="body_text">
+            Quantitative measurements relating to the usability goals should be tallied and associated with the number assigned to them. It may be good to organize the five measurements in tabular form. These measurements complete the qualitative notes gathered above to help form a big-picture view of the success of the application with regards to the usability goals that were set.
+        </p>
+    </div>
 
     <hr>
 
-    <h3>Usability Evaluation</h3>
+    <h3>Heuristic Evaluation</h3>
+    <div>
+        <p class="body_text">
+            <a href="https://www.nngroup.com/articles/ten-usability-heuristics/" target="_blank">Jakob Nielsen’s list of usability heuristics</a> is used as a base for the heuristic evaluation. Three heuristics were selected at this stage, due to their relation to the usability goals. The evaluators should consider the heuristics and evaluate the degree to which they are met as they navigate through the screens of the setup and the game. Each heuristic is accompanied with a rationale for their inclusion, along with the general principle that should be upheld throughout the prototype for the heuristic to be considered met.
+        </p>
+
+        <h5>1. Visibility of system status</h5>
+        <p class="body_text">
+            There are several screens in our application – a user should never feel lost among them. Each screen should explicitly show the user why it exists, conveyings its purpose clearly. Currently, this is addressed used a progress bar during the setup, along with titles on each page throughout. To make the status of the game clear to all players, a text-to-speech component to the game is also being considered, though not implemented in this prototype.
+            This heuristic is central to two of our usability goals: the ease of use of the setup phase, and the flow of the game. Evaluators should consider the clarity of the screen on its own, and in its context. For example, if users lose track of the setup on the third screen, or if the game cannot flow due to confusion, then there is a failure on the part of the application.
+        </p>
+
+        <h5>2. User control and freedom</h5>
+        <p class="body_text">
+            The setup phase has several screens, and a single mistake on one of these screens could affect the game afterwards. This heuristics states that a user should be given the tools to undo mistakes or unwanted actions. For this reason, a back button is included throughout the setup. After a game, users can also choose to start a new game by changing only a few settings; these functions should be designed so that a mistake is unlikely, and so that a new game isn't inadvertently started with undesired settings.
+            Evaluators should consider actions that a user could plausibly make by mistake, and see whether it is possible to undo it, or if the application forcibly retains control instead.
+        </p>
+
+        <h5>3. Match between system and the real world</h5>
+        <p class="body_text">
+            The application aims to tip-toe the line between digital interaction with a smartphone and real-world interaction with a group of friends. As such, there needs to be a tight coupling between the digital and real world for the actions that the game requires (e.g. physically passing the phone to the next player). The terms chosen should be immediately clear, and be rooted in real-world equivalents. For example, in our low-fidelity prototype, there was some confusion regarding the meaning of the word "group", and why players had to choose a group name at the start of the game. A small explanation was added to elucidate the use of the group name. Evaluators should take note of any other term whose significance is murky, or which is too technical.
+        </p>
+
+    </div>
 
     <hr>
 

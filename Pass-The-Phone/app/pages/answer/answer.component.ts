@@ -31,8 +31,7 @@ export class AnswerComponent{
     //TODO fix
     this.dummyAnswer = new TriviaAnswer(null,"")
     this.choices.push(this.dummyAnswer );
-
-    // this.choices.pop();
+    this.choices.pop();
     
 
     this.currentQuestion = roundDataProvider.triviaQuestion
@@ -113,8 +112,25 @@ export class AnswerComponent{
   @ViewChild("webview") webView: ElementRef;
   @ViewChild("showWebview") showWebview: ElementRef;
   @ViewChild("answers") listView: ElementRef;
+  @ViewChild("selectAnswer") selectAnswer: ElementRef;
   public WebViewSRC: string;
+
+  private stopWebview(){
+    this.showWebview.nativeElement.visibility = "collapse";
+    this.webView.nativeElement.visibility = "hidden";
+    this.selectAnswer.nativeElement.text = "Select your answer without Google...";
+    this.selectAnswer.nativeElement.color = "red";
+  }
+
+  public firstClick: boolean = true;
+
   private viewWeb(){
+    if(this.firstClick){
+      this.firstClick = false;
+      setTimeout(() => {
+        this.stopWebview();
+      }, 20000);
+    }
     if(this.webView.nativeElement.visibility == "visible"){
       this.showWebview.nativeElement.text = "Show Google";
       this.webView.nativeElement.visibility = "hidden";

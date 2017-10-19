@@ -11,7 +11,7 @@
                 <TextField #grounNameTx hint="Group Name" autocorrect="false" returnKeyType="done"
                 class="input input-border"></TextField>
                 
-                <GridLayout rows="auto, *, *" columns="2*, *" height="60%">
+                <GridLayout rows="auto, *, auto" columns="2*, *" height="100%">
                         <TextField  #newPlayerTx id="newPlayerName"  [(ngModel)]="newPlayerName" hint="Enter a Player Name" row="0" col="0" ></TextField>
                         <Button text="Add" tap="add" row="0" col="1" (tap)="addPlayer(newPlayerTx.text)"></Button>
                         <ListView [items]="players" row="1" colSpan="2" class="list-group">

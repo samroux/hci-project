@@ -1,15 +1,17 @@
 <ActionBar class="action-bar">
-        <Label class="action-bar-title" text="Pass The Phone"></Label>
+                <StackLayout orientation="horizontal" horizontalAlignment="center">
+                        <Image class="logo" src="~/shared/logo.png"></Image>
+                </StackLayout> 
 </ActionBar>
 
-<StackLayout>
-        <StackLayout>
+<StackLayout class="content">
+        <StackLayout class="content">
                 <Label class="h1">
                         Please read the question aloud
                 </Label> 
         </StackLayout>
         
-        <StackLayout>                        
+        <StackLayout class="content">                        
                 <Label [text]="question" textWrap="true" ></Label>
         </StackLayout>
         
@@ -22,7 +24,7 @@
                         </ng-template>
                 </ListView>
         </GridLayout> -->
-        <StackLayout>   
+        <StackLayout class="content">   
                 <Label text="Press Done and pass the phone to "  textWrap="true"></Label>
                 <Label text= "{{roundDataProvider.currentPlayer.name}}" class="playername"></Label>
         </StackLayout>

@@ -1,11 +1,13 @@
 <ActionBar class="action-bar">
-        <Label class="action-bar-title" text="Pass The Phone"></Label>
+                <StackLayout orientation="horizontal" verticalAligment="center" horizontalAlignment="center">
+                        <Image class="logo" src="~/shared/logo.png"></Image>
+                </StackLayout> 
 </ActionBar>
 
 <GridLayout columns="*" rows="auto,*,*,5*,auto">
         <!-- <Label text="Answer-Page"></Label>        -->
         <Label [text]="question" row="0" col="0" textWrap="true" ></Label>
-        <Label row="1" col="0" text="Select your answer"  textWrap="true" ></Label> -->
+        <Label #selectAnswer row="1" col="0" text="Select your answer"  textWrap="true" ></Label> -->
         <Button #showWebview row="2" col="0" text="Ask Google" (tap)="viewWeb()"></Button>
         <WebView #webview row="3" col="0" visibility="hidden" [src]="WebViewSRC"></WebView>
         <GridLayout #answers row="4" col="0" height="250">                

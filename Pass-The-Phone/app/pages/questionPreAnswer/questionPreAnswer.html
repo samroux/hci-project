@@ -1,8 +1,10 @@
 <ActionBar class="action-bar">
-        <Label class="action-bar-title" text="Pass The Phone"></Label>
+                <StackLayout orientation="horizontal" verticalAligment="center" horizontalAlignment="center">
+                        <Image class="logo" src="~/shared/logo.png"></Image>
+                </StackLayout> 
 </ActionBar>
     
-<StackLayout>
+<StackLayout class="content">
         <!-- <Label text="QuestionPreAnswer-Page"></Label> -->
         <Label text="{{roundDataProvider.currentPlayer.name}}, please press the button bellow once you're ready!" textWrap="true" ></Label>       
         <Button text="Next" class="submit-button" (tap)="next()"></Button>        

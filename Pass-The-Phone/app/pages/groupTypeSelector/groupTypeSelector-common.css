@@ -11,9 +11,9 @@ TextField {
   padding-top: 100;
   background-color: white;
 }
-Image {
-  margin-top: 5;
-  margin-bottom: 20;
+.logo {
+  margin-top: 12;
+  margin-bottom: 12;
 }
 Button, TextField {
   margin-left: 16;

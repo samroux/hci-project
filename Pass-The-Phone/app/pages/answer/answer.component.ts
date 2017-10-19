@@ -19,6 +19,7 @@ export class AnswerComponent{
   public choices: Array<TriviaAnswer>;
   public question: string;
   private selectedAnswer: TriviaAnswer;
+  private dummyAnswer: TriviaAnswer;
 
   private currentQuestion: TriviaQuestion;
 
@@ -26,7 +27,13 @@ export class AnswerComponent{
     // console.log("Constructing answer.component");
     this.choices = [];
 
-    this.choices.push(new TriviaAnswer(null,""));
+    //need to have dummy otherwise, won't load on UI
+    //TODO fix
+    this.dummyAnswer = new TriviaAnswer(null,"")
+    this.choices.push(this.dummyAnswer );
+
+    // this.choices.pop();
+    
 
     this.currentQuestion = roundDataProvider.triviaQuestion
 
@@ -38,6 +45,11 @@ export class AnswerComponent{
       this.choices.push(this.currentQuestion.triviaAnswers[i]);
     }
 
+    //remove dummy
+    // let index=this.choices.indexOf(this.dummyAnswer);
+    // console.log("index of dummy:"+ index);
+    // this.choices.slice(index,1);
+    // delete this.dummyAnswer;
   }
 
   /*ngAfterViewInit() {
@@ -60,7 +72,7 @@ export class AnswerComponent{
 
   public onItemTap(args) {
     // console.log("Item Tapped at cell index: " + args.index + " " + args.name);
-    if(args.index >0){
+    if(args.index >-1){
       this.selectedAnswer = this.choices[args.index];
       // console.log ("Chosen: "+this.selectedAnswer.content);
 

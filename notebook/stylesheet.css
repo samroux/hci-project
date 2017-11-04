@@ -12,6 +12,7 @@ body {
 	margin: 0;
 	font-family: "Lato", sans-serif;
 	font-color: #353535;
+	background: #fefefe;
 }
 
 /* 
@@ -140,10 +141,10 @@ h5 {
 }
 
 #header #nav a {
-	color: #ffbfa6;
+	color: #ffd1bf;
 	text-decoration: none;
-	margin-left: 10px;
-	margin-right: 10px;
+	margin-left: 5px;
+	margin-right: 5px;
 	padding: 2px 2px 2px 2px;
 	border-bottom: 2px solid #ff9b73;
 	transition: all 0.2s ease 0s;
@@ -178,6 +179,7 @@ h5 {
 	padding-bottom: 2px;
 	border-bottom: 2px solid #ffd8a6;
 	transition: all 0.2s ease 0s;
+	line-height: 25px;
 }
 
 #main a:hover {
@@ -190,9 +192,15 @@ img {
 	max-width: 100%;
 }
 
-img .figure {
+.figure {
+	width: 100%;
+}
+
+.figure img {
 	border: 1px solid #ccc;
 	border-radius: 0;
+	display: block;
+	margin: auto;
 }
 
 img .table {

@@ -289,7 +289,7 @@
             <p class="tip">Jane Doe, the user, is encouraged to pay bills for which they are the recipient</p>
         </div>
         <p class="body_text">
-            This results in murky interaction: should the user include themselves in bills where they were part of the activity, but already paid? Should they include themselves at all when requesting payment from others? Are they Jane Doe, and if so, why are they being referred to both in the second and third person on the same bill? The indicator that they are a recipient is small and easy to miss: it is given the same visual importance as a category, despite being critical to the bill. Enforcing a visual distinction between bills where money is requested from the user (outgoing) and bills that will gain the user money (incoming) would be beneficial. This could be done by adding icons, color coding, or many other means.
+            This results in murky interaction: should the user include themselves in bills where they were part of the activity, but already paid? Should they include themselves at all when requesting payment from others? Are they Jane Doe, and if so, why are they being referred to both in the second and third person on the same bill? The indicator that they are a recipient is small and easy to miss: it is given the same visual importance as a category, despite being critical to the bill. 
         </p>
     </div>
 
@@ -372,7 +372,14 @@
             Sorting buttons should have more details and be more obvious. For example, when a sorting method is selected, it could be coloured to show what the state is. Also, arrows next to the button to convey sorting direction could be interesting for the user to choose directly the sort order he’s looking for. The current implementation of sorting also has evident issues when it comes to sorting by date properly, which is something that needs to be addressed.
         </p>
 
-        <h5>4. Improve search functionality to have a broader search.</h5>
+        <h5>4. Improve the distinction between bills for which users are recipients vs. contributors</h5>
+        <p class="body_text">
+            <i>Addresses issue 6</i>
+            <br>
+             Enforcing a visual distinction between bills where money is requested from the user (outgoing) and bills that will gain the user money (incoming) would be beneficial. The current implementation causes confusion, as users are requested to pay their own bills, sometimes in the third person. This could be done by adding icons to bills (such as incoming, outgoing arrows), color coding the bills even further, or splitting the dashboard in two parts (e.g. Bills to Pay, Bills to Collect). The latter option would also add the benefit of assigning visually different spaces to the two opposed categories.
+        </p>
+
+        <h5>5. Improve search functionality to have a broader search.</h5>
         <p class="body_text">
             <i>New heuristic: Flexibility and efficiency of use</i>
             <br>

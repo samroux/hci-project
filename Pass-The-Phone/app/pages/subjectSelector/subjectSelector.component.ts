@@ -30,6 +30,7 @@ export class SubjectSelectorComponent implements OnInit{
     this.rdp = roundDataProvider;
 
     this.categories.push(new TriviaCategory(null,""));
+    // this.categories.pop();
   }
   
   ngOnInit() {
@@ -48,7 +49,7 @@ export class SubjectSelectorComponent implements OnInit{
   
   extractData() {
     var http = require("http");
-    this.categories.push();
+    // this.categories.pop();
     
     var that = this;
     
@@ -61,15 +62,13 @@ export class SubjectSelectorComponent implements OnInit{
       var myObj = JSON.parse(str);
       
       for (let i = 0;i < myObj.trivia_categories.length;i++) {
-        // console.log(myObj.trivia_categories[i].id+ " "+ myObj.trivia_categories[i].name);
+        console.log(myObj.trivia_categories[i].id+ " "+ myObj.trivia_categories[i].name);
         
         let id: number = myObj.trivia_categories[i].id;
         let name: string = myObj.trivia_categories[i].name;
         
         that.categories.push(new TriviaCategory(id, name));
       }
-      
-      
       
     }, function (e) {
       //// Argument (e) is Error!

@@ -44,11 +44,6 @@ export class AnswerComponent{
       this.choices.push(this.currentQuestion.triviaAnswers[i]);
     }
 
-    //remove dummy
-    // let index=this.choices.indexOf(this.dummyAnswer);
-    // console.log("index of dummy:"+ index);
-    // this.choices.slice(index,1);
-    // delete this.dummyAnswer;
   }
 
   /*ngAfterViewInit() {

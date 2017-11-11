@@ -13,9 +13,9 @@ import {RoundDataProvider} from "../../shared/providers/roundData.provider";
 })
 
 export class ModeSelectorComponent implements OnInit {
-
+  
   private progressValue: number; 
-
+  
   private playersName: string;
   private groupName: string;
   private rdp: RoundDataProvider; 
@@ -28,21 +28,32 @@ export class ModeSelectorComponent implements OnInit {
     this.playersName = roundDataProvider.group.playersName;
     this.groupName = roundDataProvider.group.name;
   }
-
+  
   ngOnInit(){
     this.progressValue = 40;    
   }
-
+  
   individualPlay() {
     this.rdp.gameMode="individual";
     this.next("individual");
   }
-
+  
   teamPlay() {
-    this.rdp.gameMode="team";
-    this.next("team");
+    let teamCount=this.roundDataProvider.calculateTeamCount();
+    
+    if(teamCount > 1){
+      this.rdp.gameMode="team";
+      this.next("team");
+    }else{
+      let options = {
+        title: "Error",
+        message: "Team play is not allowed given the number of players",
+        okButtonText: "OK"
+      };
+      alert(options);
+    }
   }
-
+  
   private next(mode) {
     if(mode == "team"){
       this.router.navigate(["teamBuilder"])

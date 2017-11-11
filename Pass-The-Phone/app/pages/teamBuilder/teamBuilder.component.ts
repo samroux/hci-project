@@ -100,14 +100,6 @@ export class TeamBuilderComponent implements OnInit{
     // list only players not associated with team and one already in that team
     this._dataItems = new ObservableArray(this.roundDataProvider.getExistingAndRemainingPlayers(this.selectedTeam));
     
-    // now mark the existing as selected
-    // for(let i = 0; i < this.selectedTeam.players.length; i++ ){
-    //   let index = this._dataItems.indexOf(this.selectedTeam.players[i]);
-      
-    //   this.loading = true;
-    //   this.selectItemAt(index);
-    //   this.loading=false;
-    // }
     console.log("selected team:" + this.selectedTeam.name );     
   }
   

@@ -689,20 +689,9 @@ export class RadListView extends View {
     static itemsProperty: Property<RadListView, any>;
 
     /**
-    * The native 'android.widget.FrameLayout' object.
-    */
-    android: any;
-
-    /**
     * The native 'com.telerik.widget.list.RadListView' object.
     */
-    _android: any;
-
-    /**
-    * The native 'TKListView' object.
-    */
-    ios: any;
-
+    androidListView: any;
     /**
     * The layout object used to arrange items.
     */

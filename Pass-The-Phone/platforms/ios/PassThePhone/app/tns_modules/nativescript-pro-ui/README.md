@@ -1,13 +1,13 @@
 # Welcome to Progress NativeScript UI Pro
-[Progress NativeScript Pro UI](http://www.telerik.com/nativescript-ui) a suite of  rich-UI components targeting the NativeScript platform. 
+[Progress NativeScript Pro UI](https://www.telerik.com/nativescript-ui) a suite of  rich-UI components targeting the NativeScript platform. 
 
 ## Getting started
 
 For more information on how to use Progress NativeScript UI, please visit the documentation website here [http://docs.telerik.com/devtools/nativescript-ui](http://docs.telerik.com/devtools/nativescript-ui).
 
-You can also take a look at the SDK samples application which is available on GitHub and contains simple scenarios covering all features of the components in Progress NativeScript UI: [http://www.github.com/telerik/nativescript-ui-samples](http://www.github.com/telerik/nativescript-ui-samples).
+You can also take a look at the SDK samples application which is available on GitHub and contains simple scenarios covering all features of the components in Progress NativeScript UI: [https://www.github.com/telerik/nativescript-ui-samples](https://www.github.com/telerik/nativescript-ui-samples).
 
-If you prefer to use Progress NativeScript UI with Angular you can also benefit from our dedicated Angular examples here: [http://www.github.com/telerik/nativescript-ui-samples-angular](http://www.github.com/telerik/nativescript-ui-samples-angular).
+If you prefer to use Progress NativeScript UI with Angular you can also benefit from our dedicated Angular examples here: [https://www.github.com/telerik/nativescript-ui-samples-angular](https://www.github.com/telerik/nativescript-ui-samples-angular).
 
 ## Package contains
 
@@ -22,7 +22,7 @@ The suite offers the following components:
 - Animated transitions between views
 - Styling customizations support
 
-<img src="http://www.telerik.com/sfimages/default-source/blogs/ui-for-nativescript/calendar-nativescript-npm.png?Status=Temp&sfvrsn=2">
+<img src="https://www.telerik.com/sfimages/default-source/blogs/ui-for-nativescript/calendar-nativescript-npm.png?Status=Temp&sfvrsn=2">
 
 ### Chart
 
@@ -33,7 +33,7 @@ The suite offers the following components:
 - Annotations: line, plot
 - Trackball
 
-<img src="http://www.telerik.com/sfimages/default-source/blogs/ui-for-nativescript/chart-nativescript-npm.png?Status=Temp&sfvrsn=2">
+<img src="https://www.telerik.com/sfimages/default-source/blogs/ui-for-nativescript/chart-nativescript-npm.png?Status=Temp&sfvrsn=2">
 
 ### DataForm
 
@@ -46,7 +46,7 @@ DataForm for NativeScript allows you to easily build various fill-in forms such 
 - Collapsible groups
 - Read-only mode
 
-<img src="http://www.telerik.com/sfimages/default-source/blogs/ui-for-nativescript/dataform-nativescript-npm.png?Status=Temp&sfvrsn=2">
+<img src="https://www.telerik.com/sfimages/default-source/blogs/ui-for-nativescript/dataform-nativescript-npm.png?Status=Temp&sfvrsn=2">
 
 ### ListView
 
@@ -62,7 +62,7 @@ ListView for NativeScript is suitable for virtually every mobile application. It
 - Item reorder
 - Styling customizations support through code and CSS
 
-<img src="http://www.telerik.com/sfimages/default-source/blogs/ui-for-nativescript/listview-nativescript.png?Status=Temp&sfvrsn=2">
+<img src="https://www.telerik.com/sfimages/default-source/blogs/ui-for-nativescript/listview-nativescript.png?Status=Temp&sfvrsn=2">
 
 ### AutoCompleteTextView
 
@@ -82,7 +82,7 @@ RadGauge for NativeScript is a highly customizable component that allows you to 
 - Ability to appear from all four sides of the screen
 - Support for custom content
 
-<img src="http://www.telerik.com/sfimages/default-source/blogs/ui-for-nativescript/sidedrawer-nativescript.png?Status=Temp&sfvrsn=2">
+<img src="https://www.telerik.com/sfimages/default-source/blogs/ui-for-nativescript/sidedrawer-nativescript.png?Status=Temp&sfvrsn=2">
 
 
 ## Support

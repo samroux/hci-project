@@ -19,6 +19,7 @@ export class AnswerComponent{
   public choices: Array<TriviaAnswer>;
   public question: string;
   private selectedAnswer: TriviaAnswer;
+  private dummyAnswer: TriviaAnswer;
 
   private currentQuestion: TriviaQuestion;
 
@@ -26,7 +27,12 @@ export class AnswerComponent{
     // console.log("Constructing answer.component");
     this.choices = [];
 
-    this.choices.push(new TriviaAnswer(null,""));
+    //need to have dummy otherwise, won't load on UI
+    //TODO fix
+    this.dummyAnswer = new TriviaAnswer(null,"")
+    this.choices.push(this.dummyAnswer );
+    this.choices.pop();
+    
 
     this.currentQuestion = roundDataProvider.triviaQuestion
 
@@ -60,7 +66,7 @@ export class AnswerComponent{
 
   public onItemTap(args) {
     // console.log("Item Tapped at cell index: " + args.index + " " + args.name);
-    if(args.index >0){
+    if(args.index >-1){
       this.selectedAnswer = this.choices[args.index];
       // console.log ("Chosen: "+this.selectedAnswer.content);
 
@@ -101,8 +107,25 @@ export class AnswerComponent{
   @ViewChild("webview") webView: ElementRef;
   @ViewChild("showWebview") showWebview: ElementRef;
   @ViewChild("answers") listView: ElementRef;
+  @ViewChild("selectAnswer") selectAnswer: ElementRef;
   public WebViewSRC: string;
+
+  private stopWebview(){
+    this.showWebview.nativeElement.visibility = "collapse";
+    this.webView.nativeElement.visibility = "hidden";
+    this.selectAnswer.nativeElement.text = "Select your answer without Google...";
+    this.selectAnswer.nativeElement.color = "red";
+  }
+
+  public firstClick: boolean = true;
+
   private viewWeb(){
+    if(this.firstClick){
+      this.firstClick = false;
+      setTimeout(() => {
+        this.stopWebview();
+      }, 20000);
+    }
     if(this.webView.nativeElement.visibility == "visible"){
       this.showWebview.nativeElement.text = "Show Google";
       this.webView.nativeElement.visibility = "hidden";

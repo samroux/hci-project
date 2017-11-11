@@ -10420,6 +10420,7 @@ declare module com {
 					public addView(param0: androidviewView, param1: number, param2: number): void;
 					public getAdapter(): com.telerik.widget.autocomplete.AutoCompleteAdapter;
 					public addToken(param0: com.telerik.widget.autocomplete.TokenView): void;
+					public addTokenView(param0: com.telerik.widget.autocomplete.TokenModel): void;
 					public clearChildFocus(param0: androidviewView): void;
 					public onKeyLongPress(param0: number, param1: androidviewKeyEvent): boolean;
 					public requestChildFocus(param0: androidviewView, param1: androidviewView): void;
@@ -11279,6 +11280,7 @@ declare module com {
 					public static Month: com.telerik.widget.calendar.CalendarDisplayMode;
 					public static Year: com.telerik.widget.calendar.CalendarDisplayMode;
 					public static Week: com.telerik.widget.calendar.CalendarDisplayMode;
+					public static Day: com.telerik.widget.calendar.CalendarDisplayMode;
 					public static values(): native.Array<com.telerik.widget.calendar.CalendarDisplayMode>;
 					public static valueOf(param0: string): com.telerik.widget.calendar.CalendarDisplayMode;
 					public static valueOf(param0: javalangClass<any>, param1: string): javalangEnum<any>;
@@ -12748,6 +12750,7 @@ declare module com {
 					public setSelectedRange(param0: com.telerik.widget.calendar.DateRange): void;
 					public setOnDisplayModeChangedListener(param0: com.telerik.widget.calendar.RadCalendarView.OnDisplayModeChangedListener): void;
 					public drawDayNames(param0: androidgraphicsCanvas): void;
+					public getDayView(): com.telerik.widget.calendar.dayview.CalendarDayView;
 				}
 				export module RadCalendarView {
 					export class CalendarTask extends javalangObject {
@@ -12992,6 +12995,47 @@ declare module com {
 						public renderLayer(param0: number, param1: androidgraphicsCanvas): void;
 						public renderDecorationForCell(param0: androidgraphicsCanvas, param1: com.telerik.widget.calendar.CalendarCell): void;
 						public toggleDecorationForCell(param0: com.telerik.widget.calendar.CalendarCell): void;
+					}
+				}
+			}
+		}
+	}
+}
+
+import javatextSimpleDateFormat = java.text.SimpleDateFormat;
+/// <reference path="./java.text.SimpleDateFormat.d.ts" />
+/// <reference path="./com.telerik.widget.calendar.RadCalendarView.d.ts" />
+declare module com {
+	export module telerik {
+		export module widget {
+			export module calendar {
+				export module dayview {
+					export class DayEventsViewStyle {
+						public setBackgroundColor(param0: number): void;
+						public setTimeLabelFormat(param0: javatextSimpleDateFormat): void;
+						public setTimeLabelColor(param0: number): void;
+						public setTimeLabelTextSize(param0: number): void;
+						public setTimeLinesWidth(param0: number): void;
+						public setTimeLinesColor(param0: number): void;
+					}
+					export class AllDayEventsViewStyle {
+						public setBackgroundColor(param0: number): void;
+						public setAllDayText(param0: string): void;
+						public setAllDayTextIsVisible(param0: boolean): void;
+						public setAllDayTextSize(param0: number): void;
+						public setAllDayTextColor(param0: number): void;
+					}
+					export class CalendarDayView extends android.widget.LinearLayout {
+						public getDayEventsViewStyle(): DayEventsViewStyle;
+						public getAllDayEventsViewStyle(): AllDayEventsViewStyle;
+					}
+					export module CalendarDayView {
+						export class EventViewTapListener extends javalangObject {
+							public constructor(implementation: {
+								onEventViewTap(event: com.telerik.widget.calendar.events.Event): void;
+							});
+							public onEventViewTap(event: com.telerik.widget.calendar.events.Event): void;
+						}
 					}
 				}
 			}

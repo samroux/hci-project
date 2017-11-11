@@ -10,7 +10,7 @@
         "spec": "5.4.3",
         "type": "version"
       },
-      "/Development/McGill/ecse424/hci-project/Pass-The-Phone/node_modules/tns-template-blank-ng"
+      "/Development/McGill/ecse424/hci-project/Pass-The-Phone"
     ]
   ],
   "_from": "rxjs@5.4.3",
@@ -38,13 +38,13 @@
     "type": "version"
   },
   "_requiredBy": [
-    "/tns-template-blank-ng"
+    "/"
   ],
   "_resolved": "https://registry.npmjs.org/rxjs/-/rxjs-5.4.3.tgz",
   "_shasum": "0758cddee6033d68e0fd53676f0f3596ce3d483f",
   "_shrinkwrap": null,
   "_spec": "rxjs@5.4.3",
-  "_where": "/Development/McGill/ecse424/hci-project/Pass-The-Phone/node_modules/tns-template-blank-ng",
+  "_where": "/Development/McGill/ecse424/hci-project/Pass-The-Phone",
   "author": {
     "name": "Ben Lesh",
     "email": "ben@benlesh.com"

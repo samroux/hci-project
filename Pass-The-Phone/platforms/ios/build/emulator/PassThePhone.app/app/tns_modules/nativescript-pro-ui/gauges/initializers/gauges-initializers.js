@@ -8,38 +8,38 @@ var RadGaugeValueMapper = (function () {
     }
     RadGaugeValueMapper.prototype.onTitleChanged = function (oldValue, newValue, gauge) {
         if (!newValue) {
-            gauge.ios.labelTitle.text = "";
+            gauge._nativeView.labelTitle.text = "";
             return;
         }
-        gauge.ios.labelTitle.text = newValue;
+        gauge._nativeView.labelTitle.text = newValue;
     };
     RadGaugeValueMapper.prototype.onSubtitleChanged = function (oldValue, newValue, gauge) {
         if (!newValue) {
-            gauge.ios.labelSubtitle.text = "";
+            gauge._nativeView.labelSubtitle.text = "";
             return;
         }
-        gauge.ios.labelSubtitle.text = newValue;
+        gauge._nativeView.labelSubtitle.text = newValue;
     };
     RadGaugeValueMapper.prototype.onTitleStyleChanged = function (oldValue, newValue, gauge) {
         var style = newValue;
         style.owner = gauge;
-        gauge.ios.labelTitleOffset = CGPointMake(style.horizontalOffset, style.verticalOffset);
+        gauge._nativeView.labelTitleOffset = CGPointMake(style.horizontalOffset, style.verticalOffset);
         if (style.textSize) {
-            gauge.ios.labelTitle.font = UIFont.systemFontOfSize(style.textSize);
+            gauge._nativeView.labelTitle.font = UIFont.systemFontOfSize(style.textSize);
         }
         if (style.textColor) {
-            gauge.ios.labelTitle.textColor = (new color_1.Color(style.textColor)).ios;
+            gauge._nativeView.labelTitle.textColor = (new color_1.Color(style.textColor)).ios;
         }
     };
     RadGaugeValueMapper.prototype.onSubtitleStyleChanged = function (oldValue, newValue, gauge) {
         var style = newValue;
         style.owner = gauge;
-        gauge.ios.labelSubtitleOffset = CGPointMake(style.horizontalOffset, style.verticalOffset);
+        gauge._nativeView.labelSubtitleOffset = CGPointMake(style.horizontalOffset, style.verticalOffset);
         if (style.textSize) {
-            gauge.ios.labelSubtitle.font = UIFont.systemFontOfSize(style.textSize);
+            gauge._nativeView.labelSubtitle.font = UIFont.systemFontOfSize(style.textSize);
         }
         if (style.textColor) {
-            gauge.ios.labelSubtitle.textColor = (new color_1.Color(style.textColor)).ios;
+            gauge._nativeView.labelSubtitle.textColor = (new color_1.Color(style.textColor)).ios;
         }
     };
     return RadGaugeValueMapper;

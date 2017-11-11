@@ -68,7 +68,7 @@
     "node"
   ],
   "license": "MIT",
-  "main": "node.js",
+  "main": "browser.js",
   "maintainers": [
     {
       "name": "tootallnate",

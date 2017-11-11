@@ -49,7 +49,7 @@
     "/nativescript-nodeify"
   ],
   "_resolved": "git+https://github.com/EddyVerbruggen/nativescript-node.git#dc93ab48a84c410bc8d6f46527fb171799f8bfeb",
-  "_shasum": "3d226dedcbc9f70f041f9e34e9f64ff515e0b751",
+  "_shasum": "bdaf03bae7e146c1d4ef2e73db12bfc793f7a6c9",
   "_shrinkwrap": null,
   "_spec": "nativescript-node@git+https://github.com/EddyVerbruggen/nativescript-node.git#dc93ab4",
   "_where": "/Development/McGill/ecse424/hci-project/Pass-The-Phone/node_modules/nativescript-nodeify",

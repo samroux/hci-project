@@ -10,7 +10,7 @@
         "spec": "4.2.5",
         "type": "version"
       },
-      "/Development/McGill/ecse424/hci-project/Pass-The-Phone/node_modules/tns-template-blank-ng"
+      "/Development/McGill/ecse424/hci-project/Pass-The-Phone"
     ]
   ],
   "_from": "@angular/platform-browser@4.2.5",
@@ -38,13 +38,13 @@
     "type": "version"
   },
   "_requiredBy": [
-    "/tns-template-blank-ng"
+    "/"
   ],
   "_resolved": "https://registry.npmjs.org/@angular/platform-browser/-/platform-browser-4.2.5.tgz",
   "_shasum": "d9ddfe0f81084e98ef24a79f485dbb112e78a0c4",
   "_shrinkwrap": null,
   "_spec": "@angular/platform-browser@4.2.5",
-  "_where": "/Development/McGill/ecse424/hci-project/Pass-The-Phone/node_modules/tns-template-blank-ng",
+  "_where": "/Development/McGill/ecse424/hci-project/Pass-The-Phone",
   "author": {
     "name": "angular"
   },

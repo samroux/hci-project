@@ -97,14 +97,7 @@ var RadGauge = (function (_super) {
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(RadGauge.prototype, "ios", {
-        get: function () {
-            return undefined;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(RadGauge.prototype, "android", {
+    Object.defineProperty(RadGauge.prototype, "_nativeView", {
         get: function () {
             return undefined;
         },

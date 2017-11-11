@@ -1,8 +1,10 @@
-<ActionBar class="action-bar"> 
-        <Label class="action-bar-title" text="Pass The Phone"></Label>
+<ActionBar class="action-bar">
+                <StackLayout orientation="horizontal" horizontalAlignment="center">
+                        <Image class="logo" src="~/shared/logo.png"></Image>
+                </StackLayout> 
 </ActionBar>
 
-<StackLayout>
+<StackLayout class="content">
         <Label text="Press the Start button and follow the instructions to start your game!"  textWrap="true"></Label>       
         <Button text="Start!" class="submit-button" (tap)="submit()"></Button>        
 </StackLayout>

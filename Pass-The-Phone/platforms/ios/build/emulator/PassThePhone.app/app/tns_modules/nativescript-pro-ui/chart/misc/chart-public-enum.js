@@ -152,3 +152,12 @@ var knownCollections;
     knownCollections.annotations = "annotations";
 })(knownCollections = exports.knownCollections || (exports.knownCollections = {}));
 exports.seriesName = "seriesName";
+/*
+* Lists the possible last label visibility options.
+*/
+var AxisLabelVisibility;
+(function (AxisLabelVisibility) {
+    AxisLabelVisibility.Visible = "Visible";
+    AxisLabelVisibility.Hidden = "Hidden";
+    AxisLabelVisibility.Clip = "Clip";
+})(AxisLabelVisibility = exports.AxisLabelVisibility || (exports.AxisLabelVisibility = {}));

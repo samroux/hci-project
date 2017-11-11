@@ -6,6 +6,7 @@ var utilsModule = require("tns-core-modules/utils/utils");
 var colorModule = require("tns-core-modules/color");
 var view_1 = require("tns-core-modules/ui/core/view");
 var observable_1 = require("tns-core-modules/data/observable");
+var platform_1 = require("tns-core-modules/platform");
 require("utils/module-merge").merge(commonModule, exports);
 var knownTemplates;
 (function (knownTemplates) {
@@ -69,7 +70,7 @@ var ListViewLayoutBase = (function (_super) {
             return;
         }
         var owner = this._owner.get();
-        owner.ios.scrollDirection = (newScrollDirection === commonModule.ListViewScrollDirection.Horizontal) ?
+        owner._nativeView.scrollDirection = (newScrollDirection === commonModule.ListViewScrollDirection.Horizontal) ?
             1 /* Horizontal */ :
             0 /* Vertical */;
     };
@@ -408,8 +409,8 @@ var TKListViewDelegateImpl = (function (_super) {
             owner.notify(startArgs);
             var swipeLimits = startArgs.data.swipeLimits;
             if (swipeLimits) {
-                owner.ios.cellSwipeLimits = UIEdgeInsetsFromString("{" + view_1.layout.toDeviceIndependentPixels(swipeLimits.top) + ", " + view_1.layout.toDeviceIndependentPixels(swipeLimits.left) + ", " + view_1.layout.toDeviceIndependentPixels(swipeLimits.bottom) + ", " + view_1.layout.toDeviceIndependentPixels(swipeLimits.right) + "}");
-                owner.ios.cellSwipeTreshold = view_1.layout.toDeviceIndependentPixels(swipeLimits.threshold);
+                owner._nativeView.cellSwipeLimits = UIEdgeInsetsFromString("{" + view_1.layout.toDeviceIndependentPixels(swipeLimits.top) + ", " + view_1.layout.toDeviceIndependentPixels(swipeLimits.left) + ", " + view_1.layout.toDeviceIndependentPixels(swipeLimits.bottom) + ", " + view_1.layout.toDeviceIndependentPixels(swipeLimits.right) + "}");
+                owner._nativeView.cellSwipeTreshold = view_1.layout.toDeviceIndependentPixels(swipeLimits.threshold);
             }
         }
         return shouldSwipe;
@@ -708,7 +709,7 @@ var ExtendedListViewCell = (function (_super) {
         var owner = this.view.itemView.parent;
         var allObjects = touches.allObjects;
         var touchEvent = allObjects.objectAtIndex(0);
-        var currentIndexPath = owner.ios.indexPathForCell(this);
+        var currentIndexPath = owner._nativeView.indexPathForCell(this);
         if (touchEvent.tapCount === 1) {
             if (owner.hasListeners(commonModule.RadListView.itemTapEvent)) {
                 var args = {
@@ -725,7 +726,7 @@ var ExtendedListViewCell = (function (_super) {
     };
     ExtendedListViewCell.prototype.getCurrentIndexPath = function () {
         var owner = this.view.itemView.parent;
-        return owner.ios.indexPathForCell(this);
+        return owner._nativeView.indexPathForCell(this);
     };
     return ExtendedListViewCell;
 }(TKListViewCell));
@@ -742,6 +743,10 @@ var RadListView = (function (_super) {
         _this.listViewLayout = new ListViewLinearLayout();
         _this._heights = new Array();
         _this._ios = TKListView.new();
+        if (parseInt(platform_1.device.sdkVersion) >= 11) {
+            // TODO: Remove the cast to 'any' when 'tns-platform-declarations' is update with iOS 11 declarations
+            _this._ios.collectionView.contentInsetAdjustmentBehavior = 2 /* Never */;
+        }
         _this._ios.autoresizingMask = 2 /* FlexibleWidth */ | 16 /* FlexibleHeight */;
         _this._ios.cellSwipeTreshold = 30; //the treshold after which the cell will auto swipe to the end and will not jump back to the center.
         _this._delegate = TKListViewDelegateImpl.initWithOwner(new WeakRef(_this));
@@ -763,7 +768,7 @@ var RadListView = (function (_super) {
         _this.syncListViewLayout(_this.listViewLayout);
         return _this;
     }
-    Object.defineProperty(RadListView.prototype, "ios", {
+    Object.defineProperty(RadListView.prototype, "_nativeView", {
         get: function () {
             return this._ios;
         },
@@ -771,7 +776,7 @@ var RadListView = (function (_super) {
         configurable: true
     });
     RadListView.prototype.createNativeView = function () {
-        return this.ios;
+        return this._nativeView;
     };
     RadListView.prototype.disposeNativeView = function () {
     };
@@ -837,7 +842,7 @@ var RadListView = (function (_super) {
         this._updateHeaderFooterAvailability();
     };
     RadListView.prototype._updateHeaderFooterAvailability = function () {
-        if (this.ios.layout) {
+        if (this._nativeView.layout) {
             var scrollDirection = this.listViewLayout.scrollDirection;
             var sizeRestriction = {
                 width: scrollDirection === commonModule.ListViewScrollDirection.Vertical ? this.getMeasuredWidth() : undefined,
@@ -848,24 +853,24 @@ var RadListView = (function (_super) {
                 this._addView(tempView);
                 tempView.bindingContext = this.bindingContext;
                 var measuredSize = this.measureCell(tempView, sizeRestriction);
-                this.ios.layout.headerReferenceSize =
+                this._nativeView.layout.headerReferenceSize =
                     CGSizeMake(view_1.layout.toDeviceIndependentPixels(measuredSize.measuredWidth), view_1.layout.toDeviceIndependentPixels(measuredSize.measuredHeight));
                 this._removeView(tempView);
             }
             else {
-                this.ios.layout.headerReferenceSize = CGSizeMake(0, 0);
+                this._nativeView.layout.headerReferenceSize = CGSizeMake(0, 0);
             }
             tempView = this.getViewForViewType(commonModule.ListViewViewTypes.FooterView);
             if (tempView) {
                 this._addView(tempView);
                 tempView.bindingContext = this.bindingContext;
                 var measuredSize = this.measureCell(tempView, sizeRestriction);
-                this.ios.layout.footerReferenceSize =
+                this._nativeView.layout.footerReferenceSize =
                     CGSizeMake(view_1.layout.toDeviceIndependentPixels(measuredSize.measuredWidth), view_1.layout.toDeviceIndependentPixels(measuredSize.measuredHeight));
                 this._removeView(tempView);
             }
             else {
-                this.ios.layout.footerReferenceSize = CGSizeMake(0, 0);
+                this._nativeView.layout.footerReferenceSize = CGSizeMake(0, 0);
             }
             this.refresh();
         }
@@ -885,8 +890,8 @@ var RadListView = (function (_super) {
     };
     RadListView.prototype.syncListViewLayout = function (newValue) {
         var newLayout = newValue;
-        if (newLayout && this.ios) {
-            this.ios.layout = newValue.ios;
+        if (newLayout && this._nativeView) {
+            this._nativeView.layout = newValue.ios;
             this.refresh();
             newLayout.init(new WeakRef(this));
             this._updateHeaderFooterAvailability();
@@ -988,13 +993,13 @@ var RadListView = (function (_super) {
         return this.itemSwipe || this.swipeActions;
     };
     RadListView.prototype.synchSelection = function () {
-        this.ios.allowsMultipleSelection = (this.multipleSelection ? true : false);
+        this._nativeView.allowsMultipleSelection = (this.multipleSelection ? true : false);
     };
     RadListView.prototype.onItemReorderChanged = function (oldValue, newValue) {
         this.synchCellReorder();
     };
     RadListView.prototype.synchCellReorder = function () {
-        this.ios.allowsCellReorder = (this.itemReorder ? true : false);
+        this._nativeView.allowsCellReorder = (this.itemReorder ? true : false);
     };
     RadListView.prototype.onItemSwipeChanged = function (oldValue, newValue) {
         _super.prototype.onItemSwipeChanged.call(this, oldValue, newValue);
@@ -1005,20 +1010,20 @@ var RadListView = (function (_super) {
         this.synchCellSwipe();
     };
     RadListView.prototype.synchCellSwipe = function () {
-        this.ios.allowsCellSwipe = this.isSwipeEnabled() ? true : false;
+        this._nativeView.allowsCellSwipe = this.isSwipeEnabled() ? true : false;
     };
     RadListView.prototype.onPullToRefreshChanged = function (oldValue, newValue) {
         this.synchPullToRefresh();
     };
     RadListView.prototype.synchPullToRefresh = function () {
-        this.ios.allowsPullToRefresh = (this.pullToRefresh ? true : false);
+        this._nativeView.allowsPullToRefresh = (this.pullToRefresh ? true : false);
         var style = this.pullToRefreshStyle;
         if (style) {
             if (style.indicatorColor) {
-                this.ios.pullToRefreshView.activityIndicator.color = new colorModule.Color(style.indicatorColor).ios;
+                this._nativeView.pullToRefreshView.activityIndicator.color = new colorModule.Color(style.indicatorColor).ios;
             }
             if (style.indicatorBackgroundColor) {
-                this.ios.pullToRefreshView.activityIndicator.backgroundColor = new colorModule.Color(style.indicatorBackgroundColor).ios;
+                this._nativeView.pullToRefreshView.activityIndicator.backgroundColor = new colorModule.Color(style.indicatorBackgroundColor).ios;
             }
         }
     };
@@ -1031,13 +1036,13 @@ var RadListView = (function (_super) {
     RadListView.prototype.synchLoadOnDemandMode = function () {
         if (this.loadOnDemandMode) {
             if (commonModule.ListViewLoadOnDemandMode.Auto === this.loadOnDemandMode) {
-                this.ios.loadOnDemandMode = 2 /* Auto */;
+                this._nativeView.loadOnDemandMode = 2 /* Auto */;
             }
             else if (commonModule.ListViewLoadOnDemandMode.Manual === this.loadOnDemandMode) {
-                this.ios.loadOnDemandMode = 1 /* Manual */;
+                this._nativeView.loadOnDemandMode = 1 /* Manual */;
             }
             else
-                this.ios.loadOnDemandMode = 0 /* None */;
+                this._nativeView.loadOnDemandMode = 0 /* None */;
         }
     };
     RadListView.prototype.onLoadOnDemandBufferSizeChanged = function (oldValue, newValue) {
@@ -1045,7 +1050,7 @@ var RadListView = (function (_super) {
     };
     RadListView.prototype.synchLoadOnDemandBufferSize = function () {
         if (this.loadOnDemandBufferSize !== undefined) {
-            this.ios.loadOnDemandBufferSize = this.loadOnDemandBufferSize;
+            this._nativeView.loadOnDemandBufferSize = this.loadOnDemandBufferSize;
         }
     };
     RadListView.prototype.onSelectionBehaviorChanged = function (oldValue, newValue) {
@@ -1054,13 +1059,13 @@ var RadListView = (function (_super) {
     RadListView.prototype.synchSelectionBehavior = function () {
         if (this.selectionBehavior) {
             if (commonModule.ListViewSelectionBehavior.Press === this.selectionBehavior) {
-                this.ios.selectionBehavior = 1 /* Press */;
+                this._nativeView.selectionBehavior = 1 /* Press */;
             }
             else if (commonModule.ListViewSelectionBehavior.LongPress === this.selectionBehavior) {
-                this.ios.selectionBehavior = 2 /* LongPress */;
+                this._nativeView.selectionBehavior = 2 /* LongPress */;
             }
             else
-                this.ios.selectionBehavior = 0 /* None */;
+                this._nativeView.selectionBehavior = 0 /* None */;
         }
     };
     RadListView.prototype.getDataItem = function (index) {
@@ -1221,13 +1226,13 @@ var RadListView = (function (_super) {
         }
     };
     RadListView.prototype.notifyPullToRefreshFinished = function () {
-        this.ios.didRefreshOnPull();
+        this._nativeView.didRefreshOnPull();
     };
     RadListView.prototype.notifyLoadOnDemandFinished = function () {
-        this.ios.didLoadDataOnDemand();
+        this._nativeView.didLoadDataOnDemand();
     };
     RadListView.prototype.notifySwipeToExecuteFinished = function () {
-        this.ios.endSwipe(true);
+        this._nativeView.endSwipe(true);
     };
     RadListView.prototype.refresh = function () {
         this._realizedCells.forEach(function (cell, nativeView, map) {
@@ -1249,14 +1254,14 @@ var RadListView = (function (_super) {
             var nativeSource = NSMutableArray.new();
             nativeSource.addObject(NSIndexPath.indexPathForRowInSection(data.index, 0));
             this.unbindUnusedCells(data.removed);
-            this.ios.deleteItemsAtIndexPaths(nativeSource);
+            this._nativeView.deleteItemsAtIndexPaths(nativeSource);
         }
         else if (data.action === observableArray.ChangeType.Add) {
             var nativeSource = NSMutableArray.new();
             for (var i = 0; i < data.addedCount; i++) {
                 nativeSource.addObject(NSIndexPath.indexPathForRowInSection(data.index + i, 0));
             }
-            this.ios.insertItemsAtIndexPaths(nativeSource);
+            this._nativeView.insertItemsAtIndexPaths(nativeSource);
         }
         else if (data.action === observableArray.ChangeType.Splice) {
             if (data.removed && (data.removed.length > 0)) {
@@ -1265,14 +1270,14 @@ var RadListView = (function (_super) {
                     nativeSource.addObject(NSIndexPath.indexPathForRowInSection(data.index + i, 0));
                 }
                 this.unbindUnusedCells(data.removed);
-                this.ios.deleteItemsAtIndexPaths(nativeSource);
+                this._nativeView.deleteItemsAtIndexPaths(nativeSource);
             }
             else {
                 var nativeSource = NSMutableArray.new();
                 for (var i = 0; i < data.addedCount; i++) {
                     nativeSource.addObject(NSIndexPath.indexPathForRowInSection(data.index + i, 0));
                 }
-                this.ios.insertItemsAtIndexPaths(nativeSource);
+                this._nativeView.insertItemsAtIndexPaths(nativeSource);
             }
         }
         else if (data.action === observableArray.ChangeType.Update) {

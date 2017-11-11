@@ -38,6 +38,7 @@
     "type": "range"
   },
   "_requiredBy": [
+    "/babel-code-frame/chalk",
     "/cliui",
     "/cliui/string-width",
     "/wrap-ansi",

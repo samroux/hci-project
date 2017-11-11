@@ -38,6 +38,8 @@
     "type": "range"
   },
   "_requiredBy": [
+    "/babel-traverse",
+    "/babel-types",
     "/xmlbuilder"
   ],
   "_resolved": "https://registry.npmjs.org/lodash/-/lodash-4.17.4.tgz",

@@ -12,25 +12,25 @@ var RadLegendView = (function (_super) {
     function RadLegendView() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    RadLegendView.prototype.onPositionChanged = function (oldValue, newValue) {
+    RadLegendView.prototype[legendViewCommonModule.RadLegendView.positionProperty.setNative] = function (newValue) {
         this.updateLegendView(this._chart);
     };
-    RadLegendView.prototype.onVerticalOffsetChanged = function (oldValue, newValue) {
+    RadLegendView.prototype[legendViewCommonModule.RadLegendView.verticalOffsetProperty.setNative] = function (newValue) {
         this.updateLegendView(this._chart);
     };
-    RadLegendView.prototype.onHorizontalOffsetChanged = function (oldValue, newValue) {
+    RadLegendView.prototype[legendViewCommonModule.RadLegendView.horizontalOffsetProperty.setNative] = function (newValue) {
         this.updateLegendView(this._chart);
     };
-    RadLegendView.prototype.onOffsetOriginChanged = function (oldValue, newValue) {
+    RadLegendView.prototype[legendViewCommonModule.RadLegendView.offsetOriginProperty.setNative] = function (newValue) {
         this.updateLegendView(this._chart);
     };
-    RadLegendView.prototype.onTitleChanged = function (oldValue, newValue) {
+    RadLegendView.prototype[legendViewCommonModule.RadLegendView.titleProperty.setNative] = function (newValue) {
         this.updateLegendView(this._chart);
     };
-    RadLegendView.prototype.onTitleSizeChanged = function (oldValue, newValue) {
+    RadLegendView.prototype[legendViewCommonModule.RadLegendView.titleSizeProperty.setNative] = function (newValue) {
         this.updateLegendView(this._chart);
     };
-    RadLegendView.prototype.onTitleColorChanged = function (oldValue, newValue) {
+    RadLegendView.prototype[legendViewCommonModule.RadLegendView.titleColorProperty.setNative] = function (newValue) {
         this.updateLegendView(this._chart);
     };
     RadLegendView.prototype.updateLegendPosition = function (chartView) {
@@ -88,29 +88,29 @@ var RadLegendView = (function (_super) {
         if (!this._chart) {
             this._chart = chartView;
         }
-        chartView.ios.legend.hidden = false;
+        chartView.nativeView.legend.hidden = false;
         if (this.position) {
             this.updateLegendPosition(chartView);
         }
         if (this.title) {
-            chartView.ios.legend.titleLabel.text = this.title;
-            chartView.ios.legend.titleLabel.lineBreakMode = 0 /* ByWordWrapping */;
-            chartView.ios.legend.showTitle = true;
+            chartView.nativeView.legend.titleLabel.text = this.title;
+            chartView.nativeView.legend.titleLabel.lineBreakMode = 0 /* ByWordWrapping */;
+            chartView.nativeView.legend.showTitle = true;
         }
         if (this.titleColor !== undefined) {
-            chartView.ios.legend.titleLabel.textColor = new color_1.Color(this.titleColor).ios;
+            chartView.nativeView.legend.titleLabel.textColor = new color_1.Color(this.titleColor).ios;
         }
         if (this.titleSize !== undefined && !isNaN(this.titleSize)) {
-            var currentFontName = chartView.ios.legend.titleLabel.font.fontName;
+            var currentFontName = chartView.nativeView.legend.titleLabel.font.fontName;
             var nativeSize = utilsModule.layout.toDevicePixels(this.titleSize);
             if (currentFontName) {
-                chartView.ios.legend.titleLabel.font = UIFont.fontWithNameSize(currentFontName, nativeSize);
+                chartView.nativeView.legend.titleLabel.font = UIFont.fontWithNameSize(currentFontName, nativeSize);
             }
             else {
-                chartView.ios.legend.titleLabel.font = UIFont.systemFontOfSize(nativeSize);
+                chartView.nativeView.legend.titleLabel.font = UIFont.systemFontOfSize(nativeSize);
             }
         }
-        chartView.ios.legend.allowSelection = this.enableSelection;
+        chartView.nativeView.legend.allowSelection = this.enableSelection;
         chartView.updateChart();
     };
     return RadLegendView;

@@ -48,6 +48,11 @@ export module CalendarViewMode {
      * RadCalendar will display a whole year.
      */
     export var Year;
+
+    /**
+     * RadCalendar will display a timeline for a single day.
+     */
+    export var Day;
 }
 
 /**
@@ -376,6 +381,27 @@ export class CalendarInlineEventSelectedData implements EventData {
 }
 
 /**
+ * Instances of this class are provided to the handlers of the {@link inlineEventSelectedEvent}.
+ */
+export class CalendarDayViewEventSelectedData implements EventData {
+    /**
+    * Returns the name of the event that has been fired.
+    */
+    eventName: string;
+
+    /**
+    * The object that fires the event.
+    */
+    object: any;
+
+    /**
+     * The data for day view event selected in calendar.
+     */
+    eventData: CalendarEvent;
+
+}
+
+/**
  * Instances of this class are provided to the handlers of the {@link navigatedToDateEvent} and {@link navigatingToDateStartedEvent}.
  */
 export class CalendarNavigationEventData implements EventData {
@@ -404,7 +430,7 @@ export class CalendarMonthViewStyle extends ViewBase {
      * Identifies the {@link selectionShape} dependency property.
      */
     static selectionShapeProperty: Property<CalendarMonthViewStyle, string>;
-    
+
     /**
      * Gets or sets a value from the {@link SelectionShape} enumeration defining the 
      * decoration drawn on the selected cell. 
@@ -415,7 +441,7 @@ export class CalendarMonthViewStyle extends ViewBase {
      * Identifies the {@link selectionShapeSize} dependency property.
      */
     static selectionShapeSizeProperty: Property<CalendarMonthViewStyle, number>;
-    
+
     /**
      * Defines the size of the chosen selection shape. The size determines the radius of
      * the selection circle in case the shape is selected to be round or the side of the square in case the seleciton
@@ -427,7 +453,7 @@ export class CalendarMonthViewStyle extends ViewBase {
      * Identifies the {@link selectionShapeColor} dependency property.
      */
     static selectionShapeColorProperty: Property<CalendarMonthViewStyle, string>;
-    
+
     /**
      * Defines the color of the selection shape.
      */
@@ -539,6 +565,30 @@ export class CalendarMonthViewStyle extends ViewBase {
  */
 export class CalendarWeekViewStyle extends CalendarMonthViewStyle {
 
+}
+
+/**
+ * Style class for Day view mode. This class is for convenience and doesn't add any additional properties to its parent.
+ */
+export class CalendarDayViewStyle extends CalendarWeekViewStyle {
+
+    /**
+    * Identifies the {@link dayEventsViewStyle} dependency property.
+    */
+    static dayEventsViewStyleProperty: Property<CalendarDayViewStyle, DayEventsViewStyle>;
+    /**
+     * Gets or sets the instance of {@link DayCellStyle} with properties used for styling of the view with day events.
+     */
+    dayEventsViewStyle: DayEventsViewStyle;
+
+    /**
+    * Identifies the {@link allDayEventsViewStyle} dependency property.
+    */
+    static allDayEventsViewStyleProperty: Property<CalendarDayViewStyle, DayEventsViewStyle>;
+    /**
+     * Gets or sets the instance of {@link AllDayEventsViewStyle} with properties used for styling of the view with all day events.
+     */
+    allDayEventsViewStyle: AllDayEventsViewStyle;
 }
 
 /**
@@ -687,6 +737,73 @@ export class CellStyle extends ViewBase {
     * Gets or sets the vertical padding amount. 
     */
     cellPaddingVertical: number;
+}
+
+export class DayEventsViewStyle extends ViewBase {
+    /**
+    * Identifies the {@link backgroundColor} dependency property.
+    */
+    static backgroundColorProperty: Property<DayEventsViewStyle, string>;
+    /**
+    * Gets or sets the background color.
+    */
+    public backgroundColor: string;
+
+    /**
+    * Identifies the {@link timeLabelFormat} dependency property.
+    */
+    static timeLabelFormatProperty: Property<DayEventsViewStyle, string>;
+    /**
+    * Gets or sets the format of the time labels.
+    */
+    public timeLabelFormat: string;
+
+    /**
+    * Identifies the {@link timeLabelTextColor} dependency property.
+    */
+    static timeLabelTextColorProperty: Property<DayEventsViewStyle, string>;
+    /**
+    * Gets or sets the text color for the time labels.
+    */
+    public timeLabelTextColor: string;
+
+    /**
+    * Identifies the {@link timeLabelTextSize} dependency property.
+    */
+    static timeLabelTextSizeProperty: Property<DayEventsViewStyle, number>;
+    /**
+    * Gets or sets the text size for the time labels.
+    */
+    public timeLabelTextSize: number;
+}
+
+export class AllDayEventsViewStyle extends ViewBase {
+    /**
+    * Identifies the {@link backgroundColor} dependency property.
+    */
+    static backgroundColorProperty: Property<AllDayEventsViewStyle, string>;
+    /**
+    * Gets or sets the background color.
+    */
+    public backgroundColor: string;
+
+    /**
+    * Identifies the {@link allDayText} dependency property.
+    */
+    static allDayTextProperty: Property<AllDayEventsViewStyle, string>;
+    /**
+    * Gets or sets the text for the all day text.
+    */
+    public allDayText: string;
+
+    /**
+    * Identifies the {@link allDayTextIsVisible} dependency property.
+    */
+    static allDayTextIsVisibleProperty: Property<AllDayEventsViewStyle, boolean>;
+    /**
+    * Gets or sets a value indicating whether the all day text should be visible.
+    */
+    public allDayTextIsVisible: boolean;
 }
 
 /**
@@ -1002,6 +1119,12 @@ export class RadCalendar extends View {
     public static inlineEventSelectedEvent: string;
 
     /**
+ * This event is fired when {@link RadCalendar} an event from the day view has been tapped.
+ * The event exposes an instance of the {@link CalendarDayViewEventSelectedData} class.
+ */
+    public static dayViewEventSelectedEvent: string;
+
+    /**
      * This event is fired when {@link RadCalendar} has navigated to a certain date.
      * The event exposes an instance of the {@link CalendarNavigationEventData} class.
      */
@@ -1018,16 +1141,6 @@ export class RadCalendar extends View {
      * The event exposes an instance of the {@link CalendarViewModeChangedEventData} class.
      */
     public static viewModeChangedEvent: string;
-
-    /**
-     * Represents the native RadCalendarView form Progress Telerik UI for Android.
-     */
-    android: any;
-
-    /**
-     * Represents the native TKCalendar from Progress Telerik UI for iOS.
-     */
-    ios: any
 
     /**
      * Identifies the {@link locale} dependency property.
@@ -1185,6 +1298,17 @@ export class RadCalendar extends View {
     * See {@link CalendarWeekViewStyle} for available styling properties.
     */
     weekViewStyle: CalendarWeekViewStyle;
+
+    /**
+     * Identifies the {@link dayViewStyle} dependency property.
+     */
+    static dayViewStyleProperty: Property<RadCalendar, CalendarDayViewStyle>;
+
+    /**
+    * Gets or sets the style properties for Week view mode. 
+    * See {@link CalendarDayViewStyle} for available styling properties.
+    */
+    dayViewStyle: CalendarDayViewStyle;
 
     /**
      * Identifies the {@link monthViewStyle} dependency property.

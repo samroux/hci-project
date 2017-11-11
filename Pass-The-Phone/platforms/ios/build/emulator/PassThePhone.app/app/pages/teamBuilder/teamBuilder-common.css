@@ -11,9 +11,9 @@ TextField {
   padding-top: 15;
   background-color: white;
 }
-Image {
-  margin-top: 5;
-  margin-bottom: 20;
+.logo {
+  margin-top: 12;
+  margin-bottom: 12;
 }
 Button, TextField, GridLayout {
   margin-left: 16;

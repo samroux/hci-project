@@ -65,10 +65,6 @@ export class RadGauge extends View {
      * Gets or sets the fillColor of the RadGauge.
      */
     fillColor: string;
-
-    ios: any;
-    
-    android: any;
 }
 
 /**

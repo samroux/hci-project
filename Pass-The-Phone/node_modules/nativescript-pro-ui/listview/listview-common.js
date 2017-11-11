@@ -376,20 +376,6 @@ var RadListView = (function (_super) {
         _this._itemTemplateSelectorBindable = new label_1.Label();
         return _this;
     }
-    Object.defineProperty(RadListView.prototype, "android", {
-        get: function () {
-            return undefined;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(RadListView.prototype, "ios", {
-        get: function () {
-            return undefined;
-        },
-        enumerable: true,
-        configurable: true
-    });
     Object.defineProperty(RadListView.prototype, "itemViewLoader", {
         get: function () {
             return this._itemViewLoader;

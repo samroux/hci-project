@@ -1,5 +1,7 @@
-<ActionBar class="action-bar"> 
-        <Label class="action-bar-title" text="Pass The Phone"></Label>
+<ActionBar class="action-bar">
+        <StackLayout orientation="horizontal" verticalAligment="center" horizontalAlignment="center">
+                <Image class="logo" src="~/shared/logo.png"></Image>
+        </StackLayout> 
 </ActionBar>
 
 <StackLayout class="page-stack">
@@ -9,7 +11,7 @@
                 <TextField #grounNameTx hint="Group Name" autocorrect="false" returnKeyType="done"
                 class="input input-border"></TextField>
                 
-                <GridLayout rows="auto, *" columns="2*, *" height="60%">
+                <GridLayout rows="auto, *, auto" columns="2*, *" height="100%">
                         <TextField  #newPlayerTx id="newPlayerName"  [(ngModel)]="newPlayerName" hint="Enter a Player Name" row="0" col="0" ></TextField>
                         <Button text="Add" tap="add" row="0" col="1" (tap)="addPlayer(newPlayerTx.text)"></Button>
                         <ListView [items]="players" row="1" colSpan="2" class="list-group">
@@ -19,7 +21,7 @@
                                         </GridLayout>
                                 </ng-template>
                         </ListView>
+                <Button text="Create Group" row="2" colSpan="2" (tap)="submit(grounNameTx.text)" class="submit-button" ></Button>      
                 </GridLayout>               
-                <Button text="Create Group" (tap)="submit(grounNameTx.text)" class="submit-button" ></Button>      
         </StackLayout>
 </StackLayout>

@@ -9,6 +9,7 @@ var CalendarViewMode;
     CalendarViewMode.Month = "Month";
     CalendarViewMode.MonthNames = "MonthNames";
     CalendarViewMode.Year = "Year";
+    CalendarViewMode.Day = "Day";
     //    export var YearNumbers = "YearNumbers";
     //    export var Flow = "Flow";
 })(CalendarViewMode = exports.CalendarViewMode || (exports.CalendarViewMode = {}));
@@ -268,6 +269,12 @@ var CalendarInlineEventSelectedData = (function () {
     return CalendarInlineEventSelectedData;
 }());
 exports.CalendarInlineEventSelectedData = CalendarInlineEventSelectedData;
+var CalendarDayViewEventSelectedData = (function () {
+    function CalendarDayViewEventSelectedData() {
+    }
+    return CalendarDayViewEventSelectedData;
+}());
+exports.CalendarDayViewEventSelectedData = CalendarDayViewEventSelectedData;
 var CalendarNavigationEventData = (function () {
     function CalendarNavigationEventData() {
     }
@@ -488,6 +495,44 @@ var CalendarWeekViewStyle = (function (_super) {
     return CalendarWeekViewStyle;
 }(CalendarMonthViewStyle));
 exports.CalendarWeekViewStyle = CalendarWeekViewStyle;
+//////////////////////////////////////////////////////////////////////////////////////////////
+/**
+ * Style class for Day view mode
+ */
+var CalendarDayViewStyle = (function (_super) {
+    __extends(CalendarDayViewStyle, _super);
+    function CalendarDayViewStyle() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    CalendarDayViewStyle.prototype.onDayEventsViewStylePropertyChanged = function (oldValue, newValue) {
+        this.onDayEventsViewStyleChanged(oldValue, newValue);
+    };
+    CalendarDayViewStyle.prototype.onDayEventsViewStyleChanged = function (oldValue, newValue) { };
+    ;
+    CalendarDayViewStyle.prototype.onAllDayEventsViewStylePropertyChanged = function (oldValue, newValue) {
+        this.onAllDayEventsViewStyleChanged(oldValue, newValue);
+    };
+    CalendarDayViewStyle.prototype.onAllDayEventsViewStyleChanged = function (oldValue, newValue) { };
+    ;
+    CalendarDayViewStyle.dayEventsViewStyleProperty = new view_1.Property({
+        name: "dayEventsViewStyle",
+        defaultValue: undefined,
+        valueChanged: function (target, oldValue, newValue) {
+            target.onDayEventsViewStylePropertyChanged(oldValue, newValue);
+        },
+    });
+    CalendarDayViewStyle.allDayEventsViewStyleProperty = new view_1.Property({
+        name: "allDayEventsViewStyle",
+        defaultValue: undefined,
+        valueChanged: function (target, oldValue, newValue) {
+            target.onAllDayEventsViewStylePropertyChanged(oldValue, newValue);
+        },
+    });
+    return CalendarDayViewStyle;
+}(CalendarWeekViewStyle));
+exports.CalendarDayViewStyle = CalendarDayViewStyle;
+CalendarDayViewStyle.dayEventsViewStyleProperty.register(CalendarDayViewStyle);
+CalendarDayViewStyle.allDayEventsViewStyleProperty.register(CalendarDayViewStyle);
 //////////////////////////////////////////////////////////////////////////////////////////////
 /**
  * Style class for Year view mode
@@ -920,6 +965,201 @@ CellStyle.cellTextFontStyleProperty.register(CellStyle);
 CellStyle.cellTextSizeProperty.register(CellStyle);
 CellStyle.cellPaddingHorizontalProperty.register(CellStyle);
 CellStyle.cellPaddingVerticalProperty.register(CellStyle);
+//////////////////////////////////////////////// 
+/// Day Events View style
+var DayEventsViewStyle = (function (_super) {
+    __extends(DayEventsViewStyle, _super);
+    function DayEventsViewStyle() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    Object.defineProperty(DayEventsViewStyle.prototype, "ios", {
+        get: function () {
+            return undefined;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(DayEventsViewStyle.prototype, "android", {
+        get: function () {
+            return undefined;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    DayEventsViewStyle.prototype.onBackgroundColorPropertyChanged = function (oldValue, newValue) {
+        this.onBackgroundColorChanged(oldValue, newValue);
+    };
+    DayEventsViewStyle.prototype.onBackgroundColorChanged = function (oldValue, newValue) {
+    };
+    DayEventsViewStyle.prototype.onTimeLabelFormatPropertyChanged = function (oldValue, newValue) {
+        this.onTimeLabelFormatChanged(oldValue, newValue);
+    };
+    DayEventsViewStyle.prototype.onTimeLabelFormatChanged = function (oldValue, newValue) {
+    };
+    DayEventsViewStyle.prototype.onTimeLabelTextColorPropertyChanged = function (oldValue, newValue) {
+        this.onTimeLabelTextColorChanged(oldValue, newValue);
+    };
+    DayEventsViewStyle.prototype.onTimeLabelTextColorChanged = function (oldValue, newValue) {
+    };
+    DayEventsViewStyle.prototype.onTimeLabelFontNamePropertyChanged = function (oldValue, newValue) {
+        this.onTimeLabelFontNameChanged(oldValue, newValue);
+    };
+    DayEventsViewStyle.prototype.onTimeLabelFontNameChanged = function (oldValue, newValue) {
+    };
+    DayEventsViewStyle.prototype.onTimeLabelFontStylePropertyChanged = function (oldValue, newValue) {
+        this.onTimeLabelFontStyleChanged(oldValue, newValue);
+    };
+    DayEventsViewStyle.prototype.onTimeLabelFontStyleChanged = function (oldValue, newValue) {
+    };
+    DayEventsViewStyle.prototype.onTimeLabelTextSizePropertyChanged = function (oldValue, newValue) {
+        this.onTimeLabelTextSizeChanged(oldValue, newValue);
+    };
+    DayEventsViewStyle.prototype.onTimeLabelTextSizeChanged = function (oldValue, newValue) {
+    };
+    DayEventsViewStyle.prototype.onTimeLinesWidthPropertyChanged = function (oldValue, newValue) {
+        this.onTimeLinesWidthChanged(oldValue, newValue);
+    };
+    DayEventsViewStyle.prototype.onTimeLinesWidthChanged = function (oldValue, newValue) {
+    };
+    DayEventsViewStyle.prototype.onTimeLinesColorPropertyChanged = function (oldValue, newValue) {
+        this.onTimeLinesColorChanged(oldValue, newValue);
+    };
+    DayEventsViewStyle.prototype.onTimeLinesColorChanged = function (oldValue, newValue) {
+    };
+    DayEventsViewStyle.backgroundColorProperty = new view_1.Property({
+        name: "backgroundColor",
+        defaultValue: undefined,
+        valueChanged: function (target, oldValue, newValue) {
+            target.onBackgroundColorPropertyChanged(oldValue, newValue);
+        },
+    });
+    DayEventsViewStyle.timeLabelFormatProperty = new view_1.Property({
+        name: "timeLabelFormat",
+        defaultValue: undefined,
+        valueChanged: function (target, oldValue, newValue) {
+            target.onTimeLabelFormatPropertyChanged(oldValue, newValue);
+        },
+    });
+    DayEventsViewStyle.timeLabelTextColorProperty = new view_1.Property({
+        name: "timeLabelTextColor",
+        defaultValue: undefined,
+        valueChanged: function (target, oldValue, newValue) {
+            target.onTimeLabelTextColorPropertyChanged(oldValue, newValue);
+        },
+    });
+    DayEventsViewStyle.timeLabelFontNameProperty = new view_1.Property({
+        name: "timeLabelFontName",
+        defaultValue: undefined,
+        valueChanged: function (target, oldValue, newValue) {
+            target.onTimeLabelFontNamePropertyChanged(oldValue, newValue);
+        },
+    });
+    DayEventsViewStyle.timeLabelFontStyleProperty = new view_1.Property({
+        name: "timeLabelFontStyle",
+        defaultValue: undefined,
+        valueChanged: function (target, oldValue, newValue) {
+            target.onTimeLabelFontStylePropertyChanged(oldValue, newValue);
+        },
+    });
+    DayEventsViewStyle.timeLabelTextSizeProperty = new view_1.Property({
+        name: "timeLabelTextSize",
+        defaultValue: undefined,
+        valueConverter: parseFloat,
+        valueChanged: function (target, oldValue, newValue) {
+            target.onTimeLabelTextSizePropertyChanged(oldValue, newValue);
+        },
+    });
+    DayEventsViewStyle.timeLinesWidthProperty = new view_1.Property({
+        name: "timeLinesWidth",
+        defaultValue: undefined,
+        valueConverter: parseFloat,
+        valueChanged: function (target, oldValue, newValue) {
+            target.onTimeLinesWidthPropertyChanged(oldValue, newValue);
+        },
+    });
+    DayEventsViewStyle.timeLinesColorProperty = new view_1.Property({
+        name: "timeLinesColor",
+        defaultValue: undefined,
+        valueChanged: function (target, oldValue, newValue) {
+            target.onTimeLinesColorPropertyChanged(oldValue, newValue);
+        },
+    });
+    return DayEventsViewStyle;
+}(view_1.ViewBase));
+exports.DayEventsViewStyle = DayEventsViewStyle;
+DayEventsViewStyle.backgroundColorProperty.register(DayEventsViewStyle);
+DayEventsViewStyle.timeLabelFormatProperty.register(DayEventsViewStyle);
+DayEventsViewStyle.timeLabelTextColorProperty.register(DayEventsViewStyle);
+DayEventsViewStyle.timeLabelFontNameProperty.register(DayEventsViewStyle);
+DayEventsViewStyle.timeLabelFontStyleProperty.register(DayEventsViewStyle);
+DayEventsViewStyle.timeLabelTextSizeProperty.register(DayEventsViewStyle);
+DayEventsViewStyle.timeLinesWidthProperty.register(DayEventsViewStyle);
+DayEventsViewStyle.timeLinesColorProperty.register(DayEventsViewStyle);
+//////////////////////////////////////////////// 
+/// All Day View style
+var AllDayEventsViewStyle = (function (_super) {
+    __extends(AllDayEventsViewStyle, _super);
+    function AllDayEventsViewStyle() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    Object.defineProperty(AllDayEventsViewStyle.prototype, "ios", {
+        get: function () {
+            return undefined;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(AllDayEventsViewStyle.prototype, "android", {
+        get: function () {
+            return undefined;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    AllDayEventsViewStyle.prototype.onBackgroundColorPropertyChanged = function (oldValue, newValue) {
+        this.onBackgroundColorChanged(oldValue, newValue);
+    };
+    AllDayEventsViewStyle.prototype.onBackgroundColorChanged = function (oldValue, newValue) {
+    };
+    AllDayEventsViewStyle.prototype.onAllDayTextPropertyChanged = function (oldValue, newValue) {
+        this.onAllDayTextChanged(oldValue, newValue);
+    };
+    AllDayEventsViewStyle.prototype.onAllDayTextChanged = function (oldValue, newValue) {
+    };
+    AllDayEventsViewStyle.prototype.onAllDayTextIsVisiblePropertyChanged = function (oldValue, newValue) {
+        this.onAlDayTextIsVisibleChanged(oldValue, newValue);
+    };
+    AllDayEventsViewStyle.prototype.onAlDayTextIsVisibleChanged = function (oldValue, newValue) {
+    };
+    AllDayEventsViewStyle.ALL_DAY_TEXT = "ALL-DAY";
+    AllDayEventsViewStyle.backgroundColorProperty = new view_1.Property({
+        name: "backgroundColor",
+        defaultValue: undefined,
+        valueChanged: function (target, oldValue, newValue) {
+            target.onBackgroundColorPropertyChanged(oldValue, newValue);
+        },
+    });
+    AllDayEventsViewStyle.allDayTextProperty = new view_1.Property({
+        name: "allDayText",
+        defaultValue: AllDayEventsViewStyle.ALL_DAY_TEXT,
+        valueChanged: function (target, oldValue, newValue) {
+            target.onAllDayTextPropertyChanged(oldValue, newValue);
+        },
+    });
+    AllDayEventsViewStyle.allDayTextIsVisibleProperty = new view_1.Property({
+        name: "allDayTextIsVisible",
+        defaultValue: undefined,
+        valueConverter: view_1.booleanConverter,
+        valueChanged: function (target, oldValue, newValue) {
+            target.onAllDayTextIsVisiblePropertyChanged(oldValue, newValue);
+        },
+    });
+    return AllDayEventsViewStyle;
+}(view_1.ViewBase));
+exports.AllDayEventsViewStyle = AllDayEventsViewStyle;
+AllDayEventsViewStyle.backgroundColorProperty.register(AllDayEventsViewStyle);
+AllDayEventsViewStyle.allDayTextProperty.register(AllDayEventsViewStyle);
+AllDayEventsViewStyle.allDayTextIsVisibleProperty.register(AllDayEventsViewStyle);
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //  DayCellStyle
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1124,20 +1364,6 @@ var RadCalendar = (function (_super) {
     function RadCalendar() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    Object.defineProperty(RadCalendar.prototype, "android", {
-        get: function () {
-            return undefined;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(RadCalendar.prototype, "ios", {
-        get: function () {
-            return undefined;
-        },
-        enumerable: true,
-        configurable: true
-    });
     RadCalendar.prototype.onLocalePropertyChanged = function (oldValue, newValue) {
     };
     RadCalendar.prototype.onMinDatePropertyChanged = function (oldValue, newValue) {
@@ -1181,6 +1407,9 @@ var RadCalendar = (function (_super) {
     };
     RadCalendar.prototype.onWeekViewStylePropertyChanged = function (oldValue, newValue) {
         this.onWeekViewStyleChanged(oldValue, newValue);
+    };
+    RadCalendar.prototype.onDayViewStylePropertyChanged = function (oldValue, newValue) {
+        this.onDayViewStyleChanged(oldValue, newValue);
     };
     RadCalendar.prototype.onYearViewStylePropertyChanged = function (oldValue, newValue) {
         this.onYearViewStyleChanged(oldValue, newValue);
@@ -1289,6 +1518,8 @@ var RadCalendar = (function (_super) {
     ;
     RadCalendar.prototype.onWeekViewStyleChanged = function (oldValue, newValue) { };
     ;
+    RadCalendar.prototype.onDayViewStyleChanged = function (oldValue, newValue) { };
+    ;
     RadCalendar.prototype.onYearViewStyleChanged = function (oldValue, newValue) { };
     ;
     RadCalendar.prototype.onMonthNamesViewStyleChanged = function (oldValue, newValue) { };
@@ -1298,6 +1529,7 @@ var RadCalendar = (function (_super) {
     RadCalendar.dateDeselectedEvent = "dateDeselected";
     RadCalendar.cellTapEvent = "cellTap";
     RadCalendar.inlineEventSelectedEvent = "inlineEventSelected";
+    RadCalendar.dayViewEventSelectedEvent = "dayViewEventSelected";
     RadCalendar.navigatedToDateEvent = "navigatedToDate";
     RadCalendar.navigatingToDateStartedEvent = "navigatingToDateStarted";
     RadCalendar.viewModeChangedEvent = "viewModeChanged";
@@ -1408,6 +1640,13 @@ var RadCalendar = (function (_super) {
             target.onWeekViewStylePropertyChanged(oldValue, newValue);
         },
     });
+    RadCalendar.dayViewStyleProperty = new view_1.Property({
+        name: "dayViewStyle",
+        defaultValue: undefined,
+        valueChanged: function (target, oldValue, newValue) {
+            target.onDayViewStylePropertyChanged(oldValue, newValue);
+        },
+    });
     RadCalendar.yearViewStyleProperty = new view_1.Property({
         name: "yearViewStyle",
         defaultValue: undefined,
@@ -1441,4 +1680,5 @@ RadCalendar.horizontalTransitionProperty.register(RadCalendar);
 RadCalendar.monthViewStyleProperty.register(RadCalendar);
 RadCalendar.weekViewStyleProperty.register(RadCalendar);
 RadCalendar.yearViewStyleProperty.register(RadCalendar);
+RadCalendar.dayViewStyleProperty.register(RadCalendar);
 RadCalendar.monthNamesViewStyleProperty.register(RadCalendar);

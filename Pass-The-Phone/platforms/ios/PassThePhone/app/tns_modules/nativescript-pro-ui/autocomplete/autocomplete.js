@@ -28,8 +28,8 @@ var SuggestionView = (function (_super) {
         this.updateHeight();
     };
     SuggestionView.prototype.updateHeight = function () {
-        if (this.owner && this.owner.ios && this.suggestionViewHeight) {
-            this.owner.ios.suggestionViewHeight = this.suggestionViewHeight;
+        if (this.owner && this.owner.nativeView && this.suggestionViewHeight) {
+            this.owner.nativeView.suggestionViewHeight = this.suggestionViewHeight;
         }
     };
     SuggestionView.prototype.updateTemplate = function (value) {
@@ -280,7 +280,7 @@ var AutoCompleteDataSourceImpl = (function (_super) {
     AutoCompleteDataSourceImpl.prototype.autoCompleteCompletionForPrefix = function (autocomplete, prefix) {
         var suggestions = NSMutableArray.new();
         if (prefix == "") {
-            this._owner.ios.suggestionView.hide();
+            this._owner.nativeView.suggestionView.hide();
             return suggestions;
         }
         else {
@@ -312,11 +312,17 @@ var AutoCompleteDelegateImpl = (function (_super) {
         var tokenModel = this._owner.tokenModelWithText(token.text);
         var args = new commonModule.AutoCompleteEventData(this._owner, commonModule.RadAutoCompleteTextView.tokenAddedEvent, token.text, tokenModel);
         this._owner.notify(args);
+        this._owner.requestLayout();
     };
     AutoCompleteDelegateImpl.prototype.autoCompleteDidRemoveToken = function (autocomplete, token) {
+        var _this = this;
         var tokenModel = this._owner.tokenModelWithText(token.text);
         var args = new commonModule.AutoCompleteEventData(this._owner, commonModule.RadAutoCompleteTextView.tokenRemovedEvent, token.text, tokenModel);
         this._owner.notify(args);
+        // TODO: Investigate this in native iOS why it requires an time out.
+        setTimeout(function () {
+            _this._owner.requestLayout();
+        }, 10);
     };
     AutoCompleteDelegateImpl.prototype.autoCompleteDidSelectToken = function (autocomplete, token) {
         var tokenModel = this._owner.tokenModelWithText(token.text);
@@ -367,11 +373,13 @@ var RadAutoCompleteTextView = (function (_super) {
     };
     RadAutoCompleteTextView.prototype.resetAutocomplete = function () {
         this._ios.resetAutocompleteState();
+        this.requestLayout();
     };
     RadAutoCompleteTextView.prototype.addToken = function (token) {
         var text = NSString.stringWithCStringEncoding(token.text, NSUTF8StringEncoding);
         var native = TKAutoCompleteToken.alloc().initWithText(text);
         this._ios.addToken(native);
+        this.requestLayout();
     };
     RadAutoCompleteTextView.prototype.insertTokenAtIndex = function (token, index) {
         var text = NSString.stringWithCStringEncoding(token.text, NSUTF8StringEncoding);
@@ -382,12 +390,15 @@ var RadAutoCompleteTextView = (function (_super) {
         var text = NSString.stringWithCStringEncoding(token.text, NSUTF8StringEncoding);
         var native = TKAutoCompleteToken.alloc().initWithText(text);
         this._ios.removeToken(native);
+        this.requestLayout();
     };
     RadAutoCompleteTextView.prototype.removeTokenAtIndex = function (index) {
         this._ios.removeTokenAtIndex(index);
+        this.requestLayout();
     };
     RadAutoCompleteTextView.prototype.removeAllTokens = function () {
         this._ios.removeAllTokens();
+        this.requestLayout();
     };
     RadAutoCompleteTextView.prototype.tokens = function () {
         return this._ios.tokens;
@@ -429,11 +440,14 @@ var RadAutoCompleteTextView = (function (_super) {
     RadAutoCompleteTextView.prototype[commonModule.RadAutoCompleteTextView.showCloseButtonProperty.setNative] = function (newValue) {
         this._ios.showCloseButton = newValue;
     };
+    RadAutoCompleteTextView.prototype[commonModule.RadAutoCompleteTextView.hintProperty.setNative] = function (newValue) {
+        this._ios.textField.placeholder = newValue;
+    };
     RadAutoCompleteTextView.prototype[commonModule.RadAutoCompleteTextView.closeButtonImageSrcProperty.setNative] = function (newValue) {
         var image = new imageModule.Image();
         image.src = this.closeButtonImageSrc;
         if (image) {
-            this._ios.closeButton.setImageForState(image.ios.image, 0 /* Normal */);
+            this._ios.closeButton.setImageForState(image.nativeView.image, 0 /* Normal */);
         }
     };
     RadAutoCompleteTextView.prototype.tokenModelWithText = function (text) {
@@ -485,6 +499,7 @@ var RadAutoCompleteTextView = (function (_super) {
             this._ios.layoutMode = (value === commonModule.LayoutMode.Horizontal) ?
                 0 /* Horizontal */ :
                 1 /* Wrap */;
+            this.requestLayout();
         }
     };
     return RadAutoCompleteTextView;

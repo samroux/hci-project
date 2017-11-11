@@ -19,8 +19,8 @@ var ChartGridLineAnnotation = (function (_super) {
         configurable: true
     });
     ChartGridLineAnnotation.prototype.update = function () {
-        if (this.owner && this.owner.ios) {
-            this.owner.ios.updateAnnotations();
+        if (this.owner && this.owner.nativeView) {
+            this.owner.nativeView.updateAnnotations();
         }
     };
     ChartGridLineAnnotation.prototype.onOwnerChanged = function () {
@@ -114,8 +114,8 @@ var ChartPlotBandAnnotation = (function (_super) {
         configurable: true
     });
     ChartPlotBandAnnotation.prototype.update = function () {
-        if (this.owner && this.owner.ios) {
-            this.owner.ios.updateAnnotations();
+        if (this.owner && this.owner.nativeView) {
+            this.owner.nativeView.updateAnnotations();
         }
     };
     ChartPlotBandAnnotation.prototype.onOwnerChanged = function () {

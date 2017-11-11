@@ -185,10 +185,9 @@ var RadPieChart = (function (_super) {
         _this._ios.seriesSelectionMode = 0 /* None */;
         _this._delegate = ChartDelegateImpl.new().initWithOwner(_this);
         _this._ios.allowAnimations = true;
-        _this.updateLegend();
         return _this;
     }
-    Object.defineProperty(RadPieChart.prototype, "ios", {
+    Object.defineProperty(RadPieChart.prototype, "_nativeView", {
         get: function () {
             return this._ios;
         },
@@ -196,22 +195,26 @@ var RadPieChart = (function (_super) {
         configurable: true
     });
     RadPieChart.prototype.addSeries = function (newSeries) {
-        this.ios.removeAllData();
-        this.ios.addSeries(newSeries);
+        this._nativeView.removeAllData();
+        this._nativeView.addSeries(newSeries);
         if (this.palettes) {
             this.loadPalette(this.palettes);
         }
         if (this.chartPalette) {
             this.series.getItem(0).ios.style.paletteMode = 1 /* UseItemIndex */;
-            this.ios.legend.update();
+            this._nativeView.legend.update();
         }
     };
     RadPieChart.prototype.createNativeView = function () {
-        return this.ios;
+        return this._nativeView;
+    };
+    RadPieChart.prototype.initNativeView = function () {
+        _super.prototype.initNativeView.call(this);
+        this.updateLegend();
     };
     RadPieChart.prototype.updateChart = function () {
         if (this._loaded) {
-            this.ios.update();
+            this._nativeView.update();
         }
     };
     RadPieChart.prototype.updateLegend = function () {
@@ -249,15 +252,15 @@ var RadPieChart = (function (_super) {
     };
     RadPieChart.prototype.onSelectionModeChanged = function (oldValue, newValue) {
         _super.prototype.onSelectionModeChanged.call(this, oldValue, newValue);
-        if (!this.ios) {
+        if (!this._nativeView) {
             return;
         }
         if (newValue) {
             if (publicEnumModule.ChartSelectionMode.Single.toLowerCase() === newValue.toLowerCase()) {
-                this.ios.seriesSelectionMode = 1 /* Single */;
+                this._nativeView.seriesSelectionMode = 1 /* Single */;
             }
             else if (publicEnumModule.ChartSelectionMode.Multiple.toLowerCase() === newValue.toLowerCase()) {
-                this.ios.seriesSelectionMode = 2 /* Multiple */;
+                this._nativeView.seriesSelectionMode = 2 /* Multiple */;
             }
         }
         this.updateChart();
@@ -278,7 +281,7 @@ var RadPieChart = (function (_super) {
         this.updateChart();
     };
     RadPieChart.prototype.loadPalette = function (newPalettes) {
-        if (!this.ios || !this.series) {
+        if (!this._nativeView || !this.series) {
             return;
         }
         if (newPalettes) {
@@ -321,7 +324,7 @@ var RadPieChart = (function (_super) {
         this.chartSelectionPalette = (selectionPalette) ? this.buildNativePaletteForSeries(selectionPalette, series) : null;
         if (this.chartPalette && this.series && this.series.length > 0) {
             this.series.getItem(0).ios.style.paletteMode = 1 /* UseItemIndex */;
-            this.ios.legend.update();
+            this._nativeView.legend.update();
         }
     };
     RadPieChart.prototype.buildNativePaletteForSeries = function (palette, series) {
@@ -356,34 +359,34 @@ var RadPieChart = (function (_super) {
         return seriesPalette;
     };
     RadPieChart.prototype.onSeriesSelectionModeChanged = function (oldValue, newValue) {
-        if (!this.ios) {
+        if (!this._nativeView) {
             return;
         }
         if (newValue) {
             if (publicEnumModule.ChartSelectionMode.Single === newValue) {
-                this.ios.seriesSelectionMode = 1 /* Single */;
+                this._nativeView.seriesSelectionMode = 1 /* Single */;
             }
             else if (publicEnumModule.ChartSelectionMode.Multiple === newValue) {
-                this.ios.seriesSelectionMode = 2 /* Multiple */;
+                this._nativeView.seriesSelectionMode = 2 /* Multiple */;
             }
             else if (publicEnumModule.ChartSelectionMode.None === newValue) {
-                this.ios.seriesSelectionMode = 0 /* None */;
+                this._nativeView.seriesSelectionMode = 0 /* None */;
             }
         }
     };
     RadPieChart.prototype.onPointSelectionModeChanged = function (oldValue, newValue) {
-        if (!this.ios) {
+        if (!this._nativeView) {
             return;
         }
         if (newValue) {
             if (publicEnumModule.ChartSelectionMode.Single === newValue) {
-                this.ios.dataPointSelectionMode = 1 /* Single */;
+                this._nativeView.dataPointSelectionMode = 1 /* Single */;
             }
             else if (publicEnumModule.ChartSelectionMode.Multiple === newValue) {
-                this.ios.dataPointSelectionMode = 2 /* Multiple */;
+                this._nativeView.dataPointSelectionMode = 2 /* Multiple */;
             }
             else if (publicEnumModule.ChartSelectionMode.None === newValue) {
-                this.ios.dataPointSelectionMode = 0 /* None */;
+                this._nativeView.dataPointSelectionMode = 0 /* None */;
             }
         }
     };
@@ -403,7 +406,7 @@ var RadCartesianChart = (function (_super) {
         _this._chartSelectionPalettesMap = new Map();
         return _this;
     }
-    Object.defineProperty(RadCartesianChart.prototype, "ios", {
+    Object.defineProperty(RadCartesianChart.prototype, "_nativeView", {
         get: function () {
             return this._ios;
         },
@@ -411,7 +414,10 @@ var RadCartesianChart = (function (_super) {
         configurable: true
     });
     RadCartesianChart.prototype.createNativeView = function () {
-        return this.ios;
+        return this._nativeView;
+    };
+    RadCartesianChart.prototype.initNativeView = function () {
+        _super.prototype.initNativeView.call(this);
     };
     RadCartesianChart.prototype.onLoaded = function () {
         _super.prototype.onLoaded.call(this);
@@ -425,12 +431,18 @@ var RadCartesianChart = (function (_super) {
     };
     RadCartesianChart.prototype.updateChart = function () {
         if (this._loaded) {
-            this.ios.update();
+            this._nativeView.update();
         }
     };
     RadCartesianChart.prototype.reloadPalettes = function () {
         this.loadPalette(this.palettes);
         this.updateChart();
+    };
+    RadCartesianChart.prototype[commonModule.RadChartBase.legendProperty.setNative] = function (newValue) {
+        if (this.legend) {
+            this.legend.updateLegendView(this);
+        }
+        this.initializer.onLegendChanged(null, newValue, this);
     };
     RadCartesianChart.prototype.SeriesCollectionChangedInternal = function (data) {
         var curSeries;
@@ -489,9 +501,9 @@ var RadCartesianChart = (function (_super) {
     RadCartesianChart.prototype.AnnotationsCollectionChangedInternal = function (data) {
         if (data.eventName && data.eventName.toLowerCase() === "change") {
             if (data.action && data.action.toLowerCase() === "add") {
-                if (this.ios && this.annotations) {
+                if (this._nativeView && this.annotations) {
                     for (var i = 0; i < data.addedCount; i++) {
-                        this.ios.addAnnotation(this.annotations.getItem(data.index + i).ios);
+                        this._nativeView.addAnnotation(this.annotations.getItem(data.index + i).ios);
                         this.annotations.getItem(data.index + i).owner = this;
                     }
                 }
@@ -499,7 +511,7 @@ var RadCartesianChart = (function (_super) {
             }
             if (data.action && data.action.toLowerCase() === "splice") {
                 for (var annIdx = 0; annIdx < data.removed.length; annIdx++) {
-                    this.ios.removeAnnotation(data.removed[annIdx].ios);
+                    this._nativeView.removeAnnotation(data.removed[annIdx].ios);
                 }
                 return;
             }
@@ -561,43 +573,43 @@ var RadCartesianChart = (function (_super) {
         }
     };
     RadCartesianChart.prototype.loadChart = function () {
-        if (this.ios && this.series) {
-            this.ios.removeAllData();
+        if (this._nativeView && this.series) {
+            this._nativeView.removeAllData();
             if (this.horizontalAxis) {
                 if (!this.horizontalAxis.verticalLocation) {
                     this.horizontalAxis.ios.position = 3 /* Bottom */;
                 }
-                this.ios.addAxis(this.horizontalAxis.ios);
-                this.ios.xAxis = this.horizontalAxis.ios;
+                this._nativeView.addAxis(this.horizontalAxis.ios);
+                this._nativeView.xAxis = this.horizontalAxis.ios;
                 this.horizontalAxis.owner = this;
             }
             if (this.verticalAxis) {
                 if (!this.verticalAxis.horizontalLocation) {
                     this.verticalAxis.ios.position = 0 /* Left */;
                 }
-                this.ios.addAxis(this.verticalAxis.ios);
-                this.ios.yAxis = this.verticalAxis.ios;
+                this._nativeView.addAxis(this.verticalAxis.ios);
+                this._nativeView.yAxis = this.verticalAxis.ios;
                 this.verticalAxis.owner = this;
             }
             for (var i = 0; i < this.series.length; ++i) {
                 if (this.series.getItem(i).ios) {
                     var axis = this.series.getItem(i).horizontalAxis;
                     if (axis) {
-                        if (!this.ios.xAxis) {
-                            this.ios.xAxis = axis.ios;
+                        if (!this._nativeView.xAxis) {
+                            this._nativeView.xAxis = axis.ios;
                         }
-                        this.ios.addAxis(axis.ios);
+                        this._nativeView.addAxis(axis.ios);
                         axis.owner = this;
                     }
                     axis = this.series.getItem(i).verticalAxis;
                     if (axis) {
-                        if (!this.ios.yAxis) {
-                            this.ios.yAxis = axis.ios;
+                        if (!this._nativeView.yAxis) {
+                            this._nativeView.yAxis = axis.ios;
                         }
-                        this.ios.addAxis(axis.ios);
+                        this._nativeView.addAxis(axis.ios);
                         axis.owner = this;
                     }
-                    this.ios.addSeries(this.series.getItem(i).ios);
+                    this._nativeView.addSeries(this.series.getItem(i).ios);
                 }
             }
             if (this.horizontalZoom || this.verticalZoom) {
@@ -617,11 +629,11 @@ var RadCartesianChart = (function (_super) {
             if (this.annotations) {
                 for (var i = 0; i < this.annotations.length; ++i) {
                     if (this.annotations.getItem(i).ios && this.annotations.getItem(i).axisId) {
-                        this.ios.addAnnotation(this.annotations.getItem(i).ios);
+                        this._nativeView.addAnnotation(this.annotations.getItem(i).ios);
                     }
                 }
             }
-            this.ios.update();
+            this._nativeView.update();
         }
     };
     RadCartesianChart.prototype.updateZoom = function () {
@@ -667,7 +679,7 @@ var RadCartesianChart = (function (_super) {
         this.updateChart();
     };
     RadCartesianChart.prototype.loadPalette = function (palettes) {
-        if (!this.ios || !this.series) {
+        if (!this._nativeView || !this.series) {
             return;
         }
         if (this.palettes && this.palettes.length > 0) {
@@ -772,57 +784,57 @@ var RadCartesianChart = (function (_super) {
     };
     RadCartesianChart.prototype.onSelectionModeChanged = function (oldValue, newValue) {
         _super.prototype.onSelectionModeChanged.call(this, oldValue, newValue);
-        if (!this.ios) {
+        if (!this._nativeView) {
             return;
         }
         if (newValue) {
             var newVal = newValue.toLowerCase();
             if (publicEnumModule.ChartSelectionMode.Single.toLowerCase() === newVal) {
-                this.ios.seriesSelectionMode = 1 /* Single */;
+                this._nativeView.seriesSelectionMode = 1 /* Single */;
             }
             else if (publicEnumModule.ChartSelectionMode.Multiple.toLowerCase() === newVal) {
-                this.ios.seriesSelectionMode = 2 /* Multiple */;
+                this._nativeView.seriesSelectionMode = 2 /* Multiple */;
             }
         }
     };
     RadCartesianChart.prototype.onSeriesSelectionModeChanged = function (oldValue, newValue) {
-        if (!this.ios) {
+        if (!this._nativeView) {
             return;
         }
         if (newValue) {
             switch (newValue.toLowerCase()) {
                 case publicEnumModule.ChartSelectionMode.Single.toLowerCase():
-                    this.ios.seriesSelectionMode = 1 /* Single */;
+                    this._nativeView.seriesSelectionMode = 1 /* Single */;
                     break;
                 case publicEnumModule.ChartSelectionMode.Multiple.toLowerCase():
-                    this.ios.seriesSelectionMode = 2 /* Multiple */;
+                    this._nativeView.seriesSelectionMode = 2 /* Multiple */;
                     break;
                 case publicEnumModule.ChartSelectionMode.None.toLowerCase():
-                    this.ios.seriesSelectionMode = 0 /* None */;
+                    this._nativeView.seriesSelectionMode = 0 /* None */;
                     break;
             }
         }
     };
     RadCartesianChart.prototype.onPointSelectionModeChanged = function (oldValue, newValue) {
-        if (!this.ios) {
+        if (!this._nativeView) {
             return;
         }
         if (newValue) {
             switch (newValue.toLowerCase()) {
                 case publicEnumModule.ChartSelectionMode.Single.toLowerCase():
-                    this.ios.dataPointSelectionMode = 1 /* Single */;
+                    this._nativeView.dataPointSelectionMode = 1 /* Single */;
                     break;
                 case publicEnumModule.ChartSelectionMode.Multiple.toLowerCase():
-                    this.ios.dataPointSelectionMode = 2 /* Multiple */;
+                    this._nativeView.dataPointSelectionMode = 2 /* Multiple */;
                     break;
                 case publicEnumModule.ChartSelectionMode.None.toLowerCase():
-                    this.ios.dataPointSelectionMode = 0 /* None */;
+                    this._nativeView.dataPointSelectionMode = 0 /* None */;
                     break;
             }
         }
     };
     RadCartesianChart.prototype.onHorizontalZoomChanged = function (oldValue, newValue) {
-        if (!this.ios) {
+        if (!this._nativeView) {
             return;
         }
         if (!isNaN(+newValue) && newValue > 1) {
@@ -833,7 +845,7 @@ var RadCartesianChart = (function (_super) {
         }
     };
     RadCartesianChart.prototype.onVerticalZoomChanged = function (oldValue, newValue) {
-        if (!this.ios) {
+        if (!this._nativeView) {
             return;
         }
         if (!isNaN(+newValue) && newValue > 1) {
@@ -846,11 +858,11 @@ var RadCartesianChart = (function (_super) {
     RadCartesianChart.prototype.onTrackballChanged = function (oldValue, newValue) {
         _super.prototype.onTrackballChanged.call(this, oldValue, newValue);
         if (newValue && (newValue instanceof trackBallCommonModule.Trackball)) {
-            this.ios.allowTrackball = true;
-            this.trackball.ios = this.ios.trackball;
+            this._nativeView.allowTrackball = true;
+            this.trackball.ios = this._nativeView.trackball;
         }
         else {
-            this.ios.allowTrackball = false;
+            this._nativeView.allowTrackball = false;
         }
     };
     __decorate([

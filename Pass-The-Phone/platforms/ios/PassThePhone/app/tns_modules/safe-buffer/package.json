@@ -45,6 +45,7 @@
     "/md5.js/hash-base",
     "/pbkdf2",
     "/randombytes",
+    "/randomfill",
     "/readable-stream",
     "/readable-stream/string_decoder",
     "/sha.js"

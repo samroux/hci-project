@@ -10,7 +10,7 @@
         "spec": "0.8.17",
         "type": "version"
       },
-      "/Development/McGill/ecse424/hci-project/Pass-The-Phone/node_modules/tns-template-blank-ng"
+      "/Development/McGill/ecse424/hci-project/Pass-The-Phone"
     ]
   ],
   "_from": "zone.js@0.8.17",
@@ -38,13 +38,13 @@
     "type": "version"
   },
   "_requiredBy": [
-    "/tns-template-blank-ng"
+    "/"
   ],
   "_resolved": "https://registry.npmjs.org/zone.js/-/zone.js-0.8.17.tgz",
   "_shasum": "4c5e5185a857da8da793daf3919371c5a36b2a0b",
   "_shrinkwrap": null,
   "_spec": "zone.js@0.8.17",
-  "_where": "/Development/McGill/ecse424/hci-project/Pass-The-Phone/node_modules/tns-template-blank-ng",
+  "_where": "/Development/McGill/ecse424/hci-project/Pass-The-Phone",
   "author": {
     "name": "Brian Ford"
   },

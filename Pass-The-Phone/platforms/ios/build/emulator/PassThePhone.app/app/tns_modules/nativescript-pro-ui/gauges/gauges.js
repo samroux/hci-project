@@ -10,9 +10,9 @@ var RadRadialGauge = (function (_super) {
         return _this;
     }
     RadRadialGauge.prototype.createNativeView = function () {
-        return this.ios;
+        return this._nativeView;
     };
-    Object.defineProperty(RadRadialGauge.prototype, "ios", {
+    Object.defineProperty(RadRadialGauge.prototype, "_nativeView", {
         get: function () {
             return this._ios;
         },

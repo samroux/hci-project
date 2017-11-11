@@ -388,9 +388,6 @@ declare class RadLegendView extends View {
 * the data point values.
 */
 declare class RadCartesianChart extends RadChartBase {
-    android: any;
-    ios: any;
-
     /**
     * Identifies the {@link horizontalAxis} dependency property.
     */
@@ -742,6 +739,27 @@ declare module AxisPlotMode {
 }
 
 /**
+* Lists the possible last label visibility options.
+*/
+declare module AxisLabelVisibility {
+    /**
+    * The last axis label is shown.
+    */
+    var Visible: string;
+
+    /**
+    * The last axis label is not shown.
+    */
+    var Hidden: string;
+
+    /**
+    * The last axis label is clipped. 
+    * NOTE: Works only on Android.
+    */
+    var Clip: string;
+}
+
+/**
 * Lists the possible ways a DateTime value can be interpreted
 * in the context of an axis.
 */
@@ -850,6 +868,16 @@ declare class CategoricalAxis extends CartesianAxis {
     public static majorTickIntervalProperty: Property<CategoricalAxis, number>;
 
     /**
+    * Identifies the lastLabelVisibility dependency property.
+    */
+    public static lastLabelVisibilityProperty: Property<CategoricalAxis, string>;
+
+    /**
+    * Identifies the firstLabelVisibility dependency property. This is only supported and used in iOS.
+    */
+    public static firstLabelVisibilityProperty: Property<CategoricalAxis, string>;
+
+    /**
     * Gets or sets the major tick interval.
     */
     majorTickInterval: number;
@@ -858,6 +886,17 @@ declare class CategoricalAxis extends CartesianAxis {
     * Gets or sets plot mode for the axis. Use values exported from {@link AxisPlotMode}.
     */
     plotMode: string;
+
+    /**
+    * Gets or sets visibility of the last label in the axis. Use values exported from {@link AxisLabelVisibility}.
+    * NOTE: On iOS the 'plotMode' of the Axis needs to be set to 'OnTicks' in order for the lastLabelVisibility to function as expected.
+    */
+    lastLabelVisibility: string;
+
+    /**
+    * Gets or sets visibility of the first label in the axis. Use values exported from {@link AxisLabelVisibility}. This is only supported and used in iOS.
+    */
+    firstLabelVisibility: string;
 }
 
 /**

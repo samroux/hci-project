@@ -10,7 +10,7 @@
         "spec": "4.2.5",
         "type": "version"
       },
-      "/Development/McGill/ecse424/hci-project/Pass-The-Phone/node_modules/tns-template-blank-ng"
+      "/Development/McGill/ecse424/hci-project/Pass-The-Phone"
     ]
   ],
   "_from": "@angular/core@4.2.5",
@@ -38,13 +38,13 @@
     "type": "version"
   },
   "_requiredBy": [
-    "/tns-template-blank-ng"
+    "/"
   ],
   "_resolved": "https://registry.npmjs.org/@angular/core/-/core-4.2.5.tgz",
   "_shasum": "61c1b5885c262332d737fbe0f5d71151759a8464",
   "_shrinkwrap": null,
   "_spec": "@angular/core@4.2.5",
-  "_where": "/Development/McGill/ecse424/hci-project/Pass-The-Phone/node_modules/tns-template-blank-ng",
+  "_where": "/Development/McGill/ecse424/hci-project/Pass-The-Phone",
   "author": {
     "name": "angular"
   },

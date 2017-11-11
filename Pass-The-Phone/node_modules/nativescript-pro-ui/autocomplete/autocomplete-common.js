@@ -41,7 +41,7 @@ var SuggestionView = (function (_super) {
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(SuggestionView.prototype, "ios", {
+    Object.defineProperty(SuggestionView.prototype, "_nativeView", {
         get: function () {
             return undefined;
         },
@@ -247,6 +247,11 @@ var RadAutoCompleteTextView = (function (_super) {
     };
     RadAutoCompleteTextView.prototype.onSuggestModeChanged = function (oldValue, newValue) {
     };
+    RadAutoCompleteTextView.prototype.onHintPropertyChanged = function (oldValue, newValue) {
+        this.onHintChanged(oldValue, newValue);
+    };
+    RadAutoCompleteTextView.prototype.onHintChanged = function (oldValue, newValue) {
+    };
     RadAutoCompleteTextView.prototype.onMinimumCharactersToSearchPropertyChanged = function (oldValue, newValue) {
         this.onMinimumCharactersToSearchChanged(oldValue, newValue);
     };
@@ -345,6 +350,14 @@ var RadAutoCompleteTextView = (function (_super) {
             target.onSuggestModePropertyChanged(oldValue, newValue);
         },
     });
+    // Hint
+    RadAutoCompleteTextView.hintProperty = new view_1.Property({
+        name: "hint",
+        defaultValue: undefined,
+        valueChanged: function (target, oldValue, newValue) {
+            target.onHintPropertyChanged(oldValue, newValue);
+        },
+    });
     // MinimumCharactersToSearch
     RadAutoCompleteTextView.minimumCharactersToSearchProperty = new view_1.Property({
         name: "minimumCharactersToSearch",
@@ -386,6 +399,7 @@ RadAutoCompleteTextView.displayModeProperty.register(RadAutoCompleteTextView);
 RadAutoCompleteTextView.completionModeProperty.register(RadAutoCompleteTextView);
 RadAutoCompleteTextView.layoutModeProperty.register(RadAutoCompleteTextView);
 RadAutoCompleteTextView.suggestModeProperty.register(RadAutoCompleteTextView);
+RadAutoCompleteTextView.hintProperty.register(RadAutoCompleteTextView);
 RadAutoCompleteTextView.minimumCharactersToSearchProperty.register(RadAutoCompleteTextView);
 RadAutoCompleteTextView.showCloseButtonProperty.register(RadAutoCompleteTextView);
 RadAutoCompleteTextView.closeButtonImageSrcProperty.register(RadAutoCompleteTextView);

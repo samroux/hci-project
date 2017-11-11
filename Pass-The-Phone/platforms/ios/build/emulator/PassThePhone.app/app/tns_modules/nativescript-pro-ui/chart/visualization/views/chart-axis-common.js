@@ -1,6 +1,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var initializersImpl = require("../../initializers/chart-initializers");
 var view_1 = require("tns-core-modules/ui/core/view");
+var chart_public_enum_1 = require("../../misc/chart-public-enum");
 /**
 * Represents an axis in a Cartesian chart. This class is a base class for all
 * axes that can be used within a RadCartesianChart instance.
@@ -395,6 +396,12 @@ var CategoricalAxis = (function (_super) {
     CategoricalAxis.prototype.onPlotModePropertyChanged = function (oldValue, newValue) {
         this.onPlotModeChanged(oldValue, newValue);
     };
+    CategoricalAxis.prototype.onLastLabelVisibilityPropertyChanged = function (oldValue, newValue) {
+        this.onLastLabelVisibilityChanged(oldValue, newValue);
+    };
+    CategoricalAxis.prototype.onFirstLabelVisibilityPropertyChanged = function (oldValue, newValue) {
+        this.onFirstLabelVisibilityChanged(oldValue, newValue);
+    };
     Object.defineProperty(CategoricalAxis.prototype, "initializer", {
         get: function () {
             if (!this._initializer) {
@@ -411,6 +418,12 @@ var CategoricalAxis = (function (_super) {
     CategoricalAxis.prototype.onPlotModeChanged = function (oldValue, newValue) {
         this.initializer.onPlotModeChanged(oldValue, newValue, this);
     };
+    CategoricalAxis.prototype.onLastLabelVisibilityChanged = function (oldValue, newValue) {
+        this.initializer.onLastLabelVisibilityChanged(oldValue, newValue, this);
+    };
+    CategoricalAxis.prototype.onFirstLabelVisibilityChanged = function (oldValue, newValue) {
+        this.initializer.onFirstLabelVisibilityChanged(oldValue, newValue, this);
+    };
     CategoricalAxis.majorTickIntervalProperty = new view_1.Property({
         name: "majorTickInterval",
         defaultValue: undefined,
@@ -426,11 +439,27 @@ var CategoricalAxis = (function (_super) {
             target.onPlotModePropertyChanged(oldValue, newValue);
         },
     });
+    CategoricalAxis.lastLabelVisibilityProperty = new view_1.Property({
+        name: "lastLabelVisibility",
+        defaultValue: chart_public_enum_1.AxisLabelVisibility.Visible,
+        valueChanged: function (target, oldValue, newValue) {
+            target.onLastLabelVisibilityPropertyChanged(oldValue, newValue);
+        },
+    });
+    CategoricalAxis.firstLabelVisibilityProperty = new view_1.Property({
+        name: "firstLabelVisibility",
+        defaultValue: chart_public_enum_1.AxisLabelVisibility.Visible,
+        valueChanged: function (target, oldValue, newValue) {
+            target.onFirstLabelVisibilityPropertyChanged(oldValue, newValue);
+        },
+    });
     return CategoricalAxis;
 }(CartesianAxis));
 exports.CategoricalAxis = CategoricalAxis;
 CategoricalAxis.majorTickIntervalProperty.register(CategoricalAxis);
 CategoricalAxis.plotModeProperty.register(CategoricalAxis);
+CategoricalAxis.lastLabelVisibilityProperty.register(CategoricalAxis);
+CategoricalAxis.firstLabelVisibilityProperty.register(CategoricalAxis);
 var LinearAxis = (function (_super) {
     __extends(LinearAxis, _super);
     function LinearAxis() {

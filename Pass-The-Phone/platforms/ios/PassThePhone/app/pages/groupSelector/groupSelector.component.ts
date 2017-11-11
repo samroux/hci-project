@@ -42,8 +42,6 @@ export class GroupSelectorComponent implements OnInit{
     let groupPlayers5 = [player8, player9, player10];
     let groupPlayers6 = [player1, player2, player3, player4, player5, player6, player7, player8, player9, player10];
 
-    this.groups.push(new Group(null,[]));
-
     this.groups.push( new Group ("groupPlayers1", groupPlayers1));
     this.groups.push( new Group ("groupPlayers2", groupPlayers2));
     this.groups.push( new Group ("groupPlayers3", groupPlayers3));
@@ -55,7 +53,7 @@ export class GroupSelectorComponent implements OnInit{
 
   public onItemTap(args) {
     // console.log("Item Tapped at cell index: " + args.index + " " + args.name);
-    if(args.index >0){
+    if(args.index >= 0){
       this.selectedGroup = this.groups[args.index];
       console.log ("Chosen: "+this.selectedGroup.name);
 

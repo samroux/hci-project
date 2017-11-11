@@ -141,7 +141,7 @@ export class RadListViewComponent {
  * Directive identifying the ListViewLinearLayout.
  * 
  * @example
- * ' &lt;ListViewLinearLayout tkListViewLayout scrollDirection="Vertical"&lt;&gt/ListViewGridLayout&gt '
+ * ' &lt;ListViewLinearLayout tkListViewLayout scrollDirection="Vertical"&gt;&lt;/ListViewGridLayout&gt; '
  */
 export class ListViewLinearLayoutDirective {
 
@@ -151,7 +151,7 @@ export class ListViewLinearLayoutDirective {
  * Directive identifying the ListViewGridLayout.
  * 
  * @example
- * ' &lt;ListViewGridLayout tkListViewLayout scrollDirection="Vertical"&lt;&gt/ListViewGridLayout&gt '
+ * ' &lt;ListViewGridLayout tkListViewLayout scrollDirection="Vertical"&gt;&lt;/ListViewGridLayout&gt; '
  */
 export class ListViewGridLayoutDirective {
 
@@ -161,7 +161,7 @@ export class ListViewGridLayoutDirective {
  * Directive identifying the ListViewGridLayout. Note: the 'ListViewStaggeredLayout' should be placed after the 'listItemTemplate' in the html of the Component.
   * 
  * @example
- * ' &lt;ListViewStaggeredLayout tkListViewLayout scrollDirection="Vertical"&lt;&gt/ListViewStaggeredLayout&gt '
+ * ' &lt;ListViewStaggeredLayout tkListViewLayout scrollDirection="Vertical"&gt;&lt;/ListViewStaggeredLayout&gt; '
  */
 export class ListViewStaggeredLayoutDirective {
 
@@ -171,7 +171,7 @@ export class ListViewStaggeredLayoutDirective {
  * Directive identifying the listViewLayout property of the RadCartesianChart component. Note: the 'radListViewLayout' should be placed after the 'listItemTemplate' in the html of the Component.
  * 
  * @example
- * ' &lt;ListViewStaggeredLayout tkListViewLayout scrollDirection="Vertical"&lt;&gt/ListViewStaggeredLayout&gt '
+ * ' &lt;ListViewStaggeredLayout tkListViewLayout scrollDirection="Vertical"&gt;&lt;/ListViewStaggeredLayout&gt; '
  */
 export class TKListViewLayoutDirective {
 
@@ -181,9 +181,9 @@ export class TKListViewLayoutDirective {
  * Directive identifying the ReorderHandle element.
  * 
  * @example
- * ' &lt;ReorderHandle>
-            &lt;Label text="Drag me"&lt;&gt/Label&gt
-     &lt;/ReorderHandle&gt '
+ * ' &lt;ReorderHandle&gt;
+            &lt;Label text="Drag me"&gt;&lt;/Label&gt;
+     &lt;/ReorderHandle&gt; '
  */
 export class ReorderHandleDirective {
 
@@ -228,7 +228,7 @@ export class TKListViewLoadOnDemandDirective {
  * Directive identifying the itemTemplates of the RadListView.
  * 
  * @example
- * ' &lt;ng-template tkTemplateKey="nameOfTemplate" let-item="item"&lt;&gt/ng-template&gt '
+ * ' &lt;ng-template tkTemplateKey="nameOfTemplate" let-item="item"&gt;&lt;/ng-template&gt; '
  */
 export class TKTemplateKeyDirective {
 

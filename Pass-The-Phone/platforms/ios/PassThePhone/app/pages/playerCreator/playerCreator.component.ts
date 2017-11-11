@@ -45,6 +45,10 @@ export class PlayerCreatorComponent implements OnInit{
   }
   
   private addPlayer(playerName) {
+    if(playerName==""){
+      // console.log("Cannot allow empty player name");
+      return;
+    }
     let player:Player = new Player(playerName);
     this.players.push(player);    
     this.newPlayerName = "";

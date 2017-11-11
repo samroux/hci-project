@@ -10,7 +10,7 @@
         "spec": "4.2.0",
         "type": "version"
       },
-      "/Development/McGill/ecse424/hci-project/Pass-The-Phone/node_modules/tns-template-blank-ng"
+      "/Development/McGill/ecse424/hci-project/Pass-The-Phone"
     ]
   ],
   "_from": "nativescript-angular@4.2.0",
@@ -38,13 +38,13 @@
     "type": "version"
   },
   "_requiredBy": [
-    "/tns-template-blank-ng"
+    "/"
   ],
   "_resolved": "https://registry.npmjs.org/nativescript-angular/-/nativescript-angular-4.2.0.tgz",
   "_shasum": "508791751b82c6c65f395196908761d7015ce307",
   "_shrinkwrap": null,
   "_spec": "nativescript-angular@4.2.0",
-  "_where": "/Development/McGill/ecse424/hci-project/Pass-The-Phone/node_modules/tns-template-blank-ng",
+  "_where": "/Development/McGill/ecse424/hci-project/Pass-The-Phone",
   "author": {
     "name": "NativeScript Team"
   },

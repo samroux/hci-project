@@ -8,12 +8,12 @@ TextField {
   margin-left: 30;
   margin-right: 30;
   padding-bottom: 15;
-  padding-top: 75;
+  padding-top: 40;
   background-color: white;
 }
-Image {
-  margin-top: 5;
-  margin-bottom: 20;
+.logo {
+  margin-top: 12;
+  margin-bottom: 12;
 }
 Button, TextField, Label {
   margin-left: 16;

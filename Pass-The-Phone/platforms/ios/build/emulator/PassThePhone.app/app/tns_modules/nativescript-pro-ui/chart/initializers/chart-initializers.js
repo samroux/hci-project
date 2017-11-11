@@ -4,6 +4,7 @@ var chart_axis_common_1 = require("../visualization/views/chart-axis-common");
 var chart_public_enum_1 = require("../misc/chart-public-enum");
 var chart_series_common_1 = require("../visualization/views/chart-series-common");
 var utils = require("tns-core-modules/utils/utils");
+var chart_public_enum_2 = require("../misc/chart-public-enum");
 var ChartBaseValueMapper = (function () {
     function ChartBaseValueMapper() {
     }
@@ -163,11 +164,11 @@ var CategoricalAxisValueMapper = (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     CategoricalAxisValueMapper.prototype.onMajorTickIntervalChanged = function (oldValue, newValue, axis) {
-        console.log("WARNING: majorTickInterval property is not supported for iOS.");
-        // if (!isNaN(+newValue)) {
-        //     axis.ios.majorTickInterval = newValue;
-        //     axis.update();
-        // }
+        console.log("WARNING: 'majorTickInterval' property is not supported for iOS.");
+        if (!isNaN(+newValue)) {
+            axis.ios.majorTickInterval = newValue;
+            axis.update();
+        }
     };
     CategoricalAxisValueMapper.prototype.onPlotModeChanged = function (oldValue, newValue, axis) {
         if (newValue) {
@@ -182,6 +183,62 @@ var CategoricalAxisValueMapper = (function (_super) {
                     console.log("WARNING: Unsupported plot mode set: " + newValue);
             }
             axis.update();
+        }
+    };
+    CategoricalAxisValueMapper.prototype.onLastLabelVisibilityChanged = function (oldValue, newValue, axis) {
+        if (newValue) {
+            if (axis.plotMode && axis.plotMode != chart_public_enum_1.AxisPlotMode.OnTicks) {
+                console.log("WARNING: Setting the 'lastLabelVisibility' to 'Hidden' with 'plotMode' set to " + axis.plotMode + " is not supported.");
+                return;
+            }
+            switch (newValue) {
+                case chart_public_enum_2.AxisLabelVisibility.Hidden: {
+                    axis.ios.style.majorTickStyle.maxTickClippingMode = 1 /* Hidden */;
+                    axis.ios.style.labelStyle.maxLabelClippingMode = 1 /* Hidden */;
+                    axis.update();
+                    break;
+                }
+                case chart_public_enum_2.AxisLabelVisibility.Clip: {
+                }
+                case chart_public_enum_2.AxisLabelVisibility.Visible: {
+                    axis.ios.style.majorTickStyle.maxTickClippingMode = 0 /* Visible */;
+                    axis.ios.style.labelStyle.maxLabelClippingMode = 0 /* Visible */;
+                    axis.update();
+                    break;
+                }
+                default: {
+                    console.log("WARNING: Unsupported 'lastLabelVisibility' set: " + newValue);
+                    break;
+                }
+            }
+        }
+    };
+    CategoricalAxisValueMapper.prototype.onFirstLabelVisibilityChanged = function (oldValue, newValue, axis) {
+        if (newValue) {
+            if (axis.plotMode && axis.plotMode != chart_public_enum_1.AxisPlotMode.OnTicks) {
+                console.log("WARNING: Setting the 'firstLabelVisibility' to 'Hidden' with 'plotMode' set to " + axis.plotMode + " is not supported.");
+                return;
+            }
+            switch (newValue) {
+                case chart_public_enum_2.AxisLabelVisibility.Hidden: {
+                    axis.ios.style.majorTickStyle.minTickClippingMode = 1 /* Hidden */;
+                    axis.ios.style.labelStyle.minLabelClippingMode = 1 /* Hidden */;
+                    axis.update();
+                    break;
+                }
+                case chart_public_enum_2.AxisLabelVisibility.Clip: {
+                }
+                case chart_public_enum_2.AxisLabelVisibility.Visible: {
+                    axis.ios.style.majorTickStyle.minTickClippingMode = 0 /* Visible */;
+                    axis.ios.style.labelStyle.minLabelClippingMode = 0 /* Visible */;
+                    axis.update();
+                    break;
+                }
+                default: {
+                    console.log("WARNING: Unsupported 'firstLabelVisibility' set: " + newValue);
+                    break;
+                }
+            }
         }
     };
     return CategoricalAxisValueMapper;
@@ -204,7 +261,7 @@ var ChartSeriesValueMapper = (function () {
         if (series.ios && newValue) {
             series.ios.title = newValue;
             if (series.owner) {
-                series.owner.ios.legend.reloadItems();
+                series.owner.nativeView.legend.reloadItems();
             }
         }
     };
@@ -632,8 +689,8 @@ var CategoricalSeriesValueMapper = (function (_super) {
                 series.ios.stackInfo = null;
                 break;
         }
-        if (series.owner && series.owner.ios) {
-            series.owner.ios.reloadData();
+        if (series.owner && series.owner.nativeView) {
+            series.owner.nativeView.reloadData();
         }
     };
     /**

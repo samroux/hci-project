@@ -164,16 +164,6 @@ export class RadDataForm extends View {
     editedObject: any;
 
     /**
-     * Represents the native RadDataForm from Progress Telerik UI for Android.
-     */
-    android: any;
-
-    /**
-     * Represents the native RadDataForm from Progress Telerik UI for iOS.
-     */
-    ios: any;
-
-    /**
      * Gets the EntityProperty object for the property of
      * the object with the given name.
      */

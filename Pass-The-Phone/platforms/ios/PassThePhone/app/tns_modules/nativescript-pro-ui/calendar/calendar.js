@@ -290,6 +290,116 @@ var CellStyle = (function (_super) {
 }(commonModule.CellStyle));
 exports.CellStyle = CellStyle;
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+var DayEventsViewStyle = (function (_super) {
+    __extends(DayEventsViewStyle, _super);
+    function DayEventsViewStyle() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    Object.defineProperty(DayEventsViewStyle.prototype, "owner", {
+        set: function (value) {
+            this._owner = value;
+            this.updateNativePresenter();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    DayEventsViewStyle.prototype.updateNativePresenter = function () {
+        if (this._owner && (this._owner._nativeView.presenter instanceof TKCalendarDayViewPresenter)) {
+            var dayPresenter = this._owner._nativeView.presenter;
+            if (this.backgroundColor) {
+                dayPresenter.dayView.eventsView.backgroundColor = (new color_1.Color(this.backgroundColor)).ios;
+            }
+            if (this.timeLabelFormat) {
+                var dateFormatter = NSDateFormatter.alloc().init();
+                dateFormatter.dateFormat = this.timeLabelFormat;
+                dayPresenter.dayView.eventsView.style.labelFormatter = dateFormatter;
+            }
+            if (this.timeLabelTextColor) {
+                dayPresenter.dayView.eventsView.style.labelTextColor = (new color_1.Color(this.timeLabelTextColor)).ios;
+            }
+            if (this.timeLabelTextSize) {
+                dayPresenter.dayView.eventsView.style.labelTextSize = this.timeLabelTextSize;
+            }
+            dayPresenter.dayView.eventsView.updateLayout();
+        }
+    };
+    DayEventsViewStyle.prototype.onBackgroundColorChanged = function (oldValue, newValue) {
+        if (newValue && this._owner && (this._owner._nativeView.presenter instanceof TKCalendarDayViewPresenter)) {
+            this._owner._nativeView.presenter.dayView.eventsView.backgroundColor = (new color_1.Color(newValue)).ios;
+            this._owner._nativeView.presenter.dayView.eventsView.updateLayout();
+        }
+    };
+    DayEventsViewStyle.prototype.onTimeLabelTextColorChanged = function (oldValue, newValue) {
+        if (newValue && this._owner && (this._owner._nativeView.presenter instanceof TKCalendarDayViewPresenter)) {
+            this._owner._nativeView.presenter.dayView.eventsView.style.labelTextColor = (new color_1.Color(newValue)).ios;
+            this._owner._nativeView.presenter.dayView.eventsView.updateLayout();
+        }
+    };
+    DayEventsViewStyle.prototype.onTimeLabelTextSizeChanged = function (oldValue, newValue) {
+        if (newValue && this._owner && (this._owner._nativeView.presenter instanceof TKCalendarDayViewPresenter)) {
+            this._owner._nativeView.presenter.dayView.eventsView.style.labelTextSize = newValue;
+            this._owner._nativeView.presenter.dayView.eventsView.updateLayout();
+        }
+    };
+    DayEventsViewStyle.prototype.onTimeLabelFormatChanged = function (oldValue, newValue) {
+        if (newValue && this._owner && (this._owner._nativeView.presenter instanceof TKCalendarDayViewPresenter)) {
+            var dateFormatter = NSDateFormatter.alloc().init();
+            dateFormatter.dateFormat = this.timeLabelFormat;
+            this._owner._nativeView.presenter.dayView.eventsView.style.labelFormatter = dateFormatter;
+            this._owner._nativeView.presenter.dayView.eventsView.updateLayout();
+        }
+    };
+    return DayEventsViewStyle;
+}(commonModule.DayEventsViewStyle));
+exports.DayEventsViewStyle = DayEventsViewStyle;
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+var AllDayEventsViewStyle = (function (_super) {
+    __extends(AllDayEventsViewStyle, _super);
+    function AllDayEventsViewStyle() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    Object.defineProperty(AllDayEventsViewStyle.prototype, "owner", {
+        set: function (value) {
+            this._owner = value;
+            this.updateNativePresenter();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    AllDayEventsViewStyle.prototype.updateNativePresenter = function () {
+        if (this._owner && (this._owner._nativeView.presenter instanceof TKCalendarDayViewPresenter)) {
+            var dayPresenter = this._owner._nativeView.presenter;
+            if (this.backgroundColor) {
+                dayPresenter.dayView.allDayEventsView.backgroundColor = (new color_1.Color(this.backgroundColor)).ios;
+            }
+            if (this.allDayText != AllDayEventsViewStyle.ALL_DAY_TEXT) {
+                dayPresenter.dayView.allDayEventsView.labelView.text = this.allDayText;
+            }
+            if (this.allDayTextIsVisible != undefined) {
+                dayPresenter.dayView.allDayEventsView.style.labelWidth = this.allDayTextIsVisible ? 60 : 0;
+            }
+            dayPresenter.dayView.allDayEventsView.updateLayout();
+        }
+    };
+    AllDayEventsViewStyle.prototype.onBackgroundColorChanged = function (oldValue, newValue) {
+        if (newValue && this._owner && (this._owner._nativeView.presenter instanceof TKCalendarDayViewPresenter)) {
+            this._owner._nativeView.presenter.dayView.allDayEventsView.backgroundColor = (new color_1.Color(newValue)).ios;
+        }
+    };
+    AllDayEventsViewStyle.prototype.onAllDayTextChanged = function (oldValue, newValue) {
+        if (newValue && this._owner && (this._owner._nativeView.presenter instanceof TKCalendarDayViewPresenter)) {
+            this._owner._nativeView.presenter.dayView.allDayEventsView.labelView.text = newValue;
+        }
+    };
+    AllDayEventsViewStyle.prototype.onAllDayTextIsVisibleChanged = function (oldValue, newValue) {
+        if (newValue && this._owner && (this._owner._nativeView.presenter instanceof TKCalendarDayViewPresenter)) {
+            this._owner._nativeView.presenter.dayView.allDayEventsView.style.labelWidth = this.allDayTextIsVisible ? 60 : 0;
+        }
+    };
+    return AllDayEventsViewStyle;
+}(commonModule.AllDayEventsViewStyle));
+exports.AllDayEventsViewStyle = AllDayEventsViewStyle;
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 var DayCellStyle = (function (_super) {
     __extends(DayCellStyle, _super);
     function DayCellStyle() {
@@ -388,92 +498,92 @@ var MonthCellStyle = (function (_super) {
         configurable: true
     });
     MonthCellStyle.prototype.updateNativePresenter = function () {
-        if (this._owner && (this._owner.ios.presenter instanceof TKCalendarYearPresenter)) {
+        if (this._owner && (this._owner._nativeView.presenter instanceof TKCalendarYearPresenter)) {
             if (this.dayTextColor)
-                this._owner.ios.presenter.style.dayTextColor = (new color_1.Color(this.dayTextColor)).ios;
+                this._owner._nativeView.presenter.style.dayTextColor = (new color_1.Color(this.dayTextColor)).ios;
             if (this.weekendTextColor)
-                this._owner.ios.presenter.style.weekendTextColor = (new color_1.Color(this.weekendTextColor)).ios;
+                this._owner._nativeView.presenter.style.weekendTextColor = (new color_1.Color(this.weekendTextColor)).ios;
             if (this.todayTextColor)
-                this._owner.ios.presenter.style.todayTextColor = (new color_1.Color(this.todayTextColor)).ios;
+                this._owner._nativeView.presenter.style.todayTextColor = (new color_1.Color(this.todayTextColor)).ios;
             if (this.dayNameTextColor)
-                this._owner.ios.presenter.style.dayNameTextColor = (new color_1.Color(this.dayNameTextColor)).ios;
+                this._owner._nativeView.presenter.style.dayNameTextColor = (new color_1.Color(this.dayNameTextColor)).ios;
             if (this.monthNameTextColor)
-                this._owner.ios.presenter.style.monthNameTextColor = (new color_1.Color(this.monthNameTextColor)).ios;
-            this._owner.ios.presenter.style.dayFont = Tools.createFont(this.dayFontName, this.dayFontStyle, this.dayTextSize);
-            this._owner.ios.presenter.style.dayNameFont = Tools.createFont(this.dayNameFontName, this.dayNameFontStyle, this.dayNameTextSize);
-            this._owner.ios.presenter.style.monthNameFont = Tools.createFont(this.monthNameFontName, this.monthNameFontStyle, this.monthNameTextSize);
+                this._owner._nativeView.presenter.style.monthNameTextColor = (new color_1.Color(this.monthNameTextColor)).ios;
+            this._owner._nativeView.presenter.style.dayFont = Tools.createFont(this.dayFontName, this.dayFontStyle, this.dayTextSize);
+            this._owner._nativeView.presenter.style.dayNameFont = Tools.createFont(this.dayNameFontName, this.dayNameFontStyle, this.dayNameTextSize);
+            this._owner._nativeView.presenter.style.monthNameFont = Tools.createFont(this.monthNameFontName, this.monthNameFontStyle, this.monthNameTextSize);
             //note: since android calendar in year view doesn't support shape color, we disable it for ios too
-            this._owner.ios.presenter.style.todayShapeFill = null;
+            this._owner._nativeView.presenter.style.todayShapeFill = null;
         }
     };
     MonthCellStyle.prototype.onWeekendTextColorChanged = function (oldValue, newValue) {
         if (newValue && this._owner) {
-            this._owner.ios.presenter.style.weekendTextColor = (new color_1.Color(newValue)).ios;
+            this._owner._nativeView.presenter.style.weekendTextColor = (new color_1.Color(newValue)).ios;
         }
     };
     MonthCellStyle.prototype.onTodayTextColorChanged = function (oldValue, newValue) {
         if (newValue && this._owner) {
-            this._owner.ios.presenter.style.todayTextColor = (new color_1.Color(newValue)).ios;
+            this._owner._nativeView.presenter.style.todayTextColor = (new color_1.Color(newValue)).ios;
         }
     };
     MonthCellStyle.prototype.onDayTextColorChanged = function (oldValue, newValue) {
         if (newValue && this._owner) {
-            this._owner.ios.presenter.style.dayTextColor = (new color_1.Color(newValue)).ios;
+            this._owner._nativeView.presenter.style.dayTextColor = (new color_1.Color(newValue)).ios;
         }
     };
     MonthCellStyle.prototype.onDayFontNameChanged = function (oldValue, newValue) {
         if (this._owner && newValue) {
-            this._owner.ios.presenter.style.dayFont = Tools.createFont(newValue, this.dayFontStyle, this.dayTextSize);
+            this._owner._nativeView.presenter.style.dayFont = Tools.createFont(newValue, this.dayFontStyle, this.dayTextSize);
         }
     };
     MonthCellStyle.prototype.onDayFontStyleChanged = function (oldValue, newValue) {
         if (this._owner && newValue) {
-            this._owner.ios.presenter.style.dayFont = Tools.createFont(this.dayFontName, newValue, this.dayTextSize);
+            this._owner._nativeView.presenter.style.dayFont = Tools.createFont(this.dayFontName, newValue, this.dayTextSize);
         }
     };
     MonthCellStyle.prototype.onDayTextSizeChanged = function (oldValue, newValue) {
         if (this._owner && !isNaN(+newValue)) {
-            this._owner.ios.presenter.style.dayFont = Tools.createFont(this.dayFontName, this.dayFontStyle, newValue);
+            this._owner._nativeView.presenter.style.dayFont = Tools.createFont(this.dayFontName, this.dayFontStyle, newValue);
         }
     };
     MonthCellStyle.prototype.onDayNameTextColorChanged = function (oldValue, newValue) {
         if (newValue && this._owner) {
-            this._owner.ios.presenter.style.dayNameTextColor = (new color_1.Color(newValue)).ios;
+            this._owner._nativeView.presenter.style.dayNameTextColor = (new color_1.Color(newValue)).ios;
         }
     };
     MonthCellStyle.prototype.onDayNameFontNameChanged = function (oldValue, newValue) {
         if (this._owner && newValue) {
-            this._owner.ios.presenter.style.dayNameFont = Tools.createFont(newValue, this.dayNameFontStyle, this.dayNameTextSize);
+            this._owner._nativeView.presenter.style.dayNameFont = Tools.createFont(newValue, this.dayNameFontStyle, this.dayNameTextSize);
         }
     };
     MonthCellStyle.prototype.onDayNameFontStyleChanged = function (oldValue, newValue) {
         if (this._owner && newValue) {
-            this._owner.ios.presenter.style.dayNameFont = Tools.createFont(this.dayNameFontName, newValue, this.dayNameTextSize);
+            this._owner._nativeView.presenter.style.dayNameFont = Tools.createFont(this.dayNameFontName, newValue, this.dayNameTextSize);
         }
     };
     MonthCellStyle.prototype.onDayNameTextSizeChanged = function (oldValue, newValue) {
         if (this._owner && !isNaN(+newValue)) {
-            this._owner.ios.presenter.style.dayNameFont = Tools.createFont(this.dayNameFontName, this.dayNameFontStyle, newValue);
+            this._owner._nativeView.presenter.style.dayNameFont = Tools.createFont(this.dayNameFontName, this.dayNameFontStyle, newValue);
         }
     };
     MonthCellStyle.prototype.onMonthNameTextColorChanged = function (oldValue, newValue) {
         if (newValue && this._owner) {
-            this._owner.ios.presenter.style.monthNameTextColor = (new color_1.Color(newValue)).ios;
+            this._owner._nativeView.presenter.style.monthNameTextColor = (new color_1.Color(newValue)).ios;
         }
     };
     MonthCellStyle.prototype.onMonthNameFontNameChanged = function (oldValue, newValue) {
         if (this._owner && newValue) {
-            this._owner.ios.presenter.style.monthNameFont = Tools.createFont(newValue, this.monthNameFontStyle, this.monthNameTextSize);
+            this._owner._nativeView.presenter.style.monthNameFont = Tools.createFont(newValue, this.monthNameFontStyle, this.monthNameTextSize);
         }
     };
     MonthCellStyle.prototype.onMonthNameFontStyleChanged = function (oldValue, newValue) {
         if (this._owner && newValue) {
-            this._owner.ios.presenter.style.monthNameFont = Tools.createFont(this.monthNameFontName, newValue, this.monthNameTextSize);
+            this._owner._nativeView.presenter.style.monthNameFont = Tools.createFont(this.monthNameFontName, newValue, this.monthNameTextSize);
         }
     };
     MonthCellStyle.prototype.onMonthNameTextSizeChanged = function (oldValue, newValue) {
         if (this._owner && !isNaN(+newValue)) {
-            this._owner.ios.presenter.style.monthNameFont = Tools.createFont(this.monthNameFontName, this.monthNameFontStyle, newValue);
+            this._owner._nativeView.presenter.style.monthNameFont = Tools.createFont(this.monthNameFontName, this.monthNameFontStyle, newValue);
         }
     };
     return MonthCellStyle;
@@ -515,6 +625,9 @@ var CalendarMonthViewStyle = (function (_super) {
         set: function (value) {
             this._owner = value;
             this.updateNativeOwner();
+            if (!this.selectedDayCellStyle) {
+                this.selectedDayCellStyle = new DayCellStyle();
+            }
         },
         enumerable: true,
         configurable: true
@@ -523,15 +636,15 @@ var CalendarMonthViewStyle = (function (_super) {
         this.updateNativeOwner();
     };
     CalendarMonthViewStyle.prototype.updateNativeOwner = function () {
-        if (this._owner && this._owner.ios && (this._owner.ios.presenter instanceof TKCalendarMonthPresenter)) {
+        if (this._owner && this._owner._nativeView && (this._owner._nativeView.presenter instanceof TKCalendarMonthPresenter)) {
             if (this.showWeekNumbers != undefined)
-                this._owner.ios.presenter.weekNumbersHidden = !this.showWeekNumbers;
+                this._owner._nativeView.presenter.weekNumbersHidden = !this.showWeekNumbers;
             if (this.showTitle != undefined)
-                this._owner.ios.presenter.titleHidden = !this.showTitle;
+                this._owner._nativeView.presenter.titleHidden = !this.showTitle;
             if (this.showDayNames != undefined)
-                this._owner.ios.presenter.dayNamesHidden = !this.showDayNames;
+                this._owner._nativeView.presenter.dayNamesHidden = !this.showDayNames;
             if (this.backgroundColor)
-                this._owner.ios.presenter.style.backgroundColor = (new color_1.Color(this.backgroundColor)).ios;
+                this._owner._nativeView.presenter.style.backgroundColor = (new color_1.Color(this.backgroundColor)).ios;
             this._owner.updateCalendar();
         }
     };
@@ -553,26 +666,26 @@ var CalendarMonthViewStyle = (function (_super) {
         this.updateOwner();
     };
     CalendarMonthViewStyle.prototype.onShowWeekNumbersChanged = function (oldValue, newValue) {
-        if (this._owner && this._owner.ios) {
-            this._owner.ios.presenter.weekNumbersHidden = !newValue;
+        if (this._owner && this._owner._nativeView) {
+            this._owner._nativeView.presenter.weekNumbersHidden = !newValue;
         }
         this.updateOwner();
     };
     CalendarMonthViewStyle.prototype.onShowTitleChanged = function (oldValue, newValue) {
-        if (this._owner && this._owner.ios) {
-            this._owner.ios.presenter.titleHidden = !newValue;
+        if (this._owner && this._owner._nativeView) {
+            this._owner._nativeView.presenter.titleHidden = !newValue;
         }
         this.updateOwner();
     };
     CalendarMonthViewStyle.prototype.onShowDayNamesChanged = function (oldValue, newValue) {
-        if (this._owner && this._owner.ios) {
-            this._owner.ios.presenter.dayNamesHidden = !newValue;
+        if (this._owner && this._owner._nativeView) {
+            this._owner._nativeView.presenter.dayNamesHidden = !newValue;
         }
         this.updateOwner();
     };
     CalendarMonthViewStyle.prototype.onBackgroundColorChanged = function (oldValue, newValue) {
-        if (newValue && this._owner && this._owner.ios) {
-            this._owner.ios.presenter.style.backgroundColor = (new color_1.Color(newValue)).ios;
+        if (newValue && this._owner && this._owner._nativeView) {
+            this._owner._nativeView.presenter.style.backgroundColor = (new color_1.Color(newValue)).ios;
         }
         this.updateOwner();
     };
@@ -613,13 +726,104 @@ var CalendarWeekViewStyle = (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     CalendarWeekViewStyle.prototype.updateNativeOwner = function () {
-        if (this._owner && (this._owner.ios.presenter instanceof TKCalendarWeekPresenter)) {
+        if (this._owner && (this._owner._nativeView.presenter instanceof TKCalendarWeekPresenter)) {
             _super.prototype.updateNativeOwner.call(this);
         }
     };
     return CalendarWeekViewStyle;
 }(CalendarMonthViewStyle));
 exports.CalendarWeekViewStyle = CalendarWeekViewStyle;
+/**
+ * The style class for day mode.
+ */
+var CalendarDayViewStyle = (function (_super) {
+    __extends(CalendarDayViewStyle, _super);
+    function CalendarDayViewStyle() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    Object.defineProperty(CalendarDayViewStyle.prototype, "owner", {
+        set: function (value) {
+            this._owner = value;
+            if (this.dayEventsViewStyle) {
+                this.dayEventsViewStyle.owner = this._owner;
+            }
+            if (this.allDayEventsViewStyle) {
+                this.allDayEventsViewStyle.owner = this._owner;
+            }
+            this.updateNativeOwner();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    CalendarDayViewStyle.prototype.updateNativeOwner = function () {
+        if (this._owner && this._owner._nativeView && (this._owner._nativeView.presenter instanceof TKCalendarDayViewPresenter)) {
+            if (this.showWeekNumbers != undefined)
+                this._owner._nativeView.presenter.weekNumbersHidden = !this.showWeekNumbers;
+            if (this.showTitle != undefined)
+                this._owner._nativeView.presenter.titleHidden = !this.showTitle;
+            if (this.showDayNames != undefined)
+                this._owner._nativeView.presenter.dayNamesHidden = !this.showDayNames;
+            if (this.backgroundColor)
+                this._owner._nativeView.presenter.style.backgroundColor = (new color_1.Color(this.backgroundColor)).ios;
+        }
+        this.updateOwner();
+    };
+    CalendarDayViewStyle.prototype.updateViewStyles = function (forceUpdate) {
+        if (this.dayEventsViewStyle) {
+            this.dayEventsViewStyle['updateNativePresenter']();
+        }
+        if (this.allDayEventsViewStyle) {
+            this.allDayEventsViewStyle['updateNativePresenter']();
+        }
+        this.updateNativeOwner();
+    };
+    CalendarDayViewStyle.prototype.updateOwner = function () {
+        if (this._owner) {
+            this._owner.updateCalendar();
+        }
+    };
+    CalendarDayViewStyle.prototype.onShowWeekNumbersChanged = function (oldValue, newValue) {
+        if (this._owner && this._owner._nativeView && this._owner._nativeView.presenter instanceof TKCalendarDayViewPresenter) {
+            this._owner._nativeView.presenter.weekNumbersHidden = !newValue;
+        }
+        this.updateOwner();
+    };
+    CalendarDayViewStyle.prototype.onShowTitleChanged = function (oldValue, newValue) {
+        if (this._owner && this._owner._nativeView && this._owner._nativeView.presenter instanceof TKCalendarDayViewPresenter) {
+            this._owner._nativeView.presenter.titleHidden = !newValue;
+        }
+        this.updateOwner();
+    };
+    CalendarDayViewStyle.prototype.onShowDayNamesChanged = function (oldValue, newValue) {
+        if (this._owner && this._owner._nativeView && this._owner._nativeView.presenter instanceof TKCalendarDayViewPresenter) {
+            this._owner._nativeView.presenter.dayNamesHidden = !newValue;
+        }
+        this.updateOwner();
+    };
+    CalendarDayViewStyle.prototype.onBackgroundColorChanged = function (oldValue, newValue) {
+        if (this._owner && this._owner._nativeView && this._owner._nativeView.presenter instanceof TKCalendarDayViewPresenter) {
+            this._owner._nativeView.presenter.style.backgroundColor = (new color_1.Color(newValue)).ios;
+        }
+        this.updateOwner();
+    };
+    CalendarDayViewStyle.prototype.onTitleCellStyleChanged = function (oldValue, newValue) {
+        this.updateOwner();
+    };
+    CalendarDayViewStyle.prototype.onDayEventsViewStyleChanged = function (oldValue, newValue) {
+        if (newValue && this._owner) {
+            this.dayEventsViewStyle.owner = this._owner;
+        }
+        this.updateOwner();
+    };
+    CalendarDayViewStyle.prototype.onAllDayEventsViewStyleChanged = function (oldValue, newValue) {
+        if (newValue && this._owner) {
+            this.allDayEventsViewStyle.owner = this._owner;
+        }
+        this.updateOwner();
+    };
+    return CalendarDayViewStyle;
+}(commonModule.CalendarDayViewStyle));
+exports.CalendarDayViewStyle = CalendarDayViewStyle;
 /**
  * The style class for month name view mode.
  * NOTE: we should consider if we need an explicit class that is the same as the base one
@@ -700,6 +904,7 @@ var RadCalendar = (function (_super) {
         _this._ios = TKCalendar.alloc().init();
         _this._nativeDelegate = TKCalendarNativeDelegateImplementation.initWithOwner(new WeakRef(_this));
         _this._nativePresenterDelegate = TKCalendarMonthPresenterDelegateImplementation.initWithOwner(new WeakRef(_this));
+        _this._dayViewDelegate = TKCalendarDayViewDelegateImplementation.initWithOwner(new WeakRef(_this));
         _this._ios.delegate = _this._nativeDelegate;
         if (_this.displayedDate == undefined) {
             _this.loadNativeDisplayedDate();
@@ -707,7 +912,8 @@ var RadCalendar = (function (_super) {
         _this.setNativeLocale(_this.locale);
         return _this;
     }
-    Object.defineProperty(RadCalendar.prototype, "ios", {
+    Object.defineProperty(RadCalendar.prototype, "_nativeView", {
+        // TODO: Remove this and implement native setters for properties
         get: function () {
             return this._ios;
         },
@@ -715,7 +921,7 @@ var RadCalendar = (function (_super) {
         configurable: true
     });
     RadCalendar.prototype.createNativeView = function () {
-        return this.ios;
+        return this._ios;
     };
     RadCalendar.prototype.onLoaded = function () {
         _super.prototype.onLoaded.call(this);
@@ -734,8 +940,8 @@ var RadCalendar = (function (_super) {
         }
     };
     RadCalendar.prototype.updateCalendar = function () {
-        if (this._calendarLoaded && this.ios.presenter) {
-            this.ios.presenter.update(false);
+        if (this._calendarLoaded && this._nativeView.presenter) {
+            this._nativeView.presenter.update(false);
         }
     };
     RadCalendar.prototype.onLocalePropertyChanged = function (oldValue, newValue) {
@@ -744,33 +950,33 @@ var RadCalendar = (function (_super) {
     };
     RadCalendar.prototype.setNativeLocale = function (locale) {
         if (locale) {
-            this.ios.locale = NSLocale.alloc().initWithLocaleIdentifier(locale);
+            this._nativeView.locale = NSLocale.alloc().initWithLocaleIdentifier(locale);
             this.updateCalendar();
         }
     };
     RadCalendar.prototype.onDisplayedDateChanged = function (oldValue, newValue) {
         if (newValue) {
-            this.ios.navigateToDateAnimated(this.parseDate(newValue), false);
+            this._nativeView.navigateToDateAnimated(this.parseDate(newValue), false);
         }
     };
     RadCalendar.prototype.getDisplayedDate = function () {
-        return this.ios.displayedDate;
+        return this._nativeView.displayedDate;
     };
     RadCalendar.prototype.onSelectionModeChanged = function (oldValue, newValue) {
         if (newValue) {
             var selectionMode = newValue.toLowerCase();
             switch (selectionMode) {
                 case commonModule.CalendarSelectionMode.None.toLowerCase():
-                    this.ios.selectionMode = 0 /* None */;
+                    this._nativeView.selectionMode = 0 /* None */;
                     break;
                 case commonModule.CalendarSelectionMode.Single.toLowerCase():
-                    this.ios.selectionMode = 1 /* Single */;
+                    this._nativeView.selectionMode = 1 /* Single */;
                     break;
                 case commonModule.CalendarSelectionMode.Multiple.toLowerCase():
-                    this.ios.selectionMode = 2 /* Multiple */;
+                    this._nativeView.selectionMode = 2 /* Multiple */;
                     break;
                 case commonModule.CalendarSelectionMode.Range.toLowerCase():
-                    this.ios.selectionMode = 3 /* Range */;
+                    this._nativeView.selectionMode = 3 /* Range */;
                     break;
                 default:
                     console.log("WARNING: Unsupported selection mode: " + newValue);
@@ -780,7 +986,7 @@ var RadCalendar = (function (_super) {
     RadCalendar.prototype.onTransitionModeChanged = function (oldValue, newValue) {
         if (newValue) {
             var transitionMode = newValue.toLowerCase();
-            var typedPresenter = this.ios.presenter;
+            var typedPresenter = this._nativeView.presenter;
             switch (transitionMode) {
                 case commonModule.CalendarTransitionMode.None.toLowerCase():
                     typedPresenter.transitionMode = 0 /* None */;
@@ -814,20 +1020,27 @@ var RadCalendar = (function (_super) {
             var modeString = newValue.toLowerCase();
             switch (modeString) {
                 case commonModule.CalendarViewMode.Month.toLowerCase():
-                    this.ios.viewMode = 1 /* Month */;
+                    this._nativeView.viewMode = 1 /* Month */;
                     viewStyle = this.monthViewStyle;
                     break;
                 case commonModule.CalendarViewMode.MonthNames.toLowerCase():
-                    this.ios.viewMode = 2 /* MonthNames */;
+                    this._nativeView.viewMode = 2 /* MonthNames */;
                     viewStyle = this.monthNamesViewStyle;
                     break;
                 case commonModule.CalendarViewMode.Week.toLowerCase():
-                    this.ios.viewMode = 0 /* Week */;
+                    this._nativeView.viewMode = 0 /* Week */;
                     viewStyle = this.weekViewStyle;
                     break;
                 case commonModule.CalendarViewMode.Year.toLowerCase():
-                    this.ios.viewMode = 3 /* Year */;
+                    this._nativeView.viewMode = 3 /* Year */;
                     viewStyle = this.yearViewStyle;
+                    break;
+                case commonModule.CalendarViewMode.Day.toLowerCase():
+                    this._nativeView.viewMode = 6 /* Day */;
+                    viewStyle = this.dayViewStyle;
+                    if (this._nativeView.presenter instanceof TKCalendarDayViewPresenter) {
+                        this._nativeView.presenter.dayView.delegate = this._dayViewDelegate;
+                    }
                     break;
                 // case commonModule.CalendarViewMode.Flow.toLocaleLowerCase():
                 //     this.ios.viewMode = TKCalendarViewMode.TKCalendarViewModeFlow;
@@ -844,11 +1057,11 @@ var RadCalendar = (function (_super) {
         }
     };
     RadCalendar.prototype.onEventsViewModeChanged = function (oldValue, newValue) {
-        if (this.ios.viewMode !== 1 /* Month */ || newValue === undefined) {
+        if (this._nativeView.viewMode !== 1 /* Month */ || newValue === undefined) {
             return;
         }
         var eventsViewMode = newValue.toLowerCase();
-        var typedPresenter = this.ios.presenter;
+        var typedPresenter = this._nativeView.presenter;
         switch (eventsViewMode) {
             case commonModule.CalendarEventsViewMode.None.toLowerCase():
                 typedPresenter.inlineEventsViewMode = 0 /* None */;
@@ -870,7 +1083,7 @@ var RadCalendar = (function (_super) {
         }
         if (newValue instanceof commonModule.DateRange) {
             var tkDateRange = TKDateRange.alloc().initWithStartEnd(this.parseDate(newValue.startDate), this.parseDate(newValue.endDate));
-            this.ios.selectedDatesRange = tkDateRange;
+            this._nativeView.selectedDatesRange = tkDateRange;
         }
     };
     RadCalendar.prototype.onSelectedDatesChanged = function (oldValue, newValue) {
@@ -886,22 +1099,22 @@ var RadCalendar = (function (_super) {
             var date = this.parseDate(newDates[i]);
             selectedDates.addObject(date);
         }
-        this.ios.selectedDates = selectedDates;
+        this._nativeView.selectedDates = selectedDates;
     };
     RadCalendar.prototype.onSelectedDateChanged = function (oldValue, newValue) {
         if (this._forbidDateSelection) {
             return;
         }
-        this.ios.selectedDate = this.parseDate(newValue);
+        this._nativeView.selectedDate = this.parseDate(newValue);
     };
     RadCalendar.prototype.onMaxDateChanged = function (oldValue, newValue) {
-        this.ios.maxDate = this.parseDate(newValue);
+        this._nativeView.maxDate = this.parseDate(newValue);
     };
     RadCalendar.prototype.onMinDateChanged = function (oldValue, newValue) {
-        this.ios.minDate = this.parseDate(newValue);
+        this._nativeView.minDate = this.parseDate(newValue);
     };
     RadCalendar.prototype.updateEventSource = function () {
-        if (!this.ios) {
+        if (!this._nativeView) {
             return;
         }
         if (this.eventSource) {
@@ -909,6 +1122,9 @@ var RadCalendar = (function (_super) {
                 this._dataSource = CalendarNativeDataSourceImplementation.new().initWithOwner(this);
                 this._dataSource.itemsSource = this.eventSource;
                 this._ios.dataSource = this._dataSource;
+                if (this.viewMode == commonModule.CalendarViewMode.Day) {
+                    this._ios.presenter.update(true);
+                }
             }
             else {
                 this._dataSource.itemsSource = this.eventSource;
@@ -918,7 +1134,7 @@ var RadCalendar = (function (_super) {
     };
     RadCalendar.prototype.onHorizontalTransitionChanged = function (oldValue, newValue) {
         var horizontalTransition = newValue;
-        this.ios.presenter['transitionIsVertical'] = !horizontalTransition;
+        this._nativeView.presenter['transitionIsVertical'] = !horizontalTransition;
     };
     RadCalendar.prototype.onMonthViewStyleChanged = function (oldValue, newValue) {
         if (newValue && (newValue instanceof CalendarMonthViewStyle)) {
@@ -933,6 +1149,11 @@ var RadCalendar = (function (_super) {
     RadCalendar.prototype.onWeekViewStyleChanged = function (oldValue, newValue) {
         if (newValue && (newValue instanceof CalendarWeekViewStyle)) {
             this.weekViewStyle.owner = this;
+        }
+    };
+    RadCalendar.prototype.onDayViewStyleChanged = function (oldValue, newValue) {
+        if (newValue && (newValue instanceof CalendarDayViewStyle)) {
+            this.dayViewStyle.owner = this;
         }
     };
     RadCalendar.prototype.onYearViewStyleChanged = function (oldValue, newValue) {
@@ -950,21 +1171,21 @@ var RadCalendar = (function (_super) {
         return new Date(originalDate.getFullYear(), originalDate.getMonth(), originalDate.getDate());
     };
     RadCalendar.prototype.reload = function () {
-        if (this.ios) {
-            this.ios.reloadData();
+        if (this._nativeView) {
+            this._nativeView.reloadData();
         }
     };
     RadCalendar.prototype.navigateForward = function () {
-        this.ios.navigateForward(true);
+        this._nativeView.navigateForward(true);
     };
     RadCalendar.prototype.navigateBack = function () {
-        this.ios.navigateBack(true);
+        this._nativeView.navigateBack(true);
     };
     RadCalendar.prototype.goToDate = function (date) {
-        this.ios.navigateToDateAnimated(date, true);
+        this._nativeView.navigateToDateAnimated(date, true);
     };
     RadCalendar.prototype.getEventsForDate = function (date) {
-        var nativeResult = this.ios.eventsForDate(date);
+        var nativeResult = this._nativeView.eventsForDate(date);
         var result = new Array();
         var a = new interop.Reference();
         var r = new interop.Reference();
@@ -1110,6 +1331,29 @@ var TKCalendarMonthPresenterDelegateImplementation = (function (_super) {
     return TKCalendarMonthPresenterDelegateImplementation;
 }(NSObject));
 exports.TKCalendarMonthPresenterDelegateImplementation = TKCalendarMonthPresenterDelegateImplementation;
+var TKCalendarDayViewDelegateImplementation = (function (_super) {
+    __extends(TKCalendarDayViewDelegateImplementation, _super);
+    function TKCalendarDayViewDelegateImplementation() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    TKCalendarDayViewDelegateImplementation.initWithOwner = function (owner) {
+        var instance = _super.new.call(this);
+        instance._owner = owner;
+        return instance;
+    };
+    TKCalendarDayViewDelegateImplementation.prototype.dayViewDidSelectEvent = function (dayView, event) {
+        var dayViewEventData = new CalendarEvent(event.title, event.startDate, event.endDate, event.allDay);
+        var args = {
+            eventName: commonModule.RadCalendar.dayViewEventSelectedEvent,
+            object: this._owner.get(),
+            eventData: dayViewEventData
+        };
+        this._owner.get().notify(args);
+    };
+    TKCalendarDayViewDelegateImplementation.ObjCProtocols = [TKCalendarDayViewDelegate];
+    return TKCalendarDayViewDelegateImplementation;
+}(NSObject));
+exports.TKCalendarDayViewDelegateImplementation = TKCalendarDayViewDelegateImplementation;
 var TKCalendarNativeDelegateImplementation = (function (_super) {
     __extends(TKCalendarNativeDelegateImplementation, _super);
     function TKCalendarNativeDelegateImplementation() {
@@ -1212,6 +1456,9 @@ var TKCalendarNativeDelegateImplementation = (function (_super) {
                 case commonModule.CalendarViewMode.Week.toLowerCase():
                     this.applyWeekViewCellStyles(cell);
                     break;
+                case commonModule.CalendarViewMode.Day.toLowerCase():
+                    this.applyDayViewCellStyles(cell);
+                    break;
                 case commonModule.CalendarViewMode.MonthNames.toLowerCase():
                     this.applyMonthNamesViewCellStyles(cell);
                     break;
@@ -1234,6 +1481,24 @@ var TKCalendarNativeDelegateImplementation = (function (_super) {
         }
         else if (cell instanceof TKCalendarTitleCell) {
             this.applyTitleCellStyleToCell(this._owner.get().weekViewStyle, cell);
+        }
+    };
+    TKCalendarNativeDelegateImplementation.prototype.applyDayViewCellStyles = function (cell) {
+        if ((this._owner.get().viewMode != commonModule.CalendarViewMode.Day) ||
+            (!this._owner.get().dayViewStyle)) {
+            return;
+        }
+        if (cell instanceof TKCalendarDayCell) {
+            this.applyDayCellStyleToCell(this._owner.get().dayViewStyle, cell);
+        }
+        else if (cell instanceof TKCalendarWeekNumberCell) {
+            this.applyWeekNumberCellStyleToCell(this._owner.get().dayViewStyle, cell);
+        }
+        else if (cell instanceof TKCalendarDayNameCell) {
+            this.applyDayNameCellStyleToCell(this._owner.get().dayViewStyle, cell);
+        }
+        else if (cell instanceof TKCalendarTitleCell) {
+            this.applyTitleCellStyleToCell(this._owner.get().dayViewStyle, cell);
         }
     };
     TKCalendarNativeDelegateImplementation.prototype.applyYearViewCellStyles = function (cell) {
@@ -1304,7 +1569,8 @@ var TKCalendarNativeDelegateImplementation = (function (_super) {
         if (!viewModeStyle) {
             return;
         }
-        if (viewModeStyle instanceof CalendarMonthViewStyle && (cell.state & 16 /* Selected */) !== 0) {
+        if ((viewModeStyle instanceof CalendarMonthViewStyle || viewModeStyle instanceof CalendarDayViewStyle) &&
+            (cell.state & 16 /* Selected */) !== 0) {
             var typedStyle = viewModeStyle;
             var shapeSize = utils.layout.toDevicePixels(viewModeStyle.selectionShapeSize);
             switch (typedStyle.selectionShape.toLowerCase()) {
@@ -1406,6 +1672,8 @@ var TKCalendarNativeDelegateImplementation = (function (_super) {
                 return commonModule.CalendarViewMode.Week;
             case 3 /* Year */:
                 return commonModule.CalendarViewMode.Year;
+            case 6 /* Day */:
+                return commonModule.CalendarViewMode.Day;
         }
     };
     TKCalendarNativeDelegateImplementation.ObjCProtocols = [TKCalendarDelegate];

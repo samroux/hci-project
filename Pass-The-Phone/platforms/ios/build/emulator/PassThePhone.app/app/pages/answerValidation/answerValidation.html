@@ -1,10 +1,12 @@
 <ActionBar class="action-bar">
-        <Label class="action-bar-title" text="Pass The Phone"></Label>
+                <StackLayout orientation="horizontal" verticalAligment="center" horizontalAlignment="center">
+                        <Image class="logo" src="~/shared/logo.png"></Image>
+                </StackLayout> 
 </ActionBar>
     
-<StackLayout>
+<StackLayout class="content">
         <Label text="You selected"></Label>    
         <Label [text]="player_answer_content"></Label>   
-        <Image #Check (tap)="toggle()"></Image>
+        <Image #Check (tap)="toggle()" class="validation"></Image>
         <Button text="Next" class="submit-button" (tap)="next()"></Button>        
 </StackLayout>

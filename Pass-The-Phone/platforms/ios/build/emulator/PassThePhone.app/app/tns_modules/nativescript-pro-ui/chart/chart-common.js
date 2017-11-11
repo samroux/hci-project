@@ -13,20 +13,6 @@ var RadChartBase = (function (_super) {
         _this.on("bindingContextChange", _this.baseBindingContextChanged, _this);
         return _this;
     }
-    Object.defineProperty(RadChartBase.prototype, "android", {
-        get: function () {
-            return undefined;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(RadChartBase.prototype, "ios", {
-        get: function () {
-            return undefined;
-        },
-        enumerable: true,
-        configurable: true
-    });
     Object.defineProperty(RadChartBase.prototype, "androidView", {
         get: function () {
             return undefined;
@@ -94,10 +80,6 @@ var RadChartBase = (function (_super) {
         this.onLegendChanged(oldValue, newValue);
     };
     RadChartBase.prototype.onLegendChanged = function (oldValue, newValue) {
-        if (this.legend) {
-            this.legend.updateLegendView(this);
-        }
-        this.initializer.onLegendChanged(oldValue, newValue, this);
     };
     RadChartBase.prototype.onPalettesPropertyChanged = function (oldValue, newValue) {
         this.onPalettesChanged(oldValue, newValue);

@@ -214,6 +214,10 @@ export class RadAutoCompleteTextView extends View {
      */
     suggestMode: string;
     /**
+     * Sets a hint for the {@link RadAutoCompleteTextView}. That is the text that is displayed when no text is typed.
+     */
+    hint: string;
+    /**
      * Sets the minimal count of typed characters for the  {@link RadAutoCompleteTextView} to start filtering.
      */
     minimumCharactersToSearch: number;

@@ -326,6 +326,52 @@ var TKDataFormDelegateImplementation = (function (_super) {
         };
         this._owner.get().notify(args);
     };
+    /**
+     * The header for the corresponding group.
+     */ //todo: uncomment , the bug with null view is fixed
+    // public dataFormViewForHeaderInGroup(dataForm: TKDataForm, groupIndex: number): any { //TKEntityPropertyGroupTitleView
+    //     console.log("dataFormViewForHeaderInGroup")
+    // }
+    //todo: add height property to editor class in order to be set in xml. 
+    /**
+     * The height for the editor at specified indices.
+     */
+    // public dataFormHeightForEditorInGroupAtIndex(dataForm: TKDataForm, groupIndex: number, editorIndex: number): number {
+    //     console.log("DELEGATE: dataFormHeightForEditorInGroupAtIndex")
+    //     var args: commonModule.DataFormEventData = { eventName: commonModule.RadDataForm.editorHeightEvent, 
+    //         object: this._owner, 
+    //         editor: editorIndex, 
+    //         group: groupIndex, 
+    //         returnValue: 20 };
+    //     this._owner.notify(args);
+    //     return args.returnValue;
+    // }
+    //todo: add height property to group in order to be set in xml.
+    /**
+     * The height of the group header.
+     */
+    // public dataFormHeightForHeaderInGroup(dataForm: TKDataForm, groupIndex: number): number {
+    //     console.log("DELEGATE: dataFormHeightForHeaderInGroup")
+    //     return 0;
+    // }
+    //todo: consier is it is required at all. Android doesn't support such kind of view
+    /**
+     *  Return input accessory view for text field editors.
+     */
+    // public inputAccessoryViewForDataForm(dataForm: TKDataForm): any {//TKDataFormAccessoryView
+    //     console.log("DELEGATE: inputAccessoryViewForDataForm")
+    // }
+    /**
+     * Initializes a view controller specific for a given view controller editor.
+     */
+    TKDataFormDelegateImplementation.prototype.dataFormInitViewControllerForEditor = function (dataForm, viewController, editor) {
+        // This delegate method is called before a new UIViewController for an editor
+        // is pushed to the UINavigationController.
+        // Notify the NS page about the new controller and let it treat the controller as a presented view controller.
+        if (this._owner.get().page.hasOwnProperty("_presentedViewController")) {
+            this._owner.get().page["_presentedViewController"] = viewController;
+        }
+    };
     TKDataFormDelegateImplementation.ObjCProtocols = [TKDataFormDelegate];
     return TKDataFormDelegateImplementation;
 }(NSObject));
@@ -442,9 +488,14 @@ var RadDataForm = (function (_super) {
         return _this;
     }
     RadDataForm.prototype.createNativeView = function () {
+        // The iOS DataForm needs to know about the UIViewController that contains it.
+        // It may be used by some UIViewControllerEditors (like List editor) to
+        // access the UINavigationController and navigate to other controllers.
+        this._ios.owner = this.page.ios;
         return this._ios;
     };
     RadDataForm.prototype.disposeNativeView = function () {
+        this._ios.owner = undefined;
         this._ios.delegate = undefined;
         this._nativeDelegate = undefined;
     };

@@ -1014,6 +1014,13 @@ declare class TKCalendarDefaultTheme extends TKTheme {
 	static new(): TKCalendarDefaultTheme; // inherited from NSObject
 }
 
+interface TKCalendarDayViewDelegate extends NSObjectProtocol {
+	dayViewDidSelectEvent?(dayView: TKCalendarDayView, event: TKCalendarEventProtocol): void;
+}
+declare var TKCalendarDayViewDelegate: {
+	prototype: TKCalendarDayViewDelegate;
+};
+
 interface TKCalendarDelegate extends NSObjectProtocol {
 
 	calendarDidChangedViewModeFromTo?(calendar: TKCalendar, previousViewMode: TKCalendarViewMode, viewMode: TKCalendarViewMode): void;
@@ -1926,7 +1933,9 @@ declare const enum TKCalendarViewMode {
 
 	YearNumbers = 4,
 
-	Flow = 5
+	Flow = 5,
+
+	Day = 6
 }
 
 declare class TKCalendarWeekNumberCell extends TKCalendarCell {
@@ -2022,6 +2031,50 @@ declare class TKCalendarYearNumbersPresenter extends TKCalendarPresenterBase {
 	columns: number;
 
 	rows: number;
+}
+
+declare class TKCalendarDayViewEventsViewStyle {
+	labelTextColor: UIColor;
+	labelTextSize: number;
+	labelTextColor: UIColor;
+	labelFormatter: NSDateFormatter;
+}
+
+declare class TKCalendarAllDayViewEventsViewStyle {
+	labelWidth: number;
+}
+
+declare class TKCalendarDayViewEventsView {
+	backgroundColor: UIColor;
+	style: TKCalendarDayViewEventsViewStyle;
+	updateLayout(): void;
+}
+
+declare class TKCalendarDayViewAllDayEventsView {
+	backgroundColor: UIColor;
+	style: TKCalendarAllDayViewEventsViewStyle;
+	labelView: UILabel;
+	updateLayout(): void;
+}
+
+declare class TKCalendarDayView extends UIView {
+	readonly eventsView: TKCalendarDayViewEventsView;
+	readonly allDayEventsView: TKCalendarDayViewAllDayEventsView;
+	delegate: TKCalendarDayViewDelegate;
+}
+
+declare class TKCalendarDayViewPresenter extends UIView implements TKCalendarPresenter {
+	readonly dayView: TKCalendarDayView;
+
+	dayNamesHidden: boolean;
+
+	readonly style: TKCalendarDayPresenterStyle;
+
+	titleHidden: boolean;
+
+	weekNumbersHidden: boolean;
+
+	weekendsHidden: boolean;
 }
 
 declare class TKCalendarYearPresenter extends UIView implements TKCalendarPresenter {
@@ -2599,6 +2652,13 @@ declare const enum TKChartAxisPosition {
 	Top = 2,
 
 	Bottom = 3
+}
+
+declare const enum TKChartAxisClippingMode {
+
+	Visible = 0,
+
+	Hidden = 1
 }
 
 declare class TKChartAxisRender extends TKChartRender {
@@ -5516,6 +5576,8 @@ declare class TKDataForm extends UIView {
 	dataSource: TKDataFormDataSource;
 
 	delegate: TKDataFormDelegate;
+
+	owner: UIViewController;
 
 	groupSpacing: number;
 
@@ -8776,6 +8838,12 @@ declare class TKLinearGradientFill extends TKGradientFill {
 	initWithColorsStartPointEndPoint(colors: NSArray<any>, startPoint: CGPoint, endPoint: CGPoint): this;
 }
 
+declare class TKCollectionView implements UICollectionView {
+	ownerListView: TKListView;
+
+	skipTouch: boolean;
+}
+
 declare class TKListView extends UIView implements UICollectionViewDataSource, UICollectionViewDelegate {
 
 	static alloc(): TKListView; // inherited from NSObject
@@ -8817,6 +8885,8 @@ declare class TKListView extends UIView implements UICollectionViewDataSource, U
 	contentInset: UIEdgeInsets;
 
 	contentOffset: CGPoint;
+
+	collectionView: TKCollectionView;
 
 	dataSource: TKListViewDataSource;
 

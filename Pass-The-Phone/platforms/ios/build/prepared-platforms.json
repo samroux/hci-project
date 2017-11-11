@@ -57,6 +57,7 @@
     "inherits": true,
     "pbkdf2": true,
     "public-encrypt": true,
+    "randomfill": true,
     "Base64": true,
     "glob": true,
     "mkdirp": true,

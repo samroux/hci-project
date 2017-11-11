@@ -1,15 +1,17 @@
 <ActionBar class="action-bar">
-        <Label class="action-bar-title" text="Pass The Phone"></Label>
+                <StackLayout orientation="horizontal" verticalAligment="center" horizontalAlignment="center">
+                        <Image class="logo" src="~/shared/logo.png"></Image>
+                </StackLayout> 
 </ActionBar>
 
-<GridLayout columns="*" rows="auto,*,*,5*,auto">
+<GridLayout columns="*" rows="auto,*,5*,5*">
         <!-- <Label text="Answer-Page"></Label>        -->
         <Label [text]="question" row="0" col="0" textWrap="true" ></Label>
-        <Label row="1" col="0" text="Select your answer"  textWrap="true" ></Label> -->
-        <Button #showWebview row="2" col="0" text="Ask Google" (tap)="viewWeb()"></Button>
-        <WebView #webview row="3" col="0" visibility="hidden" [src]="WebViewSRC"></WebView>
-        <GridLayout #answers row="4" col="0" height="250">                
-                <ListView [items]="choices" (itemTap)="onItemTap($event)" class="list-group">
+        <!-- <Label row="1" col="0" text="Select your answer"  textWrap="true" ></Label> --> -->
+        <Button #showWebview row="1" col="0" text="Ask Google" (tap)="viewWeb()"></Button>
+        <WebView #webview row="2" col="0" visibility="hidden" [src]="WebViewSRC"></WebView>
+        <GridLayout #answers row="3" col="0" height="250">                
+                <ListView #listview [items]="choices" (itemTap)="onItemTap($event)" class="list-group">
                         <ng-template let-choices="item" let-i="index" let-odd="odd" let-even="even">
                                 <GridLayout class="list-group-item">
                                         <Label [text]="choices.content"></Label>

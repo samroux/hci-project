@@ -70,12 +70,6 @@ var CategoricalAxis = (function (_super) {
         enumerable: true,
         configurable: true
     });
-    CategoricalAxis.prototype.onMajorTickIntervalChanged = function (oldValue, newValue) {
-        if (newValue) {
-            // Comment out this once the native majorTickInterval property stops being readonly.
-            //this._ios.majorTickInterval = newValue;
-        }
-    };
     return CategoricalAxis;
 }(axisCommonModule.CategoricalAxis));
 exports.CategoricalAxis = CategoricalAxis;

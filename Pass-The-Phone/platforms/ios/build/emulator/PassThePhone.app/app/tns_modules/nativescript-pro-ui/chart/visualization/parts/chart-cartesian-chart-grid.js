@@ -24,7 +24,7 @@ var RadCartesianChartGrid = (function (_super) {
         if (!this.owner) {
             return;
         }
-        var style = this.owner.ios.gridStyle;
+        var style = this.owner._nativeView.gridStyle;
         style.drawOrder = this._ios.drawOrder;
         style.verticalLineStroke = this._ios.verticalLineStroke;
         ;

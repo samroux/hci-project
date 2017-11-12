@@ -64,6 +64,8 @@ export class SummaryComponent implements OnInit{
         this.message = "Subject Changed!";
       } else if(this.rdp.path == "playerCreator"){
         this.message = "Players Changed!";
+      } else{
+        this.message = "";
       }
       this.alertText.nativeElement.visibility = "visible";
       this.alertText.nativeElement.text = this.message;
@@ -96,6 +98,9 @@ export class SummaryComponent implements OnInit{
       player.answerCount = 0;
       player.runningPointsTotal = 0;
     });
+    this.rdp.path = ""
+    this.rdp.currentPlayer = new Player("")
+    this.rdp.hasRemainingPlayers = true;
     this.routerExtensions.navigate(["questionPresenter", this.rdp.subjectId], { clearHistory: true });
   }
 }

@@ -9,7 +9,7 @@ import {Group} from "../group";
 @Injectable()
 export class RoundDataProvider {
     
-    public triviaQuestion: TriviaQuestion; 
+    public triviaQuestion: TriviaQuestion;
     public currentPlayer: Player;
     public group: Group;
     public players : Player[] = [];
@@ -22,28 +22,40 @@ export class RoundDataProvider {
     public gameMode: string;
     
     readonly answerCount:number = 2;
+
+    public playersInRound: string[] = []
     
     public constructor() {}
     
+    public hasRemainingPlayers: boolean = true;
+
     // Return a player that haven't played more than authorizes times
     // Returns null if no elligible player. Hence need to go to summary page
     public getRandomPlayer(){
         var elligiblePlayers : Player[] = [];
         let j = 0;
-        
+        let k = 0;
         //populate elligible players array
         for(let i = 0; i <this.players.length;i++){
             if(this.players[i].answerCount<this.answerCount){
-                elligiblePlayers[j]=this.players[i];
+                if(this.playersInRound.indexOf(this.players[i].name) < 0 && (this.currentPlayer == null || this.players[i].name != this.currentPlayer.name)){
+                    elligiblePlayers[k]=this.players[i];
+                    k++;
+                }
                 j++;
             }
         }
-        
         if(j == 0){
             return null;
         }else{
-            let random = Math.floor(Math.random() * j);  
-            
+            this.hasRemainingPlayers = j > 1;
+            console.log(j > 1)
+            let random = Math.floor(Math.random() * k);  
+            this.playersInRound.push(elligiblePlayers[random].name)
+            if(this.playersInRound.length == this.players.length){
+                console.log("round done")
+                this.playersInRound = []
+            }
             return elligiblePlayers[random];
         }
     }

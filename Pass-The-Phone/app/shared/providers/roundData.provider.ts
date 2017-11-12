@@ -79,14 +79,22 @@ export class RoundDataProvider {
         }
         
     }
+
+    public getPlayersInTeam(team: Team): Player[]{
+        return team.players;
+    }
     
-    public getExistingAndRemainingPlayers(team): Player[]{
+    public getExistingAndRemainingPlayers(team: Team): Player[]{
         var noTeamPlayers : Player[] = [];
         let j = 0;
         
         //populate elligible players array
         for(let i = 0; i <this.players.length;i++){
             if(this.players[i].team == null /*|| this.players[i].team == team*/ ){
+                noTeamPlayers[j]=this.players[i];
+                j++;
+            } else if(this.players[i].team.name ==  team.name){
+                this.players[i].isSelected = true;
                 noTeamPlayers[j]=this.players[i];
                 j++;
             }

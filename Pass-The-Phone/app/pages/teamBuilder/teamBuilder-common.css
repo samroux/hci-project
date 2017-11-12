@@ -11,6 +11,9 @@ TextField {
   padding-top: 15;
   background-color: white;
 }
+Label{
+  font-size: 20
+}
 .logo {
   margin-top: 12;
   margin-bottom: 12;
@@ -35,11 +38,13 @@ GridLayout {
 }
 
 .selected {
-  background-color: green;
+  color: gray;
+  font-size: 20
 }
 
-.non-selected {
-  background-color: blue;
+.notSelected{
+  font-size: 20;
+  color: black;
 }
 
 

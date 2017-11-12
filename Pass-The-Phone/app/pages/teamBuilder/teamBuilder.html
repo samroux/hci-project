@@ -13,7 +13,7 @@
                 <RadListView row="0" #myRadListView [items]="dataItems" selectionBehavior="Press" multipleSelection="true" (itemSelected)="onItemSelected($event)" (itemDeselected)="onItemDeselected($event)" (loaded)="radListLoaded($event)" >
                         <ng-template tkListItemTemplate let-dataItems="item">
                                 <StackLayout ios:class="iosListItemStackLayout" android:class="androidListItemStackLayout">
-                                        <Label ios:class="iosNameLabel" android:class="androidNameLabel" [text]="dataItems.name"></Label>
+                                        <Label class="{{dataItems.isSelected ? 'selected' : 'notSelected'}}" [text]="dataItems.name"></Label>
                                 </StackLayout>
                         </ng-template>
                 </RadListView>

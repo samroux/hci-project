@@ -86,6 +86,7 @@ export class SubjectSelectorComponent implements OnInit{
       console.log("Didnt load")
       console.log(e);
       that.categories.push(new TriviaCategory(-1, "Error: Click back button and try again."));
+      that.subjects.nativeElement.items = that.categories;
     });
   }
 

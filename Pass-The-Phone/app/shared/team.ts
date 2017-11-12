@@ -5,7 +5,6 @@ export class Team {
   public playersName: string = "";
   
   constructor (public name: string, public players: Array<Player>){
-
     for (var i = 0; i < this.players.length; i++) {
       this.playersName += this.players[i].name;
       

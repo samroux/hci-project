@@ -8,7 +8,7 @@
         <Progress [value]="progressValue" maxValue="100" class="m-20"></Progress> 
         <StackLayout class="inner-stack">
                 <Label class="label" text="Identify your current group of friends for later use:" row="1" col="0" textWrap="true"></Label>
-                <TextField #grounNameTx hint="Group Name" autocorrect="false" returnKeyType="done"
+                <TextField #groupNameTx hint="Group Name" autocorrect="false" returnKeyType="done"
                 class="input input-border"></TextField>
                 
                 <GridLayout rows="auto, *, auto" columns="2*, *" height="100%">
@@ -21,7 +21,7 @@
                                         </GridLayout>
                                 </ng-template>
                         </ListView>
-                <Button text="Create Group" row="2" colSpan="2" (tap)="submit(grounNameTx.text)" class="submit-button" ></Button>      
+                <Button text="Create Group" row="2" colSpan="2" (tap)="submit(groupNameTx.text)" class="submit-button" ></Button>      
                 </GridLayout>               
         </StackLayout>
 </StackLayout>

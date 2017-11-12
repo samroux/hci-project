@@ -26,7 +26,6 @@ export class TeamBuilderComponent implements OnInit{
   private _dataItems: ObservableArray<Player>;
   private _selectedItems: string;
   private progressValue: number; 
-  private loading: boolean = false; 
   
   // Team Segmented Bar
   private myItems: Array<SegmentedBarItem> = [];
@@ -62,6 +61,7 @@ export class TeamBuilderComponent implements OnInit{
     for (let i = 0; i< this._dataItems.length; i++){
       console.log(this._dataItems.getItem(i).name);
     }
+    //this.listView.nativeElement.getItemAtIndex(0).isEnabled = false;
       
 
     this._selectedItems = "No Selected items.";
@@ -97,26 +97,42 @@ export class TeamBuilderComponent implements OnInit{
   public onSelectedIndexChange(args) {
     let segmetedBar = <SegmentedBar>args.object;
     this.selectedTeam = this.teams[segmetedBar.selectedIndex];
+    console.log(this.selectedTeam.name)
     // list only players not associated with team and one already in that team
     this._dataItems = new ObservableArray(this.roundDataProvider.getExistingAndRemainingPlayers(this.selectedTeam));
+    /*this.roundDataProvider.getPlayersInTeam(this.selectedTeam).forEach(player => {
+      this._dataItems.push(player);
+    });
+    this.listView.nativeElement.selectItemAt(0);*/
     
-    console.log("selected team:" + this.selectedTeam.name );     
+    //console.log("selected team:" + this.selectedTeam.name );     
   }
   
   public onItemSelected(args: ListViewEventData) {
     var listview = args.object as RadListView;
     var selectedItems = listview.getSelectedItems() as Array<Player>;
     var triggerItem = this._dataItems.getItem(args.index);
-    
-    console.log("OnItemSelected.");
-    
     // push into players last added player
-    if(!this.loading){
+
+    if(this.selectedTeam.players.indexOf(triggerItem) > -1 && triggerItem.isSelected){
+      console.log("remove selected")
+      triggerItem.isSelected = false;
+      var index = this.selectedTeam.players.indexOf(triggerItem, 0);
+      if (index > -1) {
+        console.log("removed selected")
+        this.selectedTeam.players.splice(index, 1);
+        triggerItem.team = null;
+        listview.deselectItemAt(args.index)
+      }
+    } else if(this.selectedTeam.players.length < this.playerPerteam){
+      console.log("item added")
       this.selectedTeam.players.push(triggerItem);
       triggerItem.team=this.selectedTeam;
+    } else{
+      listview.deselectItemAt(args.index)
     }
     
-    console.log("Team "+this.selectedTeam.name +" "+ this.selectedTeam.playersToString() );
+    //console.log("Team "+this.selectedTeam.name +" "+ this.selectedTeam.playersToString() );
   }
   
   public onItemDeselected(args: ListViewEventData) {

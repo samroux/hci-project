@@ -6,6 +6,13 @@ import {RouterExtensions} from "nativescript-angular/router";
 import {TriviaAnswer} from "../../shared/triviaAnswer";
 import {TriviaQuestion} from "../../shared/triviaQuestion";
 import {RoundDataProvider} from "../../shared/providers/roundData.provider";
+import { ChangeDetectionStrategy} from "@angular/core";
+import { Http, Headers, Response } from "@angular/http";
+
+import { Progress } from "ui/progress";
+
+import {TriviaCategory} from "../../shared/triviaCategory" 
+
 
 import * as  base64 from "base-64";
 import * as utf8 from "utf8";
@@ -24,7 +31,7 @@ export class QuestionPresenterComponent implements OnInit{
 
   public selectedId: string;
 
-  public constructor(private route: ActivatedRoute, private routerExtensions: RouterExtensions, private roundDataProvider: RoundDataProvider) {
+  public constructor(private route: ActivatedRoute, private routerExtensions: RouterExtensions, private roundDataProvider: RoundDataProvider, private router: Router) {
     this.route.params.subscribe((params) => {
       this.selectedId = params.id;
     });
@@ -42,16 +49,14 @@ export class QuestionPresenterComponent implements OnInit{
   }
 
   private definePlayer(){
-
-    let reply = this.roundDataProvider.getRandomPlayer();
-
-    if(reply == null){
+    if(!this.roundDataProvider.hasRemainingPlayers){
       //no more elligible player
       console.log("game is over");
       this.next("summary");
     }else{
+      let reply = this.roundDataProvider.getRandomPlayer();
       this.roundDataProvider.currentPlayer = reply;
-      console.log("Current Player is: " + this.roundDataProvider.currentPlayer.name );
+      console.log("Current Player is: " + this.roundDataProvider.currentPlayer.name);
     }
   }
     

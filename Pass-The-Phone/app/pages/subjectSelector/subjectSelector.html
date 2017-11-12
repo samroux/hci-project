@@ -9,7 +9,7 @@
         <StackLayout class="inner-stack">
                 <Label text="Please select a subject among the list"></Label>
                 <GridLayout>                
-                        <ListView [items]="categories" (itemTap)="onItemTap($event)" class="list-group">
+                        <ListView #subjects (itemTap)="onItemTap($event)" class="list-group">
                                 <ng-template let-categories="item" let-i="index" let-odd="odd" let-even="even">
                                         <GridLayout class="list-group-item">
                                                 <Label [text]="categories.name"></Label>

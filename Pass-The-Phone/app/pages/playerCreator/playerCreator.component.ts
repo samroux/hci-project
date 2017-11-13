@@ -46,7 +46,7 @@ export class PlayerCreatorComponent implements OnInit{
   }
   
   private submit(groupName) {
-    if(groupName && this.players.length > 0){
+    if(groupName && this.players.length > 1){
       this.group = new Group(groupName, this.players);
       this.rdp.players = this.players;
       this.rdp.group = this.group;
@@ -54,6 +54,7 @@ export class PlayerCreatorComponent implements OnInit{
       var colorBlack = new color.Color("#000000");
       this.groupTextField.nativeElement.borderColor = colorBlack;
       this.playerTextField.nativeElement.borderColor = colorBlack;
+      this.playerTextField.nativeElement.hint = "Enter a Player Name";
       this.next();
     } else {
       console.log("g")
@@ -64,6 +65,9 @@ export class PlayerCreatorComponent implements OnInit{
       }
       if(this.players.length <= 0){
         this.playerTextField.nativeElement.borderColor = colorRed;
+      } else if(this.players.length == 1){
+        this.playerTextField.nativeElement.borderColor = colorRed;
+        this.playerTextField.nativeElement.hint = "Two players needed!";
       }
     }
   }
@@ -73,6 +77,11 @@ export class PlayerCreatorComponent implements OnInit{
       // console.log("Cannot allow empty player name");
       return;
     }
+    var color = require("color");
+    var colorBlack = new color.Color("#000000");
+    this.groupTextField.nativeElement.borderColor = colorBlack;
+    this.playerTextField.nativeElement.borderColor = colorBlack;
+    this.playerTextField.nativeElement.hint = "Enter a Player Name";
     let player:Player = new Player(playerName);
     this.players.push(player);    
     this.newPlayerName = "";

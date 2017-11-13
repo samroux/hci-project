@@ -11,6 +11,20 @@ TextField {
   padding-top: 15;
   background-color: white;
 }*/
+.googleError{
+  margin-left:12;
+}
+.showGoogle{
+  background-color: #CB1D00;
+  color: white;
+  margin-top: 20;
+  border-radius: 80;
+  width: 150;
+}
+.question{
+  margin-top: 10;
+  margin-left: 10;
+}
 .logo {
   margin-top: 12;
   margin-bottom: 12;

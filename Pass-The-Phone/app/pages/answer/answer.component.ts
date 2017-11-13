@@ -113,8 +113,9 @@ export class AnswerComponent{
   private stopWebview(){
     this.showWebview.nativeElement.visibility = "collapse";
     this.webView.nativeElement.visibility = "hidden";
-    this.selectAnswer.nativeElement.text = "Select your answer without Google...";
+    this.selectAnswer.nativeElement.text = "20 seconds of Google are up...";
     this.selectAnswer.nativeElement.color = "red";
+    this.selectAnswer.nativeElement.visibility="visible"
   }
 
   public firstClick: boolean = true;
@@ -153,5 +154,7 @@ export class AnswerComponent{
   private next(correct,answer_content) {
     this.router.navigate(["answerValidation", correct,answer_content], { clearHistory: true });    
   }
-
+  private quit(){
+    this.router.navigate(["start"], { clearHistory: true });
+  }
 }

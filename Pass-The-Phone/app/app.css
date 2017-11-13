@@ -24,6 +24,9 @@ TextField {
   padding: 25;
   font-size: 18;
 }
+Button{
+  border-radius: 80;
+}
 
 .page-stack{
   margin-left: 0;

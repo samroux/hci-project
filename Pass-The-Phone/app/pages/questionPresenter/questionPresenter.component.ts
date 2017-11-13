@@ -1,4 +1,4 @@
-import { Component,OnInit } from "@angular/core";
+import { Component,OnInit, ViewChild, ElementRef } from "@angular/core";
 import { ActivatedRoute, Params, Router } from "@angular/router";
 import {RouterExtensions} from "nativescript-angular/router";
 
@@ -43,6 +43,10 @@ export class QuestionPresenterComponent implements OnInit{
     this.choices.push(new TriviaAnswer(null, ""));
   }
 
+
+  @ViewChild("questionAsker") questionAsker: ElementRef;
+  @ViewChild("questionFor") questionFor: ElementRef;
+  @ViewChild("aloud") aloud: ElementRef;
   ngOnInit() {
     this.definePlayer();
     this.extractData();
@@ -54,9 +58,15 @@ export class QuestionPresenterComponent implements OnInit{
       console.log("game is over");
       this.next("summary");
     }else{
-      let reply = this.roundDataProvider.getRandomPlayer();
+      if(this.roundDataProvider.currentPlayer && this.roundDataProvider.currentPlayer.name != ""){
+        this.questionAsker.nativeElement.text = this.roundDataProvider.currentPlayer.name;
+      } else{
+        this.questionAsker.nativeElement.text = this.roundDataProvider.players[0].name;
+      }
+      let reply = this.roundDataProvider.getRandomPlayer(this.questionAsker.nativeElement.text);
+      //this.aloud.nativeElement.text = this.questionAsker.nativeElement.text.concat(" please read aloud and pass to ").concat(reply.name);
+      this.questionFor.nativeElement.text = reply.name;
       this.roundDataProvider.currentPlayer = reply;
-      console.log("Current Player is: " + this.roundDataProvider.currentPlayer.name);
     }
   }
     
@@ -90,7 +100,7 @@ export class QuestionPresenterComponent implements OnInit{
         incorrect_answers[i] =that.decodeBase64(incorrect_answers[i]);
       }
       
-      that.question = question;
+      that.question = "Question: ".concat(question);
       
       that.triviaQuestion = new TriviaQuestion(category, type, difficulty, question, correct_answer, incorrect_answers);
 
@@ -116,10 +126,13 @@ export class QuestionPresenterComponent implements OnInit{
 
   private next(page) {
     if(page == "questionPreAnswer"){
-      this.routerExtensions.navigate(["questionPreAnswer"], { clearHistory: true });
+      this.routerExtensions.navigate(["answer"], { clearHistory: true });
     }else{
       this.routerExtensions.navigate(["summary"], { clearHistory: true });
     }
     
+  }
+  private quit(){
+    this.routerExtensions.navigate(["start"], { clearHistory: true });
   }
 }

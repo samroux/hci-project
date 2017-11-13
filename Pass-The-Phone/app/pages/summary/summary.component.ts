@@ -103,4 +103,7 @@ export class SummaryComponent implements OnInit{
     this.rdp.hasRemainingPlayers = true;
     this.routerExtensions.navigate(["questionPresenter", this.rdp.subjectId], { clearHistory: true });
   }
+  private quit(){
+    this.routerExtensions.navigate(["start"], { clearHistory: true });
+  }
 }

@@ -4,13 +4,6 @@ TextField {
   border-width: 1;
   border-color: black;
 }
-.content {
-  margin-left: 30;
-  margin-right: 30;
-  padding-bottom: 15;
-  padding-top: 100;
-  background-color: white;
-}
 .logo {
   margin-top: 12;
   margin-bottom: 12;
@@ -24,6 +17,7 @@ Button, TextField {
   background-color: #CB1D00;
   color: white;
   margin-top: 20;
+  border-radius: 80;
 }
 
 .page-title {

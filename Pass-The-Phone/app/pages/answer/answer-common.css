@@ -15,7 +15,7 @@ TextField {
   margin-left:12;
 }
 .showGoogle{
-  background-color: #CB1D00;
+  background-color: #e60042;
   color: white;
   margin-top: 20;
   border-radius: 80;
@@ -44,7 +44,7 @@ TextField {
 }
 
 .submit-button {
-  background-color: #CB1D00;
+  background-color: #e60042;
   color: white;
   margin-top: 20;
 }

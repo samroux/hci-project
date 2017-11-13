@@ -108,14 +108,17 @@ export class AnswerComponent{
   @ViewChild("showWebview") showWebview: ElementRef;
   @ViewChild("answers") listView: ElementRef;
   @ViewChild("selectAnswer") selectAnswer: ElementRef;
+  @ViewChild("googleError") googleError: ElementRef;
+  @ViewChild("timer") timer: ElementRef;
   public WebViewSRC: string;
 
   private stopWebview(){
     this.showWebview.nativeElement.visibility = "collapse";
     this.webView.nativeElement.visibility = "hidden";
-    this.selectAnswer.nativeElement.text = "20 seconds of Google are up...";
-    this.selectAnswer.nativeElement.color = "red";
-    this.selectAnswer.nativeElement.visibility="visible"
+    this.googleError.nativeElement.text = "20 seconds of Google are up...";
+    this.googleError.nativeElement.color = "red";
+    this.googleError.nativeElement.visibility="visible"
+    this.timer.nativeElement.visibility = "hidden"
   }
 
   public firstClick: boolean = true;
@@ -123,6 +126,16 @@ export class AnswerComponent{
   private viewWeb(){
     if(this.firstClick){
       this.firstClick = false;
+      var countdown = 20000;
+      var intervalId = setInterval(()=> {
+        countdown -= 100;
+        this.timer.nativeElement.text = countdown/1000.0
+        if(countdown == 0){
+          clearInterval(intervalId);
+        } else if(countdown == 10000){
+          this.timer.nativeElement.color = "red";
+        }
+      }, 100);
       setTimeout(() => {
         this.stopWebview();
       }, 20000);
@@ -133,6 +146,7 @@ export class AnswerComponent{
     } else{
       this.showWebview.nativeElement.text = "Hide Google";
       this.webView.nativeElement.visibility = "visible";
+      this.selectAnswer.nativeElement.visibility="visible"
     }
     this.WebViewSRC = "https://google.ca/";
     //let label: Label = this.labelResultRef.nativeElement;

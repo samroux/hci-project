@@ -17,7 +17,10 @@ TextField {
 .showGoogle{
   background-color: #CB1D00;
   color: white;
-  margin-top: 20;
+  margin-top: 10;
+  padding-top: 6;
+  padding-bottom: 6;
+  margin-bottom: 10;
   border-radius: 80;
   width: 150;
 }
@@ -28,6 +31,9 @@ TextField {
 .logo {
   margin-top: 12;
   margin-bottom: 12;
+}
+.timer{
+  margin-bottom:6;
 }
 TextField {
   margin-left: 16;
@@ -46,7 +52,7 @@ TextField {
 .submit-button {
   background-color: #CB1D00;
   color: white;
-  margin-top: 20;
+  margin-top: 15;
 }
 
 #webview, #listview{

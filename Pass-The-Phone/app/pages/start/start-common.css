@@ -24,3 +24,9 @@ Button, TextField {
   padding: 10;
   font-size: 8;
 }
+
+.inner-stack{
+  margin-left: 15;
+  margin-right: 15;
+  background-color: white;
+}

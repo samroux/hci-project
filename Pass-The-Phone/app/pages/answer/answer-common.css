@@ -15,7 +15,7 @@ TextField {
   margin-left:12;
 }
 .showGoogle{
-  background-color: #e60042;
+  background-color: #CB1D00;
   color: white;
   margin-top: 10;
   padding-top: 6;
@@ -50,7 +50,7 @@ TextField {
 }
 
 .submit-button {
-  background-color: #e60042;
+  background-color: #CB1D00;
   color: white;
   margin-top: 15;
 }

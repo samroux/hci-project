@@ -1,0 +1,13 @@
+<ActionBar class="action-bar">
+                <StackLayout orientation="horizontal" verticalAligment="center" horizontalAlignment="center">
+                        <Image class="logo" src="~/shared/logo.png"></Image>
+                </StackLayout> 
+                <ActionItem text="Quit" ios.position="right" android.position="right" (tap)="quit()"></ActionItem>
+</ActionBar>
+    
+<StackLayout class="content">
+        <Label text="You selected"></Label>    
+        <Label [text]="player_answer_content"></Label>   
+        <Image #Check (tap)="toggle()" class="validation"></Image>
+        <Button text="Next" class="submit-button" (tap)="next()"></Button>        
+</StackLayout>

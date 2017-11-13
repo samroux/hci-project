@@ -1,50 +1,33 @@
 {
   "_args": [
     [
-      {
-        "raw": "@angular/forms@4.2.5",
-        "scope": "@angular",
-        "escapedName": "@angular%2fforms",
-        "name": "@angular/forms",
-        "rawSpec": "4.2.5",
-        "spec": "4.2.5",
-        "type": "version"
-      },
-      "/Development/McGill/ecse424/hci-project/Pass-The-Phone"
+      "@angular/forms@4.2.5",
+      "/Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone"
     ]
   ],
   "_from": "@angular/forms@4.2.5",
   "_id": "@angular/forms@4.2.5",
-  "_inCache": true,
+  "_inBundle": false,
+  "_integrity": "sha1-p+VcjR9aToU37+Ht14NOSh9ZxuQ=",
   "_location": "/@angular/forms",
-  "_nodeVersion": "6.10.2",
-  "_npmOperationalInternal": {
-    "host": "s3://npm-registry-packages",
-    "tmp": "tmp/forms-4.2.5.tgz_1498782502669_0.12510852492414415"
-  },
-  "_npmUser": {
-    "name": "angular",
-    "email": "angular-core+npm@google.com"
-  },
-  "_npmVersion": "3.10.10",
   "_phantomChildren": {},
   "_requested": {
+    "type": "version",
+    "registry": true,
     "raw": "@angular/forms@4.2.5",
-    "scope": "@angular",
-    "escapedName": "@angular%2fforms",
     "name": "@angular/forms",
+    "escapedName": "@angular%2fforms",
+    "scope": "@angular",
     "rawSpec": "4.2.5",
-    "spec": "4.2.5",
-    "type": "version"
+    "saveSpec": null,
+    "fetchSpec": "4.2.5"
   },
   "_requiredBy": [
     "/"
   ],
   "_resolved": "https://registry.npmjs.org/@angular/forms/-/forms-4.2.5.tgz",
-  "_shasum": "a7e55c8d1f5a4e8537efe1edd7834e4a1f59c6e4",
-  "_shrinkwrap": null,
-  "_spec": "@angular/forms@4.2.5",
-  "_where": "/Development/McGill/ecse424/hci-project/Pass-The-Phone",
+  "_spec": "4.2.5",
+  "_where": "/Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone",
   "author": {
     "name": "angular"
   },
@@ -55,36 +38,21 @@
     "tslib": "^1.7.1"
   },
   "description": "Angular - directives and services for creating forms",
-  "devDependencies": {},
-  "directories": {},
-  "dist": {
-    "shasum": "a7e55c8d1f5a4e8537efe1edd7834e4a1f59c6e4",
-    "tarball": "https://registry.npmjs.org/@angular/forms/-/forms-4.2.5.tgz"
-  },
   "es2015": "./@angular/forms.js",
   "homepage": "https://github.com/angular/angular#readme",
   "license": "MIT",
   "main": "./bundles/forms.umd.js",
-  "maintainers": [
-    {
-      "name": "angular",
-      "email": "angular-core+npm@google.com"
-    }
-  ],
   "module": "./@angular/forms.es5.js",
   "name": "@angular/forms",
-  "optionalDependencies": {},
   "peerDependencies": {
     "@angular/core": "4.2.5",
     "@angular/common": "4.2.5",
     "@angular/platform-browser": "4.2.5"
   },
-  "readme": "ERROR: No README data found!",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/angular/angular.git"
   },
-  "scripts": {},
   "typings": "./forms.d.ts",
   "version": "4.2.5"
 }

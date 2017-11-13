@@ -14,6 +14,8 @@ import { QuestionPreAnswerComponent } from "./pages/questionPreAnswer/questionPr
 import { AnswerComponent } from "./pages/answer/answer.component";
 import { AnswerValidationComponent } from "./pages/answerValidation/answerValidation.component";
 import { SummaryComponent } from "./pages/summary/summary.component";
+import { TestComponent } from "./pages/test/test.component";
+
  
 // import {ListViewGettingStartedComponent} from "./pages/listview/getting-started/listview-getting-started.component";
 
@@ -32,7 +34,10 @@ export const routes = [
     { path: "questionPreAnswer", component: QuestionPreAnswerComponent },
     { path: "answer", component: AnswerComponent },
     { path: "answerValidation/:correct/:answer", component: AnswerValidationComponent },
-    { path: "summary", component: SummaryComponent }
+    { path: "summary", component: SummaryComponent },
+
+    { path: "test", component: TestComponent }
+    
 
     // { path: "listView", component: ListViewGettingStartedComponent }
 ];
@@ -49,7 +54,8 @@ export const navigatableComponents = [
     QuestionPreAnswerComponent,
     AnswerComponent,
     AnswerValidationComponent,
-    SummaryComponent
+    SummaryComponent,
+    TestComponent
 
     // ListViewGettingStartedComponent
 ];

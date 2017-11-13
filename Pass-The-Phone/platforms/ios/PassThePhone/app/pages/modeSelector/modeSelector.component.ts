@@ -24,7 +24,6 @@ export class ModeSelectorComponent implements OnInit {
   
   public constructor(private router: Router, private roundDataProvider: RoundDataProvider) {
     this.rdp = roundDataProvider;
-    console.log("gros");
     this.playersName = roundDataProvider.group.playersName;
     this.groupName = roundDataProvider.group.name;
   }

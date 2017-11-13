@@ -1,4 +1,4 @@
-import { Component,OnInit } from "@angular/core";
+import { Component,OnInit, ViewChild, ElementRef } from "@angular/core";
 import { ActivatedRoute, Params, Router } from "@angular/router";
 import {RouterExtensions} from "nativescript-angular/router";
 
@@ -6,6 +6,13 @@ import {RouterExtensions} from "nativescript-angular/router";
 import {TriviaAnswer} from "../../shared/triviaAnswer";
 import {TriviaQuestion} from "../../shared/triviaQuestion";
 import {RoundDataProvider} from "../../shared/providers/roundData.provider";
+import { ChangeDetectionStrategy} from "@angular/core";
+import { Http, Headers, Response } from "@angular/http";
+
+import { Progress } from "ui/progress";
+
+import {TriviaCategory} from "../../shared/triviaCategory" 
+
 
 import * as  base64 from "base-64";
 import * as utf8 from "utf8";
@@ -24,7 +31,7 @@ export class QuestionPresenterComponent implements OnInit{
 
   public selectedId: string;
 
-  public constructor(private route: ActivatedRoute, private routerExtensions: RouterExtensions, private roundDataProvider: RoundDataProvider) {
+  public constructor(private route: ActivatedRoute, private routerExtensions: RouterExtensions, private roundDataProvider: RoundDataProvider, private router: Router) {
     this.route.params.subscribe((params) => {
       this.selectedId = params.id;
     });
@@ -36,22 +43,30 @@ export class QuestionPresenterComponent implements OnInit{
     this.choices.push(new TriviaAnswer(null, ""));
   }
 
+
+  @ViewChild("questionAsker") questionAsker: ElementRef;
+  @ViewChild("questionFor") questionFor: ElementRef;
+  @ViewChild("aloud") aloud: ElementRef;
   ngOnInit() {
     this.definePlayer();
     this.extractData();
   }
 
   private definePlayer(){
-
-    let reply = this.roundDataProvider.getRandomPlayer();
-
-    if(reply == null){
+    if(!this.roundDataProvider.hasRemainingPlayers){
       //no more elligible player
       console.log("game is over");
       this.next("summary");
     }else{
+      if(this.roundDataProvider.currentPlayer && this.roundDataProvider.currentPlayer.name != ""){
+        this.questionAsker.nativeElement.text = this.roundDataProvider.currentPlayer.name;
+      } else{
+        this.questionAsker.nativeElement.text = this.roundDataProvider.players[0].name;
+      }
+      let reply = this.roundDataProvider.getRandomPlayer(this.questionAsker.nativeElement.text);
+      //this.aloud.nativeElement.text = this.questionAsker.nativeElement.text.concat(" please read aloud and pass to ").concat(reply.name);
+      this.questionFor.nativeElement.text = reply.name;
       this.roundDataProvider.currentPlayer = reply;
-      console.log("Current Player is: " + this.roundDataProvider.currentPlayer.name );
     }
   }
     
@@ -85,7 +100,7 @@ export class QuestionPresenterComponent implements OnInit{
         incorrect_answers[i] =that.decodeBase64(incorrect_answers[i]);
       }
       
-      that.question = question;
+      that.question = "Question: ".concat(question);
       
       that.triviaQuestion = new TriviaQuestion(category, type, difficulty, question, correct_answer, incorrect_answers);
 
@@ -111,10 +126,13 @@ export class QuestionPresenterComponent implements OnInit{
 
   private next(page) {
     if(page == "questionPreAnswer"){
-      this.routerExtensions.navigate(["questionPreAnswer"], { clearHistory: true });
+      this.routerExtensions.navigate(["answer"], { clearHistory: true });
     }else{
       this.routerExtensions.navigate(["summary"], { clearHistory: true });
     }
     
+  }
+  private quit(){
+    this.routerExtensions.navigate(["start"], { clearHistory: true });
   }
 }

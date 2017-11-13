@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
 import {RouterExtensions} from "nativescript-angular/router";
+import { ActivatedRoute} from "@angular/router";
 
 import {RoundDataProvider} from "../../shared/providers/roundData.provider";
 

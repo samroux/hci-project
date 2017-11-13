@@ -1,50 +1,32 @@
 {
   "_args": [
     [
-      {
-        "raw": "nativescript-nodeify@^0.5.6",
-        "scope": null,
-        "escapedName": "nativescript-nodeify",
-        "name": "nativescript-nodeify",
-        "rawSpec": "^0.5.6",
-        "spec": ">=0.5.6 <0.6.0",
-        "type": "range"
-      },
-      "/Development/McGill/ecse424/hci-project/Pass-The-Phone"
+      "nativescript-nodeify@0.5.6",
+      "/Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone"
     ]
   ],
-  "_from": "nativescript-nodeify@>=0.5.6 <0.6.0",
+  "_from": "nativescript-nodeify@0.5.6",
   "_id": "nativescript-nodeify@0.5.6",
-  "_inCache": true,
+  "_inBundle": false,
+  "_integrity": "sha1-oBtrmbs/7+v04kOvgSrCwDoeV2o=",
   "_location": "/nativescript-nodeify",
-  "_nodeVersion": "6.10.3",
-  "_npmOperationalInternal": {
-    "host": "s3://npm-registry-packages",
-    "tmp": "tmp/nativescript-nodeify-0.5.6.tgz_1507060331985_0.7737360547762364"
-  },
-  "_npmUser": {
-    "name": "eddyverbruggen",
-    "email": "eddyverbruggen@gmail.com"
-  },
-  "_npmVersion": "3.10.10",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "nativescript-nodeify@^0.5.6",
-    "scope": null,
-    "escapedName": "nativescript-nodeify",
+    "type": "version",
+    "registry": true,
+    "raw": "nativescript-nodeify@0.5.6",
     "name": "nativescript-nodeify",
-    "rawSpec": "^0.5.6",
-    "spec": ">=0.5.6 <0.6.0",
-    "type": "range"
+    "escapedName": "nativescript-nodeify",
+    "rawSpec": "0.5.6",
+    "saveSpec": null,
+    "fetchSpec": "0.5.6"
   },
   "_requiredBy": [
     "/"
   ],
   "_resolved": "https://registry.npmjs.org/nativescript-nodeify/-/nativescript-nodeify-0.5.6.tgz",
-  "_shasum": "a01b6b99bb3fefebf4e243af812ac2c03a1e576a",
-  "_shrinkwrap": null,
-  "_spec": "nativescript-nodeify@^0.5.6",
-  "_where": "/Development/McGill/ecse424/hci-project/Pass-The-Phone",
+  "_spec": "0.5.6",
+  "_where": "/Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone",
   "author": {
     "name": "Eddy Verbruggen",
     "email": "eddyverbruggen@gmail.com"
@@ -85,12 +67,6 @@
     "tns-core-modules": "^2.3.0",
     "tns-platform-declarations": "^2.3.0"
   },
-  "directories": {},
-  "dist": {
-    "shasum": "a01b6b99bb3fefebf4e243af812ac2c03a1e576a",
-    "tarball": "https://registry.npmjs.org/nativescript-nodeify/-/nativescript-nodeify-0.5.6.tgz"
-  },
-  "gitHead": "83ca618b720a187aa998fe37607036b6984b067e",
   "homepage": "https://github.com/EddyVerbruggen/nativescript-nodeify",
   "keywords": [
     "ecosystem:nativescript",
@@ -103,12 +79,6 @@
   ],
   "license": "MIT",
   "main": "nodeify",
-  "maintainers": [
-    {
-      "name": "eddyverbruggen",
-      "email": "eddyverbruggen@gmail.com"
-    }
-  ],
   "name": "nativescript-nodeify",
   "nativescript": {
     "platforms": {
@@ -132,8 +102,6 @@
       "version": "2.5.0"
     }
   },
-  "optionalDependencies": {},
-  "readme": "ERROR: No README data found!",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/EddyVerbruggen/nativescript-nodeify.git"

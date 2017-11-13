@@ -1,0 +1,31 @@
+
+
+TextField {
+  border-width: 1;
+  border-color: black;
+}
+.inner-stack{
+  margin-left: 15;
+  margin-right: 15;
+  padding-bottom: 15;
+  padding-top: 0;
+  background-color: white;
+}
+
+.label{
+  margin-bottom:10;
+}
+.logo {
+  margin-top: 12;
+  margin-bottom: 12;
+}
+Button, TextField {
+  margin-left: 16;
+  margin-right: 16;
+  margin-bottom: 10;
+}
+.submit-button {
+  background-color: #e60042;
+  color: white;
+  margin-top: 20;
+}

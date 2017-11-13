@@ -1,0 +1,26 @@
+
+
+TextField {
+  border-width: 1;
+  border-color: black;
+}
+.logo {
+  margin-top: 12;
+  margin-bottom: 12;
+}
+Button, TextField {
+  margin-left: 16;
+  margin-right: 16;
+  margin-bottom: 10;
+}
+.submit-button {
+  background-color: #CB1D00;
+  color: white;
+  margin-top: 20;
+  border-radius: 80;
+}
+
+.page-title {
+  padding: 10;
+  font-size: 8;
+}

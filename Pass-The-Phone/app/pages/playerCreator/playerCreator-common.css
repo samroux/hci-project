@@ -19,6 +19,11 @@ TextField {
   margin-top: 12;
   margin-bottom: 12;
 }
+
+.trashcan {
+  height: 25;
+}
+
 Button, TextField {
   margin-left: 16;
   margin-right: 16;

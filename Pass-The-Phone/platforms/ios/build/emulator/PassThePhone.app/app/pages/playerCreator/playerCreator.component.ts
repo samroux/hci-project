@@ -7,6 +7,8 @@ import { Progress } from "ui/progress";
 
 import {Group} from "../../shared/group";
 import {Player} from "../../shared/player";
+import * as app from "tns-core-modules/application";
+import * as platform from "tns-core-modules/platform";
 import {RoundDataProvider} from "../../shared/providers/roundData.provider";
 
 @Component({
@@ -25,6 +27,8 @@ export class PlayerCreatorComponent implements OnInit{
   
   newPlayerName = "";
   @ViewChild("newPlayerTx") newPlayerTx: ElementRef;
+  @ViewChild("groupNameTx") groupTextField: ElementRef;
+  @ViewChild("newPlayerTx") playerTextField: ElementRef;
   
   public constructor(private route:ActivatedRoute, private router: Router, private routerExtensions: RouterExtensions, private roundDataProvider: RoundDataProvider) {
     // this.route.params.subscribe((params) => {
@@ -35,13 +39,33 @@ export class PlayerCreatorComponent implements OnInit{
   
   ngOnInit() {
     this.progressValue = 20;
+    var color = require("color");
+    var colorBlack = new color.Color("#000000");
+    this.groupTextField.nativeElement.borderColor = colorBlack;
+    this.playerTextField.nativeElement.borderColor = colorBlack;
   }
   
   private submit(groupName) {
-    this.group = new Group(groupName, this.players);
-    this.rdp.players = this.players;
-    this.rdp.group = this.group;
-    this.next(); 
+    if(groupName && this.players.length > 0){
+      this.group = new Group(groupName, this.players);
+      this.rdp.players = this.players;
+      this.rdp.group = this.group;
+      var color = require("color");
+      var colorBlack = new color.Color("#000000");
+      this.groupTextField.nativeElement.borderColor = colorBlack;
+      this.playerTextField.nativeElement.borderColor = colorBlack;
+      this.next();
+    } else {
+      console.log("g")
+      var color = require("color");
+      var colorRed = new color.Color("#FF0000");
+      if(!groupName || 0 === groupName.length){
+        this.groupTextField.nativeElement.borderColor = colorRed;
+      }
+      if(this.players.length <= 0){
+        this.playerTextField.nativeElement.borderColor = colorRed;
+      }
+    }
   }
   
   private addPlayer(playerName) {

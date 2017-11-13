@@ -1,50 +1,32 @@
 {
   "_args": [
     [
-      {
-        "raw": "nativescript-xml2js@^0.1.0",
-        "scope": null,
-        "escapedName": "nativescript-xml2js",
-        "name": "nativescript-xml2js",
-        "rawSpec": "^0.1.0",
-        "spec": ">=0.1.0 <0.2.0",
-        "type": "range"
-      },
-      "/Development/McGill/ecse424/hci-project/Pass-The-Phone/node_modules/nativescript-nodeify"
+      "nativescript-xml2js@0.1.0",
+      "/Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone"
     ]
   ],
-  "_from": "nativescript-xml2js@>=0.1.0 <0.2.0",
+  "_from": "nativescript-xml2js@0.1.0",
   "_id": "nativescript-xml2js@0.1.0",
-  "_inCache": true,
+  "_inBundle": false,
+  "_integrity": "sha1-uavCE38R3moF801k/AOwrL5Qfa8=",
   "_location": "/nativescript-xml2js",
-  "_nodeVersion": "4.5.0",
-  "_npmOperationalInternal": {
-    "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/nativescript-xml2js-0.1.0.tgz_1471976898039_0.7063096908386797"
-  },
-  "_npmUser": {
-    "name": "spike1292",
-    "email": "spike1292@gmail.com"
-  },
-  "_npmVersion": "3.10.6",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "nativescript-xml2js@^0.1.0",
-    "scope": null,
-    "escapedName": "nativescript-xml2js",
+    "type": "version",
+    "registry": true,
+    "raw": "nativescript-xml2js@0.1.0",
     "name": "nativescript-xml2js",
-    "rawSpec": "^0.1.0",
-    "spec": ">=0.1.0 <0.2.0",
-    "type": "range"
+    "escapedName": "nativescript-xml2js",
+    "rawSpec": "0.1.0",
+    "saveSpec": null,
+    "fetchSpec": "0.1.0"
   },
   "_requiredBy": [
     "/nativescript-nodeify"
   ],
   "_resolved": "https://registry.npmjs.org/nativescript-xml2js/-/nativescript-xml2js-0.1.0.tgz",
-  "_shasum": "b9abc2137f11de6a05f34d64fc03b0acbe507daf",
-  "_shrinkwrap": null,
-  "_spec": "nativescript-xml2js@^0.1.0",
-  "_where": "/Development/McGill/ecse424/hci-project/Pass-The-Phone/node_modules/nativescript-nodeify",
+  "_spec": "0.1.0",
+  "_where": "/Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone",
   "author": {
     "name": "Marek Kubica",
     "email": "marek@xivilization.net",
@@ -268,14 +250,9 @@
   "directories": {
     "lib": "./lib"
   },
-  "dist": {
-    "shasum": "b9abc2137f11de6a05f34d64fc03b0acbe507daf",
-    "tarball": "https://registry.npmjs.org/nativescript-xml2js/-/nativescript-xml2js-0.1.0.tgz"
-  },
   "files": [
     "lib"
   ],
-  "gitHead": "7d9a08fb5ff073bae70b14957a27546fec08f89e",
   "homepage": "https://github.com/spike1292/nativescript-xml2js",
   "keywords": [
     "xml",
@@ -283,15 +260,7 @@
   ],
   "license": "MIT",
   "main": "./lib/xml2js",
-  "maintainers": [
-    {
-      "name": "spike1292",
-      "email": "spike1292@gmail.com"
-    }
-  ],
   "name": "nativescript-xml2js",
-  "optionalDependencies": {},
-  "readme": "ERROR: No README data found!",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/spike1292/nativescript-xml2js.git"

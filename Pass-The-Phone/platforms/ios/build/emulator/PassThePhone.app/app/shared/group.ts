@@ -2,6 +2,7 @@ import {Player} from "./player"
 
 export class Group {
   
+  public id: number;
   public playersName: string = "";
   
   constructor(public name: string, public players: Player[]){

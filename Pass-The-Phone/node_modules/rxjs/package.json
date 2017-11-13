@@ -1,50 +1,32 @@
 {
   "_args": [
     [
-      {
-        "raw": "rxjs@5.4.3",
-        "scope": null,
-        "escapedName": "rxjs",
-        "name": "rxjs",
-        "rawSpec": "5.4.3",
-        "spec": "5.4.3",
-        "type": "version"
-      },
-      "/Development/McGill/ecse424/hci-project/Pass-The-Phone"
+      "rxjs@5.4.3",
+      "/Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone"
     ]
   ],
   "_from": "rxjs@5.4.3",
   "_id": "rxjs@5.4.3",
-  "_inCache": true,
+  "_inBundle": false,
+  "_integrity": "sha512-fSNi+y+P9ss+EZuV0GcIIqPUK07DEaMRUtLJvdcvMyFjc9dizuDjere+A4V7JrLGnm9iCc+nagV/4QdMTkqC4A==",
   "_location": "/rxjs",
-  "_nodeVersion": "7.7.2",
-  "_npmOperationalInternal": {
-    "host": "s3://npm-registry-packages",
-    "tmp": "tmp/rxjs-5.4.3.tgz_1502407898166_0.6800217325799167"
-  },
-  "_npmUser": {
-    "name": "blesh",
-    "email": "ben@benlesh.com"
-  },
-  "_npmVersion": "5.3.0",
   "_phantomChildren": {},
   "_requested": {
+    "type": "version",
+    "registry": true,
     "raw": "rxjs@5.4.3",
-    "scope": null,
-    "escapedName": "rxjs",
     "name": "rxjs",
+    "escapedName": "rxjs",
     "rawSpec": "5.4.3",
-    "spec": "5.4.3",
-    "type": "version"
+    "saveSpec": null,
+    "fetchSpec": "5.4.3"
   },
   "_requiredBy": [
     "/"
   ],
   "_resolved": "https://registry.npmjs.org/rxjs/-/rxjs-5.4.3.tgz",
-  "_shasum": "0758cddee6033d68e0fd53676f0f3596ce3d483f",
-  "_shrinkwrap": null,
-  "_spec": "rxjs@5.4.3",
-  "_where": "/Development/McGill/ecse424/hci-project/Pass-The-Phone",
+  "_spec": "5.4.3",
+  "_where": "/Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone",
   "author": {
     "name": "Ben Lesh",
     "email": "ben@benlesh.com"
@@ -143,12 +125,6 @@
     "webpack": "^1.13.1",
     "xmlhttprequest": "1.8.0"
   },
-  "directories": {},
-  "dist": {
-    "integrity": "sha512-fSNi+y+P9ss+EZuV0GcIIqPUK07DEaMRUtLJvdcvMyFjc9dizuDjere+A4V7JrLGnm9iCc+nagV/4QdMTkqC4A==",
-    "shasum": "0758cddee6033d68e0fd53676f0f3596ce3d483f",
-    "tarball": "https://registry.npmjs.org/rxjs/-/rxjs-5.4.3.tgz"
-  },
   "engines": {
     "npm": ">=2.0.0"
   },
@@ -177,15 +153,7 @@
     ]
   },
   "main": "Rx.js",
-  "maintainers": [
-    {
-      "name": "blesh",
-      "email": "ben@benlesh.com"
-    }
-  ],
   "name": "rxjs",
-  "optionalDependencies": {},
-  "readme": "ERROR: No README data found!",
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/ReactiveX/RxJS.git"

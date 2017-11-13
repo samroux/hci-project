@@ -30,7 +30,7 @@ export class AnswerComponent{
     //need to have dummy otherwise, won't load on UI
     //TODO fix
     this.dummyAnswer = new TriviaAnswer(null,"")
-    this.choices.push(this.dummyAnswer );
+    this.choices.push(this.dummyAnswer);
     this.choices.pop();
     
 

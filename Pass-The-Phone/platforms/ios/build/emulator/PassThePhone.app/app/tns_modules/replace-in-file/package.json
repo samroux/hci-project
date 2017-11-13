@@ -1,32 +1,15 @@
 {
   "_args": [
     [
-      {
-        "raw": "replace-in-file@^2.3.2",
-        "scope": null,
-        "escapedName": "replace-in-file",
-        "name": "replace-in-file",
-        "rawSpec": "^2.3.2",
-        "spec": ">=2.3.2 <3.0.0",
-        "type": "range"
-      },
-      "/Development/McGill/ecse424/hci-project/Pass-The-Phone/node_modules/nativescript-nodeify"
+      "replace-in-file@2.6.4",
+      "/Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone"
     ]
   ],
-  "_from": "replace-in-file@>=2.3.2 <3.0.0",
+  "_from": "replace-in-file@2.6.4",
   "_id": "replace-in-file@2.6.4",
-  "_inCache": true,
+  "_inBundle": false,
+  "_integrity": "sha512-MMriy7P5/BB2f3Kp+qzSj3wrjde/5i9s9C80o2XHU3y0N1lKurMA7J4SN2UeKAWCk3/vEqSmI42vqRqH5Np9zg==",
   "_location": "/replace-in-file",
-  "_nodeVersion": "8.4.0",
-  "_npmOperationalInternal": {
-    "host": "s3://npm-registry-packages",
-    "tmp": "tmp/replace-in-file-2.6.4.tgz_1504495152708_0.45158074074424803"
-  },
-  "_npmUser": {
-    "name": "adamreisnz",
-    "email": "adam@reis.nz"
-  },
-  "_npmVersion": "5.3.0",
   "_phantomChildren": {
     "fs.realpath": "1.0.0",
     "inflight": "1.0.6",
@@ -36,22 +19,21 @@
     "path-is-absolute": "1.0.1"
   },
   "_requested": {
-    "raw": "replace-in-file@^2.3.2",
-    "scope": null,
-    "escapedName": "replace-in-file",
+    "type": "version",
+    "registry": true,
+    "raw": "replace-in-file@2.6.4",
     "name": "replace-in-file",
-    "rawSpec": "^2.3.2",
-    "spec": ">=2.3.2 <3.0.0",
-    "type": "range"
+    "escapedName": "replace-in-file",
+    "rawSpec": "2.6.4",
+    "saveSpec": null,
+    "fetchSpec": "2.6.4"
   },
   "_requiredBy": [
     "/nativescript-nodeify"
   ],
   "_resolved": "https://registry.npmjs.org/replace-in-file/-/replace-in-file-2.6.4.tgz",
-  "_shasum": "a80e25c5c0e0efe9d04afe01a4a57ff98e8b6461",
-  "_shrinkwrap": null,
-  "_spec": "replace-in-file@^2.3.2",
-  "_where": "/Development/McGill/ecse424/hci-project/Pass-The-Phone/node_modules/nativescript-nodeify",
+  "_spec": "2.6.4",
+  "_where": "/Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone",
   "author": {
     "name": "Adam Reis",
     "email": "adam@reis.nz",
@@ -92,13 +74,6 @@
     "istanbul": "^1.0.0-alpha.2",
     "mocha": "^3.5.0"
   },
-  "directories": {},
-  "dist": {
-    "integrity": "sha512-MMriy7P5/BB2f3Kp+qzSj3wrjde/5i9s9C80o2XHU3y0N1lKurMA7J4SN2UeKAWCk3/vEqSmI42vqRqH5Np9zg==",
-    "shasum": "a80e25c5c0e0efe9d04afe01a4a57ff98e8b6461",
-    "tarball": "https://registry.npmjs.org/replace-in-file/-/replace-in-file-2.6.4.tgz"
-  },
-  "gitHead": "c044c5a5cb46f5099d9ec13ed58a8c1c3aca8efc",
   "homepage": "https://github.com/adamreisnz/replace-in-file#readme",
   "keywords": [
     "replace",
@@ -108,15 +83,7 @@
   ],
   "license": "MIT",
   "main": "index.js",
-  "maintainers": [
-    {
-      "name": "adamreisnz",
-      "email": "adam@reis.nz"
-    }
-  ],
   "name": "replace-in-file",
-  "optionalDependencies": {},
-  "readme": "ERROR: No README data found!",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/adamreisnz/replace-in-file.git"

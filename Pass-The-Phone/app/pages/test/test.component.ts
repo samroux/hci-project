@@ -54,7 +54,7 @@ export class TestComponent {
       this.groups.push( new Group ("groupPlayers6", groupPlayers6));
 
       for(var group of this.groups){
-        this.rdp.insert_group(group);
+        // this.rdp.insert_group(group);
       }
   }
 

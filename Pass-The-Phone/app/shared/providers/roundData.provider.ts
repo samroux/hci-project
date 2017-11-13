@@ -57,14 +57,14 @@ export class RoundDataProvider {
 
     // Return a player that haven't played more than authorizes times
     // Returns null if no elligible player. Hence need to go to summary page
-    public getRandomPlayer(){
+    public getRandomPlayer(questionAsker){
         var elligiblePlayers : Player[] = [];
         let j = 0;
         let k = 0;
         //populate elligible players array
         for(let i = 0; i <this.players.length;i++){
             if(this.players[i].answerCount<this.answerCount){
-                if(this.playersInRound.indexOf(this.players[i].name) < 0 && (this.currentPlayer == null || this.players[i].name != this.currentPlayer.name)){
+                if(this.players[i].name != questionAsker && this.playersInRound.indexOf(this.players[i].name) < 0 && (this.currentPlayer == null || this.players[i].name != this.currentPlayer.name)){
                     elligiblePlayers[k]=this.players[i];
                     k++;
                 }

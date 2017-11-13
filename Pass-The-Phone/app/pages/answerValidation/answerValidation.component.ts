@@ -56,4 +56,7 @@ export class AnswerValidationComponent implements OnInit{
     }
     
   }
+  private quit(){
+    this.router.navigate(["start"], { clearHistory: true });
+  }
 }

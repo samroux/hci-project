@@ -11,6 +11,10 @@ TextField {
   padding-top: 0;
   background-color: white;
 }
+
+.label{
+  margin-bottom:10;
+}
 .logo {
   margin-top: 12;
   margin-bottom: 12;
@@ -21,7 +25,7 @@ Button, TextField {
   margin-bottom: 10;
 }
 .submit-button {
-  background-color: #CB1D00;
+  background-color: #e60042;
   color: white;
   margin-top: 20;
 }

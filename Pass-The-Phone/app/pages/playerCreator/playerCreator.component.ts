@@ -88,26 +88,12 @@ export class PlayerCreatorComponent implements OnInit{
   }
 
   private deletePlayer(player:Player) {
-    // if(playerName==""){
-    //   // console.log("Cannot allow empty player name");
-    //   return;
-    // }
-    // var color = require("color");
-    // var colorBlack = new color.Color("#000000");
-    // this.groupTextField.nativeElement.borderColor = colorBlack;
-    // this.playerTextField.nativeElement.borderColor = colorBlack;
-    // this.playerTextField.nativeElement.hint = "Enter a Player Name";
-    // let player:Player = new Player(playerName);
-    // this.players.push(player);    
-    // this.newPlayerName = "";
-
     console.log("Player to be deleted:"+ player.name);
 
     var index = this.players.indexOf(player, 0);
     if (index > -1) {
       this.players.splice(index, 1);
     }
-
   }
   
   private next() {

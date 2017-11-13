@@ -12,10 +12,11 @@
                 <GridLayout>                
                         <ListView [items]="groups" (itemTap)="onItemTap($event)" class="list-group">
                                 <ng-template let-groups="item" let-i="index" let-odd="odd" let-even="even">
-                                        <StackLayout class="list-group-item">
-                                                <Label [text]="groups.name"></Label>
-                                                <Label [text]="groups.playersName" class="player-string"></Label>
-                                        </StackLayout>
+                                        <GridLayout class="list-group-item" rows="auto, *" columns="2*, *">
+                                                <Label row="0" col="0" [text]="groups.name"></Label>
+                                                <Image row="0" col="1" class="trashcan" horizontalAlignment="right"src="~/shared/trashcan.png" (tap)="deleteGroup(groups)"></Image>
+                                                <Label row="1" col="0" [text]="groups.playersName" class="player-string"></Label>
+                                        </GridLayout>
                                 </ng-template>
                         </ListView>
                         <!-- << listview-create-html -->

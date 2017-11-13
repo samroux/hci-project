@@ -17,8 +17,8 @@
                         <ListView [items]="players" row="1" colSpan="2" class="list-group">
                                 <ng-template let-players="item" let-i="index" let-odd="odd" let-even="even">
                                         <GridLayout class="list-group-item">
-                                                <Label [text]="players.name"></Label> <Image class="trashcan" horizontalAlignment="right"src="~/shared/trashcan.png" (tap)="deletePlayer(players)"></Image>
-                                                
+                                                <Label [text]="players.name"></Label> 
+                                                <Image class="trashcan" horizontalAlignment="right"src="~/shared/trashcan.png" (tap)="deletePlayer(players)"></Image> 
                                         </GridLayout>
                                 </ng-template>
                         </ListView>

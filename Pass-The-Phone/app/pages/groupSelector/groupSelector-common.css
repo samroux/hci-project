@@ -30,3 +30,7 @@ Button, TextField {
   font-size: 13;
   margin-left: 16; 
 }
+
+.trashcan {
+  height: 25;
+}

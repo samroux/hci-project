@@ -113,6 +113,15 @@ export class GroupSelectorComponent implements OnInit{
       this.next();
     }
   }
+
+  private deleteGroup(group:Group) {
+    console.log("Player to be deleted:"+ group.name);
+
+    var index = this.groups.indexOf(group, 0);
+    if (index > -1) {
+      this.groups.splice(index, 1);
+    }
+  }
   
   next() {
     this.router.navigate(["modeSelector"])

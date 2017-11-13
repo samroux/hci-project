@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-
+var Sqlite = require("nativescript-sqlite");
 
 import {TriviaQuestion} from "../triviaQuestion";
 import {Team} from "../team";
@@ -13,8 +13,9 @@ export class RoundDataProvider {
     public currentPlayer: Player;
     public group: Group;
     public players : Player[] = [];
+    public groups : Group[] = [];    
     public teams : Team[] = [];
-
+    
     public path: string;
     
     public subjectId: string;
@@ -25,7 +26,30 @@ export class RoundDataProvider {
 
     public playersInRound: string[] = []
     
-    public constructor() {}
+    private database: any;
+    
+    
+    public constructor() {
+        (new Sqlite("passthephone.db")).then(db => {
+            db.execSQL("CREATE TABLE IF NOT EXISTS players (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, group_id TEXT)").then(id => {
+                this.database = db;
+            }, error => {
+                console.log("CREATE TABLE ERROR", error);
+            });
+        }, error => {
+            console.log("OPEN DB ERROR", error);
+        });
+        
+        (new Sqlite("passthephone.db")).then(db => {
+            db.execSQL("CREATE TABLE IF NOT EXISTS groups (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT)").then(id => {
+                this.database = db;
+            }, error => {
+                console.log("CREATE TABLE ERROR", error);
+            });
+        }, error => {
+            console.log("OPEN DB ERROR", error);
+        });
+    }
     
     public hasRemainingPlayers: boolean = true;
 
@@ -100,24 +124,24 @@ export class RoundDataProvider {
             }
         }
         
-       return noTeamPlayers;
+        return noTeamPlayers;
     }
-
-
+    
+    
     public clearData(){
         console.log("Clearing Data...");
         this.triviaQuestion = null; 
         this.currentPlayer= null;
         this.group= null;
-
+        
         for(let i = 0; i <this.players.length;i++){
             delete this.players[i];
         }
-
+        
         for(let i = 0; i <this.teams.length;i++){
             delete this.teams[i];
         }
-
+        
         this.players= [];
         this.teams= [];
         
@@ -125,5 +149,92 @@ export class RoundDataProvider {
         
         this.gameMode= "";
     }
+    
+    public clearGroups(){
         
+        for(let i = 0; i <this.groups.length;i++){
+            delete this.groups[i];
+        }
+        
+        this.groups= [];
+    }
+    
+    public insert_group(group:Group) {        
+        this.database.execSQL("INSERT INTO groups (name) VALUES (?)", [group.name]).then(id => {
+            console.log("INSERT RESULT", id);
+            group.id=id;
+            // this.fetch();
+            this.insert_group_players(group);
+        }, error => {
+            console.log("INSERT ERROR", error);
+        });
+    }
+    
+    private insert_group_players(group:Group) {
+        
+        let insert_players = group.players;
+        
+        for (var player of insert_players){
+            this.database.execSQL("INSERT INTO players (name, group_id) VALUES (?, ?)", [player.name, group.id]).then(id => {
+                console.log("INSERT RESULT", id);
+                // this.fetch();
+            }, error => {
+                console.log("INSERT ERROR", error);
+            });
+        }
+    }
+    
+    public fetch_groups() {
+        //TODO. Fetch recostructs objects based on id.
+        
+        console.log("fetching groups...");
+        
+        // var that = this;
+        
+        this.database.all("SELECT * FROM groups").then(rows => {
+            this.groups = [];
+            for(var row in rows) {
+                this.groups.push({
+                    "id":rows[row][0],
+                    "name":rows[row][1],
+                    "playersName":"",
+                    "players":null
+                }
+            );
+            let lastGroup = this.groups[this.groups.length-1];
+            console.log("new group: "+lastGroup.name);
+            lastGroup.players= this.fetch_group_players(lastGroup);
+        }
+    }, error => {
+        console.log("SELECT ERROR", error);
+        return false
+    });
+    return true;
+}
+
+public fetch_group_players(group:Group){
+    let group_players: Player[]=[];
+    
+    console.log("Fetching group players: "+group.id);
+
+    
+    this.database.all("SELECT * FROM players where id = 1").then(rows => {
+        group_players = [];
+        for(var row in rows) {
+            group_players.push({
+                "id":rows[row][0],
+                "name":rows[row][1],
+                "answerCount": 0,
+                "runningPointsTotal": 0,
+                "team": null,
+                "isSelected":false
+            });
+        }
+    }, error => {
+        console.log("SELECT ERROR", error);
+    });
+    
+    return group_players;
+}
+
 }

@@ -30,6 +30,9 @@ export class ModeSelectorComponent implements OnInit {
   @ViewChild("teamBtn") teamBtn: ElementRef;
   @ViewChild("warning") warning: ElementRef;
   ngOnInit(){
+    if(this.rdp.players.length % 2 != 0 || this.rdp.players.length == 2){
+      this.teamBtn.nativeElement.backgroundColor = "#d2d2d2";
+    }
     this.progressValue = 40;
   }
   

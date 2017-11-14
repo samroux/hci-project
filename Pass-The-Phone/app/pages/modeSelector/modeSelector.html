@@ -10,8 +10,14 @@
         <Label text="Players: {{playersName}}"></Label>    
         
         <StackLayout class="inner-stack">
-                <Label text="Please choose a game mode"></Label>
-                <Button text="Team play" class="submit-button" (tap)="teamPlay()"></Button>
-                <Button text="All versus all" class="submit-button" (tap)="individualPlay()"></Button>
+                <Label text="Please choose a game mode" textWrap="true"></Label>
+                <StackLayout orientation="horizontal">
+                        <Image src="~/shared/team_play.png" height="30" width="30" horizontalAlignment="left"></Image>
+                        <Button width="75%" text="Team play" class="submit-button" (tap)="teamPlay()"></Button>
+                </StackLayout>
+                <StackLayout orientation="horizontal">
+                        <Image src="~/shared/all_vs_all.png" height="30" width="30" horizontalAlignment="left"></Image>
+                        <Button width="75%" text="All versus all" class="submit-button" (tap)="individualPlay()"></Button>
+                </StackLayout>
         </StackLayout>
 </StackLayout>

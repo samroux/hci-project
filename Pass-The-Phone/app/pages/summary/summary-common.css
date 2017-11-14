@@ -12,6 +12,13 @@ TextField {
   padding-top: 0;
 }
 
+.grid-list{
+  margin-left: 14;
+  margin-right: 14;
+  padding-bottom: 15;
+  padding-top: 15;
+}
+
 GridLayout {
   margin-left: 14;
   margin-right: 14;
@@ -31,6 +38,10 @@ Button, TextField {
   border-radius: 12px;
   background-color: #e7e7e7;
   color: black;
+}
+
+ListView{
+  box-shadow: inset  0  8px 8px -8px rgba(0,0,0,0.5), inset  0 -8px 8px -8px rgba(0,0,0,0.5);
 }
 
 #listpicker{

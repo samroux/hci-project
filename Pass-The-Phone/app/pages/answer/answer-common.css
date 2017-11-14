@@ -14,8 +14,9 @@ TextField {
 .googleError{
   margin-left:12;
 }
+
 .showGoogle{
-  background-color: #e60042;
+  background-color: #CB1D00;
   color: white;
   margin-top: 10;
   padding-top: 6;
@@ -25,8 +26,12 @@ TextField {
   width: 150;
 }
 .question{
-  margin-top: 10;
+  margin-top: 5;
   margin-left: 10;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  padding-top: 0;
+  
 }
 .logo {
   margin-top: 12;
@@ -50,7 +55,7 @@ TextField {
 }
 
 .submit-button {
-  background-color: #e60042;
+  background-color: #CB1D00;
   color: white;
   margin-top: 15;
 }
@@ -59,3 +64,5 @@ TextField {
   padding-bottom: 0;
   padding-top: 0;
 }
+
+

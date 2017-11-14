@@ -86,6 +86,15 @@ export class PlayerCreatorComponent implements OnInit{
     this.players.push(player);    
     this.newPlayerName = "";
   }
+
+  private deletePlayer(player:Player) {
+    console.log("Player to be deleted:"+ player.name);
+
+    var index = this.players.indexOf(player, 0);
+    if (index > -1) {
+      this.players.splice(index, 1);
+    }
+  }
   
   private next() {
     if(this.rdp.path && this.rdp.path !== ""){

@@ -1,14 +1,18 @@
 <ActionBar class="action-bar">
-                <StackLayout orientation="horizontal" verticalAligment="center" horizontalAlignment="center">
-                        <Image class="logo" src="~/shared/logo.png"></Image>
-                </StackLayout>
-                <ActionItem text="Quit" ios.position="right" android.position="right" (tap)="quit()"></ActionItem> 
+        <StackLayout orientation="horizontal" verticalAligment="center" horizontalAlignment="center">
+                <Image class="logo" src="~/shared/logo.png"></Image>
+        </StackLayout>
+        <ActionItem text="Quit" ios.position="right" (tap)="quit()"></ActionItem> 
 </ActionBar>
 
 <StackLayout class="page-stack">
-        <Label text="Game Summary"></Label>
+        <Label text="Game Summary" horizontalAlignment="center"></Label>
+        <GridLayout class="grid-header" rows="auto" columns="2*, *">
+                <Label row="0" col="0" text="Name"></Label>
+                <Label row="0" col="1" text="Score"></Label>
+        </GridLayout>
         <StackLayout class="inner-stack">
-                <GridLayout height="40%">                
+                <GridLayout height="40%">               
                         <ListView [items]="elements" class="list-group">
                                 <ng-template let-elements="item" let-i="index" let-odd="odd" let-even="even">
                                         <GridLayout class="list-group-item" rows="auto, *" columns="2*, *">

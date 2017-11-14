@@ -47,6 +47,7 @@ export class SubjectSelectorComponent implements OnInit{
       console.log ("Chosen: "+this.selectedCategory.id +" "+ this.selectedCategory.name);
       this.next(this.selectedCategory.id);
   }
+  
   @ViewChild("subjects") subjects : ElementRef;
   extractData() {
     var http = require("http"); 

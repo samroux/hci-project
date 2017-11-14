@@ -14,6 +14,7 @@ TextField {
 .googleError{
   margin-left:12;
 }
+
 .showGoogle{
   background-color: #CB1D00;
   color: white;
@@ -25,8 +26,12 @@ TextField {
   width: 150;
 }
 .question{
-  margin-top: 10;
+  margin-top: 5;
   margin-left: 10;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  padding-top: 0;
+  
 }
 .logo {
   margin-top: 12;
@@ -59,3 +64,5 @@ TextField {
   padding-bottom: 0;
   padding-top: 0;
 }
+
+

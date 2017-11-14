@@ -4,6 +4,14 @@ TextField {
   border-width: 1;
   border-color: black;
 }
+
+.grid-header{
+  margin-left: 30;
+  margin-right: 30;
+  padding-bottom: 0;
+  padding-top: 0;
+}
+
 GridLayout {
   margin-left: 14;
   margin-right: 14;

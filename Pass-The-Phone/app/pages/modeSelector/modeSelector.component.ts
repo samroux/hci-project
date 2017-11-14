@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
 import { Router } from "@angular/router";
 
 import { Progress } from "ui/progress";
@@ -27,9 +27,10 @@ export class ModeSelectorComponent implements OnInit {
     this.playersName = roundDataProvider.group.playersName;
     this.groupName = roundDataProvider.group.name;
   }
-  
+  @ViewChild("teamBtn") teamBtn: ElementRef;
+  @ViewChild("warning") warning: ElementRef;
   ngOnInit(){
-    this.progressValue = 40;    
+    this.progressValue = 40;
   }
   
   individualPlay() {
@@ -38,18 +39,18 @@ export class ModeSelectorComponent implements OnInit {
   }
   
   teamPlay() {
+    console.log("players")
+    console.log(this.rdp.players.length)
+    if(this.rdp.players.length % 2 != 0 || this.rdp.players.length == 2){
+      this.warning.nativeElement.color = "red";
+      this.warning.nativeElement.visibility = "visible";
+      return;
+    }
     let teamCount=this.roundDataProvider.calculateTeamCount();
     
     if(teamCount > 1){
       this.rdp.gameMode="team";
       this.next("team");
-    }else{
-      let options = {
-        title: "Error",
-        message: "Team play is not allowed given the number of players",
-        okButtonText: "OK"
-      };
-      alert(options);
     }
   }
   

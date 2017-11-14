@@ -1,0 +1,12 @@
+<ActionBar class="action-bar">
+                <StackLayout orientation="horizontal" verticalAligment="center" horizontalAlignment="center">
+                        <Image class="logo" src="~/shared/logo.png"></Image>
+                </StackLayout>
+                <ActionItem text="Quit" ios.position="right"  [nsRouterLink]="['/start']"></ActionItem>
+</ActionBar>
+    
+<StackLayout class="content">
+        <!-- <Label text="QuestionPreAnswer-Page"></Label> -->
+        <Label text="{{roundDataProvider.currentPlayer.name}}, please press the button below once you're ready!" textWrap="true" ></Label>       
+        <Button text="Next" class="submit-button" (tap)="next()"></Button>        
+</StackLayout>

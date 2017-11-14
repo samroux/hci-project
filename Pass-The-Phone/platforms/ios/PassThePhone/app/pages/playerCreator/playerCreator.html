@@ -1,0 +1,28 @@
+<ActionBar class="action-bar">
+        <StackLayout orientation="horizontal" verticalAligment="center" horizontalAlignment="center">
+                <Image class="logo" src="~/shared/logo.png"></Image>
+        </StackLayout> 
+</ActionBar>
+
+<StackLayout class="page-stack">
+        <Progress [value]="progressValue" maxValue="100" class="m-20"></Progress> 
+        <StackLayout class="inner-stack">
+                <Label class="label" text="Identify your current group of friends for later use:" row="1" col="0" textWrap="true"></Label>
+                <TextField #groupNameTx hint="Group Name" autocorrect="false" returnKeyType="done"
+                class="input input-border"></TextField>
+                
+                <GridLayout rows="auto, *, auto" columns="2*, *" height="100%">
+                        <TextField  #newPlayerTx id="newPlayerName"  [(ngModel)]="newPlayerName" hint="Enter a Player Name" row="0" col="0" ></TextField>
+                        <Button text="Add" tap="add" row="0" col="1" (tap)="addPlayer(newPlayerTx.text)"></Button>
+                        <ListView [items]="players" row="1" colSpan="2" class="list-group">
+                                <ng-template let-players="item" let-i="index" let-odd="odd" let-even="even">
+                                        <GridLayout class="list-group-item">
+                                                <Label [text]="players.name"></Label> 
+                                                <Image class="trashcan" horizontalAlignment="right"src="~/shared/trashcan.png" (tap)="deletePlayer(players)"></Image> 
+                                        </GridLayout>
+                                </ng-template>
+                        </ListView>
+                <Button text="Create Group" row="2" colSpan="2" (tap)="submit(groupNameTx.text)" class="submit-button" ></Button>      
+                </GridLayout>               
+        </StackLayout>
+</StackLayout>

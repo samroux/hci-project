@@ -1,0 +1,24 @@
+<ActionBar class="action-bar">
+                <StackLayout orientation="horizontal">
+                        <Image class="logo" src="~/shared/logo.png" horizontalAlignment="center"></Image>
+                </StackLayout>
+</ActionBar>
+
+<StackLayout class="page-stack">
+        <Progress [value]="progressValue" maxValue="100" class="m-20"></Progress> 
+        <Label text="Group: {{groupName}}"></Label>    
+        <Label text="Players: {{playersName}}"></Label>    
+        
+        <StackLayout class="inner-stack">
+                <Label text="Please choose a game mode" textWrap="true"></Label>
+                <StackLayout orientation="horizontal">
+                        <Image src="~/shared/team_play.png" height="30" width="30" horizontalAlignment="left"></Image>
+                        <Button #teamBtn width="75%" text="Team play" class="submit-button" (tap)="teamPlay()"></Button>
+                </StackLayout>
+                <StackLayout orientation="horizontal">
+                        <Image src="~/shared/all_vs_all.png" height="30" width="30" horizontalAlignment="left"></Image>
+                        <Button width="75%" text="All versus all" class="submit-button" (tap)="individualPlay()"></Button>
+                </StackLayout>
+                <Label #warning text="Team play is not allowed with two players or an odd number of players" visibility="hidden" textWrap="true"></Label>
+        </StackLayout>
+</StackLayout>

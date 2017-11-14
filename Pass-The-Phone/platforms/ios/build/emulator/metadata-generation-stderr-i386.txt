@@ -1,0 +1,112 @@
+clang version 4.0.0 (tags/RELEASE_400/final)
+Target: i386-apple-darwin16.5.0
+Thread model: posix
+InstalledDir: 
+clang Invocation:
+ "clang-tool" "-cc1" "-triple" "i386-apple-ios10.0.0" "-fsyntax-only" "-disable-free" "-disable-llvm-verifier" "-discard-value-names" "-main-file-name" "umbrella.h" "-mrelocation-model" "pic" "-pic-level" "2" "-mthread-model" "posix" "-mdisable-fp-elim" "-masm-verbose" "-target-cpu" "yonah" "-target-linker-version" "301.1" "-v" "-dwarf-column-info" "-debugger-tuning=lldb" "-resource-dir" "../lib/clang/4.0.0" "-isysroot" "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator10.3.sdk" "-D" "__NATIVESCRIPT_METADATA_GENERATOR=1" "-I" "/Users/StraightUpG/Desktop/not" "-I" "porn/ECSE" "-I" "424/hci-project1/Pass-The-Phone/platforms/ios/build/emulator/include" "-I" "/Users/StraightUpG/Desktop/not" "-I" "porn/ECSE" "-I" "424/hci-project1/Pass-The-Phone/platforms/ios/../../node_modules/nativescript-sqlite/platforms/ios" "-I" "/Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/internal" "-I" "/Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/internal/TKLiveSync/include" "-F/Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/build/emulator" "-F/Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/internal/" "-F/Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/../../node_modules/nativescript-pro-ui/platforms/ios" "-F/Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/../../node_modules/tns-core-modules-widgets/platforms/ios" "-D" "DEBUG=1" "-Wno-unknown-pragmas" "-Wno-ignored-attributes" "-Wno-nullability-completeness" "-Wno-expansion-to-defined" "-std=gnu99" "-fdebug-compilation-dir" "/Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/internal/metadata-generator/bin" "-ferror-limit" "0" "-fmessage-length" "0" "-stack-protector" "1" "-fblocks" "-fimplicit-module-maps" "-fobjc-runtime=ios-10.0.0" "-fencode-extended-block-signature" "-fobjc-exceptions" "-fexceptions" "-fmax-type-align=16" "-fdiagnostics-show-option" "-x" "objective-c" "umbrella.h"
+
+ignoring nonexistent directory "/Users/StraightUpG/Desktop/not"
+ignoring nonexistent directory "porn/ECSE"
+ignoring nonexistent directory "424/hci-project1/Pass-The-Phone/platforms/ios/build/emulator/include"
+ignoring nonexistent directory "/Users/StraightUpG/Desktop/not"
+ignoring nonexistent directory "porn/ECSE"
+ignoring nonexistent directory "424/hci-project1/Pass-The-Phone/platforms/ios/../../node_modules/nativescript-sqlite/platforms/ios"
+ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator10.3.sdk/usr/local/include"
+ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator10.3.sdk/Library/Frameworks"
+#include "..." search starts here:
+#include <...> search starts here:
+ /Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/internal
+ /Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/internal/TKLiveSync/include
+ /Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/build/emulator (framework directory)
+ /Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/internal (framework directory)
+ /Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/../../node_modules/nativescript-pro-ui/platforms/ios (framework directory)
+ /Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/../../node_modules/tns-core-modules-widgets/platforms/ios (framework directory)
+ ../lib/clang/4.0.0/include
+ /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator10.3.sdk/usr/include
+ /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator10.3.sdk/System/Library/Frameworks (framework directory)
+End of search list.
+clang version 4.0.0 (tags/RELEASE_400/final)
+Target: i386-apple-darwin16.5.0
+Thread model: posix
+InstalledDir: 
+clang Invocation:
+ "objc-metadata-generator" "-cc1" "-triple" "i386-apple-ios10.0.0" "-fsyntax-only" "-disable-free" "-disable-llvm-verifier" "-discard-value-names" "-main-file-name" "umbrella.h" "-mrelocation-model" "pic" "-pic-level" "2" "-mthread-model" "posix" "-mdisable-fp-elim" "-masm-verbose" "-target-cpu" "yonah" "-target-linker-version" "301.1" "-v" "-dwarf-column-info" "-debugger-tuning=lldb" "-resource-dir" "../lib/clang/4.0.0" "-isysroot" "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator10.3.sdk" "-D" "__NATIVESCRIPT_METADATA_GENERATOR=1" "-I" "/Users/StraightUpG/Desktop/not" "-I" "porn/ECSE" "-I" "424/hci-project1/Pass-The-Phone/platforms/ios/build/emulator/include" "-I" "/Users/StraightUpG/Desktop/not" "-I" "porn/ECSE" "-I" "424/hci-project1/Pass-The-Phone/platforms/ios/../../node_modules/nativescript-sqlite/platforms/ios" "-I" "/Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/internal" "-I" "/Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/internal/TKLiveSync/include" "-F/Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/build/emulator" "-F/Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/internal/" "-F/Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/../../node_modules/nativescript-pro-ui/platforms/ios" "-F/Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/../../node_modules/tns-core-modules-widgets/platforms/ios" "-D" "DEBUG=1" "-Wno-unknown-pragmas" "-Wno-ignored-attributes" "-Wno-nullability-completeness" "-Wno-expansion-to-defined" "-std=gnu99" "-fdebug-compilation-dir" "/Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/internal/metadata-generator/bin" "-ferror-limit" "0" "-fmessage-length" "0" "-stack-protector" "1" "-fblocks" "-fimplicit-module-maps" "-fobjc-runtime=ios-10.0.0" "-fencode-extended-block-signature" "-fobjc-exceptions" "-fexceptions" "-fmax-type-align=16" "-fdiagnostics-show-option" "-x" "objective-c" "umbrella.h"
+
+clang -cc1 version 4.0.0 based upon LLVM 4.0.0 default target x86_64-apple-darwin16.5.0
+ignoring nonexistent directory "/Users/StraightUpG/Desktop/not"
+ignoring nonexistent directory "porn/ECSE"
+ignoring nonexistent directory "424/hci-project1/Pass-The-Phone/platforms/ios/build/emulator/include"
+ignoring nonexistent directory "/Users/StraightUpG/Desktop/not"
+ignoring nonexistent directory "porn/ECSE"
+ignoring nonexistent directory "424/hci-project1/Pass-The-Phone/platforms/ios/../../node_modules/nativescript-sqlite/platforms/ios"
+ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator10.3.sdk/usr/local/include"
+ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator10.3.sdk/Library/Frameworks"
+#include "..." search starts here:
+#include <...> search starts here:
+ /Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/internal
+ /Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/internal/TKLiveSync/include
+ /Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/build/emulator (framework directory)
+ /Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/internal (framework directory)
+ /Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/../../node_modules/nativescript-pro-ui/platforms/ios (framework directory)
+ /Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/../../node_modules/tns-core-modules-widgets/platforms/ios (framework directory)
+ ../lib/clang/4.0.0/include
+ /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator10.3.sdk/usr/include
+ /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator10.3.sdk/System/Library/Frameworks (framework directory)
+End of search list.
+In file included from umbrella.h:594:
+In file included from /Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/../../node_modules/nativescript-pro-ui/platforms/ios/TelerikAppFeedback.framework/Headers/TelerikAppFeedback.h:20:
+In file included from /Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/../../node_modules/nativescript-pro-ui/platforms/ios/TelerikAppFeedback.framework/Headers/TKFeedback.h:8:
+/Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/../../node_modules/nativescript-pro-ui/platforms/ios/TelerikAppFeedback.framework/Headers/TKFeedbackSettings.h:23:1: warning: no 'assign', 'retain', or 'copy' attribute is specified - 'assign' is assumed [-Wobjc-property-no-attribute]
+@property (nonatomic) NSString* feedbackSentAlertTitle;
+^
+/Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/../../node_modules/nativescript-pro-ui/platforms/ios/TelerikAppFeedback.framework/Headers/TKFeedbackSettings.h:23:1: warning: default property attribute 'assign' not appropriate for non-GC object [-Wobjc-property-no-attribute]
+/Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/../../node_modules/nativescript-pro-ui/platforms/ios/TelerikAppFeedback.framework/Headers/TKFeedbackSettings.h:28:1: warning: no 'assign', 'retain', or 'copy' attribute is specified - 'assign' is assumed [-Wobjc-property-no-attribute]
+@property (nonatomic) NSString* feedbackSentAlertText;
+^
+/Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/../../node_modules/nativescript-pro-ui/platforms/ios/TelerikAppFeedback.framework/Headers/TKFeedbackSettings.h:28:1: warning: default property attribute 'assign' not appropriate for non-GC object [-Wobjc-property-no-attribute]
+/Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/../../node_modules/nativescript-pro-ui/platforms/ios/TelerikAppFeedback.framework/Headers/TKFeedbackSettings.h:33:1: warning: no 'assign', 'retain', or 'copy' attribute is specified - 'assign' is assumed [-Wobjc-property-no-attribute]
+@property (nonatomic) NSString* feedbackTitle;
+^
+/Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/../../node_modules/nativescript-pro-ui/platforms/ios/TelerikAppFeedback.framework/Headers/TKFeedbackSettings.h:33:1: warning: default property attribute 'assign' not appropriate for non-GC object [-Wobjc-property-no-attribute]
+/Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/../../node_modules/nativescript-pro-ui/platforms/ios/TelerikAppFeedback.framework/Headers/TKFeedbackSettings.h:38:1: warning: no 'assign', 'retain', or 'copy' attribute is specified - 'assign' is assumed [-Wobjc-property-no-attribute]
+@property (nonatomic) NSString* feedbackMenuSendCaption;
+^
+/Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/../../node_modules/nativescript-pro-ui/platforms/ios/TelerikAppFeedback.framework/Headers/TKFeedbackSettings.h:38:1: warning: default property attribute 'assign' not appropriate for non-GC object [-Wobjc-property-no-attribute]
+/Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/../../node_modules/nativescript-pro-ui/platforms/ios/TelerikAppFeedback.framework/Headers/TKFeedbackSettings.h:43:1: warning: no 'assign', 'retain', or 'copy' attribute is specified - 'assign' is assumed [-Wobjc-property-no-attribute]
+@property (nonatomic) NSString* feedbackMenuSettingsCaption;
+^
+/Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/../../node_modules/nativescript-pro-ui/platforms/ios/TelerikAppFeedback.framework/Headers/TKFeedbackSettings.h:43:1: warning: default property attribute 'assign' not appropriate for non-GC object [-Wobjc-property-no-attribute]
+/Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/../../node_modules/nativescript-pro-ui/platforms/ios/TelerikAppFeedback.framework/Headers/TKFeedbackSettings.h:48:1: warning: no 'assign', 'retain', or 'copy' attribute is specified - 'assign' is assumed [-Wobjc-property-no-attribute]
+@property (nonatomic) NSString* feedbackMenuMyFeedbackCaption;
+^
+/Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/../../node_modules/nativescript-pro-ui/platforms/ios/TelerikAppFeedback.framework/Headers/TKFeedbackSettings.h:48:1: warning: default property attribute 'assign' not appropriate for non-GC object [-Wobjc-property-no-attribute]
+In file included from umbrella.h:693:
+In file included from /Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/../../node_modules/nativescript-pro-ui/platforms/ios/TelerikUI.framework/Headers/TelerikUI.h:47:
+In file included from /Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/../../node_modules/nativescript-pro-ui/platforms/ios/TelerikUI.framework/Headers/TKChartData.h:5:
+/Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/../../node_modules/nativescript-pro-ui/platforms/ios/TelerikUI.framework/Headers/TKChartAxis.h:182:1: warning: no 'assign', 'retain', or 'copy' attribute is specified - 'assign' is assumed [-Wobjc-property-no-attribute]
+@property (nonatomic) TKRange * __nonnull zoomRange;
+^
+/Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/../../node_modules/nativescript-pro-ui/platforms/ios/TelerikUI.framework/Headers/TKChartAxis.h:182:1: warning: default property attribute 'assign' not appropriate for non-GC object [-Wobjc-property-no-attribute]
+In file included from umbrella.h:693:
+In file included from /Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/../../node_modules/nativescript-pro-ui/platforms/ios/TelerikUI.framework/Headers/TelerikUI.h:215:
+/Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/../../node_modules/nativescript-pro-ui/platforms/ios/TelerikUI.framework/Headers/TKCalendarMonthPresenterStyle.h:19:1: warning: no 'assign', 'retain', or 'copy' attribute is specified - 'assign' is assumed [-Wobjc-property-no-attribute]
+@property (nonatomic) UIColor *popoverColor;
+^
+/Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/../../node_modules/nativescript-pro-ui/platforms/ios/TelerikUI.framework/Headers/TKCalendarMonthPresenterStyle.h:19:1: warning: default property attribute 'assign' not appropriate for non-GC object [-Wobjc-property-no-attribute]
+In file included from umbrella.h:693:
+In file included from /Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/../../node_modules/nativescript-pro-ui/platforms/ios/TelerikUI.framework/Headers/TelerikUI.h:229:
+In file included from /Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/../../node_modules/nativescript-pro-ui/platforms/ios/TelerikUI.framework/Headers/TKCalendarDayViewEventsView.h:8:
+/Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/../../node_modules/nativescript-pro-ui/platforms/ios/TelerikUI.framework/Headers/TKCalendarDayViewEventsViewStyle.h:43:1: warning: no 'assign', 'retain', or 'copy' attribute is specified - 'assign' is assumed [-Wobjc-property-no-attribute]
+@property (nonatomic, nullable) UIColor * labelTextColor;
+^
+/Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/../../node_modules/nativescript-pro-ui/platforms/ios/TelerikUI.framework/Headers/TKCalendarDayViewEventsViewStyle.h:43:1: warning: default property attribute 'assign' not appropriate for non-GC object [-Wobjc-property-no-attribute]
+/Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/../../node_modules/nativescript-pro-ui/platforms/ios/TelerikUI.framework/Headers/TKCalendarDayViewEventsViewStyle.h:58:1: warning: no 'assign', 'retain', or 'copy' attribute is specified - 'assign' is assumed [-Wobjc-property-no-attribute]
+@property (nonatomic, nullable) UIColor * separatorColor;
+^
+/Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/../../node_modules/nativescript-pro-ui/platforms/ios/TelerikUI.framework/Headers/TKCalendarDayViewEventsViewStyle.h:58:1: warning: default property attribute 'assign' not appropriate for non-GC object [-Wobjc-property-no-attribute]
+In file included from umbrella.h:693:
+In file included from /Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/../../node_modules/nativescript-pro-ui/platforms/ios/TelerikUI.framework/Headers/TelerikUI.h:239:
+/Users/StraightUpG/Desktop/not porn/ECSE 424/hci-project1/Pass-The-Phone/platforms/ios/../../node_modules/nativescript-pro-ui/platforms/ios/TelerikUI.framework/Headers/TKListView.h:14:9: fatal error: 'TKCollectionView.h' file not found
+#import "TKCollectionView.h"
+        ^~~~~~~~~~~~~~~~~~~~
+20 warnings and 1 error generated.

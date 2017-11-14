@@ -48,14 +48,20 @@
                 <p class="tip">Example of fields where the user has entered a group name, but no player name</p>
             </div>
         <ul>
-            <li>Allow users to delete a player from the list of added players, e.g. if a name was entered twice or erroneously, as happened to a user during testing. This feature is explicit, and follows an established metaphor by using a trash can icon (<b>Match between the system and the real world</b>);</li>
+            <li>Allow users to delete a player from the list of added players, e.g. if a name was entered twice or erroneously, as happened to a user during testing. This feature is explicit, and follows an established metaphor by using a trash can icon (<b>Match between the system and the real world</b>). This functionality is also available for existing groups, as was recommended by the evaluator team;</li>
         </ul>
             <div class="figure">
                 <img src="assets/alpha/error_delete_players.png">
                 <p class="tip">Example of players in a list, with a trash can icon to the right</p>
             </div>
         <ul>
-            <li>Prevent users from choosing team mode if the number of players in the game is odd. This is done by greying out the button, lowering the contrast between its text and background, effectively making it seem inactive. Additionally, a message is included to make the error clear. This solves an issue that the evaluating team had, where trying to play in team mode with three members resulted in awkward team building on the next screen;</li>
+            <li>Prevent users from choosing team mode if the number of players in the game is odd. This is done by greying out the button, lowering the contrast between its text and background, effectively making it seem inactive. Additionally, a message is included if a user tried to press the button, to make the error clear. This solves an issue that the evaluating team had, where trying to play in team mode with three members resulted in awkward team building on the next screen;</li>
+        </ul>
+            <div class="figure">
+                <img src="assets/alpha/error_team_mode.png">
+                <p class="tip">Inactive team mode button, along with error message</p>
+            </div>
+        <ul>
             <li>Added error checking in the team building phase, to make sure that players cannot be included in two teams at once. If a player is included in team 1, then their name will not appear in the list for team 2.</li>
         </ul>
 
@@ -98,9 +104,9 @@
     
     <h3>Revised Prototype</h3>
     <div>
-        <a href="assets/hifi/pass_the_phone_alpha.apk" download>Download the Android build of the alpha prototype (.apk)</a>
+        <a href="assets/alpha/pass_the_phone_alpha.apk" download>Download the Android build of the alpha prototype (.apk)</a>
         <br>
-        <a href="assets/hifi/pass_the_phone_source.zip" download>Download an archive with the source code (.zip)</a>
+        <a href="https://github.com/samroux/hci-project/" target="_blank">Access our GitHub repository</a>
 
         <p class="body_text">Please refer to the User manual below for installation instructions.</p>
 

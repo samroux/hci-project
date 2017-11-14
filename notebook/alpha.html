@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Alpha Prototype - Pass the Phone - HCI</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">  
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+</head>
+
+<body>
+
+<div id="header">
+    <div id="logo">
+        <a href="index.html"><img src="assets/logo.png"></a>
+    </div>
+    <!--<div id="title_block">
+        <span>
+        <h1 class="title">Pass the Phone</h1>
+        </span>
+    </div>-->
+    <div id="nav">
+        <span>
+        <span>
+        <a href="project_proposal.html">Project Proposal</a>
+        <a href="lo_fi_prototype.html">Lo-Fi Prototype</a>
+        <a href="hi_fi_prototype.html">Hi-Fi Prototype</a>
+        <a href="feedback.html">Feedback</a>
+        <a href="alpha.html" class="selected">Alpha Prototype</a>
+        </span>
+    </div>
+</div>
+
+<div id="main">
+
+    <h2>Alpha Prototype</h2>
+
+    <h3>Design Evolution</h3>
+    <div>
+        <h5>1. Lots of error handling and bug fixing</h5>
+        <p class="body_text">
+            Much of the feedback received concerned the bugs that could be encountered just by regular use of the application. These were obviously a problem, as they went against our goal of creating a smooth flow for the game. While many of the bugs that were preventing normal functionality from working were fixed, many instances of error handling were implemented as well. This is in line with two of Nielsen’s heuristics: <b>Error Prevention</b>, and <b>Help users recognize, diagnose, and recover from errors</b>. Here are a few examples of such error handling:
+        </p>
+        <ul>
+            <li>Prevent groups or players with empty names from being created, and draw a user’s attention to the missing information by drawing a red border around the empty text field;</li>
+        </ul>
+            <div class="figure">
+                <img src="assets/alpha/error_empty_field.png">
+                <p class="tip">Example of fields where the user has entered a group name, but no player name</p>
+            </div>
+        <ul>
+            <li>Allow users to delete a player from the list of added players, e.g. if a name was entered twice or erroneously, as happened to a user during testing. This feature is explicit, and follows an established metaphor by using a trash can icon (<b>Match between the system and the real world</b>);</li>
+        </ul>
+            <div class="figure">
+                <img src="assets/alpha/error_delete_players.png">
+                <p class="tip">Example of players in a list, with a trash can icon to the right</p>
+            </div>
+        <ul>
+            <li>Prevent users from choosing team mode if the number of players in the game is odd. This is done by greying out the button, lowering the contrast between its text and background, effectively making it seem inactive. Additionally, a message is included to make the error clear. This solves an issue that the evaluating team had, where trying to play in team mode with three members resulted in awkward team building on the next screen;</li>
+            <li>Added error checking in the team building phase, to make sure that players cannot be included in two teams at once. If a player is included in team 1, then their name will not appear in the list for team 2.</li>
+        </ul>
+
+        <h5>2. Changed the name of the two game modes</h5>
+        <p class="body_text">
+            These modes were causing confusion for the users, since their names weren’t explicit enough. The names were changed from “Team” and “Individual” to “Team play” and “All vs. All”. Icon designs representing the modes were also added to help the user gain a clear idea of the modes, quickly.
+        </p>
+        <div class="figure">
+            <img src="assets/alpha/game_modes.png">
+            <p class="tip">Redesigned buttons for the selection of game modes</p>
+        </div>
+
+        <h5>3. Redesigned the screen that prompts users to ask a question</h5>
+        <p class="body_text">
+            This screen is crucial to the flow of the game, and the flow of the game is one of our usability goals. We had noted its special status since the early sketches of the application. Since there were problems during testing regarding the clarity of this screen, we decided to revisit those sketches and try something more explicit. The evaluating team suggested that we make the status of the game more obvious for this screen, following the <b>Visibility of system status</b> heuristic. With this in mind, we added a visual representation of the flow of the game at the top of this screen, indicating the person who should ask the question, and the person to whom the question should be asked, linked by a directional arrow. After reading a question, the directive to pass the phone to the person who was asked the question is kept. The wording of the button is also changed: instead of simply saying “done”, the button now specifically addresses the person that received the phone, prompting them to progress once ready. 
+
+        </p>
+        <div class="figure">
+            <img src="assets/alpha/redesigned_question_page.png">
+            <p class="tip">Redesigned question page: (left) hi-fi prototype version, (right) alpha prototype version</p>
+        </div>
+
+
+        <h5>4. Added a timer to the Ask Google option</h5>
+        <p class="body_text">
+            One feature that we wanted to implement for the game was to allow players to get help with some questions. The two ideas we had were to ask a teammate, and to ask Google. However, these features had to be limited in some way, by controlling when they appear in the flow of the game, and by limiting their use through a timer. For the alpha prototype, the timer was implemented for the “ask Google” function. The timer is clearly visible, both to make the status clear, and to add a sense of urgency to the question. 
+
+            <video src="assets/alpha/ask_google_timer.mov" style="width: 100%;height: 400px;margin-top: 5px;box-shadow: none; ;border: 1px solid #ddd;" controls>    
+            </video>
+        </p>
+
+        <h5>5. Addition of a "Quit" button during the game</h5>
+        <p class="body_text">
+            A "quit" button was added to the top right of the header. It only appears while the game is underway, allowing users to exit the game easily. This button keeps users in control of the game (<b>User control and freedom</b>). 
+        </p>
+
+    </div>
+
+    <hr>
+    
+    <h3>Revised Prototype</h3>
+    <div>
+        <a href="assets/hifi/pass_the_phone_alpha.apk" download>Download the Android build of the alpha prototype (.apk)</a>
+        <br>
+        <a href="assets/hifi/pass_the_phone_source.zip" download>Download an archive with the source code (.zip)</a>
+
+        <p class="body_text">Please refer to the User manual below for installation instructions.</p>
+
+        <h4>Callback to the goal of the project</h4>
+        <p class="body_text">
+            With this prototype, we feel that we are moving in a direction that allows the game to be more engaging. This is crucial, since the goal of the game is to present a good alternative for a group of friends that are all isolated on their phone. As the game improves, we get closer to the possibility of stimulating fun face-to-face group interaction through a smartphone.
+        </p>
+
+    </div>
+
+    <hr>
+
+    <h3>Revised User Manual</h3>
+    <div>
+        <a href="assets/alpha/pass_the_phone_user_manual.pdf" target="_blank">Here is the revised user manual.</a>
+
+        <p class="body_text">
+            Even if we initially thought that a user manual was redundant for a mobile application that aims to be simple to use, testing revealed that such a manual can serve a purpose, both for users and evaluators. We had included information on the application on our web site; this information is now consolidated and detailed in the manual. The manual was also designed to give a clear overview of the application and its goals. It is aimed not only at users encountering problems while using the application, but also at readers wanting to get an quick idea of the game, without necessarily using it or installing it. 
+            <br>
+            In the manual, you will find an brief summary of the goal of the application, installation instructions, a screen-by-screen breakdown of the application, and version history. 
+        </p>
+
+    </div>
+
+    <hr>
+
+    <h3>Future design improvements</h3>
+    <div>
+        <p class="body_text">
+            Along with general polishing of the UI and UX of the game, we have narrowed down a few aspects that we aim to tackle in the future.
+        </p>
+
+        <h5>1. Implement functionality to access user's game history</h5>
+        <p class="body_text">
+            The idea behind having group names and scores was that users could revisit those games, and gain rewards depending on how many times they have played Pass the Phone — and effectively stimulated a group activity among their friends, when everyone was focused on their phone. We have not abandoned this idea, and aim to implement this for the upcoming deliverable.
+        </p>
+
+        <h5>2. Control the behavior of the back button in Android</h5>
+        <p class="body_text">
+            Android's back button is notoriously hard to tame, and sometimes unpredictable. Its current behavior for Pass the Phone is to go back to the previous screen while in the setup portion of the game, which is expected. However, as the evaluator team pointed out, pressing the back button during the game exits the application altogether. This is because we implemented a "back" function during the setup to allow users to undo mistakes, but no "back" function during the game, as going back to the previous round of the game does not make sense. We will have to ensure that the back button is configured in such a way that users cannot easily exit the application.
+        </p>
+
+        <h5>3. Implement a second way for users to get help during a question: Ask a team member</h5>
+        <p class="body_text">
+            This function would add more variety to the gameplay, and promote team play and interaction.
+            Additionally, we want to flesh out the logic that regulates when the helper buttons should appear, since asking Google every question is too easy. For instance, the button could appear for a team that falls behind, or has a particularly good answer streak.
+        </p>
+
+        <h5>4. Redesign lists to convey scrollable property</h5>
+        <p class="body_text">
+            A complaint that was received was that it wasn’t always clear that lists could be scrolled. This is due to the implementation of mobile scrollbars on both Android and iOS, which fade out of view when the user is not scrolling. To counteract this, a drop shadow could be added to the top and bottom of each list element, to separate the list from the background of the application and display that there is content that is outside the bounds of the screen.
+        </p>
+
+    </div>
+
+    <hr>
+
+
+    <h3>Alpha Prototype - <a href="alpha_contrib.html" target="_blank">Individual Contributions</a></h3>
+
+</div>
+
+<div id="footer">
+    <div id="title_block">
+        <h1 class="title">Under Construction</h4>
+            <h4 class="subtitle">William Bouchard - Olivier Eydt - Samuel Roux</h4>
+    </div>
+</div>
+
+</body>
+</html>

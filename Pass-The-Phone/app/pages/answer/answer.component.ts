@@ -37,14 +37,22 @@ export class AnswerComponent{
     this.currentQuestion = roundDataProvider.triviaQuestion
 
     this.question = this.currentQuestion.question; 
-
+    this.shuffle(this.currentQuestion.triviaAnswers);
     for (let i =0; i<this.currentQuestion.triviaAnswers.length;i++){
       // console.log("question: "+this.currentQuestion.question);
-
+      console.log(i)
       this.choices.push(this.currentQuestion.triviaAnswers[i]);
     }
-
   }
+
+  private shuffle(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+}
 
   /*ngAfterViewInit() {
     let webview: WebView = this.webView.nativeElement;
@@ -86,7 +94,6 @@ export class AnswerComponent{
         "Player is having: " + 
       this.roundDataProvider.currentPlayer.runningPointsTotal);
       
-
       this.next(correct, this.selectedAnswer.content);
     }
   }

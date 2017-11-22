@@ -14,14 +14,11 @@ import {RoundDataProvider} from "../../shared/providers/roundData.provider"
 
 export class AnswerValidationComponent implements OnInit{
   public correct: boolean;
-  
   // public correct_answer: TriviaAnswer;
-  public correct_answer_content: string;
   public player_answer_content: string;
   public correctness: string;
   public subjectId: string;
   public playersRemaining: boolean = true;
-  
   public constructor(private route: ActivatedRoute, private router: RouterExtensions,private roundDataProvider: RoundDataProvider ) {
     this.route.params.subscribe((params) => {
       this.correct = params["correct"] == "true";
@@ -31,16 +28,17 @@ export class AnswerValidationComponent implements OnInit{
       this.playersRemaining = roundDataProvider.hasRemainingPlayers;
     });
     // console.log("answer: "+this.player_answer_content);
-    this.correct_answer_content = roundDataProvider.triviaQuestion.triviaCorrectAnswer.content; 
-    
   }
 
+  @ViewChild("answer") answerRef: ElementRef;
   @ViewChild("Check") successOrFail: ElementRef;
   ngOnInit(){
     console.log("correct: "+this.correct);
     if(this.correct){
       this.successOrFail.nativeElement.src = "~/pages/answerValidation/checkmark.png";
     } else{
+      this.answerRef.nativeElement.visibility = "visible";
+      this.answerRef.nativeElement.text = "Correct answer: ".concat(this.roundDataProvider.triviaQuestion.triviaCorrectAnswer.content); 
       this.successOrFail.nativeElement.src = "~/pages/answerValidation/x-mark.gif";
     }
   }

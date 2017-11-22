@@ -15,10 +15,14 @@ export class RoundDataProvider {
     public players : Player[] = [];
     public groups : Group[] = [];    
     public teams : Team[] = [];
-    
+    public hasQuestions: boolean = false;
     public path: string;
-    
+    public questions:string[];
+    public answers:[string[]];
     public subjectId: string;
+    public category:string;
+    public type:string;
+    public difficulty:string;
     
     public gameMode: string;
     
@@ -62,8 +66,10 @@ export class RoundDataProvider {
         let j = 0;
         let k = 0;
         //populate elligible players array
+        console.log("question asker: ".concat(questionAsker))
         for(let i = 0; i <this.players.length;i++){
             if(this.players[i].answerCount<this.answerCount){
+                console.log("question asker: ".concat(this.players[i].name))
                 if(this.players[i].name != questionAsker && this.playersInRound.indexOf(this.players[i].name) < 0 && (this.currentPlayer == null || this.players[i].name != this.currentPlayer.name)){
                     elligiblePlayers[k]=this.players[i];
                     k++;
@@ -76,7 +82,9 @@ export class RoundDataProvider {
         }else{
             this.hasRemainingPlayers = j > 1;
             console.log(j > 1)
-            let random = Math.floor(Math.random() * k);  
+            let random = Math.floor(Math.random() * k); 
+            console.log("random ".concat((random).toString()))
+            console.log("elligible ".concat((elligiblePlayers.length).toString()))
             this.playersInRound.push(elligiblePlayers[random].name)
             if(this.playersInRound.length == this.players.length){
                 console.log("round done")
@@ -104,6 +112,14 @@ export class RoundDataProvider {
             return 0;
         }
         
+    }
+
+    public getProgress(){
+        var questionsAnswered : number = 0;
+        this.players.forEach(player =>{
+            questionsAnswered += player.answerCount;
+        });
+        return (questionsAnswered/(this.answerCount * this.players.length)) * 100;
     }
 
     public getPlayersInTeam(team: Team): Player[]{

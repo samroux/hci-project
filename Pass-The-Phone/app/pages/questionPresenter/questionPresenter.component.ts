@@ -28,7 +28,7 @@ export class QuestionPresenterComponent implements OnInit{
   public question: string;
   public triviaQuestion: TriviaQuestion;
   public choices: TriviaAnswer[];
-
+  public progressValue: number;
   public selectedId: string;
 
   public constructor(private route: ActivatedRoute, private routerExtensions: RouterExtensions, private roundDataProvider: RoundDataProvider, private router: Router) {
@@ -48,8 +48,25 @@ export class QuestionPresenterComponent implements OnInit{
   @ViewChild("questionFor") questionFor: ElementRef;
   @ViewChild("aloud") aloud: ElementRef;
   ngOnInit() {
+    this.progressValue = this.roundDataProvider.getProgress()
+    if(!this.roundDataProvider.hasQuestions){
+      this.extractData();
+    } else{
+      console.log("reading old questions");
+      var currentQuestion = this.roundDataProvider.questions.pop()
+      var currentAnswers:string[] = this.roundDataProvider.answers.pop()
+      this.question = "Question: ".concat(currentQuestion);
+      
+      this.triviaQuestion = new TriviaQuestion(this.roundDataProvider.category, this.roundDataProvider.type, this.roundDataProvider.difficulty, currentQuestion, currentAnswers.pop(), currentAnswers);
+
+      for (const answer of this.triviaQuestion.triviaAnswers){
+        this.choices.push(answer);
+      }
+
+      // this is employed to keep the current question shared among pages
+      this.roundDataProvider.triviaQuestion = this.triviaQuestion;
+    }
     this.definePlayer();
-    this.extractData();
   }
 
   private definePlayer(){
@@ -69,15 +86,14 @@ export class QuestionPresenterComponent implements OnInit{
       this.roundDataProvider.currentPlayer = reply;
     }
   }
-    
 
   private extractData() {
     // extracting random question from opentdb
     var http = require("http");
     var that = this;
-
-    // getting 1 question of difficulty easy, from selected category
-    http.request({ url: "https://opentdb.com/api.php?amount=1&difficulty=easy&encode=base64&category="+this.selectedId, method: "GET" })
+    var numberOfQuestions = this.roundDataProvider.players.length * this.roundDataProvider.answerCount;
+    // getting all questions of difficulty easy, from selected category
+    http.request({ url: "https://opentdb.com/api.php?amount="+numberOfQuestions+"&difficulty=easy&encode=base64&category="+this.selectedId, method: "GET" })
     .then(function (r) {
       //// Argument (r) is JSON!
       var json = r.content;
@@ -87,22 +103,36 @@ export class QuestionPresenterComponent implements OnInit{
       var myObj = JSON.parse(str);
       
       var results = myObj.results;
+      //console.log(that.decodeBase64(results[1].question));
+      that.roundDataProvider.category = that.decodeBase64(results[0].category);
+      that.roundDataProvider.type = that.decodeBase64(results[0].type);
+      that.roundDataProvider.difficulty = that.decodeBase64(results[0].difficulty);
       
-      let category: string = that.decodeBase64(results[0].category);
-      let type: string = that.decodeBase64(results[0].type);
-      let difficulty: string = that.decodeBase64(results[0].difficulty);
-      let question: string = that.decodeBase64(results[0].question);
-      let correct_answer: string = that.decodeBase64(results[0].correct_answer);
-      let incorrect_answers: string[] = results[0].incorrect_answers;
+      //let question: string = that.decodeBase64(results[0].question);
+      //let correct_answer: string = that.decodeBase64(results[0].correct_answer);
+      //let incorrect_answers: string[] = results[0].incorrect_answers;
 
-      // decode all elements of incorrect answers
-      for(let i=0; i< incorrect_answers.length;i++){
-        incorrect_answers[i] =that.decodeBase64(incorrect_answers[i]);
+      let answers: [string[]] = [[]];
+      let questions: string[] = []
+      for(let i=0; i< numberOfQuestions; i++){
+        questions.push(that.decodeBase64(results[i].question));
+        var spec_answer:string[] = [];
+        for(let j=0; j< results[i].incorrect_answers.length;j++){
+          spec_answer.push(that.decodeBase64(results[i].incorrect_answers[j]));
+        }
+        console.log(that.decodeBase64(results[i].correct_answer))
+        spec_answer.push(that.decodeBase64(results[i].correct_answer))
+        answers.push(spec_answer);
       }
+      that.roundDataProvider.questions = questions;
+      that.roundDataProvider.answers = answers;
       
-      that.question = "Question: ".concat(question);
+      var currentQuestion = that.roundDataProvider.questions.pop();
+      var currentAnswers:string[] = that.roundDataProvider.answers.pop();
       
-      that.triviaQuestion = new TriviaQuestion(category, type, difficulty, question, correct_answer, incorrect_answers);
+      that.question = "Question: ".concat(currentQuestion);
+      
+      that.triviaQuestion = new TriviaQuestion(that.roundDataProvider.category, that.roundDataProvider.type, that.roundDataProvider.difficulty, currentQuestion, currentAnswers.pop(), currentAnswers);
 
       for (const answer of that.triviaQuestion.triviaAnswers){
         that.choices.push(answer);
@@ -110,7 +140,7 @@ export class QuestionPresenterComponent implements OnInit{
 
       // this is employed to keep the current question shared among pages
       that.roundDataProvider.triviaQuestion=that.triviaQuestion;
-      
+      that.roundDataProvider.hasQuestions = true;
     }, function (e) {
       //// Argument (e) is Error!
       console.log(e);

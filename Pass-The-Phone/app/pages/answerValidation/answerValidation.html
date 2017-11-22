@@ -9,5 +9,6 @@
         <Label text="You selected"></Label>    
         <Label [text]="player_answer_content"></Label>   
         <Image #Check (tap)="toggle()" class="validation"></Image>
+        <Label #answer visibility="hidden"></Label>
         <Button text="Next" class="submit-button" (tap)="next()"></Button>        
 </StackLayout>

@@ -6,11 +6,13 @@
 </ActionBar>
 
 <StackLayout class="page-stack">
+        <Progress [value]="progressValue" maxValue="100" class="m-20"></Progress>
         <GridLayout class="people" columns="*,*,*" rows="auto">
                         <Label col="0" class="h2 p" #questionAsker></Label>
                         <Image col="1" src="~/shared/arrow.png" width="150" height="83"></Image>
                         <Label col="2" class="h2 p" #questionFor></Label> 
         </GridLayout>
+        <StackLayout class="hr-light"></StackLayout>
         <StackLayout class="content"> 
                 <!--<Label #aloud class="h2" textWrap="true"></Label>-->
                 <Label class="h2 p" text="Please read aloud."></Label>                   

@@ -99,6 +99,7 @@ export class SummaryComponent implements OnInit{
       player.runningPointsTotal = 0;
     });
     this.rdp.path = ""
+    this.rdp.hasQuestions = false;
     this.rdp.currentPlayer = new Player("")
     this.rdp.hasRemainingPlayers = true;
     this.routerExtensions.navigate(["questionPresenter", this.rdp.subjectId], { clearHistory: true });

@@ -48,6 +48,7 @@ export class PlayerCreatorComponent implements OnInit{
   private submit(groupName) {
     if(groupName && this.players.length > 1){
       this.group = new Group(groupName, this.players);
+      console.log("length players".concat(this.players.length.toString()))
       this.rdp.players = this.players;
       this.rdp.group = this.group;
       var color = require("color");
@@ -74,8 +75,21 @@ export class PlayerCreatorComponent implements OnInit{
   
   private addPlayer(playerName) {
     if(playerName==""){
-      // console.log("Cannot allow empty player name");
+      var color = require("color");
+      var colorRed = new color.Color("#FF0000");
+      this.playerTextField.nativeElement.borderColor = colorRed;
+      this.playerTextField.nativeElement.hint = "Enter a player Name";
       return;
+    }
+    for(let player of this.players){
+      if(player.name == playerName){
+        var color = require("color");
+        var colorBlack = new color.Color("#FF0000");
+        this.playerTextField.nativeElement.borderColor = colorBlack;
+        this.playerTextField.nativeElement.text = ""
+        this.playerTextField.nativeElement.hint = "Enter a unique name.";
+        return;
+      }
     }
     var color = require("color");
     var colorBlack = new color.Color("#000000");

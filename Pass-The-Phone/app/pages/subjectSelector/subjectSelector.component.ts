@@ -39,6 +39,8 @@ export class SubjectSelectorComponent implements OnInit{
   ngOnInit() {
     this.progressValue = 80;
     this.extractData();
+    //if got here restarted game
+    this.rdp.hasQuestions = false;
   }
   
   public onItemTap(args) {

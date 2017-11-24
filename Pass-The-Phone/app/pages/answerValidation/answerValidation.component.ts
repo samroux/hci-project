@@ -19,13 +19,13 @@ export class AnswerValidationComponent implements OnInit{
   public correctness: string;
   public subjectId: string;
   public playersRemaining: boolean = true;
-  public constructor(private route: ActivatedRoute, private router: RouterExtensions,private roundDataProvider: RoundDataProvider ) {
+  public constructor(private route: ActivatedRoute, private router: RouterExtensions,private rdp: RoundDataProvider ) {
     this.route.params.subscribe((params) => {
       this.correct = params["correct"] == "true";
       this.player_answer_content = params["answer"];
-      console.log("answer: "+roundDataProvider.subjectId);
-      this.subjectId = roundDataProvider.subjectId;
-      this.playersRemaining = roundDataProvider.hasRemainingPlayers;
+      console.log("answer: "+rdp.subjectId);
+      this.subjectId = rdp.subjectId;
+      this.playersRemaining = rdp.hasRemainingPlayers;
     });
     // console.log("answer: "+this.player_answer_content);
   }
@@ -34,13 +34,22 @@ export class AnswerValidationComponent implements OnInit{
   @ViewChild("Check") successOrFail: ElementRef;
   ngOnInit(){
     console.log("correct: "+this.correct);
+    this.rdp.speak("You Answered"+this.player_answer_content);
     if(this.correct){
       this.successOrFail.nativeElement.src = "~/pages/answerValidation/checkmark.png";
+      this.rdp.speak("This is correct!")      
     } else{
       this.answerRef.nativeElement.visibility = "visible";
-      this.answerRef.nativeElement.text = "Correct answer: ".concat(this.roundDataProvider.triviaQuestion.triviaCorrectAnswer.content); 
+      this.answerRef.nativeElement.text = "Correct answer: ".concat(this.rdp.triviaQuestion.triviaCorrectAnswer.content); 
       this.successOrFail.nativeElement.src = "~/pages/answerValidation/x-mark.gif";
+      this.rdp.speak("This is WRONG!")
+      this.rdp.speak("The Correct answer is: "+ this.rdp.triviaQuestion.triviaCorrectAnswer.content)
     }
+
+   
+
+
+
   }
   
   next() {

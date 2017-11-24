@@ -73,6 +73,8 @@ export class GroupSelectorComponent implements OnInit{
     this.groups.push( new Group ("groupPlayers4", groupPlayers4));
     this.groups.push( new Group ("groupPlayers5", groupPlayers5));
     this.groups.push( new Group ("groupPlayers6", groupPlayers6));
+
+    
     
     
     // // for(var group of this.groups){

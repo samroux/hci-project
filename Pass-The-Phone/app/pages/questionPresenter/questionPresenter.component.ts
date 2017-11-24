@@ -67,6 +67,9 @@ export class QuestionPresenterComponent implements OnInit{
       this.roundDataProvider.triviaQuestion = this.triviaQuestion;
     }
     this.definePlayer();
+
+    this.roundDataProvider.speak(this.questionAsker.nativeElement.text)
+    this.roundDataProvider.speak( " ask the question to "+ this.questionFor.nativeElement.text);
   }
 
   private definePlayer(){
@@ -130,7 +133,8 @@ export class QuestionPresenterComponent implements OnInit{
       var currentQuestion = that.roundDataProvider.questions.pop();
       var currentAnswers:string[] = that.roundDataProvider.answers.pop();
       
-      that.question = "Question: ".concat(currentQuestion);
+      // that.question = "Question: ".concat(currentQuestion);
+      that.question = currentQuestion;
       
       that.triviaQuestion = new TriviaQuestion(that.roundDataProvider.category, that.roundDataProvider.type, that.roundDataProvider.difficulty, currentQuestion, currentAnswers.pop(), currentAnswers);
 
@@ -145,6 +149,7 @@ export class QuestionPresenterComponent implements OnInit{
       //// Argument (e) is Error!
       console.log(e);
     });
+
   }
 
   private decodeBase64(input: string) {

@@ -47,6 +47,7 @@ export class SubjectSelectorComponent implements OnInit{
       console.log("Item Tapped at cell index: " + args.index + " " + args.name);
       this.selectedCategory = this.categories.getItem(args.index);
       console.log ("Chosen: "+this.selectedCategory.id +" "+ this.selectedCategory.name);
+      this.rdp.speak("Game is starting now!");
       this.next(this.selectedCategory.id);
   }
   

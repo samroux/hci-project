@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
+import { TNSTextToSpeech, SpeakOptions } from 'nativescript-texttospeech';
 var Sqlite = require("nativescript-sqlite");
 
 import {TriviaQuestion} from "../triviaQuestion";
 import {Team} from "../team";
 import {Player} from "../player";
 import {Group} from "../group";
+
+
 
 @Injectable()
 export class RoundDataProvider {
@@ -33,28 +36,14 @@ export class RoundDataProvider {
     private database: any;
 
     public groupFetch_completed: boolean = false;
+
+    //set a default boolean for a button to animate when the tts plugin 'speaks'
+    isSpeaking: boolean = false;
+    private TTS: TNSTextToSpeech;
     
     
     public constructor() {
-        // (new Sqlite("passthephone.db")).then(db => {
-        //     db.execSQL("CREATE TABLE IF NOT EXISTS players (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, group_id TEXT)").then(id => {
-        //         this.database = db;
-        //     }, error => {
-        //         console.log("CREATE TABLE ERROR", error);
-        //     });
-        // }, error => {
-        //     console.log("OPEN DB ERROR", error);
-        // });
-        
-        // (new Sqlite("passthephone.db")).then(db => {
-        //     db.execSQL("CREATE TABLE IF NOT EXISTS groups (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT)").then(id => {
-        //         this.database = db;
-        //     }, error => {
-        //         console.log("CREATE TABLE ERROR", error);
-        //     });
-        // }, error => {
-        //     console.log("OPEN DB ERROR", error);
-        // });
+        this.TTS = new TNSTextToSpeech();
     }
     
     public hasRemainingPlayers: boolean = true;
@@ -92,6 +81,20 @@ export class RoundDataProvider {
             }
             return elligiblePlayers[random];
         }
+    }
+
+    public speak(text: string){
+        this.isSpeaking = true;
+        let speakOptions: SpeakOptions = {
+            text: text,
+            speakRate: 0.5,
+            pitch: 1,
+            queue: true,
+            finishedCallback: (() => {
+                this.isSpeaking = false;
+            })  
+        }
+        this.TTS.speak(speakOptions);
     }
     
     public calculateTeamCount(){

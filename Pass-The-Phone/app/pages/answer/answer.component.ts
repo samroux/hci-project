@@ -43,22 +43,28 @@ export class AnswerComponent implements OnInit{
       console.log(i)
       this.choices.push(this.currentQuestion.triviaAnswers[i]);
     }
-    
+    this.rdp.speak(this.currentQuestion.question);
     this.rdp.speak("Choose among the following:");
     
     let i = 0;
-    for (var answer of this.choices){
+    /*for (var answer of this.choices){
       this.rdp.speak(answer.content);
       if(i<(this.choices.length-1)){
         // this.rdp.speak("or");
       }
       
-    }
+    }*/
   }
   
   ngOnInit(){
-    
-    
+    console.log("length ".concat(this.rdp.teams.length.toString()));
+    if(this.rdp.teams.length <= 0){
+      this.friend.nativeElement.visibility = "hidden";
+    }
+    if(!this.rdp.currentPlayer.canAsk){
+      this.friend.nativeElement.backgroundColor = "#d2d2d2";
+      this.friend.nativeElement.isEnabled = false;
+    }
   }
   
   private shuffle(array) {
@@ -116,6 +122,7 @@ export class AnswerComponent implements OnInit{
     @ViewChild("selectAnswer") selectAnswer: ElementRef;
     @ViewChild("googleError") googleError: ElementRef;
     @ViewChild("timer") timer: ElementRef;
+    @ViewChild("friend") friend: ElementRef;
     public WebViewSRC: string;
     
     private stopWebview(){
@@ -169,6 +176,14 @@ export class AnswerComponent implements OnInit{
         //label.text = message;
         console.log("WebView message - " + message);
       });*/
+    }
+
+    private askAFriend(){
+      console.log("asked a friend");
+      this.rdp.currentPlayer.canAsk = false;
+      this.friend.nativeElement.backgroundColor = "#d2d2d2";
+      this.friend.nativeElement.isEnabled = false;
+      this.rdp.speak("You may ask ".concat(this.rdp.getRandomFriend(this.rdp.currentPlayer)));
     }
     
     private next(correct,answer_content) {

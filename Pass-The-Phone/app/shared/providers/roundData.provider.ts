@@ -23,6 +23,7 @@ export class RoundDataProvider {
     public questions:string[];
     public answers:[string[]];
     public subjectId: string;
+    public subjectName: string;
     public category:string;
     public type:string;
     public difficulty:string;
@@ -82,6 +83,21 @@ export class RoundDataProvider {
             return elligiblePlayers[random];
         }
     }
+    //trouver un ami pour demander une question, code beurk
+    public getRandomFriend(player: Player){
+        let friends = [];
+        player.team.players.forEach(p => {
+            if(p.name != player.name){
+                friends.push(p);
+            }
+        });
+        let index = Math.floor(Math.random()*friends.length);
+        if(index > 0){
+            return friends[index].name;
+        } else{
+            return friends[0].name;
+        }
+    }
 
     public speak(text: string){
         this.isSpeaking = true;
@@ -95,6 +111,11 @@ export class RoundDataProvider {
             })  
         }
         this.TTS.speak(speakOptions);
+    }
+
+    public stopSpeaking(){
+        this.isSpeaking = false;
+        this.TTS.destroy();
     }
     
     public calculateTeamCount(){

@@ -23,7 +23,8 @@ TextField {
   padding-bottom: 6;
   margin-bottom: 10;
   border-radius: 80;
-  width: 150;
+  width: 125;
+  text-align: center;
 }
 .question{
   margin-top: 5;

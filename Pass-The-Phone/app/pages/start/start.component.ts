@@ -15,6 +15,10 @@ export class StartComponent {
 
   public constructor(private router: Router, private rdp:RoundDataProvider) {
     this.rdp = rdp;
+    this.rdp.hasRemainingPlayers = true;
+    this.rdp.path = "";
+    this.rdp.teams = [];
+    this.rdp.players = [];
   }
 
   submit() {

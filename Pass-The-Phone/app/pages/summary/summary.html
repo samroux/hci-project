@@ -28,7 +28,7 @@
                 <Button text="New Game" class="submit-button" (tap)="restartRoute()" col="0" width=45%></Button>
                 <Button text="Change Game &#9881;" class="submit-button" (tap)="settingsRoute()" col="2" width=45%></Button>  
         </GridLayout>
-        <Label #alert visibility="hidden" style="color: red"></Label>
+        <Label class="alert" #alert visibility="hidden" style="color: red"></Label>
         <GridLayout width="70%" columns="*" rows="2*, *">
                 <ListPicker #listpicker col="0" row="0" class="list-picker" visibility="hidden"></ListPicker>
                 <Button #go text="Change Selected" col="0" row="1" (tap)="changeSelected()" visibility="hidden" tap="tap"></Button>             

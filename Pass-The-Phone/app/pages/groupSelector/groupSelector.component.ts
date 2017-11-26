@@ -197,7 +197,8 @@ public fetch_group_players(group:Group){
         "answerCount": 0,
         "runningPointsTotal": 0,
         "team": null,
-        "isSelected":false
+        "isSelected":false,
+        "canAsk":true
       });
     }
   }, error => {

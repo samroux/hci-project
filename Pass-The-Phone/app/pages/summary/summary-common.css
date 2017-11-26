@@ -59,7 +59,9 @@ ListView{
   padding-bottom: 0;
   padding-top: 0;
 }
-
+.alert{
+  margin-left: 10;
+}
 .extra{
   font-size: 13;
   margin-left: 16; 

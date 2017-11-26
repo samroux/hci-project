@@ -21,7 +21,7 @@ export class SubjectSelectorComponent implements OnInit{
   //public categories: Array<TriviaCategory> = [];
   public categories = new ObservableArray<TriviaCategory>();
   public selectedCategory: TriviaCategory;
-  
+  public randomCategory: number;
   public progressValue: number;
   public returnPath: string; 
   public rdp: RoundDataProvider; 
@@ -31,9 +31,6 @@ export class SubjectSelectorComponent implements OnInit{
     //   this.returnPath = params.path;
     // });
     this.rdp = roundDataProvider;
-
-    this.categories.push(new TriviaCategory(null,""));
-    // this.categories.pop();
   }
   
   ngOnInit() {
@@ -45,9 +42,13 @@ export class SubjectSelectorComponent implements OnInit{
   
   public onItemTap(args) {
       console.log("Item Tapped at cell index: " + args.index + " " + args.name);
-      this.selectedCategory = this.categories.getItem(args.index);
+      if(args.index == 0){
+        this.selectedCategory = this.categories.getItem(this.randomCategory);
+      } else{
+        this.selectedCategory = this.categories.getItem(args.index);
+      }
       console.log ("Chosen: "+this.selectedCategory.id +" "+ this.selectedCategory.name);
-      this.rdp.speak("Game is starting now!");
+      this.rdp.speak("Selected Category is ".concat(this.selectedCategory.name));
       this.next(this.selectedCategory.id);
   }
   
@@ -69,6 +70,14 @@ export class SubjectSelectorComponent implements OnInit{
       console.log(myObj.trivia_categories.length)
       //hackz pour enlever le null du ui lol
       //that.categories.pop()
+      //Add a random subject button to list
+      if(myObj.trivia_categories.length > 0){
+        let randId = Math.floor(Math.random()*myObj.trivia_categories.length);
+        console.log("random".concat(randId.toString()))
+        console.log(myObj.trivia_categories.length.toString())
+        that.categories.push(new TriviaCategory(randId,"Random Subject"));
+        that.randomCategory = randId;
+      }
       for (let i = 0;i < myObj.trivia_categories.length;i++) {
         //console.log(myObj.trivia_categories[i].id+ " "+ myObj.trivia_categories[i].name);
         let id: number = myObj.trivia_categories[i].id;
@@ -99,10 +108,13 @@ export class SubjectSelectorComponent implements OnInit{
     // if(this.returnPath == "summary"){
     //   this.router.navigate([this.returnPath]);
     // } else{
+      console.log("path ".concat(this.rdp.path));
       if(this.rdp.path && this.rdp.path !== ""){
         this.rdp.path = "subjectSelector";
+        this.rdp.subjectName = this.selectedCategory.name;
         this.routerExtensions.navigate(["summary"], { clearHistory: true });
       } else{
+        this.rdp.speak("Game is starting now!");
         this.routerExtensions.navigate(["questionPresenter", categoryId ], { clearHistory: true });        
       }   // }
   }

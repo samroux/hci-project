@@ -8,7 +8,10 @@
 <GridLayout columns="*" rows="auto,*,auto,5*,5*">
         <!-- <Label text="Answer-Page"></Label>        -->
         <Label class="question" [text]="question" row="0" col="0" textWrap="true" ></Label>
-        <Button #showWebview height="30" row="1" col="0" class="showGoogle" text="Ask Google" (tap)="viewWeb()"></Button>
+        <GridLayout row="1" col="0" columns="*,*" rows="auto">
+                <Button row="0" col="0" #showWebview height="30" class="showGoogle" text="Ask Google" (tap)="viewWeb()"></Button>
+                <Button row="0" col="1" #friend height="30" class="showGoogle" text="Ask A Friend" (tap)="askAFriend()"></Button>
+        </GridLayout>
         <StackLayout #selectAnswer class="timer" row="2" col="0" orientation="horizontal" visibility="hidden">
                 <Label #googleError text="You have Google for: " textWrap="true" ></Label>
                 <Label #timer class="googleError"></Label>
@@ -18,7 +21,7 @@
                 <ListView #listview [items]="choices" (itemTap)="onItemTap($event)" class="list-group">
                         <ng-template let-choices="item" let-i="index" let-odd="odd" let-even="even">
                                 <GridLayout class="list-group-item">
-                                        <Label [text]="choices.content"></Label>
+                                        <Label [text]="choices.content" textWrap="true"></Label>
                                 </GridLayout>
                         </ng-template>
                 </ListView>

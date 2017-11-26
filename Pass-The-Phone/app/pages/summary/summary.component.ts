@@ -61,7 +61,8 @@ export class SummaryComponent implements OnInit{
     console.log(this.rdp.path);
     if(this.rdp.path && this.rdp.path !== ""){
       if(this.rdp.path == "subjectSelector"){
-        this.message = "Subject Changed!";
+        this.message = "Subject changed to: ".concat(this.roundDataProvider.subjectName);
+        this.roundDataProvider.subjectName = "";
       } else if(this.rdp.path == "playerCreator"){
         this.message = "Players Changed!";
       } else{
@@ -69,7 +70,7 @@ export class SummaryComponent implements OnInit{
       }
       this.alertText.nativeElement.visibility = "visible";
       this.alertText.nativeElement.text = this.message;
-      this.rdp.path == "";
+      this.rdp.path = "";
     }
   }
   
@@ -97,6 +98,7 @@ export class SummaryComponent implements OnInit{
     this.rdp.players.forEach(player => {
       player.answerCount = 0;
       player.runningPointsTotal = 0;
+      player.canAsk = true;
     });
     this.rdp.path = ""
     this.rdp.hasQuestions = false;

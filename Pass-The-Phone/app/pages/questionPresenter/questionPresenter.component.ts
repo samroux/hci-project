@@ -35,8 +35,8 @@ export class QuestionPresenterComponent implements OnInit{
     this.route.params.subscribe((params) => {
       this.selectedId = params.id;
     });
-    console.log("selectedid: " + this.selectedId);
     roundDataProvider.subjectId = this.selectedId;
+    console.log("selectedid: " + this.selectedId);
 
     this.choices = [];
 
@@ -106,6 +106,10 @@ export class QuestionPresenterComponent implements OnInit{
       var myObj = JSON.parse(str);
       
       var results = myObj.results;
+      if(myObj.results.length <= 0){
+        console.log("Results not good");
+        this.quit();
+      }
       //console.log(that.decodeBase64(results[1].question));
       that.roundDataProvider.category = that.decodeBase64(results[0].category);
       that.roundDataProvider.type = that.decodeBase64(results[0].type);

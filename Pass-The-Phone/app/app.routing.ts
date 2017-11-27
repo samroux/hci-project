@@ -9,6 +9,7 @@ import { GroupSelectorComponent } from "./pages/groupSelector/groupSelector.comp
 import { ModeSelectorComponent } from "./pages/modeSelector/modeSelector.component";
 import { TeamBuilderComponent } from "./pages/teamBuilder/teamBuilder.component";
 import { SubjectSelectorComponent } from "./pages/subjectSelector/subjectSelector.component";
+import { FirstPlayerAnnounceComponent } from "./pages/firstPlayerAnnounce/firstPlayerAnnounce.component";
 import { QuestionPresenterComponent } from "./pages/questionPresenter/questionPresenter.component";
 import { QuestionPreAnswerComponent } from "./pages/questionPreAnswer/questionPreAnswer.component";
 import { AnswerComponent } from "./pages/answer/answer.component";
@@ -30,7 +31,8 @@ export const routes = [
     { path: "modeSelector", component: ModeSelectorComponent },
     { path: "teamBuilder", component: TeamBuilderComponent },
     { path: "subjectSelector", component: SubjectSelectorComponent },
-    { path: "questionPresenter/:id", component: QuestionPresenterComponent },
+    { path: "firstPlayerAnnounce", component: FirstPlayerAnnounceComponent },    
+    { path: "questionPresenter", component: QuestionPresenterComponent },
     { path: "questionPreAnswer", component: QuestionPreAnswerComponent },
     { path: "answer", component: AnswerComponent },
     { path: "answerValidation/:correct/:answer", component: AnswerValidationComponent },
@@ -50,6 +52,7 @@ export const navigatableComponents = [
     ModeSelectorComponent,
     TeamBuilderComponent,
     SubjectSelectorComponent,
+    FirstPlayerAnnounceComponent,
     QuestionPresenterComponent,
     QuestionPreAnswerComponent,
     AnswerComponent,

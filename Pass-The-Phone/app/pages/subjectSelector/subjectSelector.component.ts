@@ -49,6 +49,9 @@ export class SubjectSelectorComponent implements OnInit{
       }
       console.log ("Chosen: "+this.selectedCategory.id +" "+ this.selectedCategory.name);
       this.rdp.speak("Selected Category is ".concat(this.selectedCategory.name));
+
+      this.rdp.subjectId = this.selectedCategory.id.toString();
+
       this.next(this.selectedCategory.id);
   }
   
@@ -115,8 +118,10 @@ export class SubjectSelectorComponent implements OnInit{
         this.routerExtensions.navigate(["summary"], { clearHistory: true });
       } else{
         this.rdp.speak("Game is starting now!");
-        this.routerExtensions.navigate(["questionPresenter", categoryId ], { clearHistory: true });        
-      }   // }
+        // this.routerExtensions.navigate(["firstPlayerAnnounce", categoryId ], { clearHistory: true }); 
+        this.routerExtensions.navigate(["firstPlayerAnnounce"], { clearHistory: true });        
+       
+      } 
   }
   
 }

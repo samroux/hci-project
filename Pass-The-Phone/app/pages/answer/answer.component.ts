@@ -47,13 +47,13 @@ export class AnswerComponent implements OnInit{
     this.rdp.speak("Choose among the following:");
     
     let i = 0;
-    /*for (var answer of this.choices){
+    for (var answer of this.choices){
       this.rdp.speak(answer.content);
       if(i<(this.choices.length-1)){
         // this.rdp.speak("or");
       }
       
-    }*/
+    }
   }
   
   ngOnInit(){

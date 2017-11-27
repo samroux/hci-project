@@ -53,11 +53,8 @@ export class AnswerValidationComponent implements OnInit{
   }
   
   next() {
-    // TODO need to check if needs to go to summary or not.
-    //Yo sam routing to questionpresenter then to summary brought the question
-    //page for a second so im sending directly to summary
     if(this.playersRemaining){
-      this.router.navigate(["questionPresenter", this.subjectId ], { clearHistory: true });
+      this.router.navigate(["questionPresenter"], { clearHistory: true });
     } else{
       this.router.navigate(["summary"], { clearHistory: true });
     }

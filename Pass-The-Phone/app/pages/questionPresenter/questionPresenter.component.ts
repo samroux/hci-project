@@ -31,11 +31,9 @@ export class QuestionPresenterComponent implements OnInit{
   public progressValue: number;
   public selectedId: string;
 
-  public constructor(private route: ActivatedRoute, private routerExtensions: RouterExtensions, private roundDataProvider: RoundDataProvider, private router: Router) {
-    this.route.params.subscribe((params) => {
-      this.selectedId = params.id;
-    });
-    roundDataProvider.subjectId = this.selectedId;
+  public constructor(private routerExtensions: RouterExtensions, private roundDataProvider: RoundDataProvider, private router: Router) {
+
+    this.selectedId= roundDataProvider.subjectId ;
     console.log("selectedid: " + this.selectedId);
 
     this.choices = [];
@@ -81,10 +79,11 @@ export class QuestionPresenterComponent implements OnInit{
       if(this.roundDataProvider.currentPlayer && this.roundDataProvider.currentPlayer.name != ""){
         this.questionAsker.nativeElement.text = this.roundDataProvider.currentPlayer.name;
       } else{
+        //initialization
         this.questionAsker.nativeElement.text = this.roundDataProvider.players[0].name;
       }
+        
       let reply = this.roundDataProvider.getRandomPlayer(this.questionAsker.nativeElement.text);
-      //this.aloud.nativeElement.text = this.questionAsker.nativeElement.text.concat(" please read aloud and pass to ").concat(reply.name);
       this.questionFor.nativeElement.text = reply.name;
       this.roundDataProvider.currentPlayer = reply;
     }

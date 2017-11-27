@@ -14,6 +14,8 @@ export class RoundDataProvider {
     
     public triviaQuestion: TriviaQuestion;
     public currentPlayer: Player;
+    public questionAsker: Player;
+    
     public group: Group;
     public players : Player[] = [];
     public groups : Group[] = [];    
@@ -83,6 +85,7 @@ export class RoundDataProvider {
             return elligiblePlayers[random];
         }
     }
+
     //trouver un ami pour demander une question, code beurk
     public getRandomFriend(player: Player){
         let friends = [];
@@ -168,6 +171,13 @@ export class RoundDataProvider {
         
         return noTeamPlayers;
     }
+
+    public defineQuestionAsker(){
+
+        this.questionAsker;
+
+        return this.questionAsker;
+    }
     
     
     public clearData(){
@@ -192,90 +202,6 @@ export class RoundDataProvider {
         this.gameMode= "";
     }
     
-    // public clearGroups(){
-        
-    //     for(let i = 0; i <this.groups.length;i++){
-    //         delete this.groups[i];
-    //     }
-        
-    //     this.groups= [];
-    // }
-    
-//     public insert_group(group:Group) {        
-//         this.database.execSQL("INSERT INTO groups (name) VALUES (?)", [group.name]).then(id => {
-//             console.log("INSERT RESULT", id);
-//             group.id=id;
-//             // this.fetch();
-//             this.insert_group_players(group);
-//         }, error => {
-//             console.log("INSERT ERROR", error);
-//         });
-//     }
-    
-//     private insert_group_players(group:Group) {
-        
-//         let insert_players = group.players;
-        
-//         for (var player of insert_players){
-//             this.database.execSQL("INSERT INTO players (name, group_id) VALUES (?, ?)", [player.name, group.id]).then(id => {
-//                 console.log("INSERT RESULT", id);
-//                 // this.fetch();
-//             }, error => {
-//                 console.log("INSERT ERROR", error);
-//             });
-//         }
-//     }
-    
-//     public fetch_groups() {
-//         //TODO. Fetch recostructs objects based on id.
-        
-//         console.log("fetching groups...");
-        
-//         // var that = this;
-        
-//         this.database.all("SELECT * FROM groups").then(rows => {
-//             this.groups = [];
-//             for(var row in rows) {
-//                 this.groups.push({
-//                     "id":rows[row][0],
-//                     "name":rows[row][1],
-//                     "playersName":"",
-//                     "players":null
-//                 }
-//             );
-//             let lastGroup = this.groups[this.groups.length-1];
-//             console.log("new group: "+lastGroup.name);
-//             lastGroup.players= this.fetch_group_players(lastGroup);
-//         }
-//     }, error => {
-//         console.log("SELECT ERROR", error);
-//     });
-//     this.groupFetch_completed=true;
-// }
-
-// public fetch_group_players(group:Group){
-//     let group_players: Player[]=[];
-    
-//     console.log("Fetching group players: "+group.id);
-
-    
-//     this.database.all("SELECT * FROM players where id = 1").then(rows => {
-//         group_players = [];
-//         for(var row in rows) {
-//             group_players.push({
-//                 "id":rows[row][0],
-//                 "name":rows[row][1],
-//                 "answerCount": 0,
-//                 "runningPointsTotal": 0,
-//                 "team": null,
-//                 "isSelected":false
-//             });
-//         }
-//     }, error => {
-//         console.log("SELECT ERROR", error);
-//     });
-    
-//     return group_players;
-// }
+  
 
 }

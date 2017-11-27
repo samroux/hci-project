@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Beta Prototype - Pass the Phone - HCI</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">  
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+</head>
+
+<body>
+
+<div id="header">
+    <div id="logo">
+        <a href="index.html"><img src="assets/logo.png"></a>
+    </div>
+    <div id="nav">
+        <span>
+        <span>
+        <a href="project_proposal.html">Proposal</a>
+        <a href="lo_fi_prototype.html">Lo-Fi</a>
+        <a href="hi_fi_prototype.html">Hi-Fi</a>
+        <a href="feedback.html">Feedback</a>
+        <a href="alpha.html">Alpha</a>
+        <a href="beta.html" class="selected">Beta</a>
+        </span>
+    </div>
+</div>
+
+<div id="main">
+
+    <h2>Beta Prototype</h2>
+
+    <h3>Design Evolution</h3>
+    <div>
+        <p class="body_text">
+            As we expected, the Beta prototype brings many new bug fixes. Additionally, many new features and tweaks have been added to the game. These were found by conducting additional (informal) testing sessions with McGill students. Since the game was much more functional than before, finding improvements to the flow of the game was easier. After the alpha version, we concluded that the setup part satisfied the three usability goals we set for it:
+        </p>
+        <ul style="list-style-type: none;">
+            <li><b>1.</b> it is easy to use;</li>
+            <li><b>2.</b> it is not too long; and</li>
+            <li><b>3.</b> it does not repeat too often.</li>
+        </ul>
+        <p class="body_text">
+            Therefore, we decided to focus on the goals for the game itself in the beta version. We had to ensure that:
+        </p>
+        <ul style="list-style-type: none;">
+            <li><b>4.</b> the game flows well from person to person;</li>
+            <li><b>5.</b> all players participate in the game;</li>
+            <li><b>6.</b> the length of the game is adequate; and</li>
+            <li><b>7.</b> the game is a fun solution when people notice that they are all on their smartphone</li>
+        </ul>
+        <p class="body_text">
+            The following design changes aim to improve the game with these usability goals in mind, along with Nielsen's very helpful list of 10 usability heuristics for UI design.
+        </p>
+
+        <h5>1. Added Text-to-Speech for portions of the game where it made sense</h5>
+        <p class="body_text">
+            As we were testing, we noted that when the phone holder was answering a question, they would naturally keep the four possible choices and their answer to themselves. Since the other players were curious, they always ended up asking the person for this information. We noted that this was an area relating to <b>usability goal 5</b>, and also a special case of the <b>Visibility of system status</b> heuristic.
+            <br>
+            We were torn between including text-to-speech to voice the contextual information of the game to other players — as was initially included in the sketches handed in for the lo-fi prototype — or enticing players to voice the information themselves to encourage interaction, as a traditional board game would require. We opted for the inclusion of text-to-speech because it avoided cluttering the application screen (<b>Aesthetic and minimalist design</b>). Of course, this feature needs to be tested, and possibly assigned an option to toggle it. 
+            <br>
+            For the beta version, we included text-to-speech for the following information:
+            <ul>
+                <li>TODO</li>
+                <li>TODO</li>
+                <li>TODO</li>
+            </ul>
+        </p>
+
+        <h5>2. Added an option to choose a random subject</h5>
+        <p class="body_text">
+            This option makes the setup more easy to use and shorter (as per <b>goals 2 and 3</b>) when groups of people cannot make their mind as to which subject to choose. The randomizer allows variety and a perception of fairness; it also makes the setup for flexible (<b>Flexibility and efficiency of use</b>).
+        </p>
+
+        <h5>3. Added a message to indicate who should start with the phone</h5>
+        <p class="body_text">
+            An oversight to the game was that the person who enters the information for the group in the setup phase may not be the one who is meant to start the game with the phone. In reality, using software tools, there is no surefire way to ensure that the person holding the phone starts first. Therefore, to make the game flow get off on the right foot (<b>usability goal 4</b>), we added a message that tells the first person holding the phone who to pass it to.
+        </p>
+
+        <h5>4. Added a button to ask a teammate for help</h5>
+        <p class="body_text">
+            To make the game more interactive (<b>usability goal 5</b>), we added a feature to ask a teammate for help with a question. This feature lives alongside the one to ask Google for help. It promotes cooperation, and introduces the potential for memorable moments by sharing the success and failure among multiple people.
+        </p>
+
+        <h5>5. Added a progress bar for the game</h5>
+        <p class="body_text">
+            The setup part of the game already had a progress bar, to ensure the <b>Visibility of system status</b>. We decided to add one for the game as well, to allow players to know at a glance how far along they are. Currently, each player gets two turns; after the tests that has been conducted, we believe this gives the game an adequate duration (<b>usability goal 6</b>)
+        </p>
+
+        <h5>6. Added a loading screen</h5>
+        <p class="body_text">
+            Due to NativeScript, the framework we used to ensure that the game could run on both iOS and Android, the game needs to load for a non-negligible period of time before it can start. We decided to add a loading screen during this time, to ensure that users understand why the game is unresponsive. This is in line with two heuristics: <b>Match between the system and the real world</b>, because the screen uses the widely known convention behind the meaning of the word "loading", and <b>Visibility of system status</b>, because it allows users to know why they are made to wait.
+        </p>
+        <div class="figure">
+            <img src="assets/beta/loading.png">
+            <p class="tip">Pass the Phone's new loading screen</p>
+        </div>
+
+    </div>
+
+    <hr>
+    
+    <h3>Revised Prototype</h3>
+    <div>
+        <a href="assets/beta/pass_the_phone_beta.apk" download>Download the Android build of the beta prototype (.apk)</a>
+        <br>
+        <a href="https://github.com/samroux/hci-project/" target="_blank">Access our Github repository</a>
+
+        <p class="body_text">Please refer to the User manual below for installation instructions.</p>
+
+        <h4>Callback to the goal of the project</h4>
+        <p class="body_text">
+            This is the final prototype in the scope of the class, and so 
+            <br>
+            TODO
+            <br>
+            TODO
+            <br>
+            TODO
+        </p>
+
+    </div>
+
+    <hr>
+
+    <h3>Revised User Manual</h3>
+    <div>
+        <a href="assets/beta/pass_the_phone_user_manual.pdf" target="_blank">Here is the revised user manual.</a>
+
+        <p class="body_text">
+            In the manual, you will find an brief summary of the goal of the application, installation instructions, a screen-by-screen breakdown of the application, and version history. 
+        </p>
+
+    </div>
+
+    <hr>
+
+    <h3>Beta Prototype - <a href="alpha_contrib.html" target="_blank">Individual Contributions</a></h3>
+
+</div>
+
+<div id="footer">
+    <div id="logo">
+        <a href="index.html"><img src="assets/logo_invert.png"></a>
+    </div>
+    <div id="title_block">
+        <span class="subtitle">
+        A <b>Human-Computer Interaction</b> project by:
+        <br>
+        William Bouchard, Olivier Eydt, and Samuel Roux
+        </span>
+    </div>
+</div>
+
+</body>
+</html>

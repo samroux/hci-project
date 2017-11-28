@@ -81,6 +81,7 @@ export class SubjectSelectorComponent implements OnInit{
         that.categories.push(new TriviaCategory(randId,"Random Subject"));
         that.randomCategory = randId;
       }
+      
       for (let i = 0;i < myObj.trivia_categories.length;i++) {
         //console.log(myObj.trivia_categories[i].id+ " "+ myObj.trivia_categories[i].name);
         let id: number = myObj.trivia_categories[i].id;

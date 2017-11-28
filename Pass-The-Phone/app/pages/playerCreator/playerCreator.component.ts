@@ -46,11 +46,15 @@ export class PlayerCreatorComponent implements OnInit{
   }
   
   private submit(groupName) {
+
     if(groupName && this.players.length > 1){
       this.group = new Group(groupName, this.players);
       console.log("length players".concat(this.players.length.toString()))
       this.rdp.players = this.players;
       this.rdp.group = this.group;
+
+      this.loadNSaveGroups(this.group);
+
       var color = require("color");
       var colorBlack = new color.Color("#000000");
       this.groupTextField.nativeElement.borderColor = colorBlack;
@@ -71,6 +75,21 @@ export class PlayerCreatorComponent implements OnInit{
         this.playerTextField.nativeElement.hint = "Two players needed!";
       }
     }
+  }
+
+  private loadNSaveGroups(group){
+    console.log("LoadNSave...");
+    this.rdp.loadGroups().then( resolve =>{
+      this.rdp.groups.push(group);
+      console.log("pushed group: ");
+      for (let group_rdp of this.rdp.groups){
+        console.log(group_rdp.name);
+      }
+  
+      this.rdp.saveGroups();
+    });
+
+    
   }
   
   private addPlayer(playerName) {

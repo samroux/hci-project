@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { TNSTextToSpeech, SpeakOptions } from 'nativescript-texttospeech';
 var Sqlite = require("nativescript-sqlite");
+import { knownFolders, File, Folder } from "file-system";
+
 
 import {TriviaQuestion} from "../triviaQuestion";
 import {Team} from "../team";
@@ -201,6 +203,72 @@ export class RoundDataProvider {
         
         this.gameMode= "";
     }
+
+    private clearGroups(){
+        for(let i = 0; i <this.groups.length;i++){
+            delete this.groups[i];
+        }
+
+        this.groups= [];
+    }
+
+  public saveGroups(){
+    console.log("Saving groups...");
+    var str = JSON.stringify(this.groups, null, 4);
+
+    let folderName = "data";
+    let fileName = "data.json";
+
+    let documents = knownFolders.documents();
+    let folder = documents.getFolder(folderName);
+    let file = folder.getFile(fileName);
+  
+    file.writeText(str)
+        .then(result => {
+            file.readText()
+                .then(res => {
+                   let successMessage = "Successfully saved in " + file.path;
+                   console.log(successMessage);
+                   console.log(": "+ res);
+                });
+        }).catch(err => {
+            console.log(err);
+        });
+  }
+
+  public loadGroups(): Promise <any> {
+    console.log("Loading groups...");
+
+    return new Promise((resolve,reject) => {
+
+        this.clearGroups();
+        
+        let folderName = "data";
+        let fileName = "data.json";
+        let documents = knownFolders.documents();
+        let folder = documents.getFolder(folderName);
+        
+        let file = folder.getFile(fileName);
+    
+        file.readText().then(res => {
+            let writtenContent = res;
+            console.log("Successful Read: "+ writtenContent);
+            let data = JSON.parse(writtenContent);
+            console.log("length: "+data.length);
+    
+            for (let i = 0;i < data.length;i++) {
+                this.groups.push(data[i]);
+            }
+
+            resolve(writtenContent);
+    
+        }).catch(err => {
+            console.log(err.stack);
+            reject(err);
+        });
+    });
+
+  }
     
   
 

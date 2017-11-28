@@ -253,6 +253,12 @@ export class RoundDataProvider {
         file.readText().then(res => {
             let writtenContent = res;
             console.log("Successful Read: "+ writtenContent);
+
+            if(writtenContent==""){
+                this.saveGroups();
+                resolve("{}");
+            }
+
             let data = JSON.parse(writtenContent);
             console.log("length: "+data.length);
     

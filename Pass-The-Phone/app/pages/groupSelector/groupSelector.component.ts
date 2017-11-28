@@ -45,7 +45,7 @@ export class GroupSelectorComponent implements OnInit{
     let groupPlayers5 = [player8, player9, player10];
     let groupPlayers6 = [player1, player2, player3, player4, player5, player6, player7, player8, player9, player10];
     
-    this.rdp.groups.push( new Group ("groupPlayers1", groupPlayers1));
+
     // this.rdp.groups.push( new Group ("groupPlayers2", groupPlayers2));
     // this.rdp.groups.push( new Group ("groupPlayers3", groupPlayers3));
     // this.rdp.groups.push( new Group ("groupPlayers4", groupPlayers4));
@@ -53,8 +53,14 @@ export class GroupSelectorComponent implements OnInit{
     // this.rdp.groups.push( new Group ("groupPlayers6", groupPlayers6));
 
     // TODO Load Groups
-    this.rdp.saveGroups();
     this.rdp.loadGroups();
+    
+    // if(this.rdp.groups.length<1){
+    //   console.log("rdp.group is empty");      
+    //   this.rdp.groups.push( new Group ("groupPlayers1", groupPlayers1));
+    //   this.rdp.saveGroups();
+    // }
+
     this.updateLocalList();
   }
   
@@ -109,6 +115,7 @@ private updatePlayersName(group: Group){
 }
 
 private updateLocalList(){
+  this.groups=[];
   this.groups=this.rdp.groups;
 
 }

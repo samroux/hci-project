@@ -179,11 +179,33 @@ export class AnswerComponent implements OnInit{
     }
 
     private askAFriend(){
-      console.log("asked a friend");
-      this.rdp.currentPlayer.canAsk = false;
-      this.friend.nativeElement.backgroundColor = "#d2d2d2";
-      this.friend.nativeElement.isEnabled = false;
-      this.rdp.speak("You may ask ".concat(this.rdp.getRandomFriend(this.rdp.currentPlayer)));
+      if(!this.rdp.currentPlayer.canAsk){
+        console.log("cant ask friend");
+        let previous = this.selectAnswer.nativeElement.visibility;
+        let previousText = this.googleError.nativeElement.text;
+        this.selectAnswer.nativeElement.visibility = "visible";
+        this.googleError.nativeElement.color = "red";
+        this.googleError.nativeElement.text = "You may only ask once per game";
+        setTimeout(() => {
+          console.log(previousText);
+          console.log(previous);
+          if(previousText == "20 seconds of Google are up..."){
+            this.googleError.nativeElement.text = "20 seconds of Google are up...";
+          } else if(previous == "visible"){
+            this.googleError.nativeElement.text = "You have Google for: ";
+            this.googleError.nativeElement.color = "black";
+          } else{
+            this.googleError.nativeElement.text = "You have Google for: ";
+            this.selectAnswer.nativeElement.visibility = "hidden";
+            this.googleError.nativeElement.color = "black";
+          }
+        }, 5000);
+      } else{
+        console.log("asked a friend");
+        this.rdp.currentPlayer.canAsk = false;
+        this.friend.nativeElement.backgroundColor = "#d2d2d2";
+        this.rdp.speak("You may ask ".concat(this.rdp.getRandomFriend(this.rdp.currentPlayer)));
+      }
     }
     
     private next(correct,answer_content) {

@@ -33,7 +33,7 @@
     <h3>Design Evolution</h3>
     <div>
         <p class="body_text">
-            As we expected, the Beta prototype brings many new bug fixes. Additionally, many new features and tweaks have been added to the game. These were found by conducting additional (informal) testing sessions with McGill students. Since the game was much more functional than before, finding improvements to the flow of the game was easier. After the alpha version, we concluded that the setup part satisfied the three usability goals we set for it:
+            As we expected, the Beta prototype brings many new bug fixes. Additionally, many new features and tweaks have been added to the game. These were found by conducting additional (informal) testing sessions with McGill students. Since the game was much more functional than before, finding improvements to the flow of the game was easier. After the alpha version, we concluded that the setup part mostly satisfied the three usability goals we set for it:
         </p>
         <ul style="list-style-type: none;">
             <li><b>1.</b> it is easy to use;</li>
@@ -55,21 +55,24 @@
 
         <h5>1. Added Text-to-Speech for portions of the game where it made sense</h5>
         <p class="body_text">
-            As we were testing, we noted that when the phone holder was answering a question, they would naturally keep the four possible choices and their answer to themselves. Since the other players were curious, they always ended up asking the person for this information. We noted that this was an area relating to <b>usability goal 5</b>, and also a special case of the <b>Visibility of system status</b> heuristic.
+            As we were testing, we noticed that when the phone holder was answering a question, they would naturally keep the four possible choices and their answer to themselves. Since the other players were curious, they always ended up asking the person for this information. We noted that this was an area relating to <b>usability goal 5</b>, and also a special case of the <b>Visibility of system status</b> heuristic.
             <br>
-            We were torn between including text-to-speech to voice the contextual information of the game to other players — as was initially included in the sketches handed in for the lo-fi prototype — or enticing players to voice the information themselves to encourage interaction, as a traditional board game would require. We opted for the inclusion of text-to-speech because it avoided cluttering the application screen (<b>Aesthetic and minimalist design</b>). Of course, this feature needs to be tested, and possibly assigned an option to toggle it. 
+            We were torn between including text-to-speech to voice the contextual information of the game to other players — as was initially included in the sketches developed for the lo-fi prototype — or enticing players to voice the information themselves to encourage interaction, as a traditional board game would require. We opted for the inclusion of text-to-speech because it avoided cluttering the application screen (<b>Aesthetic and minimalist design</b>). Of course, this feature needs to be tested, and possibly assigned an option to toggle it. 
             <br>
-            For the beta version, we included text-to-speech for the following information:
+            For the beta version, we included text-to-speech for the following information, all in areas of the game where a single player may be the only one controlling the flow of the game:
             <ul>
-                <li>TODO</li>
-                <li>TODO</li>
-                <li>TODO</li>
+                <li>"The chosen subject is ..."</li>
+                <li>"To start the game, pass the phone to Jane"</li>
+                <li>"Mike, ask the following question to Alice"</li>
+                <li>"The possible answers for this question are ..."</li>
+                <li>"You answered ..."</li>
+                <li>"This answer is correct/incorrect"</li>
             </ul>
         </p>
 
         <h5>2. Added an option to choose a random subject</h5>
         <p class="body_text">
-            This option makes the setup more easy to use and shorter (as per <b>goals 2 and 3</b>) when groups of people cannot make their mind as to which subject to choose. The randomizer allows variety and a perception of fairness; it also makes the setup for flexible (<b>Flexibility and efficiency of use</b>).
+            This option makes the setup easier to use and shorter (as per <b>goals 2 and 3</b>) when groups of people cannot make their mind as to which subject to choose. The randomizer allows variety and a perception of fairness; it also makes the setup more flexible (<b>Flexibility and efficiency of use</b>).
         </p>
 
         <h5>3. Added a message to indicate who should start with the phone</h5>
@@ -77,15 +80,28 @@
             An oversight to the game was that the person who enters the information for the group in the setup phase may not be the one who is meant to start the game with the phone. In reality, using software tools, there is no surefire way to ensure that the person holding the phone starts first. Therefore, to make the game flow get off on the right foot (<b>usability goal 4</b>), we added a message that tells the first person holding the phone who to pass it to.
         </p>
 
+        <div class="figure">
+            <img src="assets/beta/first.png">
+            <p class="tip">The new screen, whose responsibility is to set the game in motion</p>
+        </div>
+
         <h5>4. Added a button to ask a teammate for help</h5>
         <p class="body_text">
-            To make the game more interactive (<b>usability goal 5</b>), we added a feature to ask a teammate for help with a question. This feature lives alongside the one to ask Google for help. It promotes cooperation, and introduces the potential for memorable moments by sharing the success and failure among multiple people.
+            To make the game more interactive (<b>usability goal 5</b>), we added a feature to ask a teammate for help with a question. This feature lives alongside the one to ask Google for help. It promotes cooperation, and introduces the potential for memorable moments by sharing the success and failure among multiple people. Each player may use this option once per game. Once the button has been pressed, it becomes inactive, and appears grayed out to convey that status. Clicking on it again will make a message appear, explaining that the option is only available once per game, per player. Also, this option only appears in team mode, since it wouldn't make sense to ask opposing players for help.
         </p>
+        <div class="figure">
+            <img src="assets/beta/ask_a_friend.png">
+            <p class="tip">Top: new button to ask a friend for help; bottom: grayed out button once the option has been used</p>
+        </div>
 
         <h5>5. Added a progress bar for the game</h5>
         <p class="body_text">
-            The setup part of the game already had a progress bar, to ensure the <b>Visibility of system status</b>. We decided to add one for the game as well, to allow players to know at a glance how far along they are. Currently, each player gets two turns; after the tests that has been conducted, we believe this gives the game an adequate duration (<b>usability goal 6</b>)
+            The setup part of the game already had a progress bar, to ensure the <b>Visibility of system status</b>. We decided to add one for the game as well, to allow players to know at a glance how far along they are. Currently, each player gets two turns; after the tests that have been conducted, we believe this gives the game an adequate duration (<b>usability goal 6</b>)
         </p>
+        <div class="figure">
+            <img src="assets/beta/ask_question.png">
+            <p class="tip">The newly-added progress bar in the game screen</p>
+        </div>
 
         <h5>6. Added a loading screen</h5>
         <p class="body_text">
@@ -94,6 +110,15 @@
         <div class="figure">
             <img src="assets/beta/loading.png">
             <p class="tip">Pass the Phone's new loading screen</p>
+        </div>
+
+        <h5>7. Further error checking and prevention in the team-building phase</h5>
+        <p class="body_text">
+            The team-building phase has been the focus of many of our efforts at <b>Error prevention</b>, one of Nielsen's 10 heuristics. Two new cases where mistakes could be made are now dealth with, and the application now displays appropriate error messages. Users can no longer choose duplicate names, and a game can no longer be started by a single person. These improvements also make the setup easier to use (<b>goal 1</b>).
+        </p>
+        <div class="figure">
+            <img src="assets/beta/error_team.png">
+            <p class="tip">Left: error message if two players try to use the name Mike; right: error message if Mike tries to create a group with only himself in it</p>
         </div>
 
     </div>
@@ -110,13 +135,16 @@
 
         <h4>Callback to the goal of the project</h4>
         <p class="body_text">
-            This is the final prototype in the scope of the class, and so 
+            This is the final prototype in the scope of the class, and so it is an appropriate time to reflect on whether we accomplished our goal. From our low-fidelity prototype:
+        </p>
+        <p class="quote">
+            The task is to design a mobile game that facilitates face-to-face social interaction in a group of people that know each other, all the while minimizing isolation when interacting with the app.
             <br>
-            TODO
             <br>
-            TODO
-            <br>
-            TODO
+            In this context, the design challenge can be refined into two main components. The first one is to minimize the complexity and setup time of the game. This is to allow people to play as soon as possible, so they can spend less time isolated on their phone. The second one is more complex to achieve, because it’s about using the phone to get people off of their phone. While building the game component of the application, it must be simple enough so that the users can easily go through the game while having social interaction with others. Also, it should encourage social interaction by enticing players to interact with each other to achieve their goal in the game.
+        </p>
+        <p class="body_text">
+            We believe that the communication goal at the root of Pass the Phone is well met by our current implementation. There could be more testing and refinement, but the current game is a good solution to stimulate interaction among a group of friends. The iterative process definitely allowed us to move forward at each step, gradually solving usability problems and moving closer to the ideal usability goals that we set for the project.
         </p>
 
     </div>
@@ -129,13 +157,14 @@
 
         <p class="body_text">
             In the manual, you will find an brief summary of the goal of the application, installation instructions, a screen-by-screen breakdown of the application, and version history. 
+            If you do not have access to the target hardware for our prototype, perusing the user manual is a good alternative and should allow you to gain a good understanding of the game.
         </p>
 
     </div>
 
     <hr>
 
-    <h3>Beta Prototype - <a href="alpha_contrib.html" target="_blank">Individual Contributions</a></h3>
+    <h3>Beta Prototype - <a href="beta_contrib.html" target="_blank">Individual Contributions</a></h3>
 
 </div>
 

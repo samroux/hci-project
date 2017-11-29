@@ -67,6 +67,9 @@ export class RoundDataProvider {
                 if(this.players[i].name != questionAsker && this.playersInRound.indexOf(this.players[i].name) < 0 && (this.currentPlayer == null || this.players[i].name != this.currentPlayer.name)){
                     elligiblePlayers[k]=this.players[i];
                     k++;
+                } else if(this.players[i].name != questionAsker && this.players.length == 2){
+                    elligiblePlayers[k]=this.players[i];
+                    k++;
                 }
                 j++;
             }

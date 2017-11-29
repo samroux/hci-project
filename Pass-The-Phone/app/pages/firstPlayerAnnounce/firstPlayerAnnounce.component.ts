@@ -13,11 +13,15 @@ import {RoundDataProvider} from "../../shared/providers/roundData.provider";
 
 export class FirstPlayerAnnounceComponent {
 
+
   public constructor(private routerExtensions: RouterExtensions, private rdp:RoundDataProvider) {
     this.rdp.currentPlayer= this.rdp.players[0];
   }
   @ViewChild("subject") subjectLabel: ElementRef;
+
   ngOnInit(){
+    console.log("first");
+    this.rdp.speak("Pass the phone to ".concat(this.rdp.currentPlayer.name));
     this.subjectLabel.nativeElement.text = "Selected subject is: ".concat(this.rdp.subjectName);
   }
 

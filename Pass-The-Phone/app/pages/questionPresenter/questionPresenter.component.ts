@@ -44,9 +44,10 @@ export class QuestionPresenterComponent implements OnInit{
 
   @ViewChild("questionAsker") questionAsker: ElementRef;
   @ViewChild("questionFor") questionFor: ElementRef;
-  @ViewChild("aloud") aloud: ElementRef;
+ //@ViewChild("aloud") aloud: ElementRef;
+  @ViewChild("loud") loud: ElementRef;
   ngOnInit() {
-    this.progressValue = this.roundDataProvider.getProgress()
+    this.progressValue = this.roundDataProvider.getProgress();
     if(!this.roundDataProvider.hasQuestions){
       this.extractData();
     } else{
@@ -86,6 +87,7 @@ export class QuestionPresenterComponent implements OnInit{
       let reply = this.roundDataProvider.getRandomPlayer(this.questionAsker.nativeElement.text);
       this.questionFor.nativeElement.text = reply.name;
       this.roundDataProvider.currentPlayer = reply;
+      this.loud.nativeElement.text = "Please read aloud then pass the phone to ".concat(this.roundDataProvider.currentPlayer.name);
     }
   }
 

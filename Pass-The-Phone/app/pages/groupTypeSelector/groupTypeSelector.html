@@ -10,6 +10,7 @@
                 <!-- <Label text="GroupeTypeSelector-Page"></Label>    -->
                 <Label text="Are you playing with people you created a group with before?" textWrap="true"></Label>       
                 <Button text="Create New Group" class="submit-button" (tap)="newGroup()"></Button>
-                <Button text="Use Existing Group" class="submit-button" (tap)="existingGroup()"></Button>
+                <Button #submit text="Use Existing Group" class="submit-button" (tap)="existingGroup()"></Button>
+                <Label #error text="There are no existing groups." visibility="hidden"></Label>
         </StackLayout>
 </StackLayout>

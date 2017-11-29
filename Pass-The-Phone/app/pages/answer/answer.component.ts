@@ -43,7 +43,7 @@ export class AnswerComponent implements OnInit{
       console.log(i)
       this.choices.push(this.currentQuestion.triviaAnswers[i]);
     }
-    this.rdp.speak(this.currentQuestion.question);
+    //this.rdp.speak(this.currentQuestion.question);
     this.rdp.speak("Choose among the following:");
     
     let i = 0;

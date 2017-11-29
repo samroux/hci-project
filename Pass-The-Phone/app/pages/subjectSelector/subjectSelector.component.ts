@@ -51,7 +51,7 @@ export class SubjectSelectorComponent implements OnInit{
       this.rdp.speak("Selected Category is ".concat(this.selectedCategory.name));
 
       this.rdp.subjectId = this.selectedCategory.id.toString();
-
+      this.rdp.subjectName = this.selectedCategory.name;
       this.next(this.selectedCategory.id);
   }
   
@@ -114,7 +114,6 @@ export class SubjectSelectorComponent implements OnInit{
       console.log("path ".concat(this.rdp.path));
       if(this.rdp.path && this.rdp.path !== ""){
         this.rdp.path = "subjectSelector";
-        this.rdp.subjectName = this.selectedCategory.name;
         this.routerExtensions.navigate(["summary"], { clearHistory: true });
       } else{
         this.rdp.speak("Game is starting now!");

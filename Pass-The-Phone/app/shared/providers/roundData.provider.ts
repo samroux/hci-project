@@ -236,6 +236,24 @@ export class RoundDataProvider {
         });
   }
 
+  public checkForData(callback){
+    let folderName = "data";
+    let fileName = "data.json";
+    let documents = knownFolders.documents();
+    let folder = documents.getFolder(folderName);
+    let file = folder.getFile(fileName);
+    console.log("check");
+    file.readText().then(res => {
+        console.log(res.length);
+        console.log(res);
+        let data = JSON.parse(res);
+        callback(data.length <= 0);
+    }).catch(err => {
+        console.log(err.stack);
+        callback(true);
+    });
+  }
+
   public loadGroups(): Promise <any> {
     console.log("Loading groups...");
 

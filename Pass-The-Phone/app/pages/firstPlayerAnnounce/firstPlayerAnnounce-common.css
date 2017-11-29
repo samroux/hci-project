@@ -13,6 +13,10 @@ Button, TextField {
   margin-right: 16;
   margin-bottom: 10;
 }
+.subject{
+  font-size: 18;
+  margin-bottom:15;
+}
 .submit-button {
   background-color: #CB1D00;
   color: white;

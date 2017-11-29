@@ -5,6 +5,7 @@
 </ActionBar>
 
 <StackLayout class="inner-stack" orientation="vertical" horizontalAlignment="center" verticalAlignment="center">
+        <Label #subject class="subject" textWrap="true"></Label>
         <Label text="{{'Pass the phone to '.concat(rdp.currentPlayer.name).concat(' in order to start the game!')}}"  textWrap="true"></Label>  
         <Button text="{{rdp.currentPlayer.name.concat(', are you ready?')}}" class="submit-button" (tap)="submit()"></Button>        
         

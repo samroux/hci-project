@@ -75,7 +75,7 @@ export class SubjectSelectorComponent implements OnInit{
       //that.categories.pop()
       //Add a random subject button to list
       if(myObj.trivia_categories.length > 0){
-        let randId = Math.floor(Math.random()*myObj.trivia_categories.length);
+        let randId = Math.floor(Math.random()*(myObj.trivia_categories.length-1)+1);
         console.log("random".concat(randId.toString()))
         console.log(myObj.trivia_categories.length.toString())
         that.categories.push(new TriviaCategory(randId,"Random Subject"));

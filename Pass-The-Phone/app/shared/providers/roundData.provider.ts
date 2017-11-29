@@ -189,7 +189,6 @@ export class RoundDataProvider {
         console.log("Clearing Data...");
         this.triviaQuestion = null; 
         this.currentPlayer= null;
-        this.group= null;
         
         for(let i = 0; i <this.players.length;i++){
             delete this.players[i];

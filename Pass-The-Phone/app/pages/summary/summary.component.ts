@@ -84,10 +84,10 @@ export class SummaryComponent implements OnInit{
     // TODO need to clear here as well??
     console.log(this.listPicker.nativeElement.selectedIndex);
     if(this.listPicker.nativeElement.selectedIndex == 0){
-      this.routerExtensions.navigate(["subjectSelector"], { clearHistory: true });
+      this.routerExtensions.navigate(["subjectSelector"], { clearHistory: false });
       this.rdp.path = "summary";
     } else{
-      this.routerExtensions.navigate(["playerCreator"], { clearHistory: true });
+      this.routerExtensions.navigate(["playerCreator"], { clearHistory: false });
       this.rdp.clearData();
       this.rdp.path = "summary";
     }
@@ -107,6 +107,7 @@ export class SummaryComponent implements OnInit{
     this.routerExtensions.navigate(["questionPresenter"], { clearHistory: true });
   }
   private quit(){
+    this.rdp.group = null;
     this.routerExtensions.navigate(["start"], { clearHistory: true });
   }
 }

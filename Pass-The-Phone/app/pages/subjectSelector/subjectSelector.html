@@ -12,7 +12,7 @@
                         <ListView #subjects (itemTap)="onItemTap($event)" class="list-group">
                                 <ng-template let-categories="item" let-i="index" let-odd="odd" let-even="even">
                                         <GridLayout class="list-group-item">
-                                                <Label [text]="categories.name"></Label>
+                                                <Label [text]="categories.name" textWrap="true"></Label>
                                         </GridLayout>
                                 </ng-template>
                         </ListView>

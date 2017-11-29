@@ -43,6 +43,9 @@ export class PlayerCreatorComponent implements OnInit{
     var colorBlack = new color.Color("#000000");
     this.groupTextField.nativeElement.borderColor = colorBlack;
     this.playerTextField.nativeElement.borderColor = colorBlack;
+    if(this.rdp.group && this.rdp.group.name != ""){
+      this.groupTextField.nativeElement.text = this.rdp.group.name;
+    }
   }
   
   private submit(groupName) {

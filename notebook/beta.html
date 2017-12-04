@@ -77,7 +77,7 @@
 
         <h5>3. Added a message to indicate who should start with the phone</h5>
         <p class="body_text">
-            An oversight to the game was that the person who enters the information for the group in the setup phase may not be the one who is meant to start the game with the phone. In reality, using software tools, there is no surefire way to ensure that the person holding the phone starts first. Therefore, to make the game flow get off on the right foot (<b>usability goal 4</b>), we added a message that tells the first person holding the phone who to pass it to.
+            An oversight to the game was that the person who enters the information for the group in the setup phase may not be the one who is meant to start the game with the phone. In reality, using software tools, there is no surefire way to ensure that the person holding the phone starts first. Therefore, to make the game flow get off on the right foot (<b>usability goal 4</b>), we added a message that tells the first person holding the phone who to pass it to. We also use this screen as an opportunity to display the chosen subject, allowing the text-to-speech component to read it for all players.
         </p>
 
         <div class="figure">
@@ -144,7 +144,22 @@
             In this context, the design challenge can be refined into two main components. The first one is to minimize the complexity and setup time of the game. This is to allow people to play as soon as possible, so they can spend less time isolated on their phone. The second one is more complex to achieve, because it’s about using the phone to get people off of their phone. While building the game component of the application, it must be simple enough so that the users can easily go through the game while having social interaction with others. Also, it should encourage social interaction by enticing players to interact with each other to achieve their goal in the game.
         </p>
         <p class="body_text">
-            We believe that the communication goal at the root of Pass the Phone is well met by our current implementation. There could be more testing and refinement, but the current game is a good solution to stimulate interaction among a group of friends. The iterative process definitely allowed us to move forward at each step, gradually solving usability problems and moving closer to the ideal usability goals that we set for the project.
+            We believe that the communication goal at the root of Pass the Phone is well met by our current implementation. This was confirmed in testing, where the game stimulated some form of discussion among groups of friends. We also think that the game meets the usability goals we set ourselves in the low-fidelity and high-fidelity stages of development, listed in the Design Evolution section above.
+        </p>
+
+        <h4>Setup goals</h4>
+        <p class="body_text">
+            The game's setup is now short and does not cause too many problems among users. The back button was an especially critical addition. For example, in testing, we saw a case where a new person wanted to join the game while the players had already passed that screen. The ability to go back and edit the entered information proved to be helpful. The options to quickly change subjects or members at the end of a game are also successful at ensuring that the setup does not repeat too often. A suggestion that we received is to have an option to skip the setup entirely, for cases where people don't know each other. While that is something to consider, we think that the setup serves as a good warmup or icebreaker, since people interact as they ask each others' names and choose a group name.
+        </p>
+
+        <h4>Game goals</h4>
+        <p class="body_text">
+            The game itself seems to flow well among users, chiefly due to the improvements to the question screen, which is responsible for the act of passing the phone from person to person. We noted that the redundancy present on this screen was helpful for new users to understand what the screen tried to get them to do. On another note, the fact that the question is read aloud, along with the text-to-speech elements, allow all players to participate. Each person tends to guess an answer and keep it private to see if they got it right, or react to the question in some way. This personal investment allows us to say that the game is good for starting conversations. The randomizer logic should be improved, however, since some cases arise where players interact in an imbalanced way.
+        </p>
+
+        <h4>Final thoughts</h4>
+        <p class="body_text">
+            While there could be more testing and refinement, we think that the current game is a good solution to stimulate interaction among a group of friends. The iterative process definitely allowed us to move forward at each step, gradually solving usability problems and moving closer to the ideal usability goals that we set for the project.  
         </p>
 
     </div>
